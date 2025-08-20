@@ -1,0 +1,474 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "Kaida-Amethyst/openblas/cblas"
+
+// Values
+const OPENBLAS_OPENMP : Int = 2
+
+const OPENBLAS_SEQUENTIAL : Int = 0
+
+const OPENBLAS_THREAD : Int = 1
+
+fn cblas_caxpby(Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_caxpy(Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_caxpyc(Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_ccopy(Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_cdotc(Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> UInt64
+
+fn cblas_cdotc_sub(Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int, VoidPtr) -> Unit
+
+fn cblas_cdotu(Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> UInt64
+
+fn cblas_cdotu_sub(Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int, VoidPtr) -> Unit
+
+fn cblas_cgbmv(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_cgeadd(CBLAS_ORDER, Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Unit
+
+fn cblas_cgemm(CBLAS_ORDER, CBLAS_TRANSPOSE, CBLAS_TRANSPOSE, Int, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_cgemm3m(CBLAS_ORDER, CBLAS_TRANSPOSE, CBLAS_TRANSPOSE, Int, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_cgemm_batch(CBLAS_ORDER, VoidPtr, VoidPtr, FixedArray[Int], FixedArray[Int], FixedArray[Int], VoidPtr, VoidPtr, FixedArray[Int], VoidPtr, FixedArray[Int], VoidPtr, VoidPtr, FixedArray[Int], Int, FixedArray[Int]) -> Unit
+
+fn cblas_cgemmt(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_TRANSPOSE, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_cgemv(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_cgerc(CBLAS_ORDER, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_cgeru(CBLAS_ORDER, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_chbmv(CBLAS_ORDER, CBLAS_UPLO, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_chemm(CBLAS_ORDER, CBLAS_SIDE, CBLAS_UPLO, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_chemv(CBLAS_ORDER, CBLAS_UPLO, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_cher(CBLAS_ORDER, CBLAS_UPLO, Int, Float, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_cher2(CBLAS_ORDER, CBLAS_UPLO, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_cher2k(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, Float, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_cherk(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, Int, Int, Float, FixedArray[UInt64], Int, Float, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_chpmv(CBLAS_ORDER, CBLAS_UPLO, Int, FixedArray[UInt64], FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_chpr(CBLAS_ORDER, CBLAS_UPLO, Int, Float, FixedArray[UInt64], Int, FixedArray[UInt64]) -> Unit
+
+fn cblas_chpr2(CBLAS_ORDER, CBLAS_UPLO, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64]) -> Unit
+
+fn cblas_cimatcopy(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, FixedArray[Float], FixedArray[Float], Int, Int) -> Unit
+
+fn cblas_comatcopy(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+
+fn cblas_crotg(FixedArray[UInt64], FixedArray[UInt64], FixedArray[Float], FixedArray[UInt64]) -> Unit
+
+fn cblas_cscal(Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_csrot(Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int, Float, Float) -> Unit
+
+fn cblas_csscal(Int, Float, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_cswap(Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_csymm(CBLAS_ORDER, CBLAS_SIDE, CBLAS_UPLO, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_csyr2k(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_csyrk(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_ctbmv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_ctbsv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_ctpmv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_ctpsv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_ctrmm(CBLAS_ORDER, CBLAS_SIDE, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_ctrmv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_ctrsm(CBLAS_ORDER, CBLAS_SIDE, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_ctrsv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_damax(Int, FixedArray[Double], Int) -> Double
+
+fn cblas_damin(Int, FixedArray[Double], Int) -> Double
+
+fn cblas_dasum(Int, FixedArray[Double], Int) -> Double
+
+fn cblas_daxpby(Int, Double, FixedArray[Double], Int, Double, FixedArray[Double], Int) -> Unit
+
+fn cblas_daxpy(Int, Double, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
+
+fn cblas_dcopy(Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
+
+fn cblas_ddot(Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Double
+
+fn cblas_dgbmv(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, Int, Int, Double, FixedArray[Double], Int, FixedArray[Double], Int, Double, FixedArray[Double], Int) -> Unit
+
+fn cblas_dgeadd(CBLAS_ORDER, Int, Int, Double, FixedArray[Double], Int, Double, FixedArray[Double], Int) -> Unit
+
+fn cblas_dgemm(CBLAS_ORDER, CBLAS_TRANSPOSE, CBLAS_TRANSPOSE, Int, Int, Int, Double, FixedArray[Double], Int, FixedArray[Double], Int, Double, FixedArray[Double], Int) -> Unit
+
+fn cblas_dgemm_batch(CBLAS_ORDER, VoidPtr, VoidPtr, FixedArray[Int], FixedArray[Int], FixedArray[Int], FixedArray[Double], VoidPtr, FixedArray[Int], VoidPtr, FixedArray[Int], FixedArray[Double], VoidPtr, FixedArray[Int], Int, FixedArray[Int]) -> Unit
+
+fn cblas_dgemmt(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_TRANSPOSE, Int, Int, Double, FixedArray[Double], Int, FixedArray[Double], Int, Double, FixedArray[Double], Int) -> Unit
+
+fn cblas_dgemv(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, Double, FixedArray[Double], Int, FixedArray[Double], Int, Double, FixedArray[Double], Int) -> Unit
+
+fn cblas_dger(CBLAS_ORDER, Int, Int, Double, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
+
+fn cblas_dimatcopy(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, Double, FixedArray[Double], Int, Int) -> Unit
+
+fn cblas_dnrm2(Int, FixedArray[Double], Int) -> Double
+
+fn cblas_domatcopy(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, Double, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
+
+fn cblas_drot(Int, FixedArray[Double], Int, FixedArray[Double], Int, Double, Double) -> Unit
+
+fn cblas_drotg(FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Unit
+
+fn cblas_drotm(Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double]) -> Unit
+
+fn cblas_drotmg(FixedArray[Double], FixedArray[Double], FixedArray[Double], Double, FixedArray[Double]) -> Unit
+
+fn cblas_dsbmv(CBLAS_ORDER, CBLAS_UPLO, Int, Int, Double, FixedArray[Double], Int, FixedArray[Double], Int, Double, FixedArray[Double], Int) -> Unit
+
+fn cblas_dscal(Int, Double, FixedArray[Double], Int) -> Unit
+
+fn cblas_dsdot(Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Double
+
+fn cblas_dspmv(CBLAS_ORDER, CBLAS_UPLO, Int, Double, FixedArray[Double], FixedArray[Double], Int, Double, FixedArray[Double], Int) -> Unit
+
+fn cblas_dspr(CBLAS_ORDER, CBLAS_UPLO, Int, Double, FixedArray[Double], Int, FixedArray[Double]) -> Unit
+
+fn cblas_dspr2(CBLAS_ORDER, CBLAS_UPLO, Int, Double, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double]) -> Unit
+
+fn cblas_dsum(Int, FixedArray[Double], Int) -> Double
+
+fn cblas_dswap(Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
+
+fn cblas_dsymm(CBLAS_ORDER, CBLAS_SIDE, CBLAS_UPLO, Int, Int, Double, FixedArray[Double], Int, FixedArray[Double], Int, Double, FixedArray[Double], Int) -> Unit
+
+fn cblas_dsymv(CBLAS_ORDER, CBLAS_UPLO, Int, Double, FixedArray[Double], Int, FixedArray[Double], Int, Double, FixedArray[Double], Int) -> Unit
+
+fn cblas_dsyr(CBLAS_ORDER, CBLAS_UPLO, Int, Double, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
+
+fn cblas_dsyr2(CBLAS_ORDER, CBLAS_UPLO, Int, Double, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
+
+fn cblas_dsyr2k(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, Int, Int, Double, FixedArray[Double], Int, FixedArray[Double], Int, Double, FixedArray[Double], Int) -> Unit
+
+fn cblas_dsyrk(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, Int, Int, Double, FixedArray[Double], Int, Double, FixedArray[Double], Int) -> Unit
+
+fn cblas_dtbmv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
+
+fn cblas_dtbsv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
+
+fn cblas_dtpmv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[Double], FixedArray[Double], Int) -> Unit
+
+fn cblas_dtpsv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[Double], FixedArray[Double], Int) -> Unit
+
+fn cblas_dtrmm(CBLAS_ORDER, CBLAS_SIDE, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, Double, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
+
+fn cblas_dtrmv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
+
+fn cblas_dtrsm(CBLAS_ORDER, CBLAS_SIDE, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, Double, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
+
+fn cblas_dtrsv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
+
+fn cblas_dzamax(Int, FixedArray[UInt64], Int) -> Double
+
+fn cblas_dzamin(Int, FixedArray[UInt64], Int) -> Double
+
+fn cblas_dzasum(Int, FixedArray[UInt64], Int) -> Double
+
+fn cblas_dznrm2(Int, FixedArray[UInt64], Int) -> Double
+
+fn cblas_dzsum(Int, VoidPtr, Int) -> Double
+
+fn cblas_icamax(Int, FixedArray[UInt64], Int) -> UInt64
+
+fn cblas_icamin(Int, FixedArray[UInt64], Int) -> UInt64
+
+fn cblas_icmax(Int, FixedArray[UInt64], Int) -> UInt64
+
+fn cblas_icmin(Int, FixedArray[UInt64], Int) -> UInt64
+
+fn cblas_idamax(Int, FixedArray[Double], Int) -> UInt64
+
+fn cblas_idamin(Int, FixedArray[Double], Int) -> UInt64
+
+fn cblas_idmax(Int, FixedArray[Double], Int) -> UInt64
+
+fn cblas_idmin(Int, FixedArray[Double], Int) -> UInt64
+
+fn cblas_isamax(Int, FixedArray[Float], Int) -> UInt64
+
+fn cblas_isamin(Int, FixedArray[Float], Int) -> UInt64
+
+fn cblas_ismax(Int, FixedArray[Float], Int) -> UInt64
+
+fn cblas_ismin(Int, FixedArray[Float], Int) -> UInt64
+
+fn cblas_izamax(Int, FixedArray[UInt64], Int) -> UInt64
+
+fn cblas_izamin(Int, FixedArray[UInt64], Int) -> UInt64
+
+fn cblas_izmax(Int, FixedArray[UInt64], Int) -> UInt64
+
+fn cblas_izmin(Int, FixedArray[UInt64], Int) -> UInt64
+
+fn cblas_samax(Int, FixedArray[Float], Int) -> Float
+
+fn cblas_samin(Int, FixedArray[Float], Int) -> Float
+
+fn cblas_sasum(Int, FixedArray[Float], Int) -> Float
+
+fn cblas_saxpby(Int, Float, FixedArray[Float], Int, Float, FixedArray[Float], Int) -> Unit
+
+fn cblas_saxpy(Int, Float, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+
+fn cblas_scamax(Int, FixedArray[UInt64], Int) -> Float
+
+fn cblas_scamin(Int, FixedArray[UInt64], Int) -> Float
+
+fn cblas_scasum(Int, FixedArray[UInt64], Int) -> Float
+
+fn cblas_scnrm2(Int, FixedArray[UInt64], Int) -> Float
+
+fn cblas_scopy(Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+
+fn cblas_scsum(Int, VoidPtr, Int) -> Float
+
+fn cblas_sdot(Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Float
+
+fn cblas_sdsdot(Int, Float, FixedArray[Float], Int, FixedArray[Float], Int) -> Float
+
+fn cblas_sgbmv(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, Int, Int, Float, FixedArray[Float], Int, FixedArray[Float], Int, Float, FixedArray[Float], Int) -> Unit
+
+fn cblas_sgeadd(CBLAS_ORDER, Int, Int, Float, FixedArray[Float], Int, Float, FixedArray[Float], Int) -> Unit
+
+fn cblas_sgemm(CBLAS_ORDER, CBLAS_TRANSPOSE, CBLAS_TRANSPOSE, Int, Int, Int, Float, FixedArray[Float], Int, FixedArray[Float], Int, Float, FixedArray[Float], Int) -> Unit
+
+fn cblas_sgemm_batch(CBLAS_ORDER, VoidPtr, VoidPtr, FixedArray[Int], FixedArray[Int], FixedArray[Int], FixedArray[Float], VoidPtr, FixedArray[Int], VoidPtr, FixedArray[Int], FixedArray[Float], VoidPtr, FixedArray[Int], Int, FixedArray[Int]) -> Unit
+
+fn cblas_sgemmt(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_TRANSPOSE, Int, Int, Float, FixedArray[Float], Int, FixedArray[Float], Int, Float, FixedArray[Float], Int) -> Unit
+
+fn cblas_sgemv(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, Float, FixedArray[Float], Int, FixedArray[Float], Int, Float, FixedArray[Float], Int) -> Unit
+
+fn cblas_sger(CBLAS_ORDER, Int, Int, Float, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+
+fn cblas_simatcopy(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, Float, FixedArray[Float], Int, Int) -> Unit
+
+fn cblas_snrm2(Int, FixedArray[Float], Int) -> Float
+
+fn cblas_somatcopy(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, Float, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+
+fn cblas_srot(Int, FixedArray[Float], Int, FixedArray[Float], Int, Float, Float) -> Unit
+
+fn cblas_srotg(FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Unit
+
+fn cblas_srotm(Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float]) -> Unit
+
+fn cblas_srotmg(FixedArray[Float], FixedArray[Float], FixedArray[Float], Float, FixedArray[Float]) -> Unit
+
+fn cblas_ssbmv(CBLAS_ORDER, CBLAS_UPLO, Int, Int, Float, FixedArray[Float], Int, FixedArray[Float], Int, Float, FixedArray[Float], Int) -> Unit
+
+fn cblas_sscal(Int, Float, FixedArray[Float], Int) -> Unit
+
+fn cblas_sspmv(CBLAS_ORDER, CBLAS_UPLO, Int, Float, FixedArray[Float], FixedArray[Float], Int, Float, FixedArray[Float], Int) -> Unit
+
+fn cblas_sspr(CBLAS_ORDER, CBLAS_UPLO, Int, Float, FixedArray[Float], Int, FixedArray[Float]) -> Unit
+
+fn cblas_sspr2(CBLAS_ORDER, CBLAS_UPLO, Int, Float, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float]) -> Unit
+
+fn cblas_ssum(Int, FixedArray[Float], Int) -> Float
+
+fn cblas_sswap(Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+
+fn cblas_ssymm(CBLAS_ORDER, CBLAS_SIDE, CBLAS_UPLO, Int, Int, Float, FixedArray[Float], Int, FixedArray[Float], Int, Float, FixedArray[Float], Int) -> Unit
+
+fn cblas_ssymv(CBLAS_ORDER, CBLAS_UPLO, Int, Float, FixedArray[Float], Int, FixedArray[Float], Int, Float, FixedArray[Float], Int) -> Unit
+
+fn cblas_ssyr(CBLAS_ORDER, CBLAS_UPLO, Int, Float, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+
+fn cblas_ssyr2(CBLAS_ORDER, CBLAS_UPLO, Int, Float, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+
+fn cblas_ssyr2k(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, Int, Int, Float, FixedArray[Float], Int, FixedArray[Float], Int, Float, FixedArray[Float], Int) -> Unit
+
+fn cblas_ssyrk(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, Int, Int, Float, FixedArray[Float], Int, Float, FixedArray[Float], Int) -> Unit
+
+fn cblas_stbmv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+
+fn cblas_stbsv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+
+fn cblas_stpmv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[Float], FixedArray[Float], Int) -> Unit
+
+fn cblas_stpsv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[Float], FixedArray[Float], Int) -> Unit
+
+fn cblas_strmm(CBLAS_ORDER, CBLAS_SIDE, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, Float, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+
+fn cblas_strmv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+
+fn cblas_strsm(CBLAS_ORDER, CBLAS_SIDE, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, Float, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+
+fn cblas_strsv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+
+fn cblas_zaxpby(Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zaxpy(Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zaxpyc(Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zcopy(Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zdotc(Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> UInt64
+
+fn cblas_zdotc_sub(Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int, VoidPtr) -> Unit
+
+fn cblas_zdotu(Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> UInt64
+
+fn cblas_zdotu_sub(Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int, VoidPtr) -> Unit
+
+fn cblas_zdrot(Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int, Double, Double) -> Unit
+
+fn cblas_zdscal(Int, Double, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zgbmv(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zgeadd(CBLAS_ORDER, Int, Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Unit
+
+fn cblas_zgemm(CBLAS_ORDER, CBLAS_TRANSPOSE, CBLAS_TRANSPOSE, Int, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zgemm3m(CBLAS_ORDER, CBLAS_TRANSPOSE, CBLAS_TRANSPOSE, Int, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zgemm_batch(CBLAS_ORDER, VoidPtr, VoidPtr, FixedArray[Int], FixedArray[Int], FixedArray[Int], VoidPtr, VoidPtr, FixedArray[Int], VoidPtr, FixedArray[Int], VoidPtr, VoidPtr, FixedArray[Int], Int, FixedArray[Int]) -> Unit
+
+fn cblas_zgemmt(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_TRANSPOSE, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zgemv(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zgerc(CBLAS_ORDER, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zgeru(CBLAS_ORDER, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zhbmv(CBLAS_ORDER, CBLAS_UPLO, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zhemm(CBLAS_ORDER, CBLAS_SIDE, CBLAS_UPLO, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zhemv(CBLAS_ORDER, CBLAS_UPLO, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zher(CBLAS_ORDER, CBLAS_UPLO, Int, Double, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zher2(CBLAS_ORDER, CBLAS_UPLO, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zher2k(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, Double, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zherk(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, Int, Int, Double, FixedArray[UInt64], Int, Double, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zhpmv(CBLAS_ORDER, CBLAS_UPLO, Int, FixedArray[UInt64], FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zhpr(CBLAS_ORDER, CBLAS_UPLO, Int, Double, FixedArray[UInt64], Int, FixedArray[UInt64]) -> Unit
+
+fn cblas_zhpr2(CBLAS_ORDER, CBLAS_UPLO, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64]) -> Unit
+
+fn cblas_zimatcopy(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, FixedArray[Double], FixedArray[Double], Int, Int) -> Unit
+
+fn cblas_zomatcopy(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
+
+fn cblas_zrotg(FixedArray[UInt64], FixedArray[UInt64], FixedArray[Double], FixedArray[UInt64]) -> Unit
+
+fn cblas_zscal(Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zswap(Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zsymm(CBLAS_ORDER, CBLAS_SIDE, CBLAS_UPLO, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zsyr2k(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_zsyrk(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_ztbmv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_ztbsv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_ztpmv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_ztpsv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[UInt64], FixedArray[UInt64], Int) -> Unit
+
+fn cblas_ztrmm(CBLAS_ORDER, CBLAS_SIDE, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_ztrmv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_ztrsm(CBLAS_ORDER, CBLAS_SIDE, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, FixedArray[UInt64], FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn cblas_ztrsv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[UInt64], Int, FixedArray[UInt64], Int) -> Unit
+
+fn goto_set_num_threads(Int) -> Unit
+
+fn openblas_get_config() -> String
+
+fn openblas_get_corename() -> String
+
+fn openblas_get_num_procs() -> Int
+
+fn openblas_get_num_threads() -> Int
+
+fn openblas_get_parallel() -> Int
+
+fn openblas_set_num_threads(Int) -> Unit
+
+fn openblas_set_num_threads_local(Int) -> Int
+
+fn openblas_set_threads_callback_function(FuncRef[(Int, FuncRef[(Int, VoidPtr, Int) -> Unit], Int, Int, VoidPtr, Int) -> Unit]) -> Unit
+
+// Errors
+
+// Types and methods
+pub(all) enum CBLAS_DIAG {
+  CblasNonUnit
+  CblasUnit
+}
+
+pub(all) enum CBLAS_ORDER {
+  CblasRowMajor
+  CblasColMajor
+}
+
+pub(all) enum CBLAS_SIDE {
+  CblasLeft
+  CblasRight
+}
+
+pub(all) enum CBLAS_TRANSPOSE {
+  CblasNoTrans
+  CblasTrans
+  CblasConjTrans
+  CblasConjNoTrans
+}
+
+pub(all) enum CBLAS_UPLO {
+  CblasUpper
+  CblasLower
+}
+
+#external
+pub type VoidPtr
+
+// Type aliases
+pub typealias CBLAS_ORDER as CBLAS_LAYOUT
+
+pub typealias FuncRef[(Int, VoidPtr, Int) -> Unit] as Openblas_dojob_callback
+
+pub typealias FuncRef[(Int, FuncRef[(Int, VoidPtr, Int) -> Unit], Int, Int, VoidPtr, Int) -> Unit] as Openblas_threads_callback
+
+// Traits
+

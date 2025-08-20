@@ -761,7 +761,7 @@ pub extern "C" fn cblas_csscal(n: Int, alpha: Float, x: FixedArray[OpenBlasCompl
 /// void cblas_zdscal(const blasint N, const double alpha, void *X, const blasint incX);
 /// ```
 pub extern "C" fn cblas_zdscal(n: Int, alpha: Double, x: FixedArray[OpenBlasComplexFloat], incx: Int) = "cblas_zdscal";
-//
+
 ///|
 ///
 /// ```c
@@ -769,6 +769,7 @@ pub extern "C" fn cblas_zdscal(n: Int, alpha: Double, x: FixedArray[OpenBlasComp
 ///                  const float alpha, const float *a, const blasint lda, const float *x, const blasint incx, const float beta, float *y, const blasint incy);
 /// ```
 pub extern "C" fn cblas_sgemv(order: CBLAS_ORDER, trans: CBLAS_TRANSPOSE, m: Int, n: Int, alpha: Float, a: FixedArray[Float], lda: Int, x: FixedArray[Float], incx: Int, beta: Float, y: FixedArray[Float], incy: Int) = "cblas_sgemv";
+
 ///|
 ///
 /// ```c
@@ -776,6 +777,7 @@ pub extern "C" fn cblas_sgemv(order: CBLAS_ORDER, trans: CBLAS_TRANSPOSE, m: Int
 //		 const double alpha, const double  *a, const blasint lda,  const double  *x, const blasint incx,  const double beta,  double  *y, const blasint incy);
 /// ```
 pub extern "C" fn cblas_dgemv(order: CBLAS_ORDER, trans: CBLAS_TRANSPOSE, m: Int, n: Int, alpha: Double, a: FixedArray[Double], lda: Int, x: FixedArray[Double], incx: Int, beta: Double, y: FixedArray[Double], incy: Int) = "cblas_dgemv";
+
 ///|
 ///
 /// ```c
@@ -783,6 +785,7 @@ pub extern "C" fn cblas_dgemv(order: CBLAS_ORDER, trans: CBLAS_TRANSPOSE, m: Int
 //		 const void *alpha, const void  *a, const blasint lda,  const void  *x, const blasint incx,  const void *beta,  void  *y, const blasint incy);
 /// ```
 pub extern "C" fn cblas_cgemv(order: CBLAS_ORDER, trans: CBLAS_TRANSPOSE, m: Int, n: Int, alpha: FixedArray[OpenBlasComplexFloat], a: FixedArray[OpenBlasComplexFloat], lda: Int, x: FixedArray[OpenBlasComplexFloat], incx: Int, beta: FixedArray[OpenBlasComplexFloat], y: FixedArray[OpenBlasComplexFloat], incy: Int) = "cblas_cgemv";
+
 ///|
 ///
 /// ```c
