@@ -184,15 +184,15 @@ fn cblas_dtrsm(CBLAS_ORDER, CBLAS_SIDE, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG,
 
 fn cblas_dtrsv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
 
-fn cblas_dzamax(Int, FixedArray[Float], Int) -> Double
+fn cblas_dzamax(Int, FixedArray[Double], Int) -> Double
 
-fn cblas_dzamin(Int, FixedArray[Float], Int) -> Double
+fn cblas_dzamin(Int, FixedArray[Double], Int) -> Double
 
-fn cblas_dzasum(Int, FixedArray[Float], Int) -> Double
+fn cblas_dzasum(Int, FixedArray[Double], Int) -> Double
 
-fn cblas_dznrm2(Int, FixedArray[Float], Int) -> Double
+fn cblas_dznrm2(Int, FixedArray[Double], Int) -> Double
 
-fn cblas_dzsum(Int, VoidPtr, Int) -> Double
+fn cblas_dzsum(Int, FixedArray[Double], Int) -> Double
 
 fn cblas_icamax(Int, FixedArray[Float], Int) -> UInt64
 
@@ -218,13 +218,13 @@ fn cblas_ismax(Int, FixedArray[Float], Int) -> UInt64
 
 fn cblas_ismin(Int, FixedArray[Float], Int) -> UInt64
 
-fn cblas_izamax(Int, FixedArray[Float], Int) -> UInt64
+fn cblas_izamax(Int, FixedArray[Double], Int) -> UInt64
 
-fn cblas_izamin(Int, FixedArray[Float], Int) -> UInt64
+fn cblas_izamin(Int, FixedArray[Double], Int) -> UInt64
 
-fn cblas_izmax(Int, FixedArray[Float], Int) -> UInt64
+fn cblas_izmax(Int, FixedArray[Double], Int) -> UInt64
 
-fn cblas_izmin(Int, FixedArray[Float], Int) -> UInt64
+fn cblas_izmin(Int, FixedArray[Double], Int) -> UInt64
 
 fn cblas_samax(Int, FixedArray[Float], Int) -> Float
 
@@ -246,7 +246,7 @@ fn cblas_scnrm2(Int, FixedArray[Float], Int) -> Float
 
 fn cblas_scopy(Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
 
-fn cblas_scsum(Int, VoidPtr, Int) -> Float
+fn cblas_scsum(Int, FixedArray[Float], Int) -> Float
 
 fn cblas_sdot(Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Float
 
@@ -324,29 +324,29 @@ fn cblas_strsv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedA
 
 fn cblas_zaxpby(Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Unit
 
-fn cblas_zaxpy(Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+fn cblas_zaxpy(Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
 
-fn cblas_zaxpyc(Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+fn cblas_zaxpyc(Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
 
-fn cblas_zcopy(Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+fn cblas_zcopy(Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
 
 fn cblas_zdotc(Int, FixedArray[Double], Int, FixedArray[Double], Int) -> ComplexDouble
 
-fn cblas_zdotc_sub(Int, FixedArray[ValTypeComplexDouble], Int, FixedArray[ValTypeComplexDouble], Int, ComplexDouble) -> Unit
+fn cblas_zdotc_sub(Int, FixedArray[Double], Int, FixedArray[Double], Int, ComplexDouble) -> Unit
 
 fn cblas_zdotu(Int, FixedArray[Double], Int, FixedArray[Double], Int) -> ComplexDouble
 
-fn cblas_zdotu_sub(Int, FixedArray[ValTypeComplexDouble], Int, FixedArray[ValTypeComplexDouble], Int, ComplexDouble) -> Unit
+fn cblas_zdotu_sub(Int, FixedArray[Double], Int, FixedArray[Double], Int, ComplexDouble) -> Unit
 
-fn cblas_zdrot(Int, FixedArray[Float], Int, FixedArray[Float], Int, Double, Double) -> Unit
+fn cblas_zdrot(Int, FixedArray[Double], Int, FixedArray[Double], Int, Double, Double) -> Unit
 
-fn cblas_zdscal(Int, Double, FixedArray[Float], Int) -> Unit
+fn cblas_zdscal(Int, Double, FixedArray[Double], Int) -> Unit
 
-fn cblas_zgbmv(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Unit
+fn cblas_zgbmv(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, Int, Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Unit
 
 fn cblas_zgeadd(CBLAS_ORDER, Int, Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Unit
 
-fn cblas_zgemm(CBLAS_ORDER, CBLAS_TRANSPOSE, CBLAS_TRANSPOSE, Int, Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Unit
+fn cblas_zgemm(CBLAS_ORDER, CBLAS_TRANSPOSE, CBLAS_TRANSPOSE, Int, Int, Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Unit
 
 fn cblas_zgemm3m(CBLAS_ORDER, CBLAS_TRANSPOSE, CBLAS_TRANSPOSE, Int, Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Unit
 
@@ -354,11 +354,11 @@ fn cblas_zgemm_batch(CBLAS_ORDER, VoidPtr, VoidPtr, FixedArray[Int], FixedArray[
 
 fn cblas_zgemmt(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_TRANSPOSE, Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Unit
 
-fn cblas_zgemv(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Unit
+fn cblas_zgemv(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Unit
 
-fn cblas_zgerc(CBLAS_ORDER, Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+fn cblas_zgerc(CBLAS_ORDER, Int, Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
 
-fn cblas_zgeru(CBLAS_ORDER, Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+fn cblas_zgeru(CBLAS_ORDER, Int, Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
 
 fn cblas_zhbmv(CBLAS_ORDER, CBLAS_UPLO, Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Unit
 
@@ -366,9 +366,9 @@ fn cblas_zhemm(CBLAS_ORDER, CBLAS_SIDE, CBLAS_UPLO, Int, Int, FixedArray[Float],
 
 fn cblas_zhemv(CBLAS_ORDER, CBLAS_UPLO, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Unit
 
-fn cblas_zher(CBLAS_ORDER, CBLAS_UPLO, Int, Double, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+fn cblas_zher(CBLAS_ORDER, CBLAS_UPLO, Int, Double, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
 
-fn cblas_zher2(CBLAS_ORDER, CBLAS_UPLO, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+fn cblas_zher2(CBLAS_ORDER, CBLAS_UPLO, Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
 
 fn cblas_zher2k(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, Double, FixedArray[Float], Int) -> Unit
 
@@ -384,11 +384,11 @@ fn cblas_zimatcopy(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, FixedArray[Double], F
 
 fn cblas_zomatcopy(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
 
-fn cblas_zrotg(FixedArray[Float], FixedArray[Float], FixedArray[Double], FixedArray[Float]) -> Unit
+fn cblas_zrotg(FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Unit
 
-fn cblas_zscal(Int, FixedArray[Float], FixedArray[Float], Int) -> Unit
+fn cblas_zscal(Int, FixedArray[Double], FixedArray[Double], Int) -> Unit
 
-fn cblas_zswap(Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+fn cblas_zswap(Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
 
 fn cblas_zsymm(CBLAS_ORDER, CBLAS_SIDE, CBLAS_UPLO, Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Unit
 
@@ -396,21 +396,21 @@ fn cblas_zsyr2k(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, Int, Int, FixedArray[F
 
 fn cblas_zsyrk(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Unit
 
-fn cblas_ztbmv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+fn cblas_ztbmv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
 
-fn cblas_ztbsv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+fn cblas_ztbsv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
 
-fn cblas_ztpmv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[Float], FixedArray[Float], Int) -> Unit
+fn cblas_ztpmv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[Double], FixedArray[Double], Int) -> Unit
 
-fn cblas_ztpsv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[Float], FixedArray[Float], Int) -> Unit
+fn cblas_ztpsv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[Double], FixedArray[Double], Int) -> Unit
 
 fn cblas_ztrmm(CBLAS_ORDER, CBLAS_SIDE, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
 
-fn cblas_ztrmv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+fn cblas_ztrmv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
 
 fn cblas_ztrsm(CBLAS_ORDER, CBLAS_SIDE, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
 
-fn cblas_ztrsv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
+fn cblas_ztrsv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
 
 fn goto_set_num_threads(Int) -> Unit
 
