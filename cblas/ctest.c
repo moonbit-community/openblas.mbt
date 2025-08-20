@@ -893,6 +893,342 @@ int test_cblas_daxpby() {
 // cblas_caxpby test - skipped due to complex parameter
 // cblas_zaxpby test - skipped due to complex parameter
 
+// Additional tests based on todo_test.md recommendations
+
+int test_cblas_sger() {
+    int m = 3, n = 2;
+    float alpha = 2.0f;
+    float x[] = {1.0f, 2.0f, 3.0f};
+    float y[] = {4.0f, 5.0f};
+    float a[6] = {0}; // 3x2 matrix initialized to zero
+    
+    cblas_sger(CblasRowMajor, m, n, alpha, x, 1, y, 1, a, n);
+    
+    int failed = 0;
+    failed += assert_eq(a[0], 8.0f, "cblas_sger[0,0]");   // 2 * 1 * 4 = 8
+    failed += assert_eq(a[1], 10.0f, "cblas_sger[0,1]");  // 2 * 1 * 5 = 10
+    failed += assert_eq(a[2], 16.0f, "cblas_sger[1,0]");  // 2 * 2 * 4 = 16
+    failed += assert_eq(a[3], 20.0f, "cblas_sger[1,1]");  // 2 * 2 * 5 = 20
+    failed += assert_eq(a[4], 24.0f, "cblas_sger[2,0]");  // 2 * 3 * 4 = 24
+    failed += assert_eq(a[5], 30.0f, "cblas_sger[2,1]");  // 2 * 3 * 5 = 30
+    return failed;
+}
+
+int test_cblas_dger() {
+    int m = 3, n = 2;
+    double alpha = 2.0;
+    double x[] = {1.0, 2.0, 3.0};
+    double y[] = {4.0, 5.0};
+    double a[6] = {0}; // 3x2 matrix initialized to zero
+    
+    cblas_dger(CblasRowMajor, m, n, alpha, x, 1, y, 1, a, n);
+    
+    int failed = 0;
+    failed += assert_eq(a[0], 8.0, "cblas_dger[0,0]");   // 2 * 1 * 4 = 8
+    failed += assert_eq(a[1], 10.0, "cblas_dger[0,1]");  // 2 * 1 * 5 = 10
+    failed += assert_eq(a[2], 16.0, "cblas_dger[1,0]");  // 2 * 2 * 4 = 16
+    failed += assert_eq(a[3], 20.0, "cblas_dger[1,1]");  // 2 * 2 * 5 = 20
+    failed += assert_eq(a[4], 24.0, "cblas_dger[2,0]");  // 2 * 3 * 4 = 24
+    failed += assert_eq(a[5], 30.0, "cblas_dger[2,1]");  // 2 * 3 * 5 = 30
+    return failed;
+}
+
+int test_cblas_strmv() {
+    int n = 3;
+    float a[] = {1.0f, 2.0f, 3.0f, 0.0f, 4.0f, 5.0f, 0.0f, 0.0f, 6.0f}; // 3x3 upper triangular
+    float x[] = {1.0f, 2.0f, 3.0f};
+    
+    cblas_strmv(CblasRowMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, a, n, x, 1);
+    
+    int failed = 0;
+    failed += assert_eq(x[0], 14.0f, "cblas_strmv[0]");  // 1*1 + 2*2 + 3*3 = 14
+    failed += assert_eq(x[1], 23.0f, "cblas_strmv[1]");  // 0*1 + 4*2 + 5*3 = 23
+    failed += assert_eq(x[2], 18.0f, "cblas_strmv[2]");  // 0*1 + 0*2 + 6*3 = 18
+    return failed;
+}
+
+int test_cblas_dtrmv() {
+    int n = 3;
+    double a[] = {1.0, 2.0, 3.0, 0.0, 4.0, 5.0, 0.0, 0.0, 6.0}; // 3x3 upper triangular
+    double x[] = {1.0, 2.0, 3.0};
+    
+    cblas_dtrmv(CblasRowMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, a, n, x, 1);
+    
+    int failed = 0;
+    failed += assert_eq(x[0], 14.0, "cblas_dtrmv[0]");  // 1*1 + 2*2 + 3*3 = 14
+    failed += assert_eq(x[1], 23.0, "cblas_dtrmv[1]");  // 0*1 + 4*2 + 5*3 = 23
+    failed += assert_eq(x[2], 18.0, "cblas_dtrmv[2]");  // 0*1 + 0*2 + 6*3 = 18
+    return failed;
+}
+
+int test_cblas_ssymv() {
+    int n = 3;
+    float alpha = 2.0f, beta = 1.0f;
+    float a[] = {1.0f, 2.0f, 3.0f, 2.0f, 4.0f, 5.0f, 3.0f, 5.0f, 6.0f}; // 3x3 symmetric matrix
+    float x[] = {1.0f, 2.0f, 3.0f};
+    float y[] = {1.0f, 1.0f, 1.0f};
+    
+    cblas_ssymv(CblasRowMajor, CblasUpper, n, alpha, a, n, x, 1, beta, y, 1);
+    
+    int failed = 0;
+    failed += assert_eq(y[0], 29.0f, "cblas_ssymv[0]");  // 2*(1*1+2*2+3*3) + 1*1 = 2*14 + 1 = 29
+    failed += assert_eq(y[1], 51.0f, "cblas_ssymv[1]");  // 2*(2*1+4*2+5*3) + 1*1 = 2*25 + 1 = 51
+    failed += assert_eq(y[2], 63.0f, "cblas_ssymv[2]");  // 2*(3*1+5*2+6*3) + 1*1 = 2*31 + 1 = 63
+    return failed;
+}
+
+int test_cblas_dsymv() {
+    int n = 3;
+    double alpha = 2.0, beta = 1.0;
+    double a[] = {1.0, 2.0, 3.0, 2.0, 4.0, 5.0, 3.0, 5.0, 6.0}; // 3x3 symmetric matrix
+    double x[] = {1.0, 2.0, 3.0};
+    double y[] = {1.0, 1.0, 1.0};
+    
+    cblas_dsymv(CblasRowMajor, CblasUpper, n, alpha, a, n, x, 1, beta, y, 1);
+    
+    int failed = 0;
+    failed += assert_eq(y[0], 29.0, "cblas_dsymv[0]");  // 2*(1*1+2*2+3*3) + 1*1 = 2*14 + 1 = 29
+    failed += assert_eq(y[1], 51.0, "cblas_dsymv[1]");  // 2*(2*1+4*2+5*3) + 1*1 = 2*25 + 1 = 51
+    failed += assert_eq(y[2], 63.0, "cblas_dsymv[2]");  // 2*(3*1+5*2+6*3) + 1*1 = 2*31 + 1 = 63
+    return failed;
+}
+
+int test_cblas_srot() {
+    int n = 3;
+    float x[] = {1.0f, 2.0f, 3.0f};
+    float y[] = {4.0f, 5.0f, 6.0f};
+    float c = 0.6f, s = 0.8f;
+    
+    cblas_srot(n, x, 1, y, 1, c, s);
+    
+    int failed = 0;
+    // Use tolerance for floating point comparisons
+    if (fabsf(x[0] - 3.8f) > 0.001f) {
+        printf("cblas_srot x[0] Test Failed: actual: %f, expect: %f\n", x[0], 3.8f);
+        failed++;
+    }
+    if (fabsf(y[0] - 1.6f) > 0.001f) {
+        printf("cblas_srot y[0] Test Failed: actual: %f, expect: %f\n", y[0], 1.6f);
+        failed++;
+    }
+    if (fabsf(x[1] - 5.2f) > 0.001f) {
+        printf("cblas_srot x[1] Test Failed: actual: %f, expect: %f\n", x[1], 5.2f);
+        failed++;
+    }
+    if (fabsf(y[1] - 1.4f) > 0.001f) {
+        printf("cblas_srot y[1] Test Failed: actual: %f, expect: %f\n", y[1], 1.4f);
+        failed++;
+    }
+    if (fabsf(x[2] - 6.6f) > 0.001f) {
+        printf("cblas_srot x[2] Test Failed: actual: %f, expect: %f\n", x[2], 6.6f);
+        failed++;
+    }
+    if (fabsf(y[2] - 1.2f) > 0.001f) {
+        printf("cblas_srot y[2] Test Failed: actual: %f, expect: %f\n", y[2], 1.2f);
+        failed++;
+    }
+    return failed;
+}
+
+int test_cblas_drot() {
+    int n = 3;
+    double x[] = {1.0, 2.0, 3.0};
+    double y[] = {4.0, 5.0, 6.0};
+    double c = 0.6, s = 0.8;
+    
+    cblas_drot(n, x, 1, y, 1, c, s);
+    
+    int failed = 0;
+    // Use tolerance for floating point comparisons
+    if (fabs(x[0] - 3.8) > 0.001) {
+        printf("cblas_drot x[0] Test Failed: actual: %f, expect: %f\n", x[0], 3.8);
+        failed++;
+    }
+    if (fabs(y[0] - 1.6) > 0.001) {
+        printf("cblas_drot y[0] Test Failed: actual: %f, expect: %f\n", y[0], 1.6);
+        failed++;
+    }
+    if (fabs(x[1] - 5.2) > 0.001) {
+        printf("cblas_drot x[1] Test Failed: actual: %f, expect: %f\n", x[1], 5.2);
+        failed++;
+    }
+    if (fabs(y[1] - 1.4) > 0.001) {
+        printf("cblas_drot y[1] Test Failed: actual: %f, expect: %f\n", y[1], 1.4);
+        failed++;
+    }
+    if (fabs(x[2] - 6.6) > 0.001) {
+        printf("cblas_drot x[2] Test Failed: actual: %f, expect: %f\n", x[2], 6.6);
+        failed++;
+    }
+    if (fabs(y[2] - 1.2) > 0.001) {
+        printf("cblas_drot y[2] Test Failed: actual: %f, expect: %f\n", y[2], 1.2);
+        failed++;
+    }
+    return failed;
+}
+
+int test_cblas_sgbmv() {
+    int m = 3, n = 3, kl = 1, ku = 1;
+    float alpha = 1.0f, beta = 0.0f;
+    // Simplified test: tridiagonal matrix
+    // Original matrix: [[2, 1, 0], [1, 2, 1], [0, 1, 2]]
+    // Band storage (column-major): [*, 1, 1], [2, 2, 2], [1, 1, *]
+    float a[] = {0.0f, 1.0f, 1.0f, 2.0f, 2.0f, 2.0f, 1.0f, 1.0f, 0.0f};
+    float x[] = {1.0f, 1.0f, 1.0f};
+    float y[3] = {0};
+    
+    cblas_sgbmv(CblasColMajor, CblasNoTrans, m, n, kl, ku, alpha, a, kl + ku + 1, x, 1, beta, y, 1);
+    
+    int failed = 0;
+    failed += assert_eq(y[0], 3.0f, "cblas_sgbmv[0]");   // 2*1 + 1*1 + 0*1 = 3
+    failed += assert_eq(y[1], 4.0f, "cblas_sgbmv[1]");   // 1*1 + 2*1 + 1*1 = 4
+    failed += assert_eq(y[2], 3.0f, "cblas_sgbmv[2]");   // 0*1 + 1*1 + 2*1 = 3
+    return failed;
+}
+
+int test_cblas_dgbmv() {
+    int m = 3, n = 3, kl = 1, ku = 1;
+    double alpha = 1.0, beta = 0.0;
+    // Simplified test: tridiagonal matrix
+    // Original matrix: [[2, 1, 0], [1, 2, 1], [0, 1, 2]]
+    // Band storage (column-major): [*, 1, 1], [2, 2, 2], [1, 1, *]
+    double a[] = {0.0, 1.0, 1.0, 2.0, 2.0, 2.0, 1.0, 1.0, 0.0};
+    double x[] = {1.0, 1.0, 1.0};
+    double y[3] = {0};
+    
+    cblas_dgbmv(CblasColMajor, CblasNoTrans, m, n, kl, ku, alpha, a, kl + ku + 1, x, 1, beta, y, 1);
+    
+    int failed = 0;
+    failed += assert_eq(y[0], 3.0, "cblas_dgbmv[0]");   // 2*1 + 1*1 + 0*1 = 3
+    failed += assert_eq(y[1], 4.0, "cblas_dgbmv[1]");   // 1*1 + 2*1 + 1*1 = 4
+    failed += assert_eq(y[2], 3.0, "cblas_dgbmv[2]");   // 0*1 + 1*1 + 2*1 = 3
+    return failed;
+}
+
+int test_cblas_srotg() {
+    float a = 3.0f, b = 4.0f, c, s;
+    
+    cblas_srotg(&a, &b, &c, &s);
+    
+    int failed = 0;
+    // Expected: r = sqrt(3^2 + 4^2) = 5, c = 3/5 = 0.6, s = 4/5 = 0.8
+    if (fabsf(a - 5.0f) > 0.001f) {
+        printf("cblas_srotg a Test Failed: actual: %f, expect: %f\n", a, 5.0f);
+        failed++;
+    }
+    if (fabsf(c - 0.6f) > 0.001f) {
+        printf("cblas_srotg c Test Failed: actual: %f, expect: %f\n", c, 0.6f);
+        failed++;
+    }
+    if (fabsf(s - 0.8f) > 0.001f) {
+        printf("cblas_srotg s Test Failed: actual: %f, expect: %f\n", s, 0.8f);
+        failed++;
+    }
+    return failed;
+}
+
+int test_cblas_drotg() {
+    double a = 3.0, b = 4.0, c, s;
+    
+    cblas_drotg(&a, &b, &c, &s);
+    
+    int failed = 0;
+    // Expected: r = sqrt(3^2 + 4^2) = 5, c = 3/5 = 0.6, s = 4/5 = 0.8
+    if (fabs(a - 5.0) > 0.001) {
+        printf("cblas_drotg a Test Failed: actual: %f, expect: %f\n", a, 5.0);
+        failed++;
+    }
+    if (fabs(c - 0.6) > 0.001) {
+        printf("cblas_drotg c Test Failed: actual: %f, expect: %f\n", c, 0.6);
+        failed++;
+    }
+    if (fabs(s - 0.8) > 0.001) {
+        printf("cblas_drotg s Test Failed: actual: %f, expect: %f\n", s, 0.8);
+        failed++;
+    }
+    return failed;
+}
+
+int test_cblas_ssyr() {
+    int n = 2;
+    float alpha = 2.0f;
+    float x[] = {1.0f, 2.0f};
+    float a[] = {1.0f, 0.0f, 0.0f, 1.0f}; // 2x2 identity matrix
+    
+    cblas_ssyr(CblasRowMajor, CblasUpper, n, alpha, x, 1, a, n);
+    
+    int failed = 0;
+    failed += assert_eq(a[0], 3.0f, "cblas_ssyr[0,0]");  // 1 + 2*1*1 = 3
+    failed += assert_eq(a[1], 4.0f, "cblas_ssyr[0,1]");  // 0 + 2*1*2 = 4
+    failed += assert_eq(a[2], 0.0f, "cblas_ssyr[1,0]");  // not updated (upper)
+    failed += assert_eq(a[3], 9.0f, "cblas_ssyr[1,1]");  // 1 + 2*2*2 = 9
+    return failed;
+}
+
+int test_cblas_dsyr() {
+    int n = 2;
+    double alpha = 2.0;
+    double x[] = {1.0, 2.0};
+    double a[] = {1.0, 0.0, 0.0, 1.0}; // 2x2 identity matrix
+    
+    cblas_dsyr(CblasRowMajor, CblasUpper, n, alpha, x, 1, a, n);
+    
+    int failed = 0;
+    failed += assert_eq(a[0], 3.0, "cblas_dsyr[0,0]");  // 1 + 2*1*1 = 3
+    failed += assert_eq(a[1], 4.0, "cblas_dsyr[0,1]");  // 0 + 2*1*2 = 4
+    failed += assert_eq(a[2], 0.0, "cblas_dsyr[1,0]");  // not updated (upper)
+    failed += assert_eq(a[3], 9.0, "cblas_dsyr[1,1]");  // 1 + 2*2*2 = 9
+    return failed;
+}
+
+int test_cblas_strsv() {
+    int n = 3;
+    float a[] = {2.0f, 1.0f, 1.0f, 0.0f, 2.0f, 1.0f, 0.0f, 0.0f, 2.0f}; // upper triangular
+    float x[] = {6.0f, 4.0f, 2.0f}; // right-hand side
+    
+    cblas_strsv(CblasRowMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, a, n, x, 1);
+    
+    int failed = 0;
+    // Expected solution: x = [1.75, 1.5, 1.0]
+    if (fabsf(x[0] - 1.75f) > 0.001f) {
+        printf("cblas_strsv x[0] Test Failed: actual: %f, expect: %f\n", x[0], 1.75f);
+        failed++;
+    }
+    if (fabsf(x[1] - 1.5f) > 0.001f) {
+        printf("cblas_strsv x[1] Test Failed: actual: %f, expect: %f\n", x[1], 1.5f);
+        failed++;
+    }
+    if (fabsf(x[2] - 1.0f) > 0.001f) {
+        printf("cblas_strsv x[2] Test Failed: actual: %f, expect: %f\n", x[2], 1.0f);
+        failed++;
+    }
+    return failed;
+}
+
+int test_cblas_dtrsv() {
+    int n = 3;
+    double a[] = {2.0, 1.0, 1.0, 0.0, 2.0, 1.0, 0.0, 0.0, 2.0}; // upper triangular
+    double x[] = {6.0, 4.0, 2.0}; // right-hand side
+    
+    cblas_dtrsv(CblasRowMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, a, n, x, 1);
+    
+    int failed = 0;
+    // Expected solution: x = [1.75, 1.5, 1.0]
+    if (fabs(x[0] - 1.75) > 0.001) {
+        printf("cblas_dtrsv x[0] Test Failed: actual: %f, expect: %f\n", x[0], 1.75);
+        failed++;
+    }
+    if (fabs(x[1] - 1.5) > 0.001) {
+        printf("cblas_dtrsv x[1] Test Failed: actual: %f, expect: %f\n", x[1], 1.5);
+        failed++;
+    }
+    if (fabs(x[2] - 1.0) > 0.001) {
+        printf("cblas_dtrsv x[2] Test Failed: actual: %f, expect: %f\n", x[2], 1.0);
+        failed++;
+    }
+    return failed;
+}
+
 int main() {
     int failed = 0;
     failed += test_cblas_sdsdot();
@@ -960,6 +1296,22 @@ int main() {
     failed += test_cblas_dtrsm();
     failed += test_cblas_saxpby();
     failed += test_cblas_daxpby();
+    failed += test_cblas_sger();
+    failed += test_cblas_dger();
+    failed += test_cblas_strmv();
+    failed += test_cblas_dtrmv();
+    failed += test_cblas_ssymv();
+    failed += test_cblas_dsymv();
+    failed += test_cblas_srot();
+    failed += test_cblas_drot();
+    failed += test_cblas_sgbmv();
+    failed += test_cblas_dgbmv();
+    failed += test_cblas_srotg();
+    failed += test_cblas_drotg();
+    failed += test_cblas_ssyr();
+    failed += test_cblas_dsyr();
+    failed += test_cblas_strsv();
+    failed += test_cblas_dtrsv();
     if (failed > 0) {
         printf("%d tests failed.\n", failed);
         return 1;

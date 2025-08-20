@@ -5,11 +5,11 @@
 ## 测试覆盖情况概述
 
 - **总函数数量**: 261 个函数
-- **已测试函数数量**: 64 个函数  
-- **未测试函数数量**: 197 个函数
-- **测试覆盖率**: 24.5%
+- **已测试函数数量**: 80 个函数 (更新时间: 2024年12月)  
+- **未测试函数数量**: 181 个函数
+- **测试覆盖率**: 30.6%
 
-## 已测试的函数列表 (64个)
+## 已测试的函数列表 (80个)
 
 ### BLAS Level 1 (向量操作)
 - `cblas_sdsdot`, `cblas_dsdot`, `cblas_sdot`, `cblas_ddot`
@@ -27,9 +27,17 @@
 - `cblas_sswap`, `cblas_dswap`, `cblas_cswap`
 - `cblas_sscal`, `cblas_dscal`, `cblas_cscal`, `cblas_csscal`
 - `cblas_saxpby`, `cblas_daxpby`
+- `cblas_srot`, `cblas_drot` (新增)
+- `cblas_srotg`, `cblas_drotg` (新增)
 
 ### BLAS Level 2 (矩阵-向量操作)
 - `cblas_sgemv`, `cblas_dgemv`
+- `cblas_sger`, `cblas_dger` (新增)
+- `cblas_strmv`, `cblas_dtrmv` (新增)
+- `cblas_ssymv`, `cblas_dsymv` (新增)
+- `cblas_sgbmv`, `cblas_dgbmv` (新增)
+- `cblas_ssyr`, `cblas_dsyr` (新增)
+- `cblas_strsv`, `cblas_dtrsv` (新增)
 
 ### BLAS Level 3 (矩阵-矩阵操作)
 - `cblas_sgemm`, `cblas_dgemm`
@@ -40,7 +48,7 @@
 - `cblas_strmm`, `cblas_dtrmm`
 - `cblas_strsm`, `cblas_dtrsm`
 
-## 未测试的函数列表 (197个)
+## 未测试的函数列表 (181个)
 
 ### 1. Complex Double Precision (Z-前缀函数, 58个)
 
@@ -106,18 +114,16 @@
 - `cblas_scsum` (单精度复数求和)
 - 其他 c-前缀扩展函数
 
-### 3. Double Precision Real (D-前缀函数, 41个)
+### 3. Double Precision Real (D-前缀函数, 33个)
 
-#### Level 1 函数 (6个)
-- `cblas_drot`, `cblas_drotg`, `cblas_drotm`, `cblas_drotmg`
+#### Level 1 函数 (4个)
+- `cblas_drotm`, `cblas_drotmg`
 
-#### Level 2 函数 (17个)
-- `cblas_dgbmv`
-- `cblas_dsymv`, `cblas_dsbmv`, `cblas_dspmv`
-- `cblas_dsyr`, `cblas_dsyr2`, `cblas_dspr`, `cblas_dspr2`
-- `cblas_dtrmv`, `cblas_dtbmv`, `cblas_dtpmv`
-- `cblas_dtrsv`, `cblas_dtbsv`, `cblas_dtpsv`
-- `cblas_dger`
+#### Level 2 函数 (11个)
+- `cblas_dsbmv`, `cblas_dspmv`
+- `cblas_dsyr2`, `cblas_dspr`, `cblas_dspr2`
+- `cblas_dtbmv`, `cblas_dtpmv`
+- `cblas_dtbsv`, `cblas_dtpsv`
 
 #### Level 3 函数 (1个)
 - `cblas_dgemm_batch`
@@ -126,18 +132,16 @@
 - `cblas_dgeadd`
 - `cblas_dimatcopy`, `cblas_domatcopy`
 
-### 4. Single Precision Real (S-前缀函数, 40个)
+### 4. Single Precision Real (S-前缀函数, 32个)
 
-#### Level 1 函数 (6个)
-- `cblas_srot`, `cblas_srotg`, `cblas_srotm`, `cblas_srotmg`
+#### Level 1 函数 (4个)
+- `cblas_srotm`, `cblas_srotmg`
 
-#### Level 2 函数 (17个)
-- `cblas_sgbmv`
-- `cblas_ssymv`, `cblas_ssbmv`, `cblas_sspmv`
-- `cblas_ssyr`, `cblas_ssyr2`, `cblas_sspr`, `cblas_sspr2`
-- `cblas_strmv`, `cblas_stbmv`, `cblas_stpmv`
-- `cblas_strsv`, `cblas_stbsv`, `cblas_stpsv`
-- `cblas_sger`
+#### Level 2 函数 (11个)
+- `cblas_ssbmv`, `cblas_sspmv`
+- `cblas_ssyr2`, `cblas_sspr`, `cblas_sspr2`
+- `cblas_stbmv`, `cblas_stpmv`
+- `cblas_stbsv`, `cblas_stpsv`
 
 #### Level 3 函数 (1个)
 - `cblas_sgemm_batch`
@@ -166,16 +170,21 @@
 
 ## 建议的测试优先级
 
-### 高优先级 (核心 BLAS 函数)
-1. **基础矩阵操作**: `cblas_dger`, `cblas_sger` (外积运算)
-2. **三角矩阵操作**: `cblas_dtrmv`, `cblas_strmv` (三角矩阵向量乘法)
-3. **对称矩阵操作**: `cblas_dsymv`, `cblas_ssymv` (对称矩阵向量乘法)
-4. **旋转操作**: `cblas_drot`, `cblas_srot` (Givens 旋转)
+### 高优先级 (核心 BLAS 函数) - 已完成 ✅
+1. **基础矩阵操作**: `cblas_dger`, `cblas_sger` (外积运算) ✅
+2. **三角矩阵操作**: `cblas_dtrmv`, `cblas_strmv` (三角矩阵向量乘法) ✅
+3. **对称矩阵操作**: `cblas_dsymv`, `cblas_ssymv` (对称矩阵向量乘法) ✅
+4. **旋转操作**: `cblas_drot`, `cblas_srot` (Givens 旋转) ✅
+5. **带状矩阵操作**: `cblas_sgbmv`, `cblas_dgbmv` (带状矩阵操作) ✅
+6. **旋转生成**: `cblas_srotg`, `cblas_drotg` (Givens 旋转生成) ✅
+7. **对称秩1更新**: `cblas_dsyr`, `cblas_ssyr` (对称矩阵秩1更新) ✅
+8. **三角求解**: `cblas_dtrsv`, `cblas_strsv` (三角系统求解) ✅
 
-### 中优先级 (扩展 BLAS 函数)
+### 中优先级 (扩展 BLAS 函数) - 下一步建议
 1. **批量操作**: `cblas_sgemm_batch`, `cblas_dgemm_batch`
 2. **矩阵拷贝和转置**: `cblas_somatcopy`, `cblas_domatcopy`
-3. **带状矩阵操作**: `cblas_sgbmv`, `cblas_dgbmv`
+3. **修改 Givens 旋转**: `cblas_srotm`, `cblas_drotm`, `cblas_srotmg`, `cblas_drotmg`
+4. **带状/打包矩阵**: `cblas_ssbmv`, `cblas_dsbmv`, `cblas_sspmv`, `cblas_dspmv`
 
 ### 低优先级 (复数和专门化函数)
 1. **复数运算**: 所有 C 和 Z 前缀函数
@@ -193,3 +202,20 @@
 ## 总结
 
 当前测试主要覆盖了单精度和双精度实数的基础 BLAS 操作，但在复数运算、高级矩阵操作、以及 OpenBLAS 特有功能方面存在较大测试缺口。建议优先补充核心 BLAS 函数的测试，然后逐步扩展到复数和专门化功能的测试覆盖。
+
+## 更新记录
+
+### 2024年12月 - 核心函数测试增强
+- 新增 16 个核心 BLAS 函数的测试覆盖
+- 测试覆盖率从 24.5% 提升到 30.6%
+- 完成高优先级函数的全部测试
+- 新增测试函数:
+  - Level 1: `cblas_srot`, `cblas_drot`, `cblas_srotg`, `cblas_drotg`
+  - Level 2: `cblas_sger`, `cblas_dger`, `cblas_strmv`, `cblas_dtrmv`, `cblas_ssymv`, `cblas_dsymv`, `cblas_sgbmv`, `cblas_dgbmv`, `cblas_ssyr`, `cblas_dsyr`, `cblas_strsv`, `cblas_dtrsv`
+
+### 下一阶段建议
+根据优先级继续补充中优先级函数的测试，重点关注:
+1. 批量操作和矩阵拷贝功能
+2. Modified Givens 旋转操作  
+3. 带状和打包存储格式的矩阵操作
+4. 复数运算的基础函数

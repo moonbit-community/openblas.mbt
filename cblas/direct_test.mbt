@@ -987,3 +987,329 @@ test "cblas_daxpby test" {
 // test "cblas_zgemm_batch test" - skipped due to VoidPtr parameters
 
 // BFLOAT16 and INT8 extensions are not included in this cblas.mbt file
+
+
+// Additional tests based on todo_test.md recommendations
+
+test "cblas_sger test" {
+  // Test cblas_sger (single precision outer product)
+  let m = 3
+  let n = 2
+  let alpha: Float = 2.0
+  let x: FixedArray[Float] = [1.0, 2.0, 3.0]
+  let y: FixedArray[Float] = [4.0, 5.0]
+  let a: FixedArray[Float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0] // 3x2 matrix initialized to zero
+  
+  cblas_sger(CblasRowMajor, m, n, alpha, x, 1, y, 1, a, n)
+  
+  // Expected result: A = alpha * x * y^T = 2.0 * [1; 2; 3] * [4, 5]
+  // A = [[8, 10], [16, 20], [24, 30]]
+  assert_eq(a[0], 8.0)   // a[0,0] = 2 * 1 * 4 = 8
+  assert_eq(a[1], 10.0)  // a[0,1] = 2 * 1 * 5 = 10
+  assert_eq(a[2], 16.0)  // a[1,0] = 2 * 2 * 4 = 16
+  assert_eq(a[3], 20.0)  // a[1,1] = 2 * 2 * 5 = 20
+  assert_eq(a[4], 24.0)  // a[2,0] = 2 * 3 * 4 = 24
+  assert_eq(a[5], 30.0)  // a[2,1] = 2 * 3 * 5 = 30
+}
+
+test "cblas_dger test" {
+  // Test cblas_dger (double precision outer product)
+  let m = 3
+  let n = 2
+  let alpha = 2.0
+  let x: FixedArray[Double] = [1.0, 2.0, 3.0]
+  let y: FixedArray[Double] = [4.0, 5.0]
+  let a: FixedArray[Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0] // 3x2 matrix initialized to zero
+  
+  cblas_dger(CblasRowMajor, m, n, alpha, x, 1, y, 1, a, n)
+  
+  // Expected result: A = alpha * x * y^T = 2.0 * [1; 2; 3] * [4, 5]
+  // A = [[8, 10], [16, 20], [24, 30]]
+  assert_eq(a[0], 8.0)   // a[0,0] = 2 * 1 * 4 = 8
+  assert_eq(a[1], 10.0)  // a[0,1] = 2 * 1 * 5 = 10
+  assert_eq(a[2], 16.0)  // a[1,0] = 2 * 2 * 4 = 16
+  assert_eq(a[3], 20.0)  // a[1,1] = 2 * 2 * 5 = 20
+  assert_eq(a[4], 24.0)  // a[2,0] = 2 * 3 * 4 = 24
+  assert_eq(a[5], 30.0)  // a[2,1] = 2 * 3 * 5 = 30
+}
+test "cblas_strmv test" {
+  // Test cblas_strmv (single precision triangular matrix vector multiplication)
+  let n = 3
+  let a: FixedArray[Float] = [1.0, 2.0, 3.0, 0.0, 4.0, 5.0, 0.0, 0.0, 6.0] // 3x3 upper triangular matrix
+  let x: FixedArray[Float] = [1.0, 2.0, 3.0]
+  
+  cblas_strmv(CblasRowMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, a, n, x, 1)
+  
+  // Expected result: x = A * x where A is upper triangular
+  // A = [[1, 2, 3], [0, 4, 5], [0, 0, 6]]
+  // x = [1, 2, 3] -> [1*1 + 2*2 + 3*3, 0*1 + 4*2 + 5*3, 0*1 + 0*2 + 6*3] = [14, 23, 18]
+  assert_eq(x[0], 14.0)
+  assert_eq(x[1], 23.0)
+  assert_eq(x[2], 18.0)
+}
+
+test "cblas_dtrmv test" {
+  // Test cblas_dtrmv (double precision triangular matrix vector multiplication)
+  let n = 3
+  let a: FixedArray[Double] = [1.0, 2.0, 3.0, 0.0, 4.0, 5.0, 0.0, 0.0, 6.0] // 3x3 upper triangular matrix
+  let x: FixedArray[Double] = [1.0, 2.0, 3.0]
+  
+  cblas_dtrmv(CblasRowMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, a, n, x, 1)
+  
+  // Expected result: x = A * x where A is upper triangular
+  // A = [[1, 2, 3], [0, 4, 5], [0, 0, 6]]
+  // x = [1, 2, 3] -> [1*1 + 2*2 + 3*3, 0*1 + 4*2 + 5*3, 0*1 + 0*2 + 6*3] = [14, 23, 18]
+  assert_eq(x[0], 14.0)
+  assert_eq(x[1], 23.0)
+  assert_eq(x[2], 18.0)
+}
+test "cblas_ssymv test" {
+  // Test cblas_ssymv (single precision symmetric matrix vector multiplication)
+  let n = 3
+  let alpha: Float = 2.0
+  let beta: Float = 1.0
+  let a: FixedArray[Float] = [1.0, 2.0, 3.0, 2.0, 4.0, 5.0, 3.0, 5.0, 6.0] // 3x3 symmetric matrix
+  let x: FixedArray[Float] = [1.0, 2.0, 3.0]
+  let y: FixedArray[Float] = [1.0, 1.0, 1.0] // initial y values
+  
+  cblas_ssymv(CblasRowMajor, CblasUpper, n, alpha, a, n, x, 1, beta, y, 1)
+  
+  // Expected result: y = alpha * A * x + beta * y
+  // A = [[1, 2, 3], [2, 4, 5], [3, 5, 6]] (symmetric matrix)
+  // A * x = [[1, 2, 3], [2, 4, 5], [3, 5, 6]] * [1, 2, 3] = [14, 25, 31]
+  // y = 2.0 * [14, 25, 31] + 1.0 * [1, 1, 1] = [29, 51, 63]
+  assert_eq(y[0], 29.0)
+  assert_eq(y[1], 51.0)
+  assert_eq(y[2], 63.0)
+}
+
+test "cblas_dsymv test" {
+  // Test cblas_dsymv (double precision symmetric matrix vector multiplication)
+  let n = 3
+  let alpha = 2.0
+  let beta = 1.0
+  let a: FixedArray[Double] = [1.0, 2.0, 3.0, 2.0, 4.0, 5.0, 3.0, 5.0, 6.0] // 3x3 symmetric matrix
+  let x: FixedArray[Double] = [1.0, 2.0, 3.0]
+  let y: FixedArray[Double] = [1.0, 1.0, 1.0] // initial y values
+  
+  cblas_dsymv(CblasRowMajor, CblasUpper, n, alpha, a, n, x, 1, beta, y, 1)
+  
+  // Expected result: y = alpha * A * x + beta * y
+  // A = [[1, 2, 3], [2, 4, 5], [3, 5, 6]] (symmetric matrix)
+  // A * x = [[1, 2, 3], [2, 4, 5], [3, 5, 6]] * [1, 2, 3] = [14, 25, 31]
+  // y = 2.0 * [14, 25, 31] + 1.0 * [1, 1, 1] = [29, 51, 63]
+  assert_eq(y[0], 29.0)
+  assert_eq(y[1], 51.0)
+  assert_eq(y[2], 63.0)
+}
+test "cblas_srot test" {
+  // Test cblas_srot (single precision Givens rotation)
+  let n = 3
+  let x: FixedArray[Float] = [1.0, 2.0, 3.0]
+  let y: FixedArray[Float] = [4.0, 5.0, 6.0]
+  let c: Float = 0.6 // cos(theta)
+  let s: Float = 0.8 // sin(theta)
+  
+  cblas_srot(n, x, 1, y, 1, c, s)
+  
+  // Expected result: [x'; y'] = [[c, s], [-s, c]] * [x; y]
+  // x'[i] = c*x[i] + s*y[i], y'[i] = -s*x[i] + c*y[i]
+  // x'[0] = 0.6*1 + 0.8*4 = 0.6 + 3.2 = 3.8
+  // y'[0] = -0.8*1 + 0.6*4 = -0.8 + 2.4 = 1.6
+  // x'[1] = 0.6*2 + 0.8*5 = 1.2 + 4.0 = 5.2
+  // y'[1] = -0.8*2 + 0.6*5 = -1.6 + 3.0 = 1.4
+  // x'[2] = 0.6*3 + 0.8*6 = 1.8 + 4.8 = 6.6
+  // y'[2] = -0.8*3 + 0.6*6 = -2.4 + 3.6 = 1.2
+  assert_eq((x[0] - 3.8).abs() < 0.001, true)
+  assert_eq((y[0] - 1.6).abs() < 0.001, true)
+  assert_eq((x[1] - 5.2).abs() < 0.001, true)
+  assert_eq((y[1] - 1.4).abs() < 0.001, true)
+  assert_eq((x[2] - 6.6).abs() < 0.001, true)
+  assert_eq((y[2] - 1.2).abs() < 0.001, true)
+}
+
+test "cblas_drot test" {
+  // Test cblas_drot (double precision Givens rotation)
+  let n = 3
+  let x: FixedArray[Double] = [1.0, 2.0, 3.0]
+  let y: FixedArray[Double] = [4.0, 5.0, 6.0]
+  let c = 0.6 // cos(theta)
+  let s = 0.8 // sin(theta)
+  
+  cblas_drot(n, x, 1, y, 1, c, s)
+  
+  // Expected result: [x'; y'] = [[c, s], [-s, c]] * [x; y]
+  // x'[i] = c*x[i] + s*y[i], y'[i] = -s*x[i] + c*y[i]
+  // x'[0] = 0.6*1 + 0.8*4 = 0.6 + 3.2 = 3.8
+  // y'[0] = -0.8*1 + 0.6*4 = -0.8 + 2.4 = 1.6
+  // x'[1] = 0.6*2 + 0.8*5 = 1.2 + 4.0 = 5.2
+  // y'[1] = -0.8*2 + 0.6*5 = -1.6 + 3.0 = 1.4
+  // x'[2] = 0.6*3 + 0.8*6 = 1.8 + 4.8 = 6.6
+  // y'[2] = -0.8*3 + 0.6*6 = -2.4 + 3.6 = 1.2
+  assert_eq((x[0] - 3.8).abs() < 0.001, true)
+  assert_eq((y[0] - 1.6).abs() < 0.001, true)
+  assert_eq((x[1] - 5.2).abs() < 0.001, true)
+  assert_eq((y[1] - 1.4).abs() < 0.001, true)
+  assert_eq((x[2] - 6.6).abs() < 0.001, true)
+  assert_eq((y[2] - 1.2).abs() < 0.001, true)
+}
+test "cblas_sgbmv test" {
+  // Test cblas_sgbmv (single precision general band matrix vector multiplication)
+  let m = 3
+  let n = 3
+  let kl = 1  // number of sub-diagonals
+  let ku = 1  // number of super-diagonals
+  let alpha: Float = 1.0
+  let beta: Float = 0.0
+  // Simplified test: tridiagonal matrix
+  // Original matrix: [[2, 1, 0], [1, 2, 1], [0, 1, 2]]
+  // Band storage (column-major): ku rows above main diagonal, main diagonal, kl rows below
+  // For column 0: [*, 2, 1]; column 1: [1, 2, 1]; column 2: [1, 2, *]
+  let a: FixedArray[Float] = [0.0, 1.0, 1.0, 2.0, 2.0, 2.0, 1.0, 1.0, 0.0]
+  let x: FixedArray[Float] = [1.0, 1.0, 1.0]
+  let y: FixedArray[Float] = [0.0, 0.0, 0.0]
+  
+  cblas_sgbmv(CblasColMajor, CblasNoTrans, m, n, kl, ku, alpha, a, kl + ku + 1, x, 1, beta, y, 1)
+  
+  // Expected result: y = A * x = [[2, 1, 0], [1, 2, 1], [0, 1, 2]] * [1, 1, 1]
+  // y = [2*1 + 1*1 + 0*1, 1*1 + 2*1 + 1*1, 0*1 + 1*1 + 2*1] = [3, 4, 3]
+  assert_eq(y[0], 3.0)
+  assert_eq(y[1], 4.0)
+  assert_eq(y[2], 3.0)
+}
+
+test "cblas_dgbmv test" {
+  // Test cblas_dgbmv (double precision general band matrix vector multiplication)
+  let m = 3
+  let n = 3
+  let kl = 1  // number of sub-diagonals
+  let ku = 1  // number of super-diagonals
+  let alpha = 1.0
+  let beta = 0.0
+  // Simplified test: tridiagonal matrix
+  // Original matrix: [[2, 1, 0], [1, 2, 1], [0, 1, 2]]
+  // Band storage (column-major): ku rows above main diagonal, main diagonal, kl rows below
+  // For column 0: [*, 2, 1]; column 1: [1, 2, 1]; column 2: [1, 2, *]
+  let a: FixedArray[Double] = [0.0, 1.0, 1.0, 2.0, 2.0, 2.0, 1.0, 1.0, 0.0]
+  let x: FixedArray[Double] = [1.0, 1.0, 1.0]
+  let y: FixedArray[Double] = [0.0, 0.0, 0.0]
+  
+  cblas_dgbmv(CblasColMajor, CblasNoTrans, m, n, kl, ku, alpha, a, kl + ku + 1, x, 1, beta, y, 1)
+  
+  // Expected result: y = A * x = [[2, 1, 0], [1, 2, 1], [0, 1, 2]] * [1, 1, 1]
+  // y = [2*1 + 1*1 + 0*1, 1*1 + 2*1 + 1*1, 0*1 + 1*1 + 2*1] = [3, 4, 3]
+  assert_eq(y[0], 3.0)
+  assert_eq(y[1], 4.0)
+  assert_eq(y[2], 3.0)
+}
+test "cblas_srotg test" {
+  // Test cblas_srotg (single precision Givens rotation generation)
+  let a: FixedArray[Float] = [3.0]
+  let b: FixedArray[Float] = [4.0]
+  let c: FixedArray[Float] = [0.0]
+  let s: FixedArray[Float] = [0.0]
+  
+  cblas_srotg(a, b, c, s)
+  
+  // Expected: Given a=3, b=4, generate c and s such that:
+  // [c  s] [a] = [r]  where r = sqrt(a^2 + b^2) = sqrt(9+16) = 5
+  // [-s c] [b]   [0]
+  // So c = a/r = 3/5 = 0.6, s = b/r = 4/5 = 0.8
+  // a is overwritten with r = 5
+  assert_eq((a[0] - 5.0).abs() < 0.001, true)  // a should be r = 5
+  assert_eq((c[0] - 0.6).abs() < 0.001, true)  // c = cos(theta)
+  assert_eq((s[0] - 0.8).abs() < 0.001, true)  // s = sin(theta)
+}
+
+test "cblas_drotg test" {
+  // Test cblas_drotg (double precision Givens rotation generation)
+  let a: FixedArray[Double] = [3.0]
+  let b: FixedArray[Double] = [4.0]
+  let c: FixedArray[Double] = [0.0]
+  let s: FixedArray[Double] = [0.0]
+  
+  cblas_drotg(a, b, c, s)
+  
+  // Expected: Given a=3, b=4, generate c and s such that:
+  // [c  s] [a] = [r]  where r = sqrt(a^2 + b^2) = sqrt(9+16) = 5
+  // [-s c] [b]   [0]
+  // So c = a/r = 3/5 = 0.6, s = b/r = 4/5 = 0.8
+  // a is overwritten with r = 5
+  assert_eq((a[0] - 5.0).abs() < 0.001, true)  // a should be r = 5
+  assert_eq((c[0] - 0.6).abs() < 0.001, true)  // c = cos(theta)
+  assert_eq((s[0] - 0.8).abs() < 0.001, true)  // s = sin(theta)
+}
+test "cblas_ssyr test" {
+  // Test cblas_ssyr (single precision symmetric rank-1 update)
+  let n = 2
+  let alpha: Float = 2.0
+  let x: FixedArray[Float] = [1.0, 2.0]
+  let a: FixedArray[Float] = [1.0, 0.0, 0.0, 1.0] // 2x2 identity matrix initially
+  
+  cblas_ssyr(CblasRowMajor, CblasUpper, n, alpha, x, 1, a, n)
+  
+  // Expected result: A = A + alpha * x * x^T
+  // A = [[1, 0], [0, 1]] + 2.0 * [[1], [2]] * [1, 2]
+  // A = [[1, 0], [0, 1]] + 2.0 * [[1, 2], [2, 4]]
+  // A = [[1, 0], [0, 1]] + [[2, 4], [4, 8]]
+  // A = [[3, 4], [4, 9]] (but only upper triangle is updated)
+  assert_eq(a[0], 3.0)  // a[0,0] = 1 + 2*1*1 = 3
+  assert_eq(a[1], 4.0)  // a[0,1] = 0 + 2*1*2 = 4
+  assert_eq(a[2], 0.0)  // a[1,0] not updated (upper triangular)
+  assert_eq(a[3], 9.0)  // a[1,1] = 1 + 2*2*2 = 9
+}
+
+test "cblas_dsyr test" {
+  // Test cblas_dsyr (double precision symmetric rank-1 update)
+  let n = 2
+  let alpha = 2.0
+  let x: FixedArray[Double] = [1.0, 2.0]
+  let a: FixedArray[Double] = [1.0, 0.0, 0.0, 1.0] // 2x2 identity matrix initially
+  
+  cblas_dsyr(CblasRowMajor, CblasUpper, n, alpha, x, 1, a, n)
+  
+  // Expected result: A = A + alpha * x * x^T
+  // A = [[1, 0], [0, 1]] + 2.0 * [[1], [2]] * [1, 2]
+  // A = [[1, 0], [0, 1]] + 2.0 * [[1, 2], [2, 4]]
+  // A = [[1, 0], [0, 1]] + [[2, 4], [4, 8]]
+  // A = [[3, 4], [4, 9]] (but only upper triangle is updated)
+  assert_eq(a[0], 3.0)  // a[0,0] = 1 + 2*1*1 = 3
+  assert_eq(a[1], 4.0)  // a[0,1] = 0 + 2*1*2 = 4
+  assert_eq(a[2], 0.0)  // a[1,0] not updated (upper triangular)
+  assert_eq(a[3], 9.0)  // a[1,1] = 1 + 2*2*2 = 9
+}
+test "cblas_strsv test" {
+  // Test cblas_strsv (single precision triangular solve)
+  let n = 3
+  let a: FixedArray[Float] = [2.0, 1.0, 1.0, 0.0, 2.0, 1.0, 0.0, 0.0, 2.0] // 3x3 upper triangular matrix
+  let x: FixedArray[Float] = [6.0, 4.0, 2.0] // right-hand side and solution
+  
+  cblas_strsv(CblasRowMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, a, n, x, 1)
+  
+  // Solve A * x = b where A = [[2, 1, 1], [0, 2, 1], [0, 0, 2]], b = [6, 4, 2]
+  // Back substitution:
+  // 2*x[2] = 2 => x[2] = 1
+  // 2*x[1] + 1*x[2] = 4 => 2*x[1] + 1 = 4 => x[1] = 1.5
+  // 2*x[0] + 1*x[1] + 1*x[2] = 6 => 2*x[0] + 1.5 + 1 = 6 => x[0] = 1.75
+  assert_eq((x[0] - 1.75).abs() < 0.001, true)
+  assert_eq((x[1] - 1.5).abs() < 0.001, true)
+  assert_eq((x[2] - 1.0).abs() < 0.001, true)
+}
+
+test "cblas_dtrsv test" {
+  // Test cblas_dtrsv (double precision triangular solve)
+  let n = 3
+  let a: FixedArray[Double] = [2.0, 1.0, 1.0, 0.0, 2.0, 1.0, 0.0, 0.0, 2.0] // 3x3 upper triangular matrix
+  let x: FixedArray[Double] = [6.0, 4.0, 2.0] // right-hand side and solution
+  
+  cblas_dtrsv(CblasRowMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, a, n, x, 1)
+  
+  // Solve A * x = b where A = [[2, 1, 1], [0, 2, 1], [0, 0, 2]], b = [6, 4, 2]
+  // Back substitution:
+  // 2*x[2] = 2 => x[2] = 1
+  // 2*x[1] + 1*x[2] = 4 => 2*x[1] + 1 = 4 => x[1] = 1.5
+  // 2*x[0] + 1*x[1] + 1*x[2] = 6 => 2*x[0] + 1.5 + 1 = 6 => x[0] = 1.75
+  assert_eq((x[0] - 1.75).abs() < 0.001, true)
+  assert_eq((x[1] - 1.5).abs() < 0.001, true)
+  assert_eq((x[2] - 1.0).abs() < 0.001, true)
+}
