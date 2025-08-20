@@ -80,20 +80,20 @@ test "cblas_ssum test" {
   // Test cblas_sasum with a simple case
   let n = 3
   let x: FixedArray[Float] = [1.0, -2.0, 3.0]
-  let result = cblas_sasum(n, x, 1)
+  let result = cblas_ssum(n, x, 1)
   
   // Expected result: |1.0| + |-2.0| + |3.0| = 1.0 + 2.0 + 3.0 = 6.0
-  assert_eq(result, 6.0)
+  assert_eq(result, 2.0)
 }
 
 test "cblas_dsum test" {
   // Test cblas_dasum with a simple case
   let n = 3
   let x: FixedArray[Double] = [1.0, -2.0, 3.0]
-  let result = cblas_dasum(n, x, 1)
+  let result = cblas_dsum(n, x, 1)
   
   // Expected result: |1.0| + |-2.0| + |3.0| = 1.0 + 2.0 + 3.0 = 6.0
-  assert_eq(result, 6.0)
+  assert_eq(result, 2.0)
 }
 
 test "cblas_scsum test" {
@@ -101,16 +101,6 @@ test "cblas_scsum test" {
   let n = 3
   let x: FixedArray[Float] = [1.0, -2.0, 3.0]
   let result = cblas_sasum(n, x, 1)
-  
-  // Expected result: |1.0| + |-2.0| + |3.0| = 1.0 + 2.0 + 3.0 = 6.0
-  assert_eq(result, 6.0)
-}
-
-test "cblas_zdsum test" {
-  // Test cblas_dasum with a simple case
-  let n = 3
-  let x: FixedArray[Double] = [1.0, -2.0, 3.0]
-  let result = cblas_dasum(n, x, 1)
   
   // Expected result: |1.0| + |-2.0| + |3.0| = 1.0 + 2.0 + 3.0 = 6.0
   assert_eq(result, 6.0)
