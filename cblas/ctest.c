@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 #include <cblas.h>
 
 int assert_eq(float actual, float expect, const char* msg) {
@@ -389,6 +390,281 @@ int test_cblas_dgemm() {
     return failed;
 }
 
+// cblas_cgemm test - skipped due to complex parameter
+// cblas_cgemm3m test - skipped due to complex parameter  
+// cblas_zgemm test - skipped due to complex parameter
+// cblas_zgemm3m test - skipped due to complex parameter
+
+int test_cblas_sgemmt() {
+    int m = 2, k = 2;
+    float alpha = 1.0f, beta = 0.0f;
+    float a[] = {1.0f, 2.0f, 3.0f, 4.0f}; // 2x2 matrix
+    float b[] = {1.0f, 2.0f, 3.0f, 4.0f}; // 2x2 matrix
+    float c[4] = {0}; // 2x2 result matrix
+
+    cblas_sgemmt(CblasRowMajor, CblasUpper, CblasNoTrans, CblasTrans, m, k, alpha, a, k, b, k, beta, c, m);
+    
+    int failed = 0;
+    failed += assert_eq(c[0], 5.0f, "cblas_sgemmt[0,0]");
+    failed += assert_eq(c[1], 11.0f, "cblas_sgemmt[0,1]");
+    failed += assert_eq(c[3], 25.0f, "cblas_sgemmt[1,1]");
+    return failed;
+}
+
+int test_cblas_dgemmt() {
+    int m = 2, k = 2;
+    double alpha = 1.0, beta = 0.0;
+    double a[] = {1.0, 2.0, 3.0, 4.0}; // 2x2 matrix
+    double b[] = {1.0, 2.0, 3.0, 4.0}; // 2x2 matrix
+    double c[4] = {0}; // 2x2 result matrix
+
+    cblas_dgemmt(CblasRowMajor, CblasUpper, CblasNoTrans, CblasTrans, m, k, alpha, a, k, b, k, beta, c, m);
+    
+    int failed = 0;
+    failed += assert_eq(c[0], 5.0, "cblas_dgemmt[0,0]");
+    failed += assert_eq(c[1], 11.0, "cblas_dgemmt[0,1]");
+    failed += assert_eq(c[3], 25.0, "cblas_dgemmt[1,1]");
+    return failed;
+}
+
+// cblas_cgemmt test - skipped due to complex parameter
+// cblas_zgemmt test - skipped due to complex parameter
+
+int test_cblas_ssymm() {
+    int m = 2, n = 2;
+    float alpha = 1.0f, beta = 0.0f;
+    float a[] = {1.0f, 2.0f, 2.0f, 3.0f}; // 2x2 symmetric matrix
+    float b[] = {1.0f, 2.0f, 3.0f, 4.0f}; // 2x2 matrix
+    float c[4] = {0}; // 2x2 result matrix
+
+    cblas_ssymm(CblasRowMajor, CblasLeft, CblasUpper, m, n, alpha, a, m, b, n, beta, c, n);
+    
+    int failed = 0;
+    failed += assert_eq(c[0], 7.0f, "cblas_ssymm[0,0]");
+    failed += assert_eq(c[1], 10.0f, "cblas_ssymm[0,1]");
+    failed += assert_eq(c[2], 11.0f, "cblas_ssymm[1,0]");
+    failed += assert_eq(c[3], 16.0f, "cblas_ssymm[1,1]");
+    return failed;
+}
+
+int test_cblas_dsymm() {
+    int m = 2, n = 2;
+    double alpha = 1.0, beta = 0.0;
+    double a[] = {1.0, 2.0, 2.0, 3.0}; // 2x2 symmetric matrix
+    double b[] = {1.0, 2.0, 3.0, 4.0}; // 2x2 matrix
+    double c[4] = {0}; // 2x2 result matrix
+
+    cblas_dsymm(CblasRowMajor, CblasLeft, CblasUpper, m, n, alpha, a, m, b, n, beta, c, n);
+    
+    int failed = 0;
+    failed += assert_eq(c[0], 7.0, "cblas_dsymm[0,0]");
+    failed += assert_eq(c[1], 10.0, "cblas_dsymm[0,1]");
+    failed += assert_eq(c[2], 11.0, "cblas_dsymm[1,0]");
+    failed += assert_eq(c[3], 16.0, "cblas_dsymm[1,1]");
+    return failed;
+}
+
+// cblas_csymm test - skipped due to complex parameter
+// cblas_zsymm test - skipped due to complex parameter
+
+int test_cblas_ssyrk() {
+    int n = 2, k = 3;
+    float alpha = 1.0f, beta = 0.0f;
+    float a[] = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f}; // 2x3 matrix
+    float c[4] = {0}; // 2x2 result matrix
+
+    cblas_ssyrk(CblasRowMajor, CblasUpper, CblasNoTrans, n, k, alpha, a, k, beta, c, n);
+    
+    int failed = 0;
+    failed += assert_eq(c[0], 14.0f, "cblas_ssyrk[0,0]");
+    failed += assert_eq(c[1], 32.0f, "cblas_ssyrk[0,1]");
+    failed += assert_eq(c[3], 77.0f, "cblas_ssyrk[1,1]");
+    return failed;
+}
+
+int test_cblas_dsyrk() {
+    int n = 2, k = 3;
+    double alpha = 1.0, beta = 0.0;
+    double a[] = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0}; // 2x3 matrix
+    double c[4] = {0}; // 2x2 result matrix
+
+    cblas_dsyrk(CblasRowMajor, CblasUpper, CblasNoTrans, n, k, alpha, a, k, beta, c, n);
+    
+    int failed = 0;
+    failed += assert_eq(c[0], 14.0, "cblas_dsyrk[0,0]");
+    failed += assert_eq(c[1], 32.0, "cblas_dsyrk[0,1]");
+    failed += assert_eq(c[3], 77.0, "cblas_dsyrk[1,1]");
+    return failed;
+}
+
+// cblas_csyrk test - skipped due to complex parameter
+// cblas_zsyrk test - skipped due to complex parameter
+
+int test_cblas_ssyr2k() {
+    int n = 2, k = 2;
+    float alpha = 1.0f, beta = 0.0f;
+    float a[] = {1.0f, 2.0f, 3.0f, 4.0f}; // 2x2 matrix
+    float b[] = {1.0f, 1.0f, 1.0f, 1.0f}; // 2x2 matrix
+    float c[4] = {0}; // 2x2 result matrix
+
+    cblas_ssyr2k(CblasRowMajor, CblasUpper, CblasNoTrans, n, k, alpha, a, k, b, k, beta, c, n);
+    
+    int failed = 0;
+    failed += assert_eq(c[0], 6.0f, "cblas_ssyr2k[0,0]");
+    failed += assert_eq(c[1], 10.0f, "cblas_ssyr2k[0,1]");
+    failed += assert_eq(c[3], 14.0f, "cblas_ssyr2k[1,1]");
+    return failed;
+}
+
+int test_cblas_dsyr2k() {
+    int n = 2, k = 2;
+    double alpha = 1.0, beta = 0.0;
+    double a[] = {1.0, 2.0, 3.0, 4.0}; // 2x2 matrix
+    double b[] = {1.0, 1.0, 1.0, 1.0}; // 2x2 matrix
+    double c[4] = {0}; // 2x2 result matrix
+
+    cblas_dsyr2k(CblasRowMajor, CblasUpper, CblasNoTrans, n, k, alpha, a, k, b, k, beta, c, n);
+    
+    int failed = 0;
+    failed += assert_eq(c[0], 6.0, "cblas_dsyr2k[0,0]");
+    failed += assert_eq(c[1], 10.0, "cblas_dsyr2k[0,1]");
+    failed += assert_eq(c[3], 14.0, "cblas_dsyr2k[1,1]");
+    return failed;
+}
+
+// cblas_csyr2k test - skipped due to complex parameter
+// cblas_zsyr2k test - skipped due to complex parameter
+
+int test_cblas_strmm() {
+    int m = 2, n = 2;
+    float alpha = 1.0f;
+    float a[] = {1.0f, 2.0f, 0.0f, 3.0f}; // 2x2 upper triangular matrix
+    float b[] = {1.0f, 2.0f, 3.0f, 4.0f}; // 2x2 matrix to be modified
+
+    cblas_strmm(CblasRowMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, n, alpha, a, m, b, n);
+    
+    int failed = 0;
+    failed += assert_eq(b[0], 7.0f, "cblas_strmm[0,0]");
+    failed += assert_eq(b[1], 10.0f, "cblas_strmm[0,1]");
+    failed += assert_eq(b[2], 9.0f, "cblas_strmm[1,0]");
+    failed += assert_eq(b[3], 12.0f, "cblas_strmm[1,1]");
+    return failed;
+}
+
+int test_cblas_dtrmm() {
+    int m = 2, n = 2;
+    double alpha = 1.0;
+    double a[] = {1.0, 2.0, 0.0, 3.0}; // 2x2 upper triangular matrix
+    double b[] = {1.0, 2.0, 3.0, 4.0}; // 2x2 matrix to be modified
+
+    cblas_dtrmm(CblasRowMajor, CblasLeft, CblasUpper, CblasNoTrans, CblasNonUnit, m, n, alpha, a, m, b, n);
+    
+    int failed = 0;
+    failed += assert_eq(b[0], 7.0, "cblas_dtrmm[0,0]");
+    failed += assert_eq(b[1], 10.0, "cblas_dtrmm[0,1]");
+    failed += assert_eq(b[2], 9.0, "cblas_dtrmm[1,0]");
+    failed += assert_eq(b[3], 12.0, "cblas_dtrmm[1,1]");
+    return failed;
+}
+
+// cblas_ctrmm test - skipped due to complex parameter
+// cblas_ztrmm test - skipped due to complex parameter
+
+int test_cblas_strsm() {
+    int m = 2, n = 2;
+    float alpha = 1.0f;
+    float a[] = {1.0f, 0.0f, 2.0f, 3.0f}; // 2x2 lower triangular matrix
+    float b[] = {7.0f, 10.0f, 9.0f, 12.0f}; // 2x2 matrix to solve
+
+    cblas_strsm(CblasRowMajor, CblasLeft, CblasLower, CblasNoTrans, CblasNonUnit, m, n, alpha, a, m, b, n);
+    
+    int failed = 0;
+    failed += assert_eq(b[0], 7.0f, "cblas_strsm[0,0]");
+    failed += assert_eq(b[1], 10.0f, "cblas_strsm[0,1]");
+    // Check with tolerance for floating point arithmetic
+    float expected_val = -5.0f / 3.0f;
+    if (fabsf(b[2] - expected_val) > 0.001f) {
+        printf("cblas_strsm[1,0] Test Failed: actual: %f, expect: %f\n", b[2], expected_val);
+        failed++;
+    }
+    float expected_val2 = -8.0f / 3.0f;
+    if (fabsf(b[3] - expected_val2) > 0.001f) {
+        printf("cblas_strsm[1,1] Test Failed: actual: %f, expect: %f\n", b[3], expected_val2);
+        failed++;
+    }
+    return failed;
+}
+
+int test_cblas_dtrsm() {
+    int m = 2, n = 2;
+    double alpha = 1.0;
+    double a[] = {1.0, 0.0, 2.0, 3.0}; // 2x2 lower triangular matrix
+    double b[] = {7.0, 10.0, 9.0, 12.0}; // 2x2 matrix to solve
+
+    cblas_dtrsm(CblasRowMajor, CblasLeft, CblasLower, CblasNoTrans, CblasNonUnit, m, n, alpha, a, m, b, n);
+    
+    int failed = 0;
+    failed += assert_eq(b[0], 7.0, "cblas_dtrsm[0,0]");
+    failed += assert_eq(b[1], 10.0, "cblas_dtrsm[0,1]");
+    // Check with tolerance for floating point arithmetic
+    double expected_val = -5.0 / 3.0;
+    if (fabs(b[2] - expected_val) > 0.001) {
+        printf("cblas_dtrsm[1,0] Test Failed: actual: %f, expect: %f\n", b[2], expected_val);
+        failed++;
+    }
+    double expected_val2 = -8.0 / 3.0;
+    if (fabs(b[3] - expected_val2) > 0.001) {
+        printf("cblas_dtrsm[1,1] Test Failed: actual: %f, expect: %f\n", b[3], expected_val2);
+        failed++;
+    }
+    return failed;
+}
+
+// cblas_ctrsm test - skipped due to complex parameter
+// cblas_ztrsm test - skipped due to complex parameter
+
+// Hermitian and complex functions are skipped due to complex parameters
+// cblas_chemm test - skipped due to complex parameter
+// cblas_zhemm test - skipped due to complex parameter
+// cblas_cherk test - skipped due to complex parameter
+// cblas_zherk test - skipped due to complex parameter
+// cblas_cher2k test - skipped due to complex parameter
+// cblas_zher2k test - skipped due to complex parameter
+
+// BLAS extensions
+int test_cblas_saxpby() {
+    int n = 3;
+    float alpha = 2.0f, beta = 3.0f;
+    float x[] = {1.0f, 2.0f, 3.0f};
+    float y[] = {4.0f, 5.0f, 6.0f};
+    
+    cblas_saxpby(n, alpha, x, 1, beta, y, 1);
+    
+    int failed = 0;
+    failed += assert_eq(y[0], 14.0f, "cblas_saxpby[0]");
+    failed += assert_eq(y[1], 19.0f, "cblas_saxpby[1]");
+    failed += assert_eq(y[2], 24.0f, "cblas_saxpby[2]");
+    return failed;
+}
+
+int test_cblas_daxpby() {
+    int n = 3;
+    double alpha = 2.0, beta = 3.0;
+    double x[] = {1.0, 2.0, 3.0};
+    double y[] = {4.0, 5.0, 6.0};
+    
+    cblas_daxpby(n, alpha, x, 1, beta, y, 1);
+    
+    int failed = 0;
+    failed += assert_eq(y[0], 14.0, "cblas_daxpby[0]");
+    failed += assert_eq(y[1], 19.0, "cblas_daxpby[1]");
+    failed += assert_eq(y[2], 24.0, "cblas_daxpby[2]");
+    return failed;
+}
+
+// cblas_caxpby test - skipped due to complex parameter
+// cblas_zaxpby test - skipped due to complex parameter
+
 int main() {
     int failed = 0;
     failed += test_cblas_sdsdot();
@@ -425,6 +701,21 @@ int main() {
     failed += test_cblas_dgemv();
     failed += test_cblas_sgemm();
     failed += test_cblas_dgemm();
+    // New tests from cblas_cgemm onwards
+    failed += test_cblas_sgemmt();
+    failed += test_cblas_dgemmt();
+    failed += test_cblas_ssymm();
+    failed += test_cblas_dsymm();
+    failed += test_cblas_ssyrk();
+    failed += test_cblas_dsyrk();
+    failed += test_cblas_ssyr2k();
+    failed += test_cblas_dsyr2k();
+    failed += test_cblas_strmm();
+    failed += test_cblas_dtrmm();
+    failed += test_cblas_strsm();
+    failed += test_cblas_dtrsm();
+    failed += test_cblas_saxpby();
+    failed += test_cblas_daxpby();
     if (failed > 0) {
         printf("%d tests failed.\n", failed);
         return 1;
