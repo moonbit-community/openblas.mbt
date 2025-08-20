@@ -43,7 +43,17 @@ test "cblas_ddot test" {
   assert_eq(result, 32.0)
 }
 
-// test "cblas_cdotu test" { ... }
+test "cblas_cdotu test" {
+  // Test cblas_cdotu with a simple case
+  let n = 3
+  let x: FixedArray[ComplexFloat] = [{ real: 1.0, imag: 2.0}, { real: 3.0, imag: 4.0}, { real: 5.0, imag: 6.0}]
+  let y: FixedArray[ComplexFloat] = [{ real: 7.0, imag: 8.0}, { real: 9.0, imag: 10.0}, { real: 11.0, imag: 12.0}]
+  let result = cblas_cdotu(n, x, 1, y, 1)
+  // Expected result: -39, 214
+  assert_eq(result.real, -39.0)
+  assert_eq(result.imag, 214.0)
+}
+
 // test "cblas_cdotc test" { ... }
 // test "cblas_zdotu test" { ... }
 // test "cblas_zdotc test" { ... }

@@ -24,11 +24,11 @@ int test_cblas_sdsdot() {
 
 int test_cblas_dsdot() {
     int n = 3;
-    double x[] = {1.0, 2.0, 3.0};
-    double y[] = {4.0, 5.0, 6.0};
+    float x[] = {1.0, 2.0, 3.0};
+    float y[] = {4.0, 5.0, 6.0};
 
-    double result = cblas_ddot(n, x, 1, y, 1);
-    return assert_eq(result, 32.0, "cblas_ddot");
+    float result = cblas_dsdot(n, x, 1, y, 1);
+    return assert_eq(result, 32.0, "cblas_dsdot");
 }
 
 int test_cblas_sdot() {
@@ -47,6 +47,22 @@ int test_cblas_ddot() {
 
     double result = cblas_ddot(n, x, 1, y, 1);
     return assert_eq(result, 32.0, "cblas_ddot");
+}
+
+int test_cblas_cdotu() {
+    int n = 3;
+    openblas_complex_float x[] = {openblas_make_complex_float(1.0f, 2.0f),
+                                  openblas_make_complex_float(3.0f, 4.0f),
+                                  openblas_make_complex_float(5.0f, 6.0f)};
+    openblas_complex_float y[] = {openblas_make_complex_float(7.0f, 8.0f),
+                                  openblas_make_complex_float(9.0f, 10.0f),
+                                  openblas_make_complex_float(11.0f, 12.0f)};
+    openblas_complex_float result = cblas_cdotu(n, x, 1, y, 1);
+    openblas_complex_float expected = {-39.0f, 214.0f};
+    int failed = 0;
+    failed += assert_eq(openblas_complex_float_real(result), openblas_complex_float_real(expected), "cblas_cdotu real part");
+    failed += assert_eq(openblas_complex_float_imag(result), openblas_complex_float_imag(expected), "cblas_cdotu imag part");
+    return failed;
 }
 
 int test_cblas_sasum() {
@@ -671,6 +687,7 @@ int main() {
     failed += test_cblas_dsdot();
     failed += test_cblas_sdot();
     failed += test_cblas_ddot();
+    failed += test_cblas_cdotu();
     failed += test_cblas_sasum();
     failed += test_cblas_dasum();
     failed += test_cblas_ssum();
