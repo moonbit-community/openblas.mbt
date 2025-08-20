@@ -18,7 +18,7 @@ all: $(TARGET)
 $(TARGET): ctest.o
 	$(CC) -o $(TARGET) ctest.o $(LDFLAGS)
 
-main.o: ctest.c
+ctest.o: ctest.c
 	$(CC) -c ctest.c $(CFLAGS)
 
 run: $(TARGET)
