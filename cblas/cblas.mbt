@@ -275,14 +275,14 @@ pub extern "C" fn cblas_cdotc_sub(n: Int, x: FixedArray[Float], incx: Int, y: Fi
 /// ```c
 /// void cblas_zdotu_sub(const blasint n, const void *x, const blasint incx, const void *y, const blasint incy, void *ret);
 /// ```
-pub extern "C" fn cblas_zdotu_sub(n: Int, x: FixedArray[ValTypeComplexDouble], incx: Int, y: FixedArray[ValTypeComplexDouble], incy: Int, ret: ComplexDouble) = "cblas_zdotu_sub";
+pub extern "C" fn cblas_zdotu_sub(n: Int, x: FixedArray[Double], incx: Int, y: FixedArray[Double], incy: Int, ret: ComplexDouble) = "cblas_zdotu_sub";
 
 ///|
 ///
 /// ```c
 /// void cblas_zdotc_sub(const blasint n, const void *x, const blasint incx, const void *y, const blasint incy, void *ret);
 /// ```
-pub extern "C" fn cblas_zdotc_sub(n: Int, x: FixedArray[ValTypeComplexDouble], incx: Int, y: FixedArray[ValTypeComplexDouble], incy: Int, ret: ComplexDouble) = "cblas_zdotc_sub";
+pub extern "C" fn cblas_zdotc_sub(n: Int, x: FixedArray[Double], incx: Int, y: FixedArray[Double], incy: Int, ret: ComplexDouble) = "cblas_zdotc_sub";
 
 ///|
 ///
@@ -310,7 +310,7 @@ pub extern "C" fn cblas_scasum(n: Int, x: FixedArray[Float], incx: Int) -> Float
 /// ```c
 /// double cblas_dzasum(const blasint n, const void *x, const blasint incx);
 /// ```
-pub extern "C" fn cblas_dzasum(n: Int, x: FixedArray[Float], incx: Int) -> Double = "cblas_dzasum";
+pub extern "C" fn cblas_dzasum(n: Int, x: FixedArray[Double], incx: Int) -> Double = "cblas_dzasum";
 
 
 ///|
@@ -332,14 +332,14 @@ pub extern "C" fn cblas_dsum(n: Int, x: FixedArray[Double], incx: Int) -> Double
 /// ```c
 /// float cblas_scsum(const blasint n, const void *x, const blasint incx);
 /// ```
-pub extern "C" fn cblas_scsum(n: Int, x: VoidPtr, incx: Int) -> Float = "cblas_scsum";
+pub extern "C" fn cblas_scsum(n: Int, x: FixedArray[Float], incx: Int) -> Float = "cblas_scsum";
 
 ///|
 ///
 /// ```c
 /// double cblas_dzsum(const blasint n, const void *x, const blasint incx);
 /// ```
-pub extern "C" fn cblas_dzsum(n: Int, x: VoidPtr, incx: Int) -> Double = "cblas_dzsum";
+pub extern "C" fn cblas_dzsum(n: Int, x: FixedArray[Double], incx: Int) -> Double = "cblas_dzsum";
 
 ///|
 ///
@@ -367,7 +367,7 @@ pub extern "C" fn cblas_scnrm2(n: Int, x: FixedArray[Float], incx: Int) -> Float
 /// ```c
 /// double cblas_dznrm2(const blasint N, const void *X, const blasint incX);
 /// ```
-pub extern "C" fn cblas_dznrm2(n: Int, x: FixedArray[Float], incx: Int) -> Double = "cblas_dznrm2";
+pub extern "C" fn cblas_dznrm2(n: Int, x: FixedArray[Double], incx: Int) -> Double = "cblas_dznrm2";
 
 ///|
 ///
@@ -395,7 +395,7 @@ pub extern "C" fn cblas_icamax(n: Int, x: FixedArray[Float], incx: Int) -> UInt6
 /// ```c
 /// UInt64 cblas_izamax(const blasint n, const void *x, const blasint incx);
 /// ```
-pub extern "C" fn cblas_izamax(n: Int, x: FixedArray[Float], incx: Int) -> UInt64 = "cblas_izamax";
+pub extern "C" fn cblas_izamax(n: Int, x: FixedArray[Double], incx: Int) -> UInt64 = "cblas_izamax";
 
 ///|
 ///
@@ -423,7 +423,7 @@ pub extern "C" fn cblas_icamin(n: Int, x: FixedArray[Float], incx: Int) -> UInt6
 /// ```c
 /// UInt64 cblas_izamin(const blasint n, const void *x, const blasint incx);
 /// ```
-pub extern "C" fn cblas_izamin(n: Int, x: FixedArray[Float], incx: Int) -> UInt64 = "cblas_izamin";
+pub extern "C" fn cblas_izamin(n: Int, x: FixedArray[Double], incx: Int) -> UInt64 = "cblas_izamin";
 
 ///|
 ///
@@ -451,7 +451,7 @@ pub extern "C" fn cblas_scamax(n: Int, x: FixedArray[Float], incx: Int) -> Float
 /// ```c
 /// double cblas_dzamax(const blasint n, const void *x, const blasint incx);
 /// ```
-pub extern "C" fn cblas_dzamax(n: Int, x: FixedArray[Float], incx: Int) -> Double = "cblas_dzamax";
+pub extern "C" fn cblas_dzamax(n: Int, x: FixedArray[Double], incx: Int) -> Double = "cblas_dzamax";
 
 ///|
 ///
@@ -479,7 +479,7 @@ pub extern "C" fn cblas_scamin(n: Int, x: FixedArray[Float], incx: Int) -> Float
 /// ```c
 /// double cblas_dzamin(const blasint n, const void *x, const blasint incx);
 /// ```
-pub extern "C" fn cblas_dzamin(n: Int, x: FixedArray[Float], incx: Int) -> Double = "cblas_dzamin";
+pub extern "C" fn cblas_dzamin(n: Int, x: FixedArray[Double], incx: Int) -> Double = "cblas_dzamin";
 
 ///|
 ///
@@ -507,7 +507,7 @@ pub extern "C" fn cblas_icmax(n: Int, x: FixedArray[Float], incx: Int) -> UInt64
 /// ```c
 /// UInt64 cblas_izmax(const blasint n, const void *x, const blasint incx);
 /// ```
-pub extern "C" fn cblas_izmax(n: Int, x: FixedArray[Float], incx: Int) -> UInt64 = "cblas_izmax";
+pub extern "C" fn cblas_izmax(n: Int, x: FixedArray[Double], incx: Int) -> UInt64 = "cblas_izmax";
 
 ///|
 ///
@@ -535,7 +535,7 @@ pub extern "C" fn cblas_icmin(n: Int, x: FixedArray[Float], incx: Int) -> UInt64
 /// ```c
 /// UInt64 cblas_izmin(const blasint n, const void *x, const blasint incx);
 /// ```
-pub extern "C" fn cblas_izmin(n: Int, x: FixedArray[Float], incx: Int) -> UInt64 = "cblas_izmin";
+pub extern "C" fn cblas_izmin(n: Int, x: FixedArray[Double], incx: Int) -> UInt64 = "cblas_izmin";
 
 ///|
 ///
@@ -563,7 +563,7 @@ pub extern "C" fn cblas_caxpy(n: Int, alpha: FixedArray[Float], x: FixedArray[Fl
 /// ```c
 /// void cblas_zaxpy(const blasint n, const void *alpha, const void *x, const blasint incx, void *y, const blasint incy);
 /// ```
-pub extern "C" fn cblas_zaxpy(n: Int, alpha: FixedArray[Float], x: FixedArray[Float], incx: Int, y: FixedArray[Float], incy: Int) = "cblas_zaxpy";
+pub extern "C" fn cblas_zaxpy(n: Int, alpha: FixedArray[Double], x: FixedArray[Double], incx: Int, y: FixedArray[Double], incy: Int) = "cblas_zaxpy";
 
 ///|
 ///
@@ -577,7 +577,7 @@ pub extern "C" fn cblas_caxpyc(n: Int, alpha: FixedArray[Float], x: FixedArray[F
 /// ```c
 /// void cblas_zaxpyc(const blasint n, const void *alpha, const void *x, const blasint incx, void *y, const blasint incy);
 /// ```
-pub extern "C" fn cblas_zaxpyc(n: Int, alpha: FixedArray[Float], x: FixedArray[Float], incx: Int, y: FixedArray[Float], incy: Int) = "cblas_zaxpyc";
+pub extern "C" fn cblas_zaxpyc(n: Int, alpha: FixedArray[Double], x: FixedArray[Double], incx: Int, y: FixedArray[Double], incy: Int) = "cblas_zaxpyc";
 //
 ///|
 ///
@@ -605,7 +605,7 @@ pub extern "C" fn cblas_ccopy(n: Int, x: FixedArray[Float], incx: Int, y: FixedA
 /// ```c
 /// void cblas_zcopy(const blasint n, const void *x, const blasint incx, void *y, const blasint incy);
 /// ```
-pub extern "C" fn cblas_zcopy(n: Int, x: FixedArray[Float], incx: Int, y: FixedArray[Float], incy: Int) = "cblas_zcopy";
+pub extern "C" fn cblas_zcopy(n: Int, x: FixedArray[Double], incx: Int, y: FixedArray[Double], incy: Int) = "cblas_zcopy";
 
 ///|
 ///
@@ -633,7 +633,7 @@ pub extern "C" fn cblas_cswap(n: Int, x: FixedArray[Float], incx: Int, y: FixedA
 /// ```c
 /// void cblas_zswap(const blasint n, void *x, const blasint incx, void *y, const blasint incy);
 /// ```
-pub extern "C" fn cblas_zswap(n: Int, x: FixedArray[Float], incx: Int, y: FixedArray[Float], incy: Int) = "cblas_zswap";
+pub extern "C" fn cblas_zswap(n: Int, x: FixedArray[Double], incx: Int, y: FixedArray[Double], incy: Int) = "cblas_zswap";
 
 ///|
 ///
@@ -661,7 +661,7 @@ pub extern "C" fn cblas_csrot(n: Int, x: FixedArray[Float], incx: Int, y: FixedA
 /// ```c
 /// void cblas_zdrot(const blasint n, const void *x, const blasint incx, void *y, const blasint incY, const double c, const double s);
 /// ```
-pub extern "C" fn cblas_zdrot(n: Int, x: FixedArray[Float], incx: Int, y: FixedArray[Float], incy: Int, c: Double, s: Double) = "cblas_zdrot";
+pub extern "C" fn cblas_zdrot(n: Int, x: FixedArray[Double], incx: Int, y: FixedArray[Double], incy: Int, c: Double, s: Double) = "cblas_zdrot";
 
 ///|
 ///
@@ -689,7 +689,7 @@ pub extern "C" fn cblas_crotg(a: FixedArray[Float], b: FixedArray[Float], c: Fix
 /// ```c
 /// void cblas_zrotg(void *a, void *b, double *c, void *s);
 /// ```
-pub extern "C" fn cblas_zrotg(a: FixedArray[Float], b: FixedArray[Float], c: FixedArray[Double], s: FixedArray[Float]) = "cblas_zrotg";
+pub extern "C" fn cblas_zrotg(a: FixedArray[Double], b: FixedArray[Double], c: FixedArray[Double], s: FixedArray[Double]) = "cblas_zrotg";
 
 ///|
 ///
@@ -745,7 +745,7 @@ pub extern "C" fn cblas_cscal(n: Int, alpha: FixedArray[Float], x: FixedArray[Fl
 /// ```c
 /// void cblas_zscal(const blasint N, const void *alpha, void *X, const blasint incX);
 /// ```
-pub extern "C" fn cblas_zscal(n: Int, alpha: FixedArray[Float], x: FixedArray[Float], incx: Int) = "cblas_zscal";
+pub extern "C" fn cblas_zscal(n: Int, alpha: FixedArray[Double], x: FixedArray[Double], incx: Int) = "cblas_zscal";
 
 ///|
 ///
@@ -759,7 +759,7 @@ pub extern "C" fn cblas_csscal(n: Int, alpha: Float, x: FixedArray[Float], incx:
 /// ```c
 /// void cblas_zdscal(const blasint N, const double alpha, void *X, const blasint incX);
 /// ```
-pub extern "C" fn cblas_zdscal(n: Int, alpha: Double, x: FixedArray[Float], incx: Int) = "cblas_zdscal";
+pub extern "C" fn cblas_zdscal(n: Int, alpha: Double, x: FixedArray[Double], incx: Int) = "cblas_zdscal";
 
 ///|
 ///
@@ -791,7 +791,7 @@ pub extern "C" fn cblas_cgemv(order: CBLAS_ORDER, trans: CBLAS_TRANSPOSE, m: Int
 /// void cblas_zgemv(const enum CBLAS_ORDER order,  const enum CBLAS_TRANSPOSE trans,  const blasint m, const blasint n,
 ////	 const void *alpha, const void  *a, const blasint lda,  const void  *x, const blasint incx,  const void *beta,  void  *y, const blasint incy);
 /// ```
-pub extern "C" fn cblas_zgemv(order: CBLAS_ORDER, trans: CBLAS_TRANSPOSE, m: Int, n: Int, alpha: FixedArray[Float], a: FixedArray[Float], lda: Int, x: FixedArray[Float], incx: Int, beta: FixedArray[Float], y: FixedArray[Float], incy: Int) = "cblas_zgemv";
+pub extern "C" fn cblas_zgemv(order: CBLAS_ORDER, trans: CBLAS_TRANSPOSE, m: Int, n: Int, alpha: FixedArray[Double], a: FixedArray[Double], lda: Int, x: FixedArray[Double], incx: Int, beta: FixedArray[Double], y: FixedArray[Double], incy: Int) = "cblas_zgemv";
 
 ///|
 ///
@@ -826,14 +826,14 @@ pub extern "C" fn cblas_cgerc(order: CBLAS_ORDER, m: Int, n: Int, alpha: FixedAr
 /// ```c
 /// void cblas_zgeru(const enum CBLAS_ORDER order, const blasint M, const blasint N, const void *alpha, const void *X, const blasint incX, const void *Y, const blasint incY, void *A, const blasint lda);
 /// ```
-pub extern "C" fn cblas_zgeru(order: CBLAS_ORDER, m: Int, n: Int, alpha: FixedArray[Float], x: FixedArray[Float], incx: Int, y: FixedArray[Float], incy: Int, a: FixedArray[Float], lda: Int) = "cblas_zgeru";
+pub extern "C" fn cblas_zgeru(order: CBLAS_ORDER, m: Int, n: Int, alpha: FixedArray[Double], x: FixedArray[Double], incx: Int, y: FixedArray[Double], incy: Int, a: FixedArray[Double], lda: Int) = "cblas_zgeru";
 
 ///|
 ///
 /// ```c
 /// void cblas_zgerc(const enum CBLAS_ORDER order, const blasint M, const blasint N, const void *alpha, const void *X, const blasint incX, const void *Y, const blasint incY, void *A, const blasint lda);
 /// ```
-pub extern "C" fn cblas_zgerc(order: CBLAS_ORDER, m: Int, n: Int, alpha: FixedArray[Float], x: FixedArray[Float], incx: Int, y: FixedArray[Float], incy: Int, a: FixedArray[Float], lda: Int) = "cblas_zgerc";
+pub extern "C" fn cblas_zgerc(order: CBLAS_ORDER, m: Int, n: Int, alpha: FixedArray[Double], x: FixedArray[Double], incx: Int, y: FixedArray[Double], incy: Int, a: FixedArray[Double], lda: Int) = "cblas_zgerc";
 
 ///|
 ///
@@ -860,7 +860,7 @@ pub extern "C" fn cblas_ctrsv(order: CBLAS_ORDER, uplo: CBLAS_UPLO, trans_a: CBL
 /// ```c
 /// void cblas_ztrsv(const enum CBLAS_ORDER order, const enum CBLAS_UPLO Uplo, const enum CBLAS_TRANSPOSE TransA, const enum CBLAS_DIAG Diag, const blasint N, const void *A, const blasint lda, void *X, const blasint incX);
 /// ```
-pub extern "C" fn cblas_ztrsv(order: CBLAS_ORDER, uplo: CBLAS_UPLO, trans_a: CBLAS_TRANSPOSE, diag: CBLAS_DIAG, n: Int, a: FixedArray[Float], lda: Int, x: FixedArray[Float], incx: Int) = "cblas_ztrsv";
+pub extern "C" fn cblas_ztrsv(order: CBLAS_ORDER, uplo: CBLAS_UPLO, trans_a: CBLAS_TRANSPOSE, diag: CBLAS_DIAG, n: Int, a: FixedArray[Double], lda: Int, x: FixedArray[Double], incx: Int) = "cblas_ztrsv";
 
 ///|
 ///
@@ -888,7 +888,7 @@ pub extern "C" fn cblas_ctrmv(order: CBLAS_ORDER, uplo: CBLAS_UPLO, trans_a: CBL
 /// ```c
 /// void cblas_ztrmv(const enum CBLAS_ORDER order, const enum CBLAS_UPLO Uplo, const enum CBLAS_TRANSPOSE TransA, const enum CBLAS_DIAG Diag, const blasint N, const void *A, const blasint lda, void *X, const blasint incX);
 /// ```
-pub extern "C" fn cblas_ztrmv(order: CBLAS_ORDER, uplo: CBLAS_UPLO, trans_a: CBLAS_TRANSPOSE, diag: CBLAS_DIAG, n: Int, a: FixedArray[Float], lda: Int, x: FixedArray[Float], incx: Int) = "cblas_ztrmv";
+pub extern "C" fn cblas_ztrmv(order: CBLAS_ORDER, uplo: CBLAS_UPLO, trans_a: CBLAS_TRANSPOSE, diag: CBLAS_DIAG, n: Int, a: FixedArray[Double], lda: Int, x: FixedArray[Double], incx: Int) = "cblas_ztrmv";
 
 ///|
 ///
@@ -916,7 +916,7 @@ pub extern "C" fn cblas_cher(order: CBLAS_ORDER, uplo: CBLAS_UPLO, n: Int, alpha
 /// ```c
 /// void cblas_zher(const enum CBLAS_ORDER order, const enum CBLAS_UPLO Uplo, const blasint N, const double alpha, const void *X, const blasint incX, void *A, const blasint lda);
 /// ```
-pub extern "C" fn cblas_zher(order: CBLAS_ORDER, uplo: CBLAS_UPLO, n: Int, alpha: Double, x: FixedArray[Float], incx: Int, a: FixedArray[Float], lda: Int) = "cblas_zher";
+pub extern "C" fn cblas_zher(order: CBLAS_ORDER, uplo: CBLAS_UPLO, n: Int, alpha: Double, x: FixedArray[Double], incx: Int, a: FixedArray[Double], lda: Int) = "cblas_zher";
 
 ///|
 ///
@@ -945,7 +945,7 @@ pub extern "C" fn cblas_cher2(order: CBLAS_ORDER, uplo: CBLAS_UPLO, n: Int, alph
 /// void cblas_zher2(const enum CBLAS_ORDER order, const enum CBLAS_UPLO Uplo, const blasint N, const void *alpha, const void *X, const blasint incX,
 ///                const void *Y, const blasint incY, void *A, const blasint lda);
 /// ```
-pub extern "C" fn cblas_zher2(order: CBLAS_ORDER, uplo: CBLAS_UPLO, n: Int, alpha: FixedArray[Float], x: FixedArray[Float], incx: Int, y: FixedArray[Float], incy: Int, a: FixedArray[Float], lda: Int) = "cblas_zher2";
+pub extern "C" fn cblas_zher2(order: CBLAS_ORDER, uplo: CBLAS_UPLO, n: Int, alpha: FixedArray[Double], x: FixedArray[Double], incx: Int, y: FixedArray[Double], incy: Int, a: FixedArray[Double], lda: Int) = "cblas_zher2";
 //
 ///|
 ///
@@ -974,7 +974,7 @@ pub extern "C" fn cblas_cgbmv(order: CBLAS_ORDER, trans_a: CBLAS_TRANSPOSE, m: I
 /// void cblas_zgbmv(const enum CBLAS_ORDER order, const enum CBLAS_TRANSPOSE TransA, const blasint M, const blasint N,
 ///                 const blasint KL, const blasint KU, const void *alpha, const void *A, const blasint lda, const void *X, const blasint incX, const void *beta, void *Y, const blasint incY);
 /// ```
-pub extern "C" fn cblas_zgbmv(order: CBLAS_ORDER, trans_a: CBLAS_TRANSPOSE, m: Int, n: Int, kl: Int, ku: Int, alpha: FixedArray[Float], a: FixedArray[Float], lda: Int, x: FixedArray[Float], incx: Int, beta: FixedArray[Float], y: FixedArray[Float], incy: Int) = "cblas_zgbmv";
+pub extern "C" fn cblas_zgbmv(order: CBLAS_ORDER, trans_a: CBLAS_TRANSPOSE, m: Int, n: Int, kl: Int, ku: Int, alpha: FixedArray[Double], a: FixedArray[Double], lda: Int, x: FixedArray[Double], incx: Int, beta: FixedArray[Double], y: FixedArray[Double], incy: Int) = "cblas_zgbmv";
 
 ///|
 ///
@@ -1019,7 +1019,7 @@ pub extern "C" fn cblas_ctbmv(order: CBLAS_ORDER, uplo: CBLAS_UPLO, trans_a: CBL
 /// void cblas_ztbmv(const enum CBLAS_ORDER order, const enum CBLAS_UPLO Uplo, const enum CBLAS_TRANSPOSE TransA, const enum CBLAS_DIAG Diag,
 ///                 const blasint N, const blasint K, const void *A, const blasint lda, void *X, const blasint incX);
 /// ```
-pub extern "C" fn cblas_ztbmv(order: CBLAS_ORDER, uplo: CBLAS_UPLO, trans_a: CBLAS_TRANSPOSE, diag: CBLAS_DIAG, n: Int, k: Int, a: FixedArray[Float], lda: Int, x: FixedArray[Float], incx: Int) = "cblas_ztbmv";
+pub extern "C" fn cblas_ztbmv(order: CBLAS_ORDER, uplo: CBLAS_UPLO, trans_a: CBLAS_TRANSPOSE, diag: CBLAS_DIAG, n: Int, k: Int, a: FixedArray[Double], lda: Int, x: FixedArray[Double], incx: Int) = "cblas_ztbmv";
 
 ///|
 ///
@@ -1048,7 +1048,7 @@ pub extern "C" fn cblas_ctbsv(order: CBLAS_ORDER, uplo: CBLAS_UPLO, trans_a: CBL
 /// void cblas_ztbsv(const enum CBLAS_ORDER order, const enum CBLAS_UPLO Uplo, const enum CBLAS_TRANSPOSE TransA, const enum CBLAS_DIAG Diag,
 ///                 const blasint N, const blasint K, const void *A, const blasint lda, void *X, const blasint incX);
 /// ```
-pub extern "C" fn cblas_ztbsv(order: CBLAS_ORDER, uplo: CBLAS_UPLO, trans_a: CBLAS_TRANSPOSE, diag: CBLAS_DIAG, n: Int, k: Int, a: FixedArray[Float], lda: Int, x: FixedArray[Float], incx: Int) = "cblas_ztbsv";
+pub extern "C" fn cblas_ztbsv(order: CBLAS_ORDER, uplo: CBLAS_UPLO, trans_a: CBLAS_TRANSPOSE, diag: CBLAS_DIAG, n: Int, k: Int, a: FixedArray[Double], lda: Int, x: FixedArray[Double], incx: Int) = "cblas_ztbsv";
 //
 ///|
 ///
@@ -1077,7 +1077,7 @@ pub extern "C" fn cblas_ctpmv(order: CBLAS_ORDER, uplo: CBLAS_UPLO, trans_a: CBL
 /// void cblas_ztpmv(const enum CBLAS_ORDER order, const enum CBLAS_UPLO Uplo, const enum CBLAS_TRANSPOSE TransA, const enum CBLAS_DIAG Diag,
 ///                 const blasint N, const void *Ap, void *X, const blasint incX);
 /// ```
-pub extern "C" fn cblas_ztpmv(order: CBLAS_ORDER, uplo: CBLAS_UPLO, trans_a: CBLAS_TRANSPOSE, diag: CBLAS_DIAG, n: Int, ap: FixedArray[Float], x: FixedArray[Float], incx: Int) = "cblas_ztpmv";
+pub extern "C" fn cblas_ztpmv(order: CBLAS_ORDER, uplo: CBLAS_UPLO, trans_a: CBLAS_TRANSPOSE, diag: CBLAS_DIAG, n: Int, ap: FixedArray[Double], x: FixedArray[Double], incx: Int) = "cblas_ztpmv";
 
 ///|
 ///
@@ -1106,7 +1106,7 @@ pub extern "C" fn cblas_ctpsv(order: CBLAS_ORDER, uplo: CBLAS_UPLO, trans_a: CBL
 /// void cblas_ztpsv(const enum CBLAS_ORDER order, const enum CBLAS_UPLO Uplo, const enum CBLAS_TRANSPOSE TransA, const enum CBLAS_DIAG Diag,
 ///                 const blasint N, const void *Ap, void *X, const blasint incX);
 /// ```
-pub extern "C" fn cblas_ztpsv(order: CBLAS_ORDER, uplo: CBLAS_UPLO, trans_a: CBLAS_TRANSPOSE, diag: CBLAS_DIAG, n: Int, ap: FixedArray[Float], x: FixedArray[Float], incx: Int) = "cblas_ztpsv";
+pub extern "C" fn cblas_ztpsv(order: CBLAS_ORDER, uplo: CBLAS_UPLO, trans_a: CBLAS_TRANSPOSE, diag: CBLAS_DIAG, n: Int, ap: FixedArray[Double], x: FixedArray[Double], incx: Int) = "cblas_ztpsv";
 //
 ///|
 ///
@@ -1267,7 +1267,7 @@ pub extern "C" fn cblas_cgemm3m(order: CBLAS_ORDER, trans_a: CBLAS_TRANSPOSE, tr
 /// void cblas_zgemm(const enum CBLAS_ORDER Order, const enum CBLAS_TRANSPOSE TransA, const enum CBLAS_TRANSPOSE TransB, const blasint M, const blasint N, const blasint K,
 ///	 const void *alpha, const void *A, const blasint lda, const void *B, const blasint ldb, const void *beta, void *C, const blasint ldc);
 /// ```
-pub extern "C" fn cblas_zgemm(order: CBLAS_ORDER, trans_a: CBLAS_TRANSPOSE, trans_b: CBLAS_TRANSPOSE, m: Int, n: Int, k: Int, alpha: FixedArray[Float], a: FixedArray[Float], lda: Int, b: FixedArray[Float], ldb: Int, beta: FixedArray[Float], c: FixedArray[Float], ldc: Int) = "cblas_zgemm";
+pub extern "C" fn cblas_zgemm(order: CBLAS_ORDER, trans_a: CBLAS_TRANSPOSE, trans_b: CBLAS_TRANSPOSE, m: Int, n: Int, k: Int, alpha: FixedArray[Double], a: FixedArray[Double], lda: Int, b: FixedArray[Double], ldb: Int, beta: FixedArray[Double], c: FixedArray[Double], ldc: Int) = "cblas_zgemm";
 ///|
 ///
 /// ```c
