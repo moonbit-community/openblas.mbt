@@ -4,7 +4,8 @@
   "readme": "README.md",
   "repository": "",
   "license": "Apache-2.0",
-  "keywords": [],
-  "description": "",
-  "source": ""
+  "keywords": ["OpenBlas", "Math", "Linear Algebra"],
+  "description": "Use OpenBlas in MoonBit",
+  "source": "",
+  "preferred-target" : "native"
 }
