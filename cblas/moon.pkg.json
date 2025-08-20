@@ -1,3 +1,10 @@
 {
-  "supported-targets": ["native"]
+  "supported-targets": ["native"],
+  "link" : {
+    "native" : {
+      "cc" : "$CC",
+      "cc-flags": "$CC_FLAGS -w",
+      "cc-link-flags" : "$CC_LINK_FLAGS"
+    }
+  }
 }
