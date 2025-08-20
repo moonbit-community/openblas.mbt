@@ -29,22 +29,38 @@ typealias UInt64 as OpenBlasComplexFloat
 pub extern "C" fn openblas_set_num_threads(num_threads: Int) = "openblas_set_num_threads";
 
 ///|
+/// 
+/// ```c
 /// void goto_set_num_threads(int num_threads);
+/// ```
 pub extern "C" fn goto_set_num_threads(num_threads: Int) = "goto_set_num_threads";
 
-//int openblas_set_num_threads_local(int num_threads);
+///|
+///
+/// ```c
+/// int openblas_set_num_threads_local(int num_threads);
+/// ```
 pub extern "C" fn openblas_set_num_threads_local(num_threads: Int) -> Int = "openblas_set_num_threads_local";
 
-///*Get the number of threads on runtime.*/
-//int openblas_get_num_threads(void);
+///| Get the number of threads on runtime.*/
+///
+/// ```c
+/// int openblas_get_num_threads(void);
+/// ```
 pub extern "C" fn openblas_get_num_threads() -> Int = "openblas_get_num_threads";
-//
-///*Get the number of physical processors (cores).*/
-//int openblas_get_num_procs(void);
+
+///| Get the number of physical processors (cores).*/
+///
+/// ```c
+/// int openblas_get_num_procs(void);
+/// ```
 pub extern "C" fn openblas_get_num_procs() -> Int = "openblas_get_num_procs";
 
-///*Get the build configure on runtime.*/
-//char* openblas_get_config(void);
+///| Get the build configure on runtime.*/
+///
+/// ```c
+/// char* openblas_get_config(void);
+/// ```
 extern "C" fn __openblas_get_config() -> CStr = "openblas_get_config";
 pub fn openblas_get_config() -> String {
   let cstr = __openblas_get_config()
@@ -97,30 +113,50 @@ pub extern "C" fn openblas_set_threads_callback_function(callback: Openblas_thre
 //#endif
 
 
-///* Get the parallelization type which is used by OpenBLAS */
-//int openblas_get_parallel(void);
+///| Get the parallelization type which is used by OpenBLAS */
+///
+/// ```c
+/// int openblas_get_parallel(void);
+/// ```
 pub extern "C" fn openblas_get_parallel() -> Int = "openblas_get_parallel";
 
 
-///* OpenBLAS is compiled for sequential use  */
-//#define OPENBLAS_SEQUENTIAL  0
+///| 
+///
+/// ```c
+/// #define OPENBLAS_SEQUENTIAL  0
+/// ```
 pub const OPENBLAS_SEQUENTIAL: Int = 0;
 
-///* OpenBLAS is compiled using normal threading model */
-//#define OPENBLAS_THREAD  1
+///| OpenBLAS is compiled using normal threading model
+///
+/// ```c
+/// #define OPENBLAS_THREAD  1
+/// ```
 pub const OPENBLAS_THREAD: Int = 1;
 
-///* OpenBLAS is compiled using OpenMP threading model */
-//#define OPENBLAS_OPENMP 2
+///| OpenBLAS is compiled using OpenMP threading model
+///
+/// ```c
+/// #define OPENBLAS_OPENMP 2
+/// ```
 pub const OPENBLAS_OPENMP: Int = 2;
 
-//typedef enum CBLAS_ORDER     {CblasRowMajor=101, CblasColMajor=102} CBLAS_ORDER;
+///|
+///
+/// ```c
+/// typedef enum CBLAS_ORDER     {CblasRowMajor=101, CblasColMajor=102} CBLAS_ORDER;
+/// ```
 pub(all) enum CBLAS_ORDER {
   CblasRowMajor = 101;
   CblasColMajor = 102;
 }
 
-//typedef enum CBLAS_TRANSPOSE {CblasNoTrans=111, CblasTrans=112, CblasConjTrans=113, CblasConjNoTrans=114} CBLAS_TRANSPOSE;
+///|
+///
+/// ```c
+/// typedef enum CBLAS_TRANSPOSE {CblasNoTrans=111, CblasTrans=112, CblasConjTrans=113, CblasConjNoTrans=114} CBLAS_TRANSPOSE;
+/// ```
 pub(all) enum CBLAS_TRANSPOSE {
   CblasNoTrans = 111;
   CblasTrans = 112;
@@ -128,41 +164,78 @@ pub(all) enum CBLAS_TRANSPOSE {
   CblasConjNoTrans = 114;
 }
 
-//typedef enum CBLAS_UPLO      {CblasUpper=121, CblasLower=122} CBLAS_UPLO;
+///|
+///
+/// ```c
+/// typedef enum CBLAS_UPLO      {CblasUpper=121, CblasLower=122} CBLAS_UPLO;
+/// ```
 pub(all) enum CBLAS_UPLO {
   CblasUpper = 121;
   CblasLower = 122;
 }
 
-//typedef enum CBLAS_DIAG      {CblasNonUnit=131, CblasUnit=132} CBLAS_DIAG;
+///|
+///
+/// ```c
+/// typedef enum CBLAS_DIAG      {CblasNonUnit=131, CblasUnit=132} CBLAS_DIAG;
+/// ```
 pub(all) enum CBLAS_DIAG {
   CblasNonUnit = 131;
   CblasUnit = 132;
 }
 
-//typedef enum CBLAS_SIDE      {CblasLeft=141, CblasRight=142} CBLAS_SIDE;
+///|
+///
+/// ```c
+/// typedef enum CBLAS_SIDE      {CblasLeft=141, CblasRight=142} CBLAS_SIDE;
+/// ```
 pub(all) enum CBLAS_SIDE {
   CblasLeft = 141;
   CblasRight = 142;
 }
 
-//typedef CBLAS_ORDER CBLAS_LAYOUT;
-typealias CBLAS_ORDER as CBLAS_LAYOUT;
+///|
+///
+/// ```c
+/// typedef CBLAS_ORDER CBLAS_LAYOUT;
+/// ```
+pub typealias CBLAS_ORDER as CBLAS_LAYOUT;
 
-//float  cblas_sdsdot(const blasint n, const float alpha, const float *x, const blasint incx, const float *y, const blasint incy);
+///|
+///
+/// ```c
+/// float  cblas_sdsdot(const blasint n, const float alpha, const float *x, const blasint incx, const float *y, const blasint incy);
+/// ```
 pub extern "C" fn cblas_sdsdot(n: Int, alpha: Float, x: FixedArray[Float], incx: Int, y: FixedArray[Float], incy: Int) -> Float = "cblas_sdsdot";
 
-//double cblas_dsdot (const blasint n, const float *x, const blasint incx, const float *y, const blasint incy);
+///|
+///
+/// ```c
+/// double cblas_dsdot (const blasint n, const float *x, const blasint incx, const float *y, const blasint incy);
+/// ```
 pub extern "C" fn cblas_dsdot(n: Int, x: FixedArray[Float], incx: Int, y: FixedArray[Float], incy: Int) -> Double = "cblas_dsdot";
 
-//float  cblas_sdot(const blasint n, const float  *x, const blasint incx, const float  *y, const blasint incy);
+///|
+///
+/// ```c
+/// float  cblas_sdot(const blasint n, const float  *x, const blasint incx, const float  *y, const blasint incy);
+/// ```
 pub extern "C" fn cblas_sdot(n: Int, x: FixedArray[Float], incx: Int, y: FixedArray[Float], incy: Int) -> Float = "cblas_sdot";
 
-//double cblas_ddot(const blasint n, const double *x, const blasint incx, const double *y, const blasint incy);
+///|
+///
+/// ```c
+/// double cblas_ddot(const blasint n, const double *x, const blasint incx, const double *y, const blasint incy);
+/// ```
 pub extern "C" fn cblas_ddot(n: Int, x: FixedArray[Double], incx: Int, y: FixedArray[Double], incy: Int) -> Double = "cblas_ddot";
 
-//openblas_complex_float  cblas_cdotu(const blasint n, const void  *x, const blasint incx, const void  *y, const blasint incy);
+///|
+///
+/// ```c
+/// openblas_complex_float  cblas_cdotu(const blasint n, const void  *x, const blasint incx, const void  *y, const blasint incy);
+/// ```
 pub extern "C" fn cblas_cdotu(n: Int, x: FixedArray[OpenBlasComplexFloat], incx: Int, y: FixedArray[OpenBlasComplexFloat], incy: Int) -> OpenBlasComplexFloat = "cblas_cdotu";
+
 //openblas_complex_float  cblas_cdotc(const blasint n, const void  *x, const blasint incx, const void  *y, const blasint incy);
 pub extern "C" fn cblas_cdotc(n: Int, x: FixedArray[OpenBlasComplexFloat], incx: Int, y: FixedArray[OpenBlasComplexFloat], incy: Int) -> OpenBlasComplexFloat = "cblas_cdotc";
 //openblas_complex_double cblas_zdotu(const blasint n, const void *x, const blasint incx, const void *y, const blasint incy);
