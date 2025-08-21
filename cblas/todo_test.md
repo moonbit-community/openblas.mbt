@@ -5,9 +5,9 @@
 ## 测试覆盖情况概述
 
 - **总函数数量**: 261 个函数
-- **已测试函数数量**: 80 个函数 (更新时间: 2024年12月)  
-- **未测试函数数量**: 181 个函数
-- **测试覆盖率**: 30.6%
+- **已测试函数数量**: 102 个函数 (更新时间: 2024年12月)  
+- **未测试函数数量**: 159 个函数
+- **测试覆盖率**: 39.1%
 
 ## 已测试的函数列表 (80个)
 
@@ -27,17 +27,25 @@
 - `cblas_sswap`, `cblas_dswap`, `cblas_cswap`
 - `cblas_sscal`, `cblas_dscal`, `cblas_cscal`, `cblas_csscal`
 - `cblas_saxpby`, `cblas_daxpby`
-- `cblas_srot`, `cblas_drot` (新增)
-- `cblas_srotg`, `cblas_drotg` (新增)
+- `cblas_srot`, `cblas_drot`
+- `cblas_srotg`, `cblas_drotg`
+- `cblas_srotm`, `cblas_drotm` (新增)
+- `cblas_srotmg`, `cblas_drotmg` (新增)
 
 ### BLAS Level 2 (矩阵-向量操作)
 - `cblas_sgemv`, `cblas_dgemv`
-- `cblas_sger`, `cblas_dger` (新增)
-- `cblas_strmv`, `cblas_dtrmv` (新增)
-- `cblas_ssymv`, `cblas_dsymv` (新增)
-- `cblas_sgbmv`, `cblas_dgbmv` (新增)
-- `cblas_ssyr`, `cblas_dsyr` (新增)
-- `cblas_strsv`, `cblas_dtrsv` (新增)
+- `cblas_sger`, `cblas_dger`
+- `cblas_strmv`, `cblas_dtrmv`
+- `cblas_ssymv`, `cblas_dsymv`
+- `cblas_sgbmv`, `cblas_dgbmv`
+- `cblas_ssyr`, `cblas_dsyr`
+- `cblas_strsv`, `cblas_dtrsv`
+- `cblas_ssbmv`, `cblas_dsbmv` (新增)
+- `cblas_sspmv`, `cblas_dspmv` (新增)
+- `cblas_sspr`, `cblas_dspr` (新增)
+- `cblas_sspr2`, `cblas_dspr2` (新增)
+- `cblas_stbmv`, `cblas_dtbmv` (新增)
+- `cblas_stpmv`, `cblas_dtpmv` (新增)
 
 ### BLAS Level 3 (矩阵-矩阵操作)
 - `cblas_sgemm`, `cblas_dgemm`
@@ -47,6 +55,11 @@
 - `cblas_ssyr2k`, `cblas_dsyr2k`
 - `cblas_strmm`, `cblas_dtrmm`
 - `cblas_strsm`, `cblas_dtrsm`
+
+### BLAS 扩展函数 (新增)
+- `cblas_somatcopy`, `cblas_domatcopy` (异地矩阵转置拷贝)
+- `cblas_simatcopy`, `cblas_dimatcopy` (原地矩阵转置)
+- `cblas_sgeadd`, `cblas_dgeadd` (矩阵加法)
 
 ## 未测试的函数列表 (181个)
 
@@ -180,11 +193,20 @@
 7. **对称秩1更新**: `cblas_dsyr`, `cblas_ssyr` (对称矩阵秩1更新) ✅
 8. **三角求解**: `cblas_dtrsv`, `cblas_strsv` (三角系统求解) ✅
 
-### 中优先级 (扩展 BLAS 函数) - 下一步建议
+### 中优先级 (扩展 BLAS 函数) - 已完成 ✅
+1. **矩阵拷贝和转置**: `cblas_somatcopy`, `cblas_domatcopy` ✅
+2. **原地矩阵转置**: `cblas_simatcopy`, `cblas_dimatcopy` ✅
+3. **矩阵加法**: `cblas_sgeadd`, `cblas_dgeadd` ✅
+4. **修改 Givens 旋转**: `cblas_srotm`, `cblas_drotm`, `cblas_srotmg`, `cblas_drotmg` ✅
+5. **带状/打包矩阵**: `cblas_ssbmv`, `cblas_dsbmv`, `cblas_sspmv`, `cblas_dspmv` ✅
+6. **打包矩阵rank更新**: `cblas_sspr`, `cblas_dspr`, `cblas_sspr2`, `cblas_dspr2` ✅  
+7. **三角形带状矩阵**: `cblas_stbmv`, `cblas_dtbmv` ✅
+8. **三角形打包矩阵**: `cblas_stpmv`, `cblas_dtpmv` ✅
+
+### 下一步中优先级建议
 1. **批量操作**: `cblas_sgemm_batch`, `cblas_dgemm_batch`
-2. **矩阵拷贝和转置**: `cblas_somatcopy`, `cblas_domatcopy`
-3. **修改 Givens 旋转**: `cblas_srotm`, `cblas_drotm`, `cblas_srotmg`, `cblas_drotmg`
-4. **带状/打包矩阵**: `cblas_ssbmv`, `cblas_dsbmv`, `cblas_sspmv`, `cblas_dspmv`
+2. **三角形求解扩展**: `cblas_stbsv`, `cblas_dtbsv`, `cblas_stpsv`, `cblas_dtpsv`
+3. **对称矩阵rank-2更新**: `cblas_ssyr2`, `cblas_dsyr2`
 
 ### 低优先级 (复数和专门化函数)
 1. **复数运算**: 所有 C 和 Z 前缀函数
@@ -205,13 +227,14 @@
 
 ## 更新记录
 
-### 2024年12月 - 核心函数测试增强
-- 新增 16 个核心 BLAS 函数的测试覆盖
-- 测试覆盖率从 24.5% 提升到 30.6%
-- 完成高优先级函数的全部测试
-- 新增测试函数:
-  - Level 1: `cblas_srot`, `cblas_drot`, `cblas_srotg`, `cblas_drotg`
-  - Level 2: `cblas_sger`, `cblas_dger`, `cblas_strmv`, `cblas_dtrmv`, `cblas_ssymv`, `cblas_dsymv`, `cblas_sgbmv`, `cblas_dgbmv`, `cblas_ssyr`, `cblas_dsyr`, `cblas_strsv`, `cblas_dtrsv`
+### 2024年12月 - 核心和中优先级函数测试增强
+- 新增 22 个中优先级 BLAS 函数的测试覆盖
+- 测试覆盖率从 30.6% 提升到 39.1%
+- 完成高优先级和大部分中优先级函数的测试
+- 本次新增测试函数:
+  - Level 1 扩展: `cblas_srotm`, `cblas_drotm`, `cblas_srotmg`, `cblas_drotmg`
+  - Level 2 扩展: `cblas_ssbmv`, `cblas_dsbmv`, `cblas_sspmv`, `cblas_dspmv`, `cblas_sspr`, `cblas_dspr`, `cblas_sspr2`, `cblas_dspr2`, `cblas_stbmv`, `cblas_dtbmv`, `cblas_stpmv`, `cblas_dtpmv`
+  - 扩展函数: `cblas_somatcopy`, `cblas_domatcopy`, `cblas_simatcopy`, `cblas_dimatcopy`, `cblas_sgeadd`, `cblas_dgeadd`
 
 ### 下一阶段建议
 根据优先级继续补充中优先级函数的测试，重点关注:

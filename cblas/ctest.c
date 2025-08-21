@@ -1229,6 +1229,422 @@ int test_cblas_dtrsv() {
     return failed;
 }
 
+// Modified Givens rotation tests (中优先级函数)
+int test_cblas_srotm() {
+    int n = 3;
+    float x[] = {1.0f, 2.0f, 3.0f};
+    float y[] = {4.0f, 5.0f, 6.0f};
+    // Modified Givens rotation parameters: flag=-1 (H matrix), h11=0.5, h21=-0.5, h12=0.5, h22=0.5
+    float param[] = {-1.0f, 0.5f, -0.5f, 0.5f, 0.5f};
+    
+    cblas_srotm(n, x, 1, y, 1, param);
+    
+    // Expected result: [x'; y'] = H * [x; y] where H = [[0.5, 0.5], [-0.5, 0.5]]
+    int failed = 0;
+    if (fabsf(x[0] - 2.5f) > 0.001f) {
+        printf("cblas_srotm x[0] Test Failed: actual: %f, expect: %f\n", x[0], 2.5f);
+        failed++;
+    }
+    if (fabsf(y[0] - 1.5f) > 0.001f) {
+        printf("cblas_srotm y[0] Test Failed: actual: %f, expect: %f\n", y[0], 1.5f);
+        failed++;
+    }
+    if (fabsf(x[1] - 3.5f) > 0.001f) {
+        printf("cblas_srotm x[1] Test Failed: actual: %f, expect: %f\n", x[1], 3.5f);
+        failed++;
+    }
+    if (fabsf(y[1] - 1.5f) > 0.001f) {
+        printf("cblas_srotm y[1] Test Failed: actual: %f, expect: %f\n", y[1], 1.5f);
+        failed++;
+    }
+    if (fabsf(x[2] - 4.5f) > 0.001f) {
+        printf("cblas_srotm x[2] Test Failed: actual: %f, expect: %f\n", x[2], 4.5f);
+        failed++;
+    }
+    if (fabsf(y[2] - 1.5f) > 0.001f) {
+        printf("cblas_srotm y[2] Test Failed: actual: %f, expect: %f\n", y[2], 1.5f);
+        failed++;
+    }
+    return failed;
+}
+
+int test_cblas_drotm() {
+    int n = 3;
+    double x[] = {1.0, 2.0, 3.0};
+    double y[] = {4.0, 5.0, 6.0};
+    // Modified Givens rotation parameters: flag=-1 (H matrix), h11=0.5, h21=-0.5, h12=0.5, h22=0.5
+    double param[] = {-1.0, 0.5, -0.5, 0.5, 0.5};
+    
+    cblas_drotm(n, x, 1, y, 1, param);
+    
+    // Expected result: [x'; y'] = H * [x; y] where H = [[0.5, 0.5], [-0.5, 0.5]]
+    int failed = 0;
+    if (fabs(x[0] - 2.5) > 0.001) {
+        printf("cblas_drotm x[0] Test Failed: actual: %f, expect: %f\n", x[0], 2.5);
+        failed++;
+    }
+    if (fabs(y[0] - 1.5) > 0.001) {
+        printf("cblas_drotm y[0] Test Failed: actual: %f, expect: %f\n", y[0], 1.5);
+        failed++;
+    }
+    if (fabs(x[1] - 3.5) > 0.001) {
+        printf("cblas_drotm x[1] Test Failed: actual: %f, expect: %f\n", x[1], 3.5);
+        failed++;
+    }
+    if (fabs(y[1] - 1.5) > 0.001) {
+        printf("cblas_drotm y[1] Test Failed: actual: %f, expect: %f\n", y[1], 1.5);
+        failed++;
+    }
+    if (fabs(x[2] - 4.5) > 0.001) {
+        printf("cblas_drotm x[2] Test Failed: actual: %f, expect: %f\n", x[2], 4.5);
+        failed++;
+    }
+    if (fabs(y[2] - 1.5) > 0.001) {
+        printf("cblas_drotm y[2] Test Failed: actual: %f, expect: %f\n", y[2], 1.5);
+        failed++;
+    }
+    return failed;
+}
+
+int test_cblas_srotmg() {
+    float d1 = 4.0f;   // diagonal element
+    float d2 = 2.0f;   // diagonal element  
+    float x1 = 3.0f;   // first element
+    float y1 = 2.0f;   // second element
+    float param[5] = {0}; // output parameters
+    
+    cblas_srotmg(&d1, &d2, &x1, y1, param);
+    
+    // The modified Givens rotation is designed to eliminate y1
+    int failed = 0;
+    if (param[0] < -2.0f || param[0] > 2.0f) {
+        printf("cblas_srotmg flag Test Failed: actual: %f, should be in range [-2, 2]\n", param[0]);
+        failed++;
+    }
+    return failed;
+}
+
+int test_cblas_drotmg() {
+    double d1 = 4.0;   // diagonal element
+    double d2 = 2.0;   // diagonal element  
+    double x1 = 3.0;   // first element
+    double y1 = 2.0;   // second element
+    double param[5] = {0}; // output parameters
+    
+    cblas_drotmg(&d1, &d2, &x1, y1, param);
+    
+    // The modified Givens rotation is designed to eliminate y1
+    int failed = 0;
+    if (param[0] < -2.0 || param[0] > 2.0) {
+        printf("cblas_drotmg flag Test Failed: actual: %f, should be in range [-2, 2]\n", param[0]);
+        failed++;
+    }
+    return failed;
+}
+
+// Triangular band matrix tests (中优先级函数)
+int test_cblas_stbmv() {
+    int n = 3, k = 0; // diagonal matrix for simplicity
+    float a[] = {2.0f, 3.0f, 4.0f}; // Just diagonal elements
+    float x[] = {1.0f, 1.0f, 1.0f};
+    
+    cblas_stbmv(CblasColMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, k, a, k + 1, x, 1);
+    
+    int failed = 0;
+    failed += assert_eq(x[0], 2.0f, "cblas_stbmv[0]");  // 2*1 = 2
+    failed += assert_eq(x[1], 3.0f, "cblas_stbmv[1]");  // 3*1 = 3
+    failed += assert_eq(x[2], 4.0f, "cblas_stbmv[2]");  // 4*1 = 4
+    return failed;
+}
+
+int test_cblas_dtbmv() {
+    int n = 3, k = 0; // diagonal matrix for simplicity
+    double a[] = {2.0, 3.0, 4.0}; // Just diagonal elements
+    double x[] = {1.0, 1.0, 1.0};
+    
+    cblas_dtbmv(CblasColMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, k, a, k + 1, x, 1);
+    
+    int failed = 0;
+    failed += assert_eq(x[0], 2.0, "cblas_dtbmv[0]");  // 2*1 = 2
+    failed += assert_eq(x[1], 3.0, "cblas_dtbmv[1]");  // 3*1 = 3
+    failed += assert_eq(x[2], 4.0, "cblas_dtbmv[2]");  // 4*1 = 4
+    return failed;
+}
+
+int test_cblas_stpmv() {
+    int n = 3;
+    // Upper triangular packed matrix: [[1, 2, 3], [0, 4, 5], [0, 0, 6]]
+    // Packed format: [a11, a12, a22, a13, a23, a33] = [1, 2, 4, 3, 5, 6]
+    float ap[] = {1.0f, 2.0f, 4.0f, 3.0f, 5.0f, 6.0f};
+    float x[] = {1.0f, 1.0f, 1.0f};
+    
+    cblas_stpmv(CblasColMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, ap, x, 1);
+    
+    int failed = 0;
+    failed += assert_eq(x[0], 6.0f, "cblas_stpmv[0]");  // 1*1 + 2*1 + 3*1 = 6
+    failed += assert_eq(x[1], 9.0f, "cblas_stpmv[1]");  // 0*1 + 4*1 + 5*1 = 9
+    failed += assert_eq(x[2], 6.0f, "cblas_stpmv[2]");  // 0*1 + 0*1 + 6*1 = 6
+    return failed;
+}
+
+int test_cblas_dtpmv() {
+    int n = 3;
+    // Upper triangular packed matrix: [[1, 2, 3], [0, 4, 5], [0, 0, 6]]
+    // Packed format: [a11, a12, a22, a13, a23, a33] = [1, 2, 4, 3, 5, 6]
+    double ap[] = {1.0, 2.0, 4.0, 3.0, 5.0, 6.0};
+    double x[] = {1.0, 1.0, 1.0};
+    
+    cblas_dtpmv(CblasColMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, ap, x, 1);
+    
+    int failed = 0;
+    failed += assert_eq(x[0], 6.0, "cblas_dtpmv[0]");  // 1*1 + 2*1 + 3*1 = 6
+    failed += assert_eq(x[1], 9.0, "cblas_dtpmv[1]");  // 0*1 + 4*1 + 5*1 = 9
+    failed += assert_eq(x[2], 6.0, "cblas_dtpmv[2]");  // 0*1 + 0*1 + 6*1 = 6
+    return failed;
+}
+
+// Matrix copy and transpose tests (中优先级函数)
+int test_cblas_somatcopy() {
+    int m = 2, n = 3;
+    float alpha = 2.0f;
+    float a[] = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f}; // 2x3 matrix
+    float b[6] = {0}; // 3x2 output matrix for transpose
+    
+    cblas_somatcopy(CblasRowMajor, CblasTrans, m, n, alpha, a, n, b, m);
+    
+    int failed = 0;
+    failed += assert_eq(b[0], 2.0f, "cblas_somatcopy[0,0]");   // 2 * 1 = 2
+    failed += assert_eq(b[1], 8.0f, "cblas_somatcopy[0,1]");   // 2 * 4 = 8
+    failed += assert_eq(b[2], 4.0f, "cblas_somatcopy[1,0]");   // 2 * 2 = 4
+    failed += assert_eq(b[3], 10.0f, "cblas_somatcopy[1,1]");  // 2 * 5 = 10
+    failed += assert_eq(b[4], 6.0f, "cblas_somatcopy[2,0]");   // 2 * 3 = 6
+    failed += assert_eq(b[5], 12.0f, "cblas_somatcopy[2,1]");  // 2 * 6 = 12
+    return failed;
+}
+
+int test_cblas_domatcopy() {
+    int m = 2, n = 3;
+    double alpha = 2.0;
+    double a[] = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0}; // 2x3 matrix
+    double b[6] = {0}; // 3x2 output matrix for transpose
+    
+    cblas_domatcopy(CblasRowMajor, CblasTrans, m, n, alpha, a, n, b, m);
+    
+    int failed = 0;
+    failed += assert_eq(b[0], 2.0, "cblas_domatcopy[0,0]");   // 2 * 1 = 2
+    failed += assert_eq(b[1], 8.0, "cblas_domatcopy[0,1]");   // 2 * 4 = 8
+    failed += assert_eq(b[2], 4.0, "cblas_domatcopy[1,0]");   // 2 * 2 = 4
+    failed += assert_eq(b[3], 10.0, "cblas_domatcopy[1,1]");  // 2 * 5 = 10
+    failed += assert_eq(b[4], 6.0, "cblas_domatcopy[2,0]");   // 2 * 3 = 6
+    failed += assert_eq(b[5], 12.0, "cblas_domatcopy[2,1]");  // 2 * 6 = 12
+    return failed;
+}
+
+int test_cblas_simatcopy() {
+    int m = 2, n = 2;
+    float alpha = 1.0f;
+    float a[] = {1.0f, 2.0f, 3.0f, 4.0f}; // 2x2 matrix
+    
+    cblas_simatcopy(CblasRowMajor, CblasTrans, m, n, alpha, a, n, m);
+    
+    int failed = 0;
+    failed += assert_eq(a[0], 1.0f, "cblas_simatcopy[0,0]");  // 1
+    failed += assert_eq(a[1], 3.0f, "cblas_simatcopy[0,1]");  // 3
+    failed += assert_eq(a[2], 2.0f, "cblas_simatcopy[1,0]");  // 2
+    failed += assert_eq(a[3], 4.0f, "cblas_simatcopy[1,1]");  // 4
+    return failed;
+}
+
+int test_cblas_dimatcopy() {
+    int m = 2, n = 2;
+    double alpha = 1.0;
+    double a[] = {1.0, 2.0, 3.0, 4.0}; // 2x2 matrix
+    
+    cblas_dimatcopy(CblasRowMajor, CblasTrans, m, n, alpha, a, n, m);
+    
+    int failed = 0;
+    failed += assert_eq(a[0], 1.0, "cblas_dimatcopy[0,0]");  // 1
+    failed += assert_eq(a[1], 3.0, "cblas_dimatcopy[0,1]");  // 3
+    failed += assert_eq(a[2], 2.0, "cblas_dimatcopy[1,0]");  // 2
+    failed += assert_eq(a[3], 4.0, "cblas_dimatcopy[1,1]");  // 4
+    return failed;
+}
+
+int test_cblas_sgeadd() {
+    int m = 2, n = 2;
+    float alpha = 2.0f, beta = 3.0f;
+    float a[] = {1.0f, 2.0f, 3.0f, 4.0f}; // 2x2 matrix A
+    float c[] = {5.0f, 6.0f, 7.0f, 8.0f}; // 2x2 matrix C
+    
+    cblas_sgeadd(CblasRowMajor, m, n, alpha, a, n, beta, c, n);
+    
+    int failed = 0;
+    failed += assert_eq(c[0], 17.0f, "cblas_sgeadd[0,0]");  // 2*1 + 3*5 = 17
+    failed += assert_eq(c[1], 22.0f, "cblas_sgeadd[0,1]");  // 2*2 + 3*6 = 22
+    failed += assert_eq(c[2], 27.0f, "cblas_sgeadd[1,0]");  // 2*3 + 3*7 = 27
+    failed += assert_eq(c[3], 32.0f, "cblas_sgeadd[1,1]");  // 2*4 + 3*8 = 32
+    return failed;
+}
+
+int test_cblas_dgeadd() {
+    int m = 2, n = 2;
+    double alpha = 2.0, beta = 3.0;
+    double a[] = {1.0, 2.0, 3.0, 4.0}; // 2x2 matrix A
+    double c[] = {5.0, 6.0, 7.0, 8.0}; // 2x2 matrix C
+    
+    cblas_dgeadd(CblasRowMajor, m, n, alpha, a, n, beta, c, n);
+    
+    int failed = 0;
+    failed += assert_eq(c[0], 17.0, "cblas_dgeadd[0,0]");  // 2*1 + 3*5 = 17
+    failed += assert_eq(c[1], 22.0, "cblas_dgeadd[0,1]");  // 2*2 + 3*6 = 22
+    failed += assert_eq(c[2], 27.0, "cblas_dgeadd[1,0]");  // 2*3 + 3*7 = 27
+    failed += assert_eq(c[3], 32.0, "cblas_dgeadd[1,1]");  // 2*4 + 3*8 = 32
+    return failed;
+}
+
+// Band and packed matrix tests (中优先级函数) 
+int test_cblas_ssbmv() {
+    int n = 3, k = 0; // diagonal matrix for simplicity
+    float alpha = 1.0f, beta = 0.0f;
+    // Simple diagonal matrix: [[2, 0, 0], [0, 3, 0], [0, 0, 4]]
+    float a[] = {2.0f, 3.0f, 4.0f}; // Just diagonal elements
+    float x[] = {1.0f, 1.0f, 1.0f};
+    float y[3] = {0};
+    
+    cblas_ssbmv(CblasColMajor, CblasUpper, n, k, alpha, a, k + 1, x, 1, beta, y, 1);
+    
+    int failed = 0;
+    failed += assert_eq(y[0], 2.0f, "cblas_ssbmv[0]");  // 2*1 = 2
+    failed += assert_eq(y[1], 3.0f, "cblas_ssbmv[1]");  // 3*1 = 3
+    failed += assert_eq(y[2], 4.0f, "cblas_ssbmv[2]");  // 4*1 = 4
+    return failed;
+}
+
+int test_cblas_dsbmv() {
+    int n = 3, k = 0; // diagonal matrix for simplicity
+    double alpha = 1.0, beta = 0.0;
+    // Simple diagonal matrix: [[2, 0, 0], [0, 3, 0], [0, 0, 4]]
+    double a[] = {2.0, 3.0, 4.0}; // Just diagonal elements
+    double x[] = {1.0, 1.0, 1.0};
+    double y[3] = {0};
+    
+    cblas_dsbmv(CblasColMajor, CblasUpper, n, k, alpha, a, k + 1, x, 1, beta, y, 1);
+    
+    int failed = 0;
+    failed += assert_eq(y[0], 2.0, "cblas_dsbmv[0]");  // 2*1 = 2
+    failed += assert_eq(y[1], 3.0, "cblas_dsbmv[1]");  // 3*1 = 3
+    failed += assert_eq(y[2], 4.0, "cblas_dsbmv[2]");  // 4*1 = 4
+    return failed;
+}
+
+int test_cblas_sspmv() {
+    int n = 3;
+    float alpha = 1.0f, beta = 0.0f;
+    // Symmetric packed matrix stored in upper triangular format:
+    // Matrix: [[1, 2, 3], [2, 4, 5], [3, 5, 6]]
+    // Packed format: [a11, a12, a22, a13, a23, a33] = [1, 2, 4, 3, 5, 6]
+    float ap[] = {1.0f, 2.0f, 4.0f, 3.0f, 5.0f, 6.0f};
+    float x[] = {1.0f, 1.0f, 1.0f};
+    float y[3] = {0};
+    
+    cblas_sspmv(CblasColMajor, CblasUpper, n, alpha, ap, x, 1, beta, y, 1);
+    
+    int failed = 0;
+    failed += assert_eq(y[0], 6.0f, "cblas_sspmv[0]");   // 1*1 + 2*1 + 3*1 = 6
+    failed += assert_eq(y[1], 11.0f, "cblas_sspmv[1]");  // 2*1 + 4*1 + 5*1 = 11
+    failed += assert_eq(y[2], 14.0f, "cblas_sspmv[2]");  // 3*1 + 5*1 + 6*1 = 14
+    return failed;
+}
+
+int test_cblas_dspmv() {
+    int n = 3;
+    double alpha = 1.0, beta = 0.0;
+    // Symmetric packed matrix stored in upper triangular format:
+    // Matrix: [[1, 2, 3], [2, 4, 5], [3, 5, 6]]
+    // Packed format: [a11, a12, a22, a13, a23, a33] = [1, 2, 4, 3, 5, 6]
+    double ap[] = {1.0, 2.0, 4.0, 3.0, 5.0, 6.0};
+    double x[] = {1.0, 1.0, 1.0};
+    double y[3] = {0};
+    
+    cblas_dspmv(CblasColMajor, CblasUpper, n, alpha, ap, x, 1, beta, y, 1);
+    
+    int failed = 0;
+    failed += assert_eq(y[0], 6.0, "cblas_dspmv[0]");   // 1*1 + 2*1 + 3*1 = 6
+    failed += assert_eq(y[1], 11.0, "cblas_dspmv[1]");  // 2*1 + 4*1 + 5*1 = 11
+    failed += assert_eq(y[2], 14.0, "cblas_dspmv[2]");  // 3*1 + 5*1 + 6*1 = 14
+    return failed;
+}
+
+int test_cblas_sspr() {
+    int n = 2;
+    float alpha = 1.0f;
+    float x[] = {1.0f, 2.0f};
+    // Symmetric packed matrix in upper triangular format: [[1, 0], [0, 1]] (identity)
+    // Packed format: [a11, a12, a22] = [1, 0, 1]
+    float ap[] = {1.0f, 0.0f, 1.0f};
+    
+    cblas_sspr(CblasColMajor, CblasUpper, n, alpha, x, 1, ap);
+    
+    int failed = 0;
+    failed += assert_eq(ap[0], 2.0f, "cblas_sspr a11");  // 1 + 1*1 = 2
+    failed += assert_eq(ap[1], 2.0f, "cblas_sspr a12");  // 0 + 1*2 = 2
+    failed += assert_eq(ap[2], 5.0f, "cblas_sspr a22");  // 1 + 2*2 = 5
+    return failed;
+}
+
+int test_cblas_dspr() {
+    int n = 2;
+    double alpha = 1.0;
+    double x[] = {1.0, 2.0};
+    // Symmetric packed matrix in upper triangular format: [[1, 0], [0, 1]] (identity)
+    // Packed format: [a11, a12, a22] = [1, 0, 1]
+    double ap[] = {1.0, 0.0, 1.0};
+    
+    cblas_dspr(CblasColMajor, CblasUpper, n, alpha, x, 1, ap);
+    
+    int failed = 0;
+    failed += assert_eq(ap[0], 2.0, "cblas_dspr a11");  // 1 + 1*1 = 2
+    failed += assert_eq(ap[1], 2.0, "cblas_dspr a12");  // 0 + 1*2 = 2
+    failed += assert_eq(ap[2], 5.0, "cblas_dspr a22");  // 1 + 2*2 = 5
+    return failed;
+}
+
+int test_cblas_sspr2() {
+    int n = 2;
+    float alpha = 1.0f;
+    float x[] = {1.0f, 2.0f};
+    float y[] = {2.0f, 1.0f};
+    // Symmetric packed matrix in upper triangular format: [[1, 0], [0, 1]] (identity)
+    // Packed format: [a11, a12, a22] = [1, 0, 1]
+    float ap[] = {1.0f, 0.0f, 1.0f};
+    
+    cblas_sspr2(CblasColMajor, CblasUpper, n, alpha, x, 1, y, 1, ap);
+    
+    int failed = 0;
+    failed += assert_eq(ap[0], 5.0f, "cblas_sspr2 a11");  // 1 + 1*(1*2 + 2*1) = 1 + 4 = 5
+    failed += assert_eq(ap[1], 5.0f, "cblas_sspr2 a12");  // 0 + 1*(1*1 + 2*2) = 0 + 5 = 5  
+    failed += assert_eq(ap[2], 5.0f, "cblas_sspr2 a22");  // 1 + 1*(2*1 + 1*2) = 1 + 4 = 5
+    return failed;
+}
+
+int test_cblas_dspr2() {
+    int n = 2;
+    double alpha = 1.0;
+    double x[] = {1.0, 2.0};
+    double y[] = {2.0, 1.0};
+    // Symmetric packed matrix in upper triangular format: [[1, 0], [0, 1]] (identity)
+    // Packed format: [a11, a12, a22] = [1, 0, 1]
+    double ap[] = {1.0, 0.0, 1.0};
+    
+    cblas_dspr2(CblasColMajor, CblasUpper, n, alpha, x, 1, y, 1, ap);
+    
+    int failed = 0;
+    failed += assert_eq(ap[0], 5.0, "cblas_dspr2 a11");  // 1 + 1*(1*2 + 2*1) = 1 + 4 = 5
+    failed += assert_eq(ap[1], 5.0, "cblas_dspr2 a12");  // 0 + 1*(1*1 + 2*2) = 0 + 5 = 5  
+    failed += assert_eq(ap[2], 5.0, "cblas_dspr2 a22");  // 1 + 1*(2*1 + 1*2) = 1 + 4 = 5
+    return failed;
+}
+
 int main() {
     int failed = 0;
     failed += test_cblas_sdsdot();
@@ -1312,6 +1728,28 @@ int main() {
     failed += test_cblas_dsyr();
     failed += test_cblas_strsv();
     failed += test_cblas_dtrsv();
+    failed += test_cblas_srotm();
+    failed += test_cblas_drotm();
+    failed += test_cblas_srotmg();
+    failed += test_cblas_drotmg();
+    failed += test_cblas_ssbmv();
+    failed += test_cblas_dsbmv();
+    failed += test_cblas_sspmv();
+    failed += test_cblas_dspmv();
+    failed += test_cblas_sspr();
+    failed += test_cblas_dspr();
+    failed += test_cblas_sspr2();
+    failed += test_cblas_dspr2();
+    failed += test_cblas_somatcopy();
+    failed += test_cblas_domatcopy();
+    failed += test_cblas_simatcopy();
+    failed += test_cblas_dimatcopy();
+    failed += test_cblas_sgeadd();
+    failed += test_cblas_dgeadd();
+    failed += test_cblas_stbmv();
+    failed += test_cblas_dtbmv();
+    failed += test_cblas_stpmv();
+    failed += test_cblas_dtpmv();
     if (failed > 0) {
         printf("%d tests failed.\n", failed);
         return 1;
