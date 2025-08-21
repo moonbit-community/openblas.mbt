@@ -685,3 +685,60 @@ int test_cblas_stpmv() {
     failed += assert_eq(x[2], 6.0f, "cblas_stpmv[2]");  // 0*1 + 0*1 + 6*1 = 6
     return failed;
 }
+
+int test_cblas_ssyr2() {
+    int n = 2;
+    float alpha = 1.0f;
+    float x[] = {1.0f, 2.0f};
+    float y[] = {2.0f, 1.0f};
+    float a[] = {1.0f, 0.0f, 0.0f, 1.0f}; // 2x2 identity matrix
+    
+    cblas_ssyr2(CblasRowMajor, CblasUpper, n, alpha, x, 1, y, 1, a, n);
+    
+    int failed = 0;
+    failed += assert_eq(a[0], 5.0f, "cblas_ssyr2[0,0]");  // 1 + 4 = 5
+    failed += assert_eq(a[1], 5.0f, "cblas_ssyr2[0,1]");  // 0 + 5 = 5
+    failed += assert_eq(a[2], 0.0f, "cblas_ssyr2[1,0]");  // not updated (upper)
+    failed += assert_eq(a[3], 5.0f, "cblas_ssyr2[1,1]");  // 1 + 4 = 5
+    return failed;
+}
+int test_cblas_stbsv() {
+    int n = 3;
+    int k = 0; // diagonal matrix
+    float a[] = {2.0f, 3.0f, 4.0f}; // diagonal elements
+    float x[] = {4.0f, 6.0f, 8.0f}; // right-hand side
+
+    cblas_stbsv(CblasColMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, k, a, k + 1, x, 1);
+    
+    int failed = 0;
+    failed += assert_eq(x[0], 2.0f, "cblas_stbsv[0]");  // 4/2 = 2
+    failed += assert_eq(x[1], 2.0f, "cblas_stbsv[1]");  // 6/3 = 2
+    failed += assert_eq(x[2], 2.0f, "cblas_stbsv[2]");  // 8/4 = 2
+    return failed;
+}
+int test_cblas_stpsv() {
+    int n = 3;
+    // Upper triangular packed matrix: [[2, 1, 1], [0, 2, 1], [0, 0, 2]]
+    // Packed format: [a11, a12, a22, a13, a23, a33] = [2, 1, 2, 1, 1, 2]
+    float ap[] = {2.0f, 1.0f, 2.0f, 1.0f, 1.0f, 2.0f};
+    float x[] = {6.0f, 4.0f, 2.0f}; // right-hand side
+
+    cblas_stpsv(CblasColMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, ap, x, 1);
+    
+    int failed = 0;
+    failed += assert_eq(fabsf(x[0] - 1.75f) < 0.001f ? 1.75f : x[0], 1.75f, "cblas_stpsv[0]");
+    failed += assert_eq(fabsf(x[1] - 1.5f) < 0.001f ? 1.5f : x[1], 1.5f, "cblas_stpsv[1]");
+    failed += assert_eq(fabsf(x[2] - 1.0f) < 0.001f ? 1.0f : x[2], 1.0f, "cblas_stpsv[2]");
+    return failed;
+}
+int test_cblas_scsum() {
+    int n = 2;
+    // Complex numbers as interleaved real, imaginary pairs: [1+2i, 3+4i]
+    // So array is [1.0, 2.0, 3.0, 4.0] representing [(1+2i), (3+4i)]
+    float x[] = {1.0f, 2.0f, 3.0f, 4.0f};
+
+    float result = cblas_scsum(n, x, 1);
+    
+    // Expected result: sum of real and imaginary parts = (1+3) + (2+4) = 4 + 6 = 10
+    return assert_eq(result, 10.0f, "cblas_scsum");
+}

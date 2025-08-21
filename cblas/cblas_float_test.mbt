@@ -913,3 +913,93 @@ test "cblas_stpmv test" {
   assert_eq(x[1], 9.0) // 0*1 + 4*1 + 5*1 = 9
   assert_eq(x[2], 6.0) // 0*1 + 0*1 + 6*1 = 6
 }
+
+///|
+test "cblas_ssyr2 test" {
+  // Test cblas_ssyr2 (single precision symmetric rank-2 update)
+  let n = 2
+  let alpha : Float = 1.0
+  let x : FixedArray[Float] = [1.0, 2.0]
+  let y : FixedArray[Float] = [2.0, 1.0]
+  let a : FixedArray[Float] = [1.0, 0.0, 0.0, 1.0] // 2x2 identity matrix initially
+  cblas_ssyr2(CblasRowMajor, CblasUpper, n, alpha, x, 1, y, 1, a, n)
+
+  // Expected result: A = A + alpha * (x * y^T + y * x^T)
+  // x * y^T = [[1], [2]] * [2, 1] = [[2, 1], [4, 2]]
+  // y * x^T = [[2], [1]] * [1, 2] = [[2, 4], [1, 2]]
+  // x * y^T + y * x^T = [[4, 5], [5, 4]]
+  // A = [[1, 0], [0, 1]] + 1.0 * [[4, 5], [5, 4]] = [[5, 5], [5, 5]]
+  // But only upper triangle is updated
+  assert_eq(a[0], 5.0) // a[0,0] = 1 + 4 = 5
+  assert_eq(a[1], 5.0) // a[0,1] = 0 + 5 = 5
+  assert_eq(a[2], 0.0) // a[1,0] not updated (upper triangular)
+  assert_eq(a[3], 5.0) // a[1,1] = 1 + 4 = 5
+}
+///|
+test "cblas_stbsv test" {
+  // Test cblas_stbsv (single precision triangular band matrix solve)
+  let n = 3
+  let k = 0 // number of super-diagonals (diagonal matrix for simplicity)
+  // Simple diagonal matrix: [[2, 0, 0], [0, 3, 0], [0, 0, 4]]
+  // Band storage for diagonal: just the main diagonal
+  let a : FixedArray[Float] = [2.0, 3.0, 4.0] // Just diagonal elements
+  let x : FixedArray[Float] = [4.0, 6.0, 8.0] // right-hand side to solve
+  cblas_stbsv(
+    CblasColMajor,
+    CblasUpper,
+    CblasNoTrans,
+    CblasNonUnit,
+    n,
+    k,
+    a,
+    k + 1,
+    x,
+    1,
+  )
+
+  // Solve A * x = b where A = diagonal matrix, b = [4, 6, 8]
+  // Solution: x = [4/2, 6/3, 8/4] = [2, 2, 2]
+  assert_eq(x[0], 2.0) // 4/2 = 2
+  assert_eq(x[1], 2.0) // 6/3 = 2
+  assert_eq(x[2], 2.0) // 8/4 = 2
+}
+///|
+test "cblas_stpsv test" {
+  // Test cblas_stpsv (single precision triangular packed matrix solve)
+  let n = 3
+  // Upper triangular packed matrix: [[2, 1, 1], [0, 2, 1], [0, 0, 2]]
+  // Packed format: [a11, a12, a22, a13, a23, a33] = [2, 1, 2, 1, 1, 2]
+  let ap : FixedArray[Float] = [2.0, 1.0, 2.0, 1.0, 1.0, 2.0]
+  let x : FixedArray[Float] = [6.0, 4.0, 2.0] // right-hand side to solve
+  cblas_stpsv(
+    CblasColMajor,
+    CblasUpper,
+    CblasNoTrans,
+    CblasNonUnit,
+    n,
+    ap,
+    x,
+    1,
+  )
+
+  // Solve A * x = b where A = [[2, 1, 1], [0, 2, 1], [0, 0, 2]], b = [6, 4, 2]
+  // Back substitution:
+  // 2*x[2] = 2 => x[2] = 1
+  // 2*x[1] + 1*x[2] = 4 => 2*x[1] + 1 = 4 => x[1] = 1.5
+  // 2*x[0] + 1*x[1] + 1*x[2] = 6 => 2*x[0] + 1.5 + 1 = 6 => x[0] = 1.75
+  assert_eq((x[0] - 1.75).abs() < 0.001, true)
+  assert_eq((x[1] - 1.5).abs() < 0.001, true)
+  assert_eq((x[2] - 1.0).abs() < 0.001, true)
+}
+///|
+test "cblas_scsum test" {
+  // Test cblas_scsum (single precision complex sum)
+  let n = 2
+  // Complex numbers as interleaved real, imaginary pairs: [1+2i, 3+4i]
+  // So array is [1.0, 2.0, 3.0, 4.0] representing [(1+2i), (3+4i)]
+  let x : FixedArray[Float] = [1.0, 2.0, 3.0, 4.0]
+  let result = cblas_scsum(n, x, 1)
+
+  // Expected result: sum of real and imaginary parts = (1+3) + (2+4) = 4 + 6 = 10
+  assert_eq(result, 10.0)
+}

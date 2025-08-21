@@ -107,6 +107,24 @@ int main() {
     failed += test_cblas_stpmv();
     failed += test_cblas_dtpmv();
     
+    // New tests added in this round
+    failed += test_cblas_ssyr2();
+    failed += test_cblas_dsyr2();
+    failed += test_cblas_stbsv();
+    failed += test_cblas_dtbsv();
+    failed += test_cblas_stpsv();
+    failed += test_cblas_dtpsv();
+    failed += test_cblas_scsum();
+    failed += test_cblas_dzamax();
+    failed += test_cblas_dzamin();
+    failed += test_cblas_dzasum();
+    failed += test_cblas_dznrm2();
+    failed += test_cblas_dzsum();
+    failed += test_cblas_izamax();
+    failed += test_cblas_izamin();
+    failed += test_cblas_izmax();
+    failed += test_cblas_izmin();
+    
     // Double tests are mixed with float tests above for compatibility with original test order
     
     // Complex float tests (single precision complex)

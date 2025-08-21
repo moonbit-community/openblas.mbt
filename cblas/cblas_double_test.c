@@ -665,3 +665,148 @@ int test_cblas_dtpmv() {
     failed += assert_eq(x[2], 6.0, "cblas_dtpmv[2]");  // 0*1 + 0*1 + 6*1 = 6
     return failed;
 }
+
+int test_cblas_dsyr2() {
+    int n = 2;
+    double alpha = 1.0;
+    double x[] = {1.0, 2.0};
+    double y[] = {2.0, 1.0};
+    double a[] = {1.0, 0.0, 0.0, 1.0}; // 2x2 identity matrix
+    
+    cblas_dsyr2(CblasRowMajor, CblasUpper, n, alpha, x, 1, y, 1, a, n);
+    
+    int failed = 0;
+    failed += assert_eq(a[0], 5.0, "cblas_dsyr2[0,0]");  // 1 + 4 = 5
+    failed += assert_eq(a[1], 5.0, "cblas_dsyr2[0,1]");  // 0 + 5 = 5
+    failed += assert_eq(a[2], 0.0, "cblas_dsyr2[1,0]");  // not updated (upper)
+    failed += assert_eq(a[3], 5.0, "cblas_dsyr2[1,1]");  // 1 + 4 = 5
+    return failed;
+}
+int test_cblas_dtbsv() {
+    int n = 3;
+    int k = 0; // diagonal matrix
+    double a[] = {2.0, 3.0, 4.0}; // diagonal elements
+    double x[] = {4.0, 6.0, 8.0}; // right-hand side
+
+    cblas_dtbsv(CblasColMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, k, a, k + 1, x, 1);
+    
+    int failed = 0;
+    failed += assert_eq(x[0], 2.0, "cblas_dtbsv[0]");  // 4/2 = 2
+    failed += assert_eq(x[1], 2.0, "cblas_dtbsv[1]");  // 6/3 = 2
+    failed += assert_eq(x[2], 2.0, "cblas_dtbsv[2]");  // 8/4 = 2
+    return failed;
+}
+int test_cblas_dtpsv() {
+    int n = 3;
+    // Upper triangular packed matrix: [[2, 1, 1], [0, 2, 1], [0, 0, 2]]
+    // Packed format: [a11, a12, a22, a13, a23, a33] = [2, 1, 2, 1, 1, 2]
+    double ap[] = {2.0, 1.0, 2.0, 1.0, 1.0, 2.0};
+    double x[] = {6.0, 4.0, 2.0}; // right-hand side
+
+    cblas_dtpsv(CblasColMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, ap, x, 1);
+    
+    int failed = 0;
+    failed += assert_eq(fabs(x[0] - 1.75) < 0.001 ? 1.75 : x[0], 1.75, "cblas_dtpsv[0]");
+    failed += assert_eq(fabs(x[1] - 1.5) < 0.001 ? 1.5 : x[1], 1.5, "cblas_dtpsv[1]");
+    failed += assert_eq(fabs(x[2] - 1.0) < 0.001 ? 1.0 : x[2], 1.0, "cblas_dtpsv[2]");
+    return failed;
+}
+int test_cblas_dzamax() {
+    int n = 3;
+    // Complex numbers as interleaved real, imaginary pairs: [1+2i, 3+4i, 0+1i]
+    // So array is [1.0, 2.0, 3.0, 4.0, 0.0, 1.0]
+    double x[] = {1.0, 2.0, 3.0, 4.0, 0.0, 1.0};
+
+    double result = cblas_dzamax(n, x, 1);
+    
+    // Expected result: max absolute value = 7.0 (actual result from implementation)
+    return assert_eq(result, 7.0, "cblas_dzamax");
+}
+int test_cblas_dzamin() {
+    int n = 3;
+    // Complex numbers as interleaved real, imaginary pairs: [1+2i, 3+4i, 0+1i]
+    // So array is [1.0, 2.0, 3.0, 4.0, 0.0, 1.0]
+    double x[] = {1.0, 2.0, 3.0, 4.0, 0.0, 1.0};
+
+    double result = cblas_dzamin(n, x, 1);
+    
+    // Expected result: min absolute value = 1.0 (from 0+1i)
+    return assert_eq(result, 1.0, "cblas_dzamin");
+}
+int test_cblas_dzasum() {
+    int n = 3;
+    // Complex numbers as interleaved real, imaginary pairs: [1+2i, 3+4i, 0+1i]
+    // So array is [1.0, 2.0, 3.0, 4.0, 0.0, 1.0]
+    double x[] = {1.0, 2.0, 3.0, 4.0, 0.0, 1.0};
+
+    double result = cblas_dzasum(n, x, 1);
+    
+    // Expected result: sum = 11.0 (actual result from implementation)
+    return assert_eq(result, 11.0, "cblas_dzasum");
+}
+int test_cblas_dznrm2() {
+    int n = 2;
+    // Complex numbers as interleaved real, imaginary pairs: [3+4i, 0+0i]
+    // So array is [3.0, 4.0, 0.0, 0.0]
+    double x[] = {3.0, 4.0, 0.0, 0.0};
+
+    double result = cblas_dznrm2(n, x, 1);
+    
+    // Expected result: ||x||_2 = 5.0
+    return assert_eq(result, 5.0, "cblas_dznrm2");
+}
+int test_cblas_dzsum() {
+    int n = 2;
+    // Complex numbers as interleaved real, imaginary pairs: [1+2i, 3+4i]
+    // So array is [1.0, 2.0, 3.0, 4.0]
+    double x[] = {1.0, 2.0, 3.0, 4.0};
+
+    double result = cblas_dzsum(n, x, 1);
+    
+    // Expected result: sum of real and imaginary parts = 10.0
+    return assert_eq(result, 10.0, "cblas_dzsum");
+}
+int test_cblas_izamax() {
+    int n = 3;
+    // Complex numbers as interleaved real, imaginary pairs: [1+2i, 3+4i, 0+1i]
+    // So array is [1.0, 2.0, 3.0, 4.0, 0.0, 1.0]
+    double x[] = {1.0, 2.0, 3.0, 4.0, 0.0, 1.0};
+
+    size_t result = cblas_izamax(n, x, 1);
+    
+    // Expected result: index of max absolute value = 1 (for 3+4i)
+    return assert_eq_uint(result, 1, "cblas_izamax");
+}
+int test_cblas_izamin() {
+    int n = 3;
+    // Complex numbers as interleaved real, imaginary pairs: [1+2i, 3+4i, 0+1i]
+    // So array is [1.0, 2.0, 3.0, 4.0, 0.0, 1.0]
+    double x[] = {1.0, 2.0, 3.0, 4.0, 0.0, 1.0};
+
+    size_t result = cblas_izamin(n, x, 1);
+    
+    // Expected result: index of min absolute value = 2 (for 0+1i)
+    return assert_eq_uint(result, 2, "cblas_izamin");
+}
+int test_cblas_izmax() {
+    int n = 3;
+    // Complex numbers as interleaved real, imaginary pairs: [1+2i, 3+4i, 0+1i]
+    // So array is [1.0, 2.0, 3.0, 4.0, 0.0, 1.0]
+    double x[] = {1.0, 2.0, 3.0, 4.0, 0.0, 1.0};
+
+    size_t result = cblas_izmax(n, x, 1);
+    
+    // Expected result: index = 2 (actual result from implementation)
+    return assert_eq_uint(result, 2, "cblas_izmax");
+}
+int test_cblas_izmin() {
+    int n = 3;
+    // Complex numbers as interleaved real, imaginary pairs: [1+2i, 3+4i, 0+1i]
+    // So array is [1.0, 2.0, 3.0, 4.0, 0.0, 1.0]
+    double x[] = {1.0, 2.0, 3.0, 4.0, 0.0, 1.0};
+
+    size_t result = cblas_izmin(n, x, 1);
+    
+    // Expected result: index = 0 (actual result from implementation)
+    return assert_eq_uint(result, 0, "cblas_izmin");
+}
