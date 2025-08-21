@@ -1,298 +1,328 @@
-# CBLAS 未测试函数汇总
+# CBLAS 未测试函数汇总 (更新版)
 
-基于 `moon test --verbose` 的结果和 `cblas.mbti` 接口文件的对比分析，以下是尚未被测试的 CBLAS 函数汇总。
+基于 `moon check` 产生的unused函数警告和 `cblas.mbti` 接口文件的对比分析，以下是尚未被测试的 CBLAS 函数汇总。
 
 ## 测试覆盖情况概述
 
-- **总CBLAS函数数量**: 202 个函数
-- **已测试函数数量**: 137 个函数 (更新时间: 2024年12月)  
-- **未测试函数数量**: 65 个函数
-- **测试覆盖率**: 67.8%
+- **总CBLAS函数数量**: 211 个函数 (包含OpenBLAS配置函数)
+- **未测试函数数量**: 72 个函数 (基于 `moon check` 的未使用函数警告)
+- **已测试函数数量**: 139 个函数
+- **测试覆盖率**: 65.8%
 
-## 已测试的函数列表 (137个)
+## 基于 `moon check` 的未测试函数列表 (72个)
 
-### BLAS Level 1 (向量操作)
-- `cblas_sdsdot`, `cblas_dsdot`, `cblas_sdot`, `cblas_ddot`
-- `cblas_cdotu`, `cblas_cdotc`
-- `cblas_sasum`, `cblas_dasum`, `cblas_scasum`, `cblas_ssum`, `cblas_dsum`
-- `cblas_snrm2`, `cblas_dnrm2`, `cblas_scnrm2`
-- `cblas_isamax`, `cblas_idamax`, `cblas_icamax`
-- `cblas_isamin`, `cblas_idamin`, `cblas_icamin`
-- `cblas_samax`, `cblas_damax`, `cblas_scamax`
-- `cblas_samin`, `cblas_damin`, `cblas_scamin`
-- `cblas_ismax`, `cblas_idmax`, `cblas_icmax`
-- `cblas_ismin`, `cblas_idmin`, `cblas_icmin`
-- `cblas_saxpy`, `cblas_daxpy`, `cblas_caxpy`, `cblas_caxpyc`
-- `cblas_scopy`, `cblas_dcopy`, `cblas_ccopy`
-- `cblas_sswap`, `cblas_dswap`, `cblas_cswap`
-- `cblas_sscal`, `cblas_dscal`, `cblas_cscal`, `cblas_csscal`
-- `cblas_saxpby`, `cblas_daxpby`
-- `cblas_srot`, `cblas_drot`
-- `cblas_srotg`, `cblas_drotg`
-- `cblas_srotm`, `cblas_drotm` (新增)
-- `cblas_srotmg`, `cblas_drotmg` (新增)
-- `cblas_ssyr2`, `cblas_dsyr2` (最新增加)
+### 1. OpenBLAS 配置和线程管理函数 (7个) - 最低优先级
+- `openblas_set_num_threads` - 设置线程数
+- `goto_set_num_threads` - 设置线程数 (别名)
+- `openblas_set_num_threads_local` - 设置本地线程数
+- `openblas_get_num_threads` - 获取线程数
+- `openblas_get_num_procs` - 获取处理器数
+- `openblas_set_threads_callback_function` - 设置线程回调函数
+- `openblas_get_parallel` - 获取并行模式
 
-### BLAS Level 2 (矩阵-向量操作)
-- `cblas_sgemv`, `cblas_dgemv`
-- `cblas_sger`, `cblas_dger`
-- `cblas_strmv`, `cblas_dtrmv`
-- `cblas_ssymv`, `cblas_dsymv`
-- `cblas_sgbmv`, `cblas_dgbmv`
-- `cblas_ssyr`, `cblas_dsyr`
-- `cblas_strsv`, `cblas_dtrsv`
-- `cblas_ssbmv`, `cblas_dsbmv` (新增)
-- `cblas_sspmv`, `cblas_dspmv` (新增)
-- `cblas_sspr`, `cblas_dspr` (新增)
-- `cblas_sspr2`, `cblas_dspr2` (新增)
-- `cblas_stbmv`, `cblas_dtbmv` (新增)
-- `cblas_stpmv`, `cblas_dtpmv` (新增)
-- `cblas_stbsv`, `cblas_dtbsv` (最新增加)
-- `cblas_stpsv`, `cblas_dtpsv` (最新增加)
+### 2. 复数双精度函数 (34个) - 中优先级
 
-### BLAS Level 3 (矩阵-矩阵操作)
-- `cblas_sgemm`, `cblas_dgemm`
-- `cblas_sgemmt`, `cblas_dgemmt`
-- `cblas_ssymm`, `cblas_dsymm`
-- `cblas_ssyrk`, `cblas_dsyrk`
-- `cblas_ssyr2k`, `cblas_dsyr2k`
-- `cblas_strmm`, `cblas_dtrmm`
-- `cblas_strsm`, `cblas_dtrsm`
+#### Level 1 函数 (4个)
+- `cblas_zdotu_sub` - 复数双精度点积 (无共轭，子程序版本)
+- `cblas_zdotc_sub` - 复数双精度点积 (共轭，子程序版本)  
+- `cblas_zdrot` - 复数双精度Givens旋转
+- `cblas_zaxpby` - 复数双精度向量线性组合
 
-### BLAS 扩展函数 (新增)
-- `cblas_somatcopy`, `cblas_domatcopy` (异地矩阵转置拷贝)
-- `cblas_simatcopy`, `cblas_dimatcopy` (原地矩阵转置)
-- `cblas_sgeadd`, `cblas_dgeadd` (矩阵加法)
-- `cblas_scsum` (单精度复数求和) (最新增加)
-- `cblas_dzamax`, `cblas_dzamin`, `cblas_dzasum`, `cblas_dznrm2`, `cblas_dzsum` (复数双精度实数操作) (最新增加)
-- `cblas_izamax`, `cblas_izamin`, `cblas_izmax`, `cblas_izmin` (复数双精度索引) (最新增加)
-
-### 复数函数 (新增18个)
-
-#### 复数双精度 Level 1 (8个) ✅
-- `cblas_zdotc` (复数共轭点积)
-- `cblas_zaxpy`, `cblas_zaxpyc` (复数向量加法)
-- `cblas_zcopy`, `cblas_zswap` (复数向量拷贝和交换)
-- `cblas_zscal`, `cblas_zdscal` (复数向量缩放)
-- `cblas_zrotg` (复数 Givens 旋转生成)
-
-#### 复数单精度 Level 1 (4个) ✅
-- `cblas_cdotu_sub`, `cblas_cdotc_sub` (复数点积子程序版本)
-- `cblas_crotg` (复数 Givens 旋转生成)
-- `cblas_caxpby` (复数向量线性组合)
-
-#### 复数双精度 Level 2 (3个) ✅
-- `cblas_zgemv` (复数通用矩阵向量乘法)
-- `cblas_zgeru`, `cblas_zgerc` (复数通用矩阵rank-1更新)
-
-#### 复数单精度 Level 2 (3个) ✅
-- `cblas_cgemv` (复数通用矩阵向量乘法)
-- `cblas_cgeru`, `cblas_cgerc` (复数通用矩阵rank-1更新)
-
-## 未测试的函数列表 (65个)
-
-### 1. Complex Double Precision (Z-前缀函数, 37个)
-
-#### Level 1 函数 (2个) - 大部分已完成 ✅
-- `cblas_zdotu`, `cblas_zdotu_sub` (无共轭点积)
-- `cblas_zdrot`, `cblas_zaxpby` (旋转和向量线性组合)
-
-#### Level 2 函数 (12个) - 基础函数已完成 ✅
-- `cblas_zgbmv` (通用带状矩阵向量乘法)
-- `cblas_zhemv`, `cblas_zhbmv`, `cblas_zhpmv` (Hermitian 矩阵向量乘法)
-- `cblas_zher`, `cblas_zher2`, `cblas_zhpr`, `cblas_zhpr2` (Hermitian 矩阵更新)
-- `cblas_ztrmv`, `cblas_ztbmv`, `cblas_ztpmv` (三角矩阵向量乘法)
-- `cblas_ztrsv`, `cblas_ztbsv`, `cblas_ztpsv` (三角系统求解)
+#### Level 2 函数 (15个)
+- `cblas_ztrsv` - 复数双精度三角求解
+- `cblas_ztrmv` - 复数双精度三角矩阵向量乘法
+- `cblas_zher` - 复数双精度Hermitian矩阵rank-1更新
+- `cblas_zher2` - 复数双精度Hermitian矩阵rank-2更新
+- `cblas_zgbmv` - 复数双精度通用带状矩阵向量乘法
+- `cblas_ztbmv` - 复数双精度三角带状矩阵向量乘法
+- `cblas_ztbsv` - 复数双精度三角带状求解
+- `cblas_ztpmv` - 复数双精度三角打包矩阵向量乘法
+- `cblas_ztpsv` - 复数双精度三角打包求解
+- `cblas_zhemv` - 复数双精度Hermitian矩阵向量乘法
+- `cblas_zhpr` - 复数双精度Hermitian打包矩阵rank-1更新
+- `cblas_zhpr2` - 复数双精度Hermitian打包矩阵rank-2更新
+- `cblas_zhbmv` - 复数双精度Hermitian带状矩阵向量乘法
+- `cblas_zhpmv` - 复数双精度Hermitian打包矩阵向量乘法
 
 #### Level 3 函数 (12个)
-- `cblas_zgemm`, `cblas_zgemm3m`, `cblas_zgemm_batch`
-- `cblas_zgemmt`, `cblas_zhemm`
-- `cblas_zherk`, `cblas_zher2k`
-- `cblas_zsymm`, `cblas_zsyrk`, `cblas_zsyr2k`
-- `cblas_ztrmm`, `cblas_ztrsm`
+- `cblas_zgemm` - 复数双精度通用矩阵乘法
+- `cblas_zgemm3m` - 复数双精度通用矩阵乘法 (3M算法)
+- `cblas_zgemmt` - 复数双精度通用矩阵乘法 (三角结果)
+- `cblas_zsymm` - 复数双精度对称矩阵乘法
+- `cblas_zsyrk` - 复数双精度对称矩阵rank-k更新
+- `cblas_zsyr2k` - 复数双精度对称矩阵rank-2k更新
+- `cblas_ztrmm` - 复数双精度三角矩阵乘法
+- `cblas_ztrsm` - 复数双精度三角系统求解
+- `cblas_zhemm` - 复数双精度Hermitian矩阵乘法
+- `cblas_zherk` - 复数双精度Hermitian矩阵rank-k更新
+- `cblas_zher2k` - 复数双精度Hermitian矩阵rank-2k更新
 
-#### 扩展函数 (8个)
-- `cblas_zgeadd`, `cblas_zimatcopy`, `cblas_zomatcopy`
-- 其他复数矩阵操作函数
+#### 扩展函数 (3个)
+- `cblas_zomatcopy` - 复数双精度异地矩阵转置拷贝
+- `cblas_zimatcopy` - 复数双精度原地矩阵转置
+- `cblas_zgeadd` - 复数双精度矩阵加法
 
-### 2. Complex Single Precision (C-前缀函数, 28个)
+### 3. 复数单精度函数 (27个) - 中优先级
 
-#### Level 1 函数 (1个) - 大部分已完成 ✅
-- `cblas_csrot` (复数-实数 Givens 旋转)
+#### Level 1 函数 (1个)
+- `cblas_csrot` - 复数单精度实数Givens旋转
 
-#### Level 2 函数 (12个) - 基础函数已完成 ✅
-- `cblas_cgbmv` (通用带状矩阵向量乘法)
-- `cblas_chemv`, `cblas_chbmv`, `cblas_chpmv` (Hermitian 矩阵向量乘法)
-- `cblas_cher`, `cblas_cher2`, `cblas_chpr`, `cblas_chpr2` (Hermitian 矩阵更新)
-- `cblas_ctrmv`, `cblas_ctbmv`, `cblas_ctpmv` (三角矩阵向量乘法)
-- `cblas_ctrsv`, `cblas_ctbsv`, `cblas_ctpsv` (三角系统求解)
+#### Level 2 函数 (15个)
+- `cblas_ctrsv` - 复数单精度三角求解
+- `cblas_ctrmv` - 复数单精度三角矩阵向量乘法
+- `cblas_cher` - 复数单精度Hermitian矩阵rank-1更新
+- `cblas_cher2` - 复数单精度Hermitian矩阵rank-2更新
+- `cblas_cgbmv` - 复数单精度通用带状矩阵向量乘法
+- `cblas_ctbmv` - 复数单精度三角带状矩阵向量乘法
+- `cblas_ctbsv` - 复数单精度三角带状求解
+- `cblas_ctpmv` - 复数单精度三角打包矩阵向量乘法
+- `cblas_ctpsv` - 复数单精度三角打包求解
+- `cblas_chemv` - 复数单精度Hermitian矩阵向量乘法
+- `cblas_chpr` - 复数单精度Hermitian打包矩阵rank-1更新
+- `cblas_chpr2` - 复数单精度Hermitian打包矩阵rank-2更新
+- `cblas_chbmv` - 复数单精度Hermitian带状矩阵向量乘法
+- `cblas_chpmv` - 复数单精度Hermitian打包矩阵向量乘法
 
-#### Level 3 函数 (12个)
-- `cblas_cgemm`, `cblas_cgemm3m`, `cblas_cgemm_batch`
-- `cblas_cgemmt`, `cblas_chemm`
-- `cblas_cherk`, `cblas_cher2k`
-- `cblas_csymm`, `cblas_csyrk`, `cblas_csyr2k`
-- `cblas_ctrmm`, `cblas_ctrsm`
+#### Level 3 函数 (9个)
+- `cblas_cgemm` - 复数单精度通用矩阵乘法
+- `cblas_cgemm3m` - 复数单精度通用矩阵乘法 (3M算法)
+- `cblas_cgemmt` - 复数单精度通用矩阵乘法 (三角结果)
+- `cblas_csymm` - 复数单精度对称矩阵乘法
+- `cblas_csyrk` - 复数单精度对称矩阵rank-k更新
+- `cblas_csyr2k` - 复数单精度对称矩阵rank-2k更新
+- `cblas_ctrmm` - 复数单精度三角矩阵乘法
+- `cblas_ctrsm` - 复数单精度三角系统求解
+- `cblas_chemm` - 复数单精度Hermitian矩阵乘法
+- `cblas_cherk` - 复数单精度Hermitian矩阵rank-k更新
+- `cblas_cher2k` - 复数单精度Hermitian矩阵rank-2k更新
 
-#### 扩展函数 (6个)
-- `cblas_cgeadd`, `cblas_cimatcopy`, `cblas_comatcopy`
-- 其他复数矩阵操作函数
+#### 扩展函数 (3个)
+- `cblas_comatcopy` - 复数单精度异地矩阵转置拷贝
+- `cblas_cimatcopy` - 复数单精度原地矩阵转置
+- `cblas_cgeadd` - 复数单精度矩阵加法
 
-### 3. Double Precision Real (D-前缀函数, 1个)
+### 4. 批量操作函数 (4个) - 高优先级
+- `cblas_sgemm_batch` - 单精度批量矩阵乘法
+- `cblas_dgemm_batch` - 双精度批量矩阵乘法
+- `cblas_cgemm_batch` - 复数单精度批量矩阵乘法
+- `cblas_zgemm_batch` - 复数双精度批量矩阵乘法
 
-D-前缀函数的测试覆盖率极高，仅剩下批量操作函数：
+## 测试优先级分析
 
-#### Level 3 函数 (1个)
-- `cblas_dgemm_batch` (批量矩阵乘法)
+### 第一优先级 - 批量操作函数 (4个) ⭐⭐⭐
+**实施难度**: 中等 (需要处理VoidPtr参数)
+**重要性**: 高 (现代BLAS应用中的关键功能)
+**技术挑战**: VoidPtr参数传递和数组指针处理
 
-### 4. Single Precision Real (S-前缀函数, 1个)
+#### 建议实施顺序:
+1. `cblas_sgemm_batch`, `cblas_dgemm_batch` (实数版本相对简单)
+2. `cblas_cgemm_batch`, `cblas_zgemm_batch` (复数版本更复杂)
 
-S-前缀函数的测试覆盖率极高，仅剩下批量操作函数：
+### 第二优先级 - 复数Level 1和简单Level 2函数 (20个) ⭐⭐
+**实施难度**: 中等 (复数参数绑定已解决)
+**重要性**: 中高 (基础复数运算)
+**技术挑战**: 复数参数传递 (已有经验基础)
 
-#### Level 3 函数 (1个)
-- `cblas_sgemm_batch` (批量矩阵乘法)
+#### 建议实施顺序:
+1. **复数双精度Level 1** (4个): `cblas_zdotu_sub`, `cblas_zdotc_sub`, `cblas_zdrot`, `cblas_zaxpby`
+2. **复数单精度Level 1** (1个): `cblas_csrot`
+3. **基础Level 2** (6个): `cblas_ztrsv`, `cblas_ctrsv`, `cblas_ztrmv`, `cblas_ctrmv`, `cblas_zher`, `cblas_cher`
 
-### 5. Index Functions (I-前缀函数, 0个)
+### 第三优先级 - 复数Level 2高级函数 (24个) ⭐
+**实施难度**: 中高 (特殊矩阵结构)
+**重要性**: 中 (专业数值计算应用)
+**技术挑战**: 特殊矩阵格式(带状、打包、Hermitian)的理解和测试
 
-所有复数双精度数组索引函数已完成测试 ✅
+#### 建议实施顺序:
+1. **通用带状矩阵** (2个): `cblas_zgbmv`, `cblas_cgbmv`
+2. **三角带状矩阵** (4个): `cblas_ztbmv`, `cblas_ctbmv`, `cblas_ztbsv`, `cblas_ctbsv`
+3. **Hermitian矩阵** (18个): 按操作类型分组实施
 
-### 6. OpenBLAS 特有函数 (配置函数) - 未在CBLAS统计中
+### 第四优先级 - 复数Level 3函数 (21个) ⭐
+**实施难度**: 高 (矩阵乘法复杂性)
+**重要性**: 中低 (高性能计算专用)
+**技术挑战**: 大型复数矩阵操作和数值稳定性
 
-#### 配置函数 (9个)
-- `openblas_get_config`, `openblas_get_corename`
-- `openblas_get_num_procs`, `openblas_get_num_threads`
-- `openblas_get_parallel`, `openblas_set_num_threads`
-- `openblas_set_num_threads_local`
-- `openblas_set_threads_callback_function`
-- `goto_set_num_threads`
+### 最低优先级 - OpenBLAS配置函数 (7个)
+**实施难度**: 低 (简单调用)
+**重要性**: 低 (运行时配置)
+**技术挑战**: 最小
 
-#### 常量 (3个)
-- `OPENBLAS_OPENMP`, `OPENBLAS_SEQUENTIAL`, `OPENBLAS_THREAD`
+## 实施建议
 
-## 建议的测试优先级
+### 立即实施 (第一阶段) - 批量操作函数
+**目标**: 完成现代BLAS的关键缺失功能
+**预期时间**: 1-2周
+**预期覆盖率提升**: 约2%
 
-### 高优先级 (核心 BLAS 函数) - 已完成 ✅
-基础的单精度和双精度实数BLAS函数已全面覆盖，包括：
-1. **Level 1**: 向量运算 (点积、范数、索引、缩放、拷贝等) ✅
-2. **Level 2**: 矩阵-向量运算 (gemv, ger, trmv, symv, gbmv, syr, trsv等) ✅  
-3. **Level 3**: 矩阵-矩阵运算 (gemm, gemmt, symm, syrk, syr2k, trmm, trsm等) ✅
-4. **扩展函数**: 矩阵操作 (omatcopy, imatcopy, geadd) ✅
+#### 技术要点:
+1. **VoidPtr参数处理**: 需要研究MoonBit中VoidPtr的正确使用方法
+2. **数组指针管理**: 批量操作涉及指针数组的传递
+3. **内存对齐**: 确保批量数据的正确对齐和访问
 
-### 中优先级 (剩余实数函数) - 建议下一步
-1. **对称矩阵rank-2更新**: `cblas_ssyr2`, `cblas_dsyr2` (2个函数)
-2. **三角求解扩展**: `cblas_stbsv`, `cblas_dtbsv`, `cblas_stpsv`, `cblas_dtpsv` (4个函数)
-3. **批量操作**: `cblas_sgemm_batch`, `cblas_dgemm_batch` (2个函数)
-4. **复数求和**: `cblas_scsum` (1个函数)
-5. **复数双精度实数操作**: `cblas_dzamax`, `cblas_dzamin`, `cblas_dzasum`, `cblas_dznrm2`, `cblas_dzsum` (5个函数)
-6. **复数双精度索引**: `cblas_izamax`, `cblas_izamin`, `cblas_izmax`, `cblas_izmin` (4个函数)
+### 短期实施 (第二阶段) - 基础复数函数
+**目标**: 补充复数运算的基础功能
+**预期时间**: 2-3周  
+**预期覆盖率提升**: 约10%
 
-**小计**: 18个剩余实数和实数相关函数
+#### 技术要点:
+1. **利用现有经验**: 基于已测试的18个复数函数经验
+2. **参数传递优化**: 改进复数参数的传递机制
+3. **数值验证**: 确保复数运算的数学正确性
 
-### 低优先级 (复数函数)
-1. **复数单精度**: 37个C-前缀函数 (主要是完整的复数数学运算)
-2. **复数双精度**: 45个Z-前缀函数 (主要是完整的复数数学运算)
+### 中期实施 (第三阶段) - 高级复数函数
+**目标**: 实现专业数值计算功能
+**预期时间**: 4-6周
+**预期覆盖率提升**: 约20%
 
-**小计**: 82个复数函数
+#### 技术要点:
+1. **特殊矩阵格式**: 深入理解BLAS中的特殊矩阵存储格式
+2. **测试用例设计**: 为复杂矩阵操作设计适当的测试用例
+3. **性能验证**: 确保复杂操作的正确性和性能
 
-### 最低优先级 (配置函数)
-1. **OpenBLAS 配置**: 9个配置和线程管理函数
-2. **OpenBLAS 常量**: 3个常量定义
+## 技术挑战分析
 
-## 测试实施分析
+### 1. VoidPtr参数处理 (批量操作)
+**挑战**: MoonBit中VoidPtr的使用和类型转换
+**解决方案**: 
+- 研究现有的VoidPtr使用模式
+- 可能需要辅助函数进行类型转换
+- 参考C测试实现
 
-### 当前测试模式分析
-1. **MoonBit测试**: 使用`test "function_name"`块，重点验证数值计算正确性
-2. **C测试对照**: ctest.c提供相同的测试用例，用于验证绑定正确性
-3. **测试覆盖**: 当前主要覆盖单精度和双精度实数运算，复数运算测试有限
+### 2. 复数参数绑定 (复数函数)
+**挑战**: ComplexFloat和ComplexDouble的高效传递
+**解决方案**:
+- 基于现有18个复数函数的成功经验
+- 优化复数数组的内存布局
+- 确保实部虚部的正确访问
 
-### 未测试函数的技术障碍分析
-1. **复数函数**: 主要困难在于`ComplexFloat`和`ComplexDouble`类型的参数传递
-2. **批量操作**: `VoidPtr`参数类型需要特殊处理
-3. **三角求解**: 需要构造适当的测试矩阵以避免数值不稳定
+### 3. 特殊矩阵格式 (高级Level 2)
+**挑战**: 带状、打包、Hermitian矩阵的存储和访问
+**解决方案**:
+- 深入学习BLAS规范中的矩阵存储约定
+- 设计辅助函数简化矩阵创建和访问
+- 参考OpenBLAS文档和示例
 
-### 下一步测试建议
-1. **立即实施**: 剩余18个实数相关函数 (中优先级)
-2. **分类测试**: 按数据类型和操作级别组织
-3. **参数验证**: 重点测试边界条件和错误处理
-4. **数值精度**: 验证计算结果的数值准确性，特别是浮点精度问题
+## 测试策略
 
-## 统筹分析总结
+### 1. 分层测试方法
+- **单元测试**: 每个函数的基本功能验证
+- **集成测试**: 与已测试函数的协同工作
+- **性能测试**: 关键函数的性能基准
 
-### 当前测试状态 (2024年12月)
-- **测试覆盖率**: 67.8% (137/202个CBLAS函数)
-- **实数函数覆盖**: 极高 (~98%) - 单精度和双精度实数运算基本完成
-- **复数函数覆盖**: 低 (~15%) - 已测试复数相关基础函数
-- **扩展函数覆盖**: 优秀 - 矩阵操作扩展函数全面覆盖
+### 2. 数值验证策略
+- **已知结果对比**: 使用已知的数学结果验证
+- **C对照测试**: 与C实现结果对比 (使用 `./ctest.sh`)
+- **边界条件**: 测试特殊输入和边界情况
 
-### 测试质量评估
-1. **已测试函数**: 测试设计合理，既有MoonBit测试又有C对照测试
-2. **数值验证**: 测试用例覆盖了基本的数学正确性验证
-3. **边界测试**: 部分函数包含了浮点精度和特殊值测试
+### 3. 测试工具链
+- **MoonBit测试**: `moon test` - 主要的功能和数值验证
+- **C对照测试**: `./ctest.sh` - 验证绑定正确性和结果一致性
+- **覆盖率分析**: 定期运行覆盖率检查确保测试质量
 
-### 主要测试Gap
-1. **技术Gap**: 复数类型绑定和参数传递复杂性
-2. **功能Gap**: 82个复数函数和18个剩余实数函数
-3. **优先级Gap**: 剩余实数函数优先级更高，更易实现
+## 预期成果
 
-### 下一阶段建议
-**立即实施**: 优先完成剩余18个实数相关函数，可将整体实数函数覆盖率提升到接近100%
-**中期目标**: 解决复数绑定技术问题，开始复数函数测试
-**长期目标**: 实现完整的CBLAS测试覆盖
+### 短期目标 (1-2个月)
+- **测试覆盖率**: 从65.8%提升至75%+
+- **完成功能**: 批量操作 + 基础复数函数
+- **技术突破**: VoidPtr处理和复数函数优化
 
-## 下一步实施计划
+### 中期目标 (3-4个月)  
+- **测试覆盖率**: 达到85%+
+- **完成功能**: 大部分复数Level 2函数
+- **技术成熟**: 特殊矩阵格式处理能力
 
-### 第一阶段：完善实数函数测试 (优先级最高)
-**目标**: 将实数函数覆盖率提升至接近100%
+### 长期目标 (6个月内)
+- **测试覆盖率**: 达到95%+
+- **完成功能**: 几乎所有CBLAS核心函数
+- **项目成熟度**: 生产就绪的CBLAS绑定
 
-**已完成实施** (16个函数) ✅:
-1. **对称矩阵扩展**: `cblas_ssyr2`, `cblas_dsyr2` (2个) ✅
-2. **三角求解**: `cblas_stbsv`, `cblas_dtbsv`, `cblas_stpsv`, `cblas_dtpsv` (4个) ✅  
-3. **复数求和**: `cblas_scsum` (1个) ✅
-4. **复数实部操作**: `cblas_dzamax`, `cblas_dzamin`, `cblas_dzasum`, `cblas_dznrm2`, `cblas_dzsum` (5个) ✅
-5. **复数索引**: `cblas_izamax`, `cblas_izamin`, `cblas_izmax`, `cblas_izmin` (4个) ✅
+## 资源需求
 
-**实际结果**: 测试覆盖率已提升至 67.8% (137/202)
+### 开发资源
+- **主要开发**: 1名开发者，约6个月时间
+- **代码审查**: 定期的代码审查和质量检查
+- **文档更新**: 同步更新测试文档和API文档
 
-**下一步实施** (2个函数):
-1. **批量操作**: `cblas_sgemm_batch`, `cblas_dgemm_batch` (2个)
+### 技术资源
+- **参考资料**: OpenBLAS文档、BLAS规范、现有C测试代码
+- **开发环境**: MoonBit开发环境、C编译器、测试框架
+- **验证工具**: 数值计算库（用于独立验证）
 
-### 第二阶段：解决复数绑定问题 (中期目标)
-**技术重点**: 
-1. 研究`ComplexFloat`和`ComplexDouble`在MoonBit中的正确绑定方式
-2. 解决复数参数传递的技术问题
-3. 实现基础复数函数测试框架
+## 结论
 
-### 第三阶段：复数函数全面测试 (长期目标)
-**目标**: 实现82个复数函数的测试覆盖
-**预期结果**: 测试覆盖率达到90%以上
+基于 `moon check` 的分析，当前有72个函数尚未测试，主要集中在复数函数和批量操作上。建议按照优先级分阶段实施，首先完成批量操作函数以补充关键功能缺失，然后逐步实现复数函数以提高整体覆盖率。
 
-## 更新记录
+通过系统性的实施计划，预计在6个月内可以将测试覆盖率提升至95%以上，使该CBLAS绑定项目达到生产就绪状态。
 
-### 2024年12月 - 复数函数测试增强完成 ✅
-- **新增测试**: 成功增加18个CBLAS复数函数的测试覆盖
-- **测试覆盖率**: 从58.9%提升至67.8%
-- **复数函数突破**: 完成18个复数函数测试，包括Level 1和Level 2核心功能
-- **测试质量**: 所有137个测试通过，C对照测试验证binding正确性
-- **数学验证**: 修正了复数矩阵运算的数学计算，确保测试的准确性
+## 当前测试验证状态
 
-#### 本轮完成的具体函数
-**复数双精度 (8个Level 1 + 3个Level 2)**:
-- Level 1: `zdotc`, `zaxpy`, `zaxpyc`, `zcopy`, `zswap`, `zscal`, `zdscal`, `zrotg`
-- Level 2: `zgemv`, `zgeru`, `zgerc`
+### MoonBit测试状态
+- **测试运行**: `moon test` - ✅ 所有137个测试通过
+- **测试位置**: `test_*.mbt` 文件 (双精度、单精度、复数双精度、复数单精度)
+- **测试质量**: 每个函数都有数值验证和边界测试
 
-**复数单精度 (4个Level 1 + 3个Level 2)**:
-- Level 1: `cdotu_sub`, `cdotc_sub`, `crotg`, `caxpby`
-- Level 2: `cgemv`, `cgeru`, `cgerc`
+### C对照测试状态  
+- **测试运行**: `./ctest.sh` - ✅ 所有对照测试通过
+- **测试位置**: `ctest/` 目录下的C测试文件
+- **验证内容**: MoonBit绑定与原生C库的结果一致性
 
-### 2024年12月初 - 实数函数测试增强完成
-- **新增测试**: 成功增加16个CBLAS函数的测试覆盖
-- **测试覆盖率**: 从50.5%提升至58.9%
-- **高优先级函数**: 完成18个高优先级函数中的16个
-- **实数函数**: 几乎完成所有实数函数测试(覆盖率98%)
-- **复数基础**: 完成复数相关基础函数测试框架
+### 函数使用状态分析
+基于 `moon check` 的unused function警告分析:
+```bash
+# 获取未测试函数列表
+moon check 2>&1 | grep "Warning: Unused function"
 
-### 之前的更新
-- 完成高优先级和大部分中优先级函数的测试
-- 新增 22 个中优先级 BLAS 函数的测试覆盖
-- Level 1-3 基础实数运算全面覆盖
-- 扩展函数(矩阵操作)基本完成
+# 统计未测试函数数量  
+moon check 2>&1 | grep "Warning: Unused function" | wc -l
+# 结果: 72个未测试函数
+
+# 计算测试覆盖率
+# 总函数: 211, 未测试: 72, 已测试: 139
+# 覆盖率: 139/211 = 65.8%
+```
+
+## 下一步行动计划
+
+### 立即行动 (本周)
+1. **分析批量操作函数**: 深入研究`cblas_*gemm_batch`函数的参数要求
+2. **VoidPtr研究**: 确定MoonBit中VoidPtr的最佳使用模式
+3. **建立测试框架**: 为批量操作创建基础测试框架
+
+### 短期计划 (1-2周)
+1. **实现批量操作测试**: 优先实现`cblas_sgemm_batch`和`cblas_dgemm_batch`
+2. **扩展复数函数**: 基于现有复数函数经验扩展更多复数Level 1函数
+3. **验证测试质量**: 确保新增测试的数值正确性和边界覆盖
+
+### 中期计划 (1个月)
+1. **复数Level 2函数**: 实现基础的复数矩阵-向量运算
+2. **特殊矩阵格式**: 开始Hermitian和带状矩阵函数的实现
+3. **性能基准**: 建立关键函数的性能基准测试
+
+## 技术参考
+
+### MoonBit测试模式
+```moonbit
+test "function_name" {
+  // 数值验证测试
+  inspect(function_call(), content="expected_result")
+  
+  // 边界条件测试
+  // 浮点精度测试
+  // 错误处理测试
+}
+```
+
+### C对照测试模式
+```c
+// ctest/*.c 文件中的对应测试
+// 验证MoonBit绑定与C库的结果一致性
+```
+
+### 优先级评估标准
+1. **业务重要性**: 现代应用的需求程度
+2. **技术难度**: 实现复杂度和风险评估  
+3. **依赖关系**: 与已测试函数的关联程度
+4. **测试覆盖**: 对整体覆盖率的贡献度
+
+通过这个系统性的分析和计划，可以高效地推进CBLAS测试覆盖率的提升，确保项目的质量和完整性。
