@@ -275,7 +275,7 @@ pub extern "C" fn cblas_cdotu(
   incx : Int,
   y : FixedArray[Float],
   incy : Int,
-) -> ValTypeComplexFloat = "cblas_cdotu"
+) -> ComplexFloat = "cblas_cdotu"
 
 ///|
 ///
@@ -288,7 +288,7 @@ pub extern "C" fn cblas_cdotc(
   incx : Int,
   y : FixedArray[Float],
   incy : Int,
-) -> ValTypeComplexFloat = "cblas_cdotc"
+) -> ComplexFloat = "cblas_cdotc"
 
 ///|
 ///
@@ -327,7 +327,7 @@ pub extern "C" fn cblas_cdotu_sub(
   incx : Int,
   y : FixedArray[Float],
   incy : Int,
-  ret : ComplexFloat,
+  ret : FixedArray[Float],
 ) = "cblas_cdotu_sub"
 
 ///|
@@ -341,7 +341,7 @@ pub extern "C" fn cblas_cdotc_sub(
   incx : Int,
   y : FixedArray[Float],
   incy : Int,
-  ret : ComplexFloat,
+  ret : FixedArray[Float],
 ) = "cblas_cdotc_sub"
 
 ///|
@@ -355,7 +355,7 @@ pub extern "C" fn cblas_zdotu_sub(
   incx : Int,
   y : FixedArray[Double],
   incy : Int,
-  ret : ComplexDouble,
+  ret : FixedArray[Double],
 ) = "cblas_zdotu_sub"
 
 ///|
@@ -369,7 +369,7 @@ pub extern "C" fn cblas_zdotc_sub(
   incx : Int,
   y : FixedArray[Double],
   incy : Int,
-  ret : ComplexDouble,
+  ret : FixedArray[Double],
 ) = "cblas_zdotc_sub"
 
 ///|

@@ -16,13 +16,13 @@ fn cblas_caxpyc(Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float
 
 fn cblas_ccopy(Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
 
-fn cblas_cdotc(Int, FixedArray[Float], Int, FixedArray[Float], Int) -> ValTypeComplexFloat
+fn cblas_cdotc(Int, FixedArray[Float], Int, FixedArray[Float], Int) -> ComplexFloat
 
-fn cblas_cdotc_sub(Int, FixedArray[Float], Int, FixedArray[Float], Int, ComplexFloat) -> Unit
+fn cblas_cdotc_sub(Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float]) -> Unit
 
-fn cblas_cdotu(Int, FixedArray[Float], Int, FixedArray[Float], Int) -> ValTypeComplexFloat
+fn cblas_cdotu(Int, FixedArray[Float], Int, FixedArray[Float], Int) -> ComplexFloat
 
-fn cblas_cdotu_sub(Int, FixedArray[Float], Int, FixedArray[Float], Int, ComplexFloat) -> Unit
+fn cblas_cdotu_sub(Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float]) -> Unit
 
 fn cblas_cgbmv(CBLAS_ORDER, CBLAS_TRANSPOSE, Int, Int, Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Unit
 
@@ -332,11 +332,11 @@ fn cblas_zcopy(Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
 
 fn cblas_zdotc(Int, FixedArray[Double], Int, FixedArray[Double], Int) -> ComplexDouble
 
-fn cblas_zdotc_sub(Int, FixedArray[Double], Int, FixedArray[Double], Int, ComplexDouble) -> Unit
+fn cblas_zdotc_sub(Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double]) -> Unit
 
 fn cblas_zdotu(Int, FixedArray[Double], Int, FixedArray[Double], Int) -> ComplexDouble
 
-fn cblas_zdotu_sub(Int, FixedArray[Double], Int, FixedArray[Double], Int, ComplexDouble) -> Unit
+fn cblas_zdotu_sub(Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double]) -> Unit
 
 fn cblas_zdrot(Int, FixedArray[Double], Int, FixedArray[Double], Int, Double, Double) -> Unit
 
@@ -466,16 +466,6 @@ pub(all) struct ComplexDouble {
 }
 
 pub(all) struct ComplexFloat {
-  real : Float
-  imag : Float
-}
-
-pub(all) struct ValTypeComplexDouble {
-  real : Double
-  imag : Double
-}
-
-pub(all) struct ValTypeComplexFloat {
   real : Float
   imag : Float
 }
