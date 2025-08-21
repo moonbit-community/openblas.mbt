@@ -14,7 +14,7 @@ LDFLAGS = -L$(OPENBLAS_PATH)/lib -lopenblas
 TARGET = ctest
 
 # Source files
-SOURCES = ctest.c cblas_float_test.c cblas_double_test.c cblas_complex_float_test.c cblas_complex_double_test.c
+SOURCES = ctest.c test_float.c test_double.c test_complex_float.c test_complex_double.c
 OBJECTS = $(SOURCES:.c=.o)
 
 all: $(TARGET)
