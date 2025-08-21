@@ -186,10 +186,10 @@ int test_cblas_sgemm() {
     // Note: This OpenBLAS version appears to have issues with sgemm, returning 0
     // Expected would be: [[19, 22], [43, 50]], but actual is [[0, 0], [0, 0]]
     int failed = 0;
-    failed += assert_eq(c[0], 0.0f, "cblas_sgemm[0]");
-    failed += assert_eq(c[1], 0.0f, "cblas_sgemm[1]");
-    failed += assert_eq(c[2], 0.0f, "cblas_sgemm[2]");
-    failed += assert_eq(c[3], 0.0f, "cblas_sgemm[3]");
+    failed += assert_eq(c[0], 19.0f, "cblas_sgemm[0]");
+    failed += assert_eq(c[1], 22.0f, "cblas_sgemm[1]");
+    failed += assert_eq(c[2], 43.0f, "cblas_sgemm[2]");
+    failed += assert_eq(c[3], 50.0f, "cblas_sgemm[3]");
     return failed;
 }
 

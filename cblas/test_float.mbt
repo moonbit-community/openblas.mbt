@@ -241,10 +241,10 @@ test "cblas_sgemm test" {
   // Note: This OpenBLAS version appears to have issues with sgemm, returning 0
   // Expected would be: C = A*B = [[1,2],[3,4]] * [[5,6],[7,8]] = [[19,22],[43,50]]
   // But actual result is: [[0,0],[0,0]]
-  assert_eq(c[0], 0.0)
-  assert_eq(c[1], 0.0)
-  assert_eq(c[2], 0.0)
-  assert_eq(c[3], 0.0)
+  assert_eq(c[0], 19.0)
+  assert_eq(c[1], 22.0)
+  assert_eq(c[2], 43.0)
+  assert_eq(c[3], 50.0)
 }
 
 ///|
