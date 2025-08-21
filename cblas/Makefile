@@ -13,13 +13,17 @@ LDFLAGS = -L$(OPENBLAS_PATH)/lib -lopenblas
 # Target executable
 TARGET = ctest
 
+# Source files
+SOURCES = ctest.c cblas_float_test.c cblas_double_test.c cblas_complex_float_test.c cblas_complex_double_test.c
+OBJECTS = $(SOURCES:.c=.o)
+
 all: $(TARGET)
 
-$(TARGET): ctest.o
-	$(CC) -o $(TARGET) ctest.o $(LDFLAGS)
+$(TARGET): $(OBJECTS)
+	$(CC) -o $(TARGET) $(OBJECTS) $(LDFLAGS)
 
-ctest.o: ctest.c
-	$(CC) -c ctest.c $(CFLAGS)
+%.o: %.c cblas_test.h
+	$(CC) -c $< $(CFLAGS)
 
 run: $(TARGET)
 	./$(TARGET)
