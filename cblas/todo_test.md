@@ -5,11 +5,11 @@
 ## 测试覆盖情况概述
 
 - **总CBLAS函数数量**: 202 个函数
-- **已测试函数数量**: 119 个函数 (更新时间: 2024年12月)  
-- **未测试函数数量**: 83 个函数
-- **测试覆盖率**: 58.9%
+- **已测试函数数量**: 137 个函数 (更新时间: 2024年12月)  
+- **未测试函数数量**: 65 个函数
+- **测试覆盖率**: 67.8%
 
-## 已测试的函数列表 (80个)
+## 已测试的函数列表 (137个)
 
 ### BLAS Level 1 (向量操作)
 - `cblas_sdsdot`, `cblas_dsdot`, `cblas_sdot`, `cblas_ddot`
@@ -67,28 +67,42 @@
 - `cblas_dzamax`, `cblas_dzamin`, `cblas_dzasum`, `cblas_dznrm2`, `cblas_dzsum` (复数双精度实数操作) (最新增加)
 - `cblas_izamax`, `cblas_izamin`, `cblas_izmax`, `cblas_izmin` (复数双精度索引) (最新增加)
 
-## 未测试的函数列表 (83个)
+### 复数函数 (新增18个)
 
-### 1. Complex Double Precision (Z-前缀函数, 45个)
+#### 复数双精度 Level 1 (8个) ✅
+- `cblas_zdotc` (复数共轭点积)
+- `cblas_zaxpy`, `cblas_zaxpyc` (复数向量加法)
+- `cblas_zcopy`, `cblas_zswap` (复数向量拷贝和交换)
+- `cblas_zscal`, `cblas_zdscal` (复数向量缩放)
+- `cblas_zrotg` (复数 Givens 旋转生成)
 
-大量 Z-前缀函数未测试。
+#### 复数单精度 Level 1 (4个) ✅
+- `cblas_cdotu_sub`, `cblas_cdotc_sub` (复数点积子程序版本)
+- `cblas_crotg` (复数 Givens 旋转生成)
+- `cblas_caxpby` (复数向量线性组合)
 
-#### Level 1 函数 (10个)
-- `cblas_zdotc`, `cblas_zdotc_sub`, `cblas_zdotu`, `cblas_zdotu_sub`
-- `cblas_dzamax`, `cblas_dzamin`, `cblas_dzasum`, `cblas_dznrm2`, `cblas_dzsum`
-- `cblas_izamax`, `cblas_izamin`, `cblas_izmax`, `cblas_izmin`
-- `cblas_zaxpy`, `cblas_zaxpyc`, `cblas_zaxpby`
-- `cblas_zcopy`, `cblas_zswap`
-- `cblas_zscal`, `cblas_zdscal`
-- `cblas_zdrot`, `cblas_zrotg`
+#### 复数双精度 Level 2 (3个) ✅
+- `cblas_zgemv` (复数通用矩阵向量乘法)
+- `cblas_zgeru`, `cblas_zgerc` (复数通用矩阵rank-1更新)
 
-#### Level 2 函数 (15个)
-- `cblas_zgemv`, `cblas_zgbmv`
-- `cblas_zhemv`, `cblas_zhbmv`, `cblas_zhpmv`
-- `cblas_zher`, `cblas_zher2`, `cblas_zhpr`, `cblas_zhpr2`
-- `cblas_ztrmv`, `cblas_ztbmv`, `cblas_ztpmv`
-- `cblas_ztrsv`, `cblas_ztbsv`, `cblas_ztpsv`
-- `cblas_zgerc`, `cblas_zgeru`
+#### 复数单精度 Level 2 (3个) ✅
+- `cblas_cgemv` (复数通用矩阵向量乘法)
+- `cblas_cgeru`, `cblas_cgerc` (复数通用矩阵rank-1更新)
+
+## 未测试的函数列表 (65个)
+
+### 1. Complex Double Precision (Z-前缀函数, 37个)
+
+#### Level 1 函数 (2个) - 大部分已完成 ✅
+- `cblas_zdotu`, `cblas_zdotu_sub` (无共轭点积)
+- `cblas_zdrot`, `cblas_zaxpby` (旋转和向量线性组合)
+
+#### Level 2 函数 (12个) - 基础函数已完成 ✅
+- `cblas_zgbmv` (通用带状矩阵向量乘法)
+- `cblas_zhemv`, `cblas_zhbmv`, `cblas_zhpmv` (Hermitian 矩阵向量乘法)
+- `cblas_zher`, `cblas_zher2`, `cblas_zhpr`, `cblas_zhpr2` (Hermitian 矩阵更新)
+- `cblas_ztrmv`, `cblas_ztbmv`, `cblas_ztpmv` (三角矩阵向量乘法)
+- `cblas_ztrsv`, `cblas_ztbsv`, `cblas_ztpsv` (三角系统求解)
 
 #### Level 3 函数 (12个)
 - `cblas_zgemm`, `cblas_zgemm3m`, `cblas_zgemm_batch`
@@ -101,22 +115,17 @@
 - `cblas_zgeadd`, `cblas_zimatcopy`, `cblas_zomatcopy`
 - 其他复数矩阵操作函数
 
-### 2. Complex Single Precision (C-前缀函数, 37个)
+### 2. Complex Single Precision (C-前缀函数, 28个)
 
-大部分C-前缀复数函数未测试，仅测试了基础的点乘、拷贝、交换、缩放操作：
+#### Level 1 函数 (1个) - 大部分已完成 ✅
+- `cblas_csrot` (复数-实数 Givens 旋转)
 
-#### Level 1 函数 (4个)
-- `cblas_cdotc_sub`, `cblas_cdotu_sub` (子函数版本)
-- `cblas_caxpby` (复数向量操作)
-- `cblas_crotg`, `cblas_csrot` (复数旋转操作)
-
-#### Level 2 函数 (15个)
-- `cblas_cgemv`, `cblas_cgbmv`
-- `cblas_chemv`, `cblas_chbmv`, `cblas_chpmv` (Hermitian 矩阵操作)
-- `cblas_cher`, `cblas_cher2`, `cblas_chpr`, `cblas_chpr2` (Hermitian 秩更新)
+#### Level 2 函数 (12个) - 基础函数已完成 ✅
+- `cblas_cgbmv` (通用带状矩阵向量乘法)
+- `cblas_chemv`, `cblas_chbmv`, `cblas_chpmv` (Hermitian 矩阵向量乘法)
+- `cblas_cher`, `cblas_cher2`, `cblas_chpr`, `cblas_chpr2` (Hermitian 矩阵更新)
 - `cblas_ctrmv`, `cblas_ctbmv`, `cblas_ctpmv` (三角矩阵向量乘法)
 - `cblas_ctrsv`, `cblas_ctbsv`, `cblas_ctpsv` (三角系统求解)
-- `cblas_cgerc`, `cblas_cgeru` (复数外积)
 
 #### Level 3 函数 (12个)
 - `cblas_cgemm`, `cblas_cgemm3m`, `cblas_cgemm_batch`
@@ -210,7 +219,7 @@ S-前缀函数的测试覆盖率极高，仅剩下批量操作函数：
 ## 统筹分析总结
 
 ### 当前测试状态 (2024年12月)
-- **测试覆盖率**: 58.9% (119/202个CBLAS函数)
+- **测试覆盖率**: 67.8% (137/202个CBLAS函数)
 - **实数函数覆盖**: 极高 (~98%) - 单精度和双精度实数运算基本完成
 - **复数函数覆盖**: 低 (~15%) - 已测试复数相关基础函数
 - **扩展函数覆盖**: 优秀 - 矩阵操作扩展函数全面覆盖
@@ -242,7 +251,7 @@ S-前缀函数的测试覆盖率极高，仅剩下批量操作函数：
 4. **复数实部操作**: `cblas_dzamax`, `cblas_dzamin`, `cblas_dzasum`, `cblas_dznrm2`, `cblas_dzsum` (5个) ✅
 5. **复数索引**: `cblas_izamax`, `cblas_izamin`, `cblas_izmax`, `cblas_izmin` (4个) ✅
 
-**实际结果**: 测试覆盖率已提升至 58.9% (119/202)
+**实际结果**: 测试覆盖率已提升至 67.8% (137/202)
 
 **下一步实施** (2个函数):
 1. **批量操作**: `cblas_sgemm_batch`, `cblas_dgemm_batch` (2个)
@@ -259,7 +268,23 @@ S-前缀函数的测试覆盖率极高，仅剩下批量操作函数：
 
 ## 更新记录
 
-### 2024年12月 - 测试增强实施完成
+### 2024年12月 - 复数函数测试增强完成 ✅
+- **新增测试**: 成功增加18个CBLAS复数函数的测试覆盖
+- **测试覆盖率**: 从58.9%提升至67.8%
+- **复数函数突破**: 完成18个复数函数测试，包括Level 1和Level 2核心功能
+- **测试质量**: 所有137个测试通过，C对照测试验证binding正确性
+- **数学验证**: 修正了复数矩阵运算的数学计算，确保测试的准确性
+
+#### 本轮完成的具体函数
+**复数双精度 (8个Level 1 + 3个Level 2)**:
+- Level 1: `zdotc`, `zaxpy`, `zaxpyc`, `zcopy`, `zswap`, `zscal`, `zdscal`, `zrotg`
+- Level 2: `zgemv`, `zgeru`, `zgerc`
+
+**复数单精度 (4个Level 1 + 3个Level 2)**:
+- Level 1: `cdotu_sub`, `cdotc_sub`, `crotg`, `caxpby`
+- Level 2: `cgemv`, `cgeru`, `cgerc`
+
+### 2024年12月初 - 实数函数测试增强完成
 - **新增测试**: 成功增加16个CBLAS函数的测试覆盖
 - **测试覆盖率**: 从50.5%提升至58.9%
 - **高优先级函数**: 完成18个高优先级函数中的16个

@@ -125,6 +125,8 @@ int main() {
     failed += test_cblas_izmax();
     failed += test_cblas_izmin();
     
+
+    
     // Double tests are mixed with float tests above for compatibility with original test order
     
     // Complex float tests (single precision complex)
@@ -144,8 +146,26 @@ int main() {
     failed += test_cblas_cswap();
     failed += test_cblas_cscal();
     failed += test_cblas_csscal();
+    failed += test_cblas_cdotu_sub();
+    failed += test_cblas_cdotc_sub();
+    failed += test_cblas_crotg();
+    failed += test_cblas_caxpby();
+    failed += test_cblas_cgemv();
+    failed += test_cblas_cgeru();
+    failed += test_cblas_cgerc();
     
-    // Complex double tests - all skipped due to binding issues
+    // Complex double tests
+    failed += test_cblas_zdotc();
+    failed += test_cblas_zaxpy();
+    failed += test_cblas_zaxpyc();
+    failed += test_cblas_zcopy();
+    failed += test_cblas_zswap();
+    failed += test_cblas_zscal();
+    failed += test_cblas_zdscal();
+    failed += test_cblas_zrotg();
+    failed += test_cblas_zgemv();
+    failed += test_cblas_zgeru();
+    failed += test_cblas_zgerc();
     
     if (failed > 0) {
         printf("%d tests failed.\n", failed);

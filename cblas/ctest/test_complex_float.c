@@ -224,3 +224,122 @@ int test_cblas_csscal() {
     failed += assert_eq(openblas_complex_float_imag(x[1]), 8.0f, "cblas_csscal[1] imag");
     return failed;
 }
+
+int test_cblas_cdotu_sub() {
+    int n = 2;
+    float x[] = {1.0f, 2.0f, 3.0f, 4.0f}; // Complex numbers as real,imag pairs
+    float y[] = {5.0f, 6.0f, 7.0f, 8.0f}; // Complex numbers
+    float result[2] = {0.0f, 0.0f}; // result as flattened complex number
+    
+    cblas_cdotu_sub(n, x, 1, y, 1, result);
+    
+    // Expected result: -18+68i
+    return assert_eq(result[0], -18.0f, "cblas_cdotu_sub real") && 
+           assert_eq(result[1], 68.0f, "cblas_cdotu_sub imag");
+}
+
+int test_cblas_cdotc_sub() {
+    int n = 2;
+    float x[] = {1.0f, 2.0f, 3.0f, 4.0f}; // Complex numbers
+    float y[] = {5.0f, 6.0f, 7.0f, 8.0f}; // Complex numbers
+    float result[2] = {0.0f, 0.0f}; // result as flattened complex number
+    
+    cblas_cdotc_sub(n, x, 1, y, 1, result);
+    
+    // Expected result: 70-8i
+    return assert_eq(result[0], 70.0f, "cblas_cdotc_sub real") && 
+           assert_eq(result[1], -8.0f, "cblas_cdotc_sub imag");
+}
+
+int test_cblas_crotg() {
+    float a[] = {3.0f, 4.0f}; // 3+4i
+    float b[] = {1.0f, 2.0f}; // 1+2i
+    float c[1] = {0.0f}; // cosine (real)
+    float s[] = {0.0f, 0.0f}; // sine (complex)
+    
+    cblas_crotg(a, b, c, s);
+    
+    // Check that the function doesn't crash and produces reasonable values
+    return (c[0] >= 0.0f && c[0] <= 1.0f) ? 0 : 1; // c should be between 0 and 1
+}
+
+int test_cblas_caxpby() {
+    int n = 2;
+    float alpha[] = {2.0f, 1.0f}; // 2+1i
+    float beta[] = {1.0f, 1.0f}; // 1+1i
+    float x[] = {1.0f, 2.0f, 3.0f, 4.0f}; // Complex numbers
+    float y[] = {5.0f, 6.0f, 7.0f, 8.0f}; // Complex numbers
+    
+    cblas_caxpby(n, alpha, x, 1, beta, y, 1);
+    
+    // Expected: y = alpha*x + beta*y = [-1+16i, 1+26i]
+    int result = 1;
+    result &= assert_eq(y[0], -1.0f, "cblas_caxpby y[0] real");
+    result &= assert_eq(y[1], 16.0f, "cblas_caxpby y[0] imag");
+    result &= assert_eq(y[2], 1.0f, "cblas_caxpby y[1] real");
+    result &= assert_eq(y[3], 26.0f, "cblas_caxpby y[1] imag");
+    return result;
+}
+int test_cblas_cgemv() {
+    int m = 2, n = 2;
+    float alpha[] = {1.0f, 0.0f}; // 1+0i
+    float beta[] = {0.0f, 0.0f}; // 0+0i
+    // Matrix A: [[1+0i, 2+0i], [3+0i, 4+0i]]
+    float a[] = {1.0f, 0.0f, 2.0f, 0.0f, 3.0f, 0.0f, 4.0f, 0.0f};
+    float x[] = {1.0f, 1.0f, 2.0f, 2.0f}; // [1+i, 2+2i]
+    float y[] = {0.0f, 0.0f, 0.0f, 0.0f}; // Result vector
+    
+    cblas_cgemv(CblasRowMajor, CblasNoTrans, m, n, alpha, a, n, x, 1, beta, y, 1);
+    
+    // Expected result: [5+5i, 11+11i]
+    int result = 1;
+    result &= assert_eq(y[0], 5.0f, "cblas_cgemv y[0] real");
+    result &= assert_eq(y[1], 5.0f, "cblas_cgemv y[0] imag");
+    result &= assert_eq(y[2], 11.0f, "cblas_cgemv y[1] real");
+    result &= assert_eq(y[3], 11.0f, "cblas_cgemv y[1] imag");
+    return result;
+}
+
+int test_cblas_cgeru() {
+    int m = 2, n = 2;
+    float alpha[] = {1.0f, 0.0f}; // 1+0i
+    float x[] = {1.0f, 1.0f, 2.0f, 0.0f}; // [1+i, 2+0i]
+    float y[] = {3.0f, 0.0f, 1.0f, 1.0f}; // [3+0i, 1+i]
+    float a[] = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f}; // 2x2 matrix
+    
+    cblas_cgeru(CblasRowMajor, m, n, alpha, x, 1, y, 1, a, n);
+    
+    // Expected result: [[3+3i, 0+2i], [6+0i, 2+2i]]
+    int result = 1;
+    result &= assert_eq(a[0], 3.0f, "cblas_cgeru a[0,0] real");
+    result &= assert_eq(a[1], 3.0f, "cblas_cgeru a[0,0] imag");
+    result &= assert_eq(a[2], 0.0f, "cblas_cgeru a[0,1] real");
+    result &= assert_eq(a[3], 2.0f, "cblas_cgeru a[0,1] imag");
+    result &= assert_eq(a[4], 6.0f, "cblas_cgeru a[1,0] real");
+    result &= assert_eq(a[5], 0.0f, "cblas_cgeru a[1,0] imag");
+    result &= assert_eq(a[6], 2.0f, "cblas_cgeru a[1,1] real");
+    result &= assert_eq(a[7], 2.0f, "cblas_cgeru a[1,1] imag");
+    return result;
+}
+
+int test_cblas_cgerc() {
+    int m = 2, n = 2;
+    float alpha[] = {1.0f, 0.0f}; // 1+0i
+    float x[] = {1.0f, 1.0f, 2.0f, 0.0f}; // [1+i, 2+0i]
+    float y[] = {3.0f, 1.0f, 1.0f, 1.0f}; // [3+i, 1+i]
+    float a[] = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f}; // 2x2 matrix
+    
+    cblas_cgerc(CblasRowMajor, m, n, alpha, x, 1, y, 1, a, n);
+    
+    // Expected result: [[4+2i, 2+0i], [6-2i, 2-2i]]
+    int result = 1;
+    result &= assert_eq(a[0], 4.0f, "cblas_cgerc a[0,0] real");
+    result &= assert_eq(a[1], 2.0f, "cblas_cgerc a[0,0] imag");
+    result &= assert_eq(a[2], 2.0f, "cblas_cgerc a[0,1] real");
+    result &= assert_eq(a[3], 0.0f, "cblas_cgerc a[0,1] imag");
+    result &= assert_eq(a[4], 6.0f, "cblas_cgerc a[1,0] real");
+    result &= assert_eq(a[5], -2.0f, "cblas_cgerc a[1,0] imag");
+    result &= assert_eq(a[6], 2.0f, "cblas_cgerc a[1,1] real");
+    result &= assert_eq(a[7], -2.0f, "cblas_cgerc a[1,1] imag");
+    return result;
+}

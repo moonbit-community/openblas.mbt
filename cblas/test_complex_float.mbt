@@ -230,3 +230,142 @@ test "cblas_csscal test" {
   assert_eq(x[2], 6.0)
   assert_eq(x[3], 8.0)
 }
+
+///|
+test "cblas_cdotu_sub test" {
+  // Test cblas_cdotu_sub with a simple case
+  let n = 2
+  let x : FixedArray[Float] = [1.0, 2.0, 3.0, 4.0] // Flattened representation of complex numbers
+  let y : FixedArray[Float] = [5.0, 6.0, 7.0, 8.0] // Flattened representation of complex numbers
+  let result : FixedArray[Float] = [0.0, 0.0] // result as flattened complex number
+  cblas_cdotu_sub(n, x, 1, y, 1, result)
+
+  // Expected result: x[0]*y[0] + x[1]*y[1] = (1+2i)*(5+6i) + (3+4i)*(7+8i)
+  // = (5+6i+10i-12) + (21+24i+28i-32) = (-7+16i) + (-11+52i) = (-18+68i)
+  assert_eq(result[0], -18.0)
+  assert_eq(result[1], 68.0)
+}
+
+///|
+test "cblas_cdotc_sub test" {
+  // Test cblas_cdotc_sub with a simple case
+  let n = 2
+  let x : FixedArray[Float] = [1.0, 2.0, 3.0, 4.0] // Flattened representation of complex numbers
+  let y : FixedArray[Float] = [5.0, 6.0, 7.0, 8.0] // Flattened representation of complex numbers
+  let result : FixedArray[Float] = [0.0, 0.0] // result as flattened complex number
+  cblas_cdotc_sub(n, x, 1, y, 1, result)
+
+  // Expected result: conj(x[0])*y[0] + conj(x[1])*y[1] = (1-2i)*(5+6i) + (3-4i)*(7+8i)
+  // = (5+6i-10i+12) + (21+24i-28i+32) = (17-4i) + (53-4i) = (70-8i)
+  assert_eq(result[0], 70.0)
+  assert_eq(result[1], -8.0)
+}
+
+///|
+test "cblas_crotg test" {
+  // Test cblas_crotg (complex single precision Givens rotation generation)
+  let a : FixedArray[Float] = [3.0, 4.0] // complex number 3+4i
+  let b : FixedArray[Float] = [1.0, 2.0] // complex number 1+2i
+  let c : FixedArray[Float] = [0.0] // cosine (real)
+  let s : FixedArray[Float] = [0.0, 0.0] // sine (complex)
+  cblas_crotg(a, b, c, s)
+
+  // Expected: Given a=3+4i, b=1+2i, generate c and s such that:
+  // [c    s ] [a] = [r]  where r is real and positive
+  // [-s*  c ] [b]   [0]
+  // The exact output depends on the algorithm implementation
+  // Main goal: the transformation should produce a numerically stable result
+  // For now, just check that the function doesn't crash and produces reasonable values
+  assert_eq(c[0] >= 0.0 && c[0] <= 1.0, true) // c should be between 0 and 1
+}
+
+///|
+test "cblas_caxpby test" {
+  // Test cblas_caxpby with a simple case
+  let n = 2
+  let alpha : FixedArray[Float] = [2.0, 1.0] // Flattened representation of complex number (2+1i)
+  let beta : FixedArray[Float] = [1.0, 1.0] // Flattened representation of complex number (1+1i)
+  let x : FixedArray[Float] = [1.0, 2.0, 3.0, 4.0] // Flattened representation of complex numbers
+  let y : FixedArray[Float] = [5.0, 6.0, 7.0, 8.0] // Flattened representation of complex numbers
+  cblas_caxpby(n, alpha, x, 1, beta, y, 1)
+
+  // Expected result: y = alpha*x + beta*y
+  // alpha*x[0] = (2+i)*(1+2i) = 0+5i, beta*y[0] = (1+i)*(5+6i) = -1+11i
+  // y[0] = 0+5i + (-1+11i) = -1+16i
+  // alpha*x[1] = (2+i)*(3+4i) = 2+11i, beta*y[1] = (1+i)*(7+8i) = -1+15i  
+  // y[1] = 2+11i + (-1+15i) = 1+26i
+  assert_eq(y[0], -1.0)
+  assert_eq(y[1], 16.0)
+  assert_eq(y[2], 1.0)
+  assert_eq(y[3], 26.0)
+}
+///|
+test "cblas_cgemv test" {
+  // Test cblas_cgemv (complex single precision general matrix vector multiplication)
+  let m = 2
+  let n = 2
+  let alpha : FixedArray[Float] = [1.0, 0.0] // 1+0i
+  let beta : FixedArray[Float] = [0.0, 0.0] // 0+0i
+  // Matrix A: [[1+0i, 2+0i], [3+0i, 4+0i]] flattened as real,imag pairs
+  let a : FixedArray[Float] = [1.0, 0.0, 2.0, 0.0, 3.0, 0.0, 4.0, 0.0]
+  let x : FixedArray[Float] = [1.0, 1.0, 2.0, 2.0] // [1+i, 2+2i]
+  let y : FixedArray[Float] = [0.0, 0.0, 0.0, 0.0] // Result vector
+  
+  cblas_cgemv(CblasRowMajor, CblasNoTrans, m, n, alpha, a, n, x, 1, beta, y, 1)
+  
+  // Expected result: y = A*x = [[1, 2], [3, 4]] * [1+i, 2+2i] = [5+5i, 11+11i]
+  assert_eq(y[0], 5.0) // Real part of first element
+  assert_eq(y[1], 5.0) // Imaginary part of first element
+  assert_eq(y[2], 11.0) // Real part of second element
+  assert_eq(y[3], 11.0) // Imaginary part of second element
+}
+
+///|
+test "cblas_cgeru test" {
+  // Test cblas_cgeru (complex single precision general rank-1 update, unconjugated)
+  let m = 2
+  let n = 2
+  let alpha : FixedArray[Float] = [1.0, 0.0] // 1+0i
+  let x : FixedArray[Float] = [1.0, 1.0, 2.0, 0.0] // [1+i, 2+0i]
+  let y : FixedArray[Float] = [3.0, 0.0, 1.0, 1.0] // [3+0i, 1+i]
+  let a : FixedArray[Float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] // 2x2 matrix initialized to zero
+  
+  cblas_cgeru(CblasRowMajor, m, n, alpha, x, 1, y, 1, a, n)
+  
+  // Expected result: A = alpha * x * y^T
+  // x * y^T = [[1+i], [2+0i]] * [3+0i, 1+i] = [[(1+i)*(3+0i), (1+i)*(1+i)], [(2+0i)*(3+0i), (2+0i)*(1+i)]]
+  // = [[3+3i, 1+2i-1], [6+0i, 2+2i]] = [[3+3i, 0+2i], [6+0i, 2+2i]]
+  assert_eq(a[0], 3.0) // A[0,0] real = 3
+  assert_eq(a[1], 3.0) // A[0,0] imag = 3
+  assert_eq(a[2], 0.0) // A[0,1] real = 0 (corrected)
+  assert_eq(a[3], 2.0) // A[0,1] imag = 2 (corrected)
+  assert_eq(a[4], 6.0) // A[1,0] real = 6
+  assert_eq(a[5], 0.0) // A[1,0] imag = 0
+  assert_eq(a[6], 2.0) // A[1,1] real = 2
+  assert_eq(a[7], 2.0) // A[1,1] imag = 2
+}
+
+///|
+test "cblas_cgerc test" {
+  // Test cblas_cgerc (complex single precision general rank-1 update, conjugated)
+  let m = 2
+  let n = 2
+  let alpha : FixedArray[Float] = [1.0, 0.0] // 1+0i
+  let x : FixedArray[Float] = [1.0, 1.0, 2.0, 0.0] // [1+i, 2+0i]
+  let y : FixedArray[Float] = [3.0, 1.0, 1.0, 1.0] // [3+i, 1+i]
+  let a : FixedArray[Float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] // 2x2 matrix initialized to zero
+  
+  cblas_cgerc(CblasRowMajor, m, n, alpha, x, 1, y, 1, a, n)
+  
+  // Expected result: A = alpha * x * conj(y)^T
+  // x * conj(y)^T = [[1+i], [2+0i]] * [3-i, 1-i] = [[(1+i)*(3-i), (1+i)*(1-i)], [(2+0i)*(3-i), (2+0i)*(1-i)]]
+  // = [[3-i+3i+1, 1-i+i+1], [6-2i, 2-2i]] = [[4+2i, 2+0i], [6-2i, 2-2i]]
+  assert_eq(a[0], 4.0) // A[0,0] real (corrected)
+  assert_eq(a[1], 2.0) // A[0,0] imag (corrected)
+  assert_eq(a[2], 2.0) // A[0,1] real (corrected)
+  assert_eq(a[3], 0.0) // A[0,1] imag (corrected)
+  assert_eq(a[4], 6.0) // A[1,0] real
+  assert_eq(a[5], -2.0) // A[1,0] imag
+  assert_eq(a[6], 2.0) // A[1,1] real
+  assert_eq(a[7], -2.0) // A[1,1] imag
+}

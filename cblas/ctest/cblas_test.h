@@ -132,8 +132,26 @@ int test_cblas_ccopy();
 int test_cblas_cswap();
 int test_cblas_cscal();
 int test_cblas_csscal();
+int test_cblas_cdotu_sub();
+int test_cblas_cdotc_sub();
+int test_cblas_crotg();
+int test_cblas_caxpby();
+int test_cblas_cgemv();
+int test_cblas_cgeru();
+int test_cblas_cgerc();
 
 // Complex double test functions (double precision complex)
-// Note: Most are skipped due to binding issues
+int test_cblas_zdotc();
+int test_cblas_zaxpy();
+int test_cblas_zaxpyc();
+int test_cblas_zcopy();
+int test_cblas_zswap();
+int test_cblas_zscal();
+int test_cblas_zdscal();
+int test_cblas_zrotg();
+int test_cblas_zgemv();
+int test_cblas_zgeru();
+int test_cblas_zgerc();
+// Note: Some complex double functions may have binding issues
 
 #endif // CBLAS_TEST_H
