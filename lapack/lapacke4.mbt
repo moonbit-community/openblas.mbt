@@ -3,7 +3,11 @@
 /// ```c
 /// lapack_int LAPACKE_dsterf(lapack_int n, double* d, double* e);
 /// ```
-pub extern "C" fn lapacke_dsterf(n: Lapack_int, d: FixedArray[Double], e: FixedArray[Double]) -> Lapack_int = "LAPACKE_dsterf"
+pub extern "C" fn lapacke_dsterf(
+  n : Lapack_int,
+  d : FixedArray[Double],
+  e : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dsterf"
 
 ///|
 ///
@@ -13,7 +17,15 @@ pub extern "C" fn lapacke_dsterf(n: Lapack_int, d: FixedArray[Double], e: FixedA
 ///     float* e, float* z, lapack_int ldz
 /// );
 /// ```
-pub extern "C" fn lapacke_sstev(matrix_layout: Int, jobz: Byte, n: Lapack_int, d: FixedArray[Float], e: FixedArray[Float], z: FixedArray[Float], ldz: Lapack_int) -> Lapack_int = "LAPACKE_sstev"
+pub extern "C" fn lapacke_sstev(
+  matrix_layout : Int,
+  jobz : Byte,
+  n : Lapack_int,
+  d : FixedArray[Float],
+  e : FixedArray[Float],
+  z : FixedArray[Float],
+  ldz : Lapack_int,
+) -> Lapack_int = "LAPACKE_sstev"
 
 ///|
 ///
@@ -23,7 +35,15 @@ pub extern "C" fn lapacke_sstev(matrix_layout: Int, jobz: Byte, n: Lapack_int, d
 ///     double* e, double* z, lapack_int ldz
 /// );
 /// ```
-pub extern "C" fn lapacke_dstev(matrix_layout: Int, jobz: Byte, n: Lapack_int, d: FixedArray[Double], e: FixedArray[Double], z: FixedArray[Double], ldz: Lapack_int) -> Lapack_int = "LAPACKE_dstev"
+pub extern "C" fn lapacke_dstev(
+  matrix_layout : Int,
+  jobz : Byte,
+  n : Lapack_int,
+  d : FixedArray[Double],
+  e : FixedArray[Double],
+  z : FixedArray[Double],
+  ldz : Lapack_int,
+) -> Lapack_int = "LAPACKE_dstev"
 
 ///|
 ///
@@ -33,7 +53,15 @@ pub extern "C" fn lapacke_dstev(matrix_layout: Int, jobz: Byte, n: Lapack_int, d
 ///     float* e, float* z, lapack_int ldz
 /// );
 /// ```
-pub extern "C" fn lapacke_sstevd(matrix_layout: Int, jobz: Byte, n: Lapack_int, d: FixedArray[Float], e: FixedArray[Float], z: FixedArray[Float], ldz: Lapack_int) -> Lapack_int = "LAPACKE_sstevd"
+pub extern "C" fn lapacke_sstevd(
+  matrix_layout : Int,
+  jobz : Byte,
+  n : Lapack_int,
+  d : FixedArray[Float],
+  e : FixedArray[Float],
+  z : FixedArray[Float],
+  ldz : Lapack_int,
+) -> Lapack_int = "LAPACKE_sstevd"
 
 ///|
 ///
@@ -43,7 +71,15 @@ pub extern "C" fn lapacke_sstevd(matrix_layout: Int, jobz: Byte, n: Lapack_int, 
 ///     double* e, double* z, lapack_int ldz
 /// );
 /// ```
-pub extern "C" fn lapacke_dstevd(matrix_layout: Int, jobz: Byte, n: Lapack_int, d: FixedArray[Double], e: FixedArray[Double], z: FixedArray[Double], ldz: Lapack_int) -> Lapack_int = "LAPACKE_dstevd"
+pub extern "C" fn lapacke_dstevd(
+  matrix_layout : Int,
+  jobz : Byte,
+  n : Lapack_int,
+  d : FixedArray[Double],
+  e : FixedArray[Double],
+  z : FixedArray[Double],
+  ldz : Lapack_int,
+) -> Lapack_int = "LAPACKE_dstevd"
 
 ///|
 ///
@@ -55,7 +91,24 @@ pub extern "C" fn lapacke_dstevd(matrix_layout: Int, jobz: Byte, n: Lapack_int, 
 ///     float* w, float* z, lapack_int ldz, lapack_int* isuppz
 /// );
 /// ```
-pub extern "C" fn lapacke_sstevr(matrix_layout: Int, jobz: Byte, range: Byte, n: Lapack_int, d: FixedArray[Float], e: FixedArray[Float], vl: Float, vu: Float, il: Lapack_int, iu: Lapack_int, abstol: Float, m: FixedArray[Int], w: FixedArray[Float], z: FixedArray[Float], ldz: Lapack_int, isuppz: FixedArray[Int]) -> Lapack_int = "LAPACKE_sstevr"
+pub extern "C" fn lapacke_sstevr(
+  matrix_layout : Int,
+  jobz : Byte,
+  range : Byte,
+  n : Lapack_int,
+  d : FixedArray[Float],
+  e : FixedArray[Float],
+  vl : Float,
+  vu : Float,
+  il : Lapack_int,
+  iu : Lapack_int,
+  abstol : Float,
+  m : FixedArray[Int],
+  w : FixedArray[Float],
+  z : FixedArray[Float],
+  ldz : Lapack_int,
+  isuppz : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_sstevr"
 
 ///|
 ///
@@ -67,7 +120,24 @@ pub extern "C" fn lapacke_sstevr(matrix_layout: Int, jobz: Byte, range: Byte, n:
 ///     double* w, double* z, lapack_int ldz, lapack_int* isuppz
 /// );
 /// ```
-pub extern "C" fn lapacke_dstevr(matrix_layout: Int, jobz: Byte, range: Byte, n: Lapack_int, d: FixedArray[Double], e: FixedArray[Double], vl: Double, vu: Double, il: Lapack_int, iu: Lapack_int, abstol: Double, m: FixedArray[Int], w: FixedArray[Double], z: FixedArray[Double], ldz: Lapack_int, isuppz: FixedArray[Int]) -> Lapack_int = "LAPACKE_dstevr"
+pub extern "C" fn lapacke_dstevr(
+  matrix_layout : Int,
+  jobz : Byte,
+  range : Byte,
+  n : Lapack_int,
+  d : FixedArray[Double],
+  e : FixedArray[Double],
+  vl : Double,
+  vu : Double,
+  il : Lapack_int,
+  iu : Lapack_int,
+  abstol : Double,
+  m : FixedArray[Int],
+  w : FixedArray[Double],
+  z : FixedArray[Double],
+  ldz : Lapack_int,
+  isuppz : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_dstevr"
 
 ///|
 ///
@@ -79,7 +149,24 @@ pub extern "C" fn lapacke_dstevr(matrix_layout: Int, jobz: Byte, range: Byte, n:
 ///     float* w, float* z, lapack_int ldz, lapack_int* ifail
 /// );
 /// ```
-pub extern "C" fn lapacke_sstevx(matrix_layout: Int, jobz: Byte, range: Byte, n: Lapack_int, d: FixedArray[Float], e: FixedArray[Float], vl: Float, vu: Float, il: Lapack_int, iu: Lapack_int, abstol: Float, m: FixedArray[Int], w: FixedArray[Float], z: FixedArray[Float], ldz: Lapack_int, ifail: FixedArray[Int]) -> Lapack_int = "LAPACKE_sstevx"
+pub extern "C" fn lapacke_sstevx(
+  matrix_layout : Int,
+  jobz : Byte,
+  range : Byte,
+  n : Lapack_int,
+  d : FixedArray[Float],
+  e : FixedArray[Float],
+  vl : Float,
+  vu : Float,
+  il : Lapack_int,
+  iu : Lapack_int,
+  abstol : Float,
+  m : FixedArray[Int],
+  w : FixedArray[Float],
+  z : FixedArray[Float],
+  ldz : Lapack_int,
+  ifail : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_sstevx"
 
 ///|
 ///
@@ -91,7 +178,24 @@ pub extern "C" fn lapacke_sstevx(matrix_layout: Int, jobz: Byte, range: Byte, n:
 ///     double* w, double* z, lapack_int ldz, lapack_int* ifail
 /// );
 /// ```
-pub extern "C" fn lapacke_dstevx(matrix_layout: Int, jobz: Byte, range: Byte, n: Lapack_int, d: FixedArray[Double], e: FixedArray[Double], vl: Double, vu: Double, il: Lapack_int, iu: Lapack_int, abstol: Double, m: FixedArray[Int], w: FixedArray[Double], z: FixedArray[Double], ldz: Lapack_int, ifail: FixedArray[Int]) -> Lapack_int = "LAPACKE_dstevx"
+pub extern "C" fn lapacke_dstevx(
+  matrix_layout : Int,
+  jobz : Byte,
+  range : Byte,
+  n : Lapack_int,
+  d : FixedArray[Double],
+  e : FixedArray[Double],
+  vl : Double,
+  vu : Double,
+  il : Lapack_int,
+  iu : Lapack_int,
+  abstol : Double,
+  m : FixedArray[Int],
+  w : FixedArray[Double],
+  z : FixedArray[Double],
+  ldz : Lapack_int,
+  ifail : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_dstevx"
 
 ///|
 ///
@@ -101,7 +205,16 @@ pub extern "C" fn lapacke_dstevx(matrix_layout: Int, jobz: Byte, range: Byte, n:
 ///     lapack_int lda, const lapack_int* ipiv, float anorm, float* rcond
 /// );
 /// ```
-pub extern "C" fn lapacke_ssycon(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, ipiv: FixedArray[Int], anorm: Float, rcond: FixedArray[Float]) -> Lapack_int = "LAPACKE_ssycon"
+pub extern "C" fn lapacke_ssycon(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  ipiv : FixedArray[Int],
+  anorm : Float,
+  rcond : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ssycon"
 
 ///|
 ///
@@ -111,7 +224,16 @@ pub extern "C" fn lapacke_ssycon(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int lda, const lapack_int* ipiv, double anorm, double* rcond
 /// );
 /// ```
-pub extern "C" fn lapacke_dsycon(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, ipiv: FixedArray[Int], anorm: Double, rcond: FixedArray[Double]) -> Lapack_int = "LAPACKE_dsycon"
+pub extern "C" fn lapacke_dsycon(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  ipiv : FixedArray[Int],
+  anorm : Double,
+  rcond : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dsycon"
 
 ///|
 ///
@@ -121,7 +243,16 @@ pub extern "C" fn lapacke_dsycon(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int lda, const lapack_int* ipiv, float anorm, float* rcond
 /// );
 /// ```
-pub extern "C" fn lapacke_csycon(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, ipiv: FixedArray[Int], anorm: Float, rcond: FixedArray[Float]) -> Lapack_int = "LAPACKE_csycon"
+pub extern "C" fn lapacke_csycon(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  ipiv : FixedArray[Int],
+  anorm : Float,
+  rcond : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_csycon"
 
 ///|
 ///
@@ -131,7 +262,16 @@ pub extern "C" fn lapacke_csycon(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int lda, const lapack_int* ipiv, double anorm, double* rcond
 /// );
 /// ```
-pub extern "C" fn lapacke_zsycon(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, ipiv: FixedArray[Int], anorm: Double, rcond: FixedArray[Double]) -> Lapack_int = "LAPACKE_zsycon"
+pub extern "C" fn lapacke_zsycon(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  ipiv : FixedArray[Int],
+  anorm : Double,
+  rcond : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_zsycon"
 
 ///|
 ///
@@ -141,7 +281,16 @@ pub extern "C" fn lapacke_zsycon(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int lda, float* s, float* scond, float* amax
 /// );
 /// ```
-pub extern "C" fn lapacke_ssyequb(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, s: FixedArray[Float], scond: FixedArray[Float], amax: FixedArray[Float]) -> Lapack_int = "LAPACKE_ssyequb"
+pub extern "C" fn lapacke_ssyequb(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  s : FixedArray[Float],
+  scond : FixedArray[Float],
+  amax : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ssyequb"
 
 ///|
 ///
@@ -151,7 +300,16 @@ pub extern "C" fn lapacke_ssyequb(matrix_layout: Int, uplo: Byte, n: Lapack_int,
 ///     lapack_int lda, double* s, double* scond, double* amax
 /// );
 /// ```
-pub extern "C" fn lapacke_dsyequb(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, s: FixedArray[Double], scond: FixedArray[Double], amax: FixedArray[Double]) -> Lapack_int = "LAPACKE_dsyequb"
+pub extern "C" fn lapacke_dsyequb(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  s : FixedArray[Double],
+  scond : FixedArray[Double],
+  amax : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dsyequb"
 
 ///|
 ///
@@ -161,7 +319,16 @@ pub extern "C" fn lapacke_dsyequb(matrix_layout: Int, uplo: Byte, n: Lapack_int,
 ///     lapack_int lda, float* s, float* scond, float* amax
 /// );
 /// ```
-pub extern "C" fn lapacke_csyequb(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, s: FixedArray[Float], scond: FixedArray[Float], amax: FixedArray[Float]) -> Lapack_int = "LAPACKE_csyequb"
+pub extern "C" fn lapacke_csyequb(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  s : FixedArray[Float],
+  scond : FixedArray[Float],
+  amax : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_csyequb"
 
 ///|
 ///
@@ -171,7 +338,16 @@ pub extern "C" fn lapacke_csyequb(matrix_layout: Int, uplo: Byte, n: Lapack_int,
 ///     lapack_int lda, double* s, double* scond, double* amax
 /// );
 /// ```
-pub extern "C" fn lapacke_zsyequb(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, s: FixedArray[Double], scond: FixedArray[Double], amax: FixedArray[Double]) -> Lapack_int = "LAPACKE_zsyequb"
+pub extern "C" fn lapacke_zsyequb(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  s : FixedArray[Double],
+  scond : FixedArray[Double],
+  amax : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_zsyequb"
 
 ///|
 ///
@@ -181,7 +357,15 @@ pub extern "C" fn lapacke_zsyequb(matrix_layout: Int, uplo: Byte, n: Lapack_int,
 ///     float* a, lapack_int lda, float* w
 /// );
 /// ```
-pub extern "C" fn lapacke_ssyev(matrix_layout: Int, jobz: Byte, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, w: FixedArray[Float]) -> Lapack_int = "LAPACKE_ssyev"
+pub extern "C" fn lapacke_ssyev(
+  matrix_layout : Int,
+  jobz : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  w : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ssyev"
 
 ///|
 ///
@@ -191,7 +375,15 @@ pub extern "C" fn lapacke_ssyev(matrix_layout: Int, jobz: Byte, uplo: Byte, n: L
 ///     double* a, lapack_int lda, double* w
 /// );
 /// ```
-pub extern "C" fn lapacke_dsyev(matrix_layout: Int, jobz: Byte, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, w: FixedArray[Double]) -> Lapack_int = "LAPACKE_dsyev"
+pub extern "C" fn lapacke_dsyev(
+  matrix_layout : Int,
+  jobz : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  w : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dsyev"
 
 ///|
 ///
@@ -201,7 +393,15 @@ pub extern "C" fn lapacke_dsyev(matrix_layout: Int, jobz: Byte, uplo: Byte, n: L
 ///     float* a, lapack_int lda, float* w
 /// );
 /// ```
-pub extern "C" fn lapacke_ssyevd(matrix_layout: Int, jobz: Byte, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, w: FixedArray[Float]) -> Lapack_int = "LAPACKE_ssyevd"
+pub extern "C" fn lapacke_ssyevd(
+  matrix_layout : Int,
+  jobz : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  w : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ssyevd"
 
 ///|
 ///
@@ -211,7 +411,15 @@ pub extern "C" fn lapacke_ssyevd(matrix_layout: Int, jobz: Byte, uplo: Byte, n: 
 ///     double* a, lapack_int lda, double* w
 /// );
 /// ```
-pub extern "C" fn lapacke_dsyevd(matrix_layout: Int, jobz: Byte, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, w: FixedArray[Double]) -> Lapack_int = "LAPACKE_dsyevd"
+pub extern "C" fn lapacke_dsyevd(
+  matrix_layout : Int,
+  jobz : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  w : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dsyevd"
 
 ///|
 ///
@@ -223,7 +431,25 @@ pub extern "C" fn lapacke_dsyevd(matrix_layout: Int, jobz: Byte, uplo: Byte, n: 
 ///     lapack_int* m, float* w, float* z, lapack_int ldz, lapack_int* isuppz
 /// );
 /// ```
-pub extern "C" fn lapacke_ssyevr(matrix_layout: Int, jobz: Byte, range: Byte, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, vl: Float, vu: Float, il: Lapack_int, iu: Lapack_int, abstol: Float, m: FixedArray[Int], w: FixedArray[Float], z: FixedArray[Float], ldz: Lapack_int, isuppz: FixedArray[Int]) -> Lapack_int = "LAPACKE_ssyevr"
+pub extern "C" fn lapacke_ssyevr(
+  matrix_layout : Int,
+  jobz : Byte,
+  range : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  vl : Float,
+  vu : Float,
+  il : Lapack_int,
+  iu : Lapack_int,
+  abstol : Float,
+  m : FixedArray[Int],
+  w : FixedArray[Float],
+  z : FixedArray[Float],
+  ldz : Lapack_int,
+  isuppz : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_ssyevr"
 
 ///|
 ///
@@ -235,7 +461,25 @@ pub extern "C" fn lapacke_ssyevr(matrix_layout: Int, jobz: Byte, range: Byte, up
 ///     lapack_int* m, double* w, double* z, lapack_int ldz, lapack_int* isuppz
 /// );
 /// ```
-pub extern "C" fn lapacke_dsyevr(matrix_layout: Int, jobz: Byte, range: Byte, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, vl: Double, vu: Double, il: Lapack_int, iu: Lapack_int, abstol: Double, m: FixedArray[Int], w: FixedArray[Double], z: FixedArray[Double], ldz: Lapack_int, isuppz: FixedArray[Int]) -> Lapack_int = "LAPACKE_dsyevr"
+pub extern "C" fn lapacke_dsyevr(
+  matrix_layout : Int,
+  jobz : Byte,
+  range : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  vl : Double,
+  vu : Double,
+  il : Lapack_int,
+  iu : Lapack_int,
+  abstol : Double,
+  m : FixedArray[Int],
+  w : FixedArray[Double],
+  z : FixedArray[Double],
+  ldz : Lapack_int,
+  isuppz : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_dsyevr"
 
 ///|
 ///
@@ -247,7 +491,25 @@ pub extern "C" fn lapacke_dsyevr(matrix_layout: Int, jobz: Byte, range: Byte, up
 ///     lapack_int* m, float* w, float* z, lapack_int ldz, lapack_int* ifail
 /// );
 /// ```
-pub extern "C" fn lapacke_ssyevx(matrix_layout: Int, jobz: Byte, range: Byte, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, vl: Float, vu: Float, il: Lapack_int, iu: Lapack_int, abstol: Float, m: FixedArray[Int], w: FixedArray[Float], z: FixedArray[Float], ldz: Lapack_int, ifail: FixedArray[Int]) -> Lapack_int = "LAPACKE_ssyevx"
+pub extern "C" fn lapacke_ssyevx(
+  matrix_layout : Int,
+  jobz : Byte,
+  range : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  vl : Float,
+  vu : Float,
+  il : Lapack_int,
+  iu : Lapack_int,
+  abstol : Float,
+  m : FixedArray[Int],
+  w : FixedArray[Float],
+  z : FixedArray[Float],
+  ldz : Lapack_int,
+  ifail : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_ssyevx"
 
 ///|
 ///
@@ -259,7 +521,25 @@ pub extern "C" fn lapacke_ssyevx(matrix_layout: Int, jobz: Byte, range: Byte, up
 ///     lapack_int* m, double* w, double* z, lapack_int ldz, lapack_int* ifail
 /// );
 /// ```
-pub extern "C" fn lapacke_dsyevx(matrix_layout: Int, jobz: Byte, range: Byte, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, vl: Double, vu: Double, il: Lapack_int, iu: Lapack_int, abstol: Double, m: FixedArray[Int], w: FixedArray[Double], z: FixedArray[Double], ldz: Lapack_int, ifail: FixedArray[Int]) -> Lapack_int = "LAPACKE_dsyevx"
+pub extern "C" fn lapacke_dsyevx(
+  matrix_layout : Int,
+  jobz : Byte,
+  range : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  vl : Double,
+  vu : Double,
+  il : Lapack_int,
+  iu : Lapack_int,
+  abstol : Double,
+  m : FixedArray[Int],
+  w : FixedArray[Double],
+  z : FixedArray[Double],
+  ldz : Lapack_int,
+  ifail : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_dsyevx"
 
 ///|
 ///
@@ -269,7 +549,16 @@ pub extern "C" fn lapacke_dsyevx(matrix_layout: Int, jobz: Byte, range: Byte, up
 ///     float* a, lapack_int lda, const float* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_ssygst(matrix_layout: Int, itype: Lapack_int, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, b: FixedArray[Float], ldb: Lapack_int) -> Lapack_int = "LAPACKE_ssygst"
+pub extern "C" fn lapacke_ssygst(
+  matrix_layout : Int,
+  itype : Lapack_int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_ssygst"
 
 ///|
 ///
@@ -279,7 +568,16 @@ pub extern "C" fn lapacke_ssygst(matrix_layout: Int, itype: Lapack_int, uplo: By
 ///     double* a, lapack_int lda, const double* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_dsygst(matrix_layout: Int, itype: Lapack_int, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int) -> Lapack_int = "LAPACKE_dsygst"
+pub extern "C" fn lapacke_dsygst(
+  matrix_layout : Int,
+  itype : Lapack_int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_dsygst"
 
 ///|
 ///
@@ -290,7 +588,18 @@ pub extern "C" fn lapacke_dsygst(matrix_layout: Int, itype: Lapack_int, uplo: By
 ///     lapack_int ldb, float* w
 /// );
 /// ```
-pub extern "C" fn lapacke_ssygv(matrix_layout: Int, itype: Lapack_int, jobz: Byte, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, b: FixedArray[Float], ldb: Lapack_int, w: FixedArray[Float]) -> Lapack_int = "LAPACKE_ssygv"
+pub extern "C" fn lapacke_ssygv(
+  matrix_layout : Int,
+  itype : Lapack_int,
+  jobz : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  w : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ssygv"
 
 ///|
 ///
@@ -301,7 +610,18 @@ pub extern "C" fn lapacke_ssygv(matrix_layout: Int, itype: Lapack_int, jobz: Byt
 ///     lapack_int ldb, double* w
 /// );
 /// ```
-pub extern "C" fn lapacke_dsygv(matrix_layout: Int, itype: Lapack_int, jobz: Byte, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int, w: FixedArray[Double]) -> Lapack_int = "LAPACKE_dsygv"
+pub extern "C" fn lapacke_dsygv(
+  matrix_layout : Int,
+  itype : Lapack_int,
+  jobz : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  w : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dsygv"
 
 ///|
 ///
@@ -312,7 +632,18 @@ pub extern "C" fn lapacke_dsygv(matrix_layout: Int, itype: Lapack_int, jobz: Byt
 ///     lapack_int ldb, float* w
 /// );
 /// ```
-pub extern "C" fn lapacke_ssygvd(matrix_layout: Int, itype: Lapack_int, jobz: Byte, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, b: FixedArray[Float], ldb: Lapack_int, w: FixedArray[Float]) -> Lapack_int = "LAPACKE_ssygvd"
+pub extern "C" fn lapacke_ssygvd(
+  matrix_layout : Int,
+  itype : Lapack_int,
+  jobz : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  w : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ssygvd"
 
 ///|
 ///
@@ -323,7 +654,18 @@ pub extern "C" fn lapacke_ssygvd(matrix_layout: Int, itype: Lapack_int, jobz: By
 ///     lapack_int ldb, double* w
 /// );
 /// ```
-pub extern "C" fn lapacke_dsygvd(matrix_layout: Int, itype: Lapack_int, jobz: Byte, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int, w: FixedArray[Double]) -> Lapack_int = "LAPACKE_dsygvd"
+pub extern "C" fn lapacke_dsygvd(
+  matrix_layout : Int,
+  itype : Lapack_int,
+  jobz : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  w : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dsygvd"
 
 ///|
 ///
@@ -336,7 +678,28 @@ pub extern "C" fn lapacke_dsygvd(matrix_layout: Int, itype: Lapack_int, jobz: By
 ///     float* w, float* z, lapack_int ldz, lapack_int* ifail
 /// );
 /// ```
-pub extern "C" fn lapacke_ssygvx(matrix_layout: Int, itype: Lapack_int, jobz: Byte, range: Byte, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, b: FixedArray[Float], ldb: Lapack_int, vl: Float, vu: Float, il: Lapack_int, iu: Lapack_int, abstol: Float, m: FixedArray[Int], w: FixedArray[Float], z: FixedArray[Float], ldz: Lapack_int, ifail: FixedArray[Int]) -> Lapack_int = "LAPACKE_ssygvx"
+pub extern "C" fn lapacke_ssygvx(
+  matrix_layout : Int,
+  itype : Lapack_int,
+  jobz : Byte,
+  range : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  vl : Float,
+  vu : Float,
+  il : Lapack_int,
+  iu : Lapack_int,
+  abstol : Float,
+  m : FixedArray[Int],
+  w : FixedArray[Float],
+  z : FixedArray[Float],
+  ldz : Lapack_int,
+  ifail : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_ssygvx"
 
 ///|
 ///
@@ -349,7 +712,28 @@ pub extern "C" fn lapacke_ssygvx(matrix_layout: Int, itype: Lapack_int, jobz: By
 ///     double* w, double* z, lapack_int ldz, lapack_int* ifail
 /// );
 /// ```
-pub extern "C" fn lapacke_dsygvx(matrix_layout: Int, itype: Lapack_int, jobz: Byte, range: Byte, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int, vl: Double, vu: Double, il: Lapack_int, iu: Lapack_int, abstol: Double, m: FixedArray[Int], w: FixedArray[Double], z: FixedArray[Double], ldz: Lapack_int, ifail: FixedArray[Int]) -> Lapack_int = "LAPACKE_dsygvx"
+pub extern "C" fn lapacke_dsygvx(
+  matrix_layout : Int,
+  itype : Lapack_int,
+  jobz : Byte,
+  range : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  vl : Double,
+  vu : Double,
+  il : Lapack_int,
+  iu : Lapack_int,
+  abstol : Double,
+  m : FixedArray[Int],
+  w : FixedArray[Double],
+  z : FixedArray[Double],
+  ldz : Lapack_int,
+  ifail : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_dsygvx"
 
 ///|
 ///
@@ -361,7 +745,23 @@ pub extern "C" fn lapacke_dsygvx(matrix_layout: Int, itype: Lapack_int, jobz: By
 ///     lapack_int ldx, float* ferr, float* berr
 /// );
 /// ```
-pub extern "C" fn lapacke_ssyrfs(matrix_layout: Int, uplo: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Float], lda: Lapack_int, af: FixedArray[Float], ldaf: Lapack_int, ipiv: FixedArray[Int], b: FixedArray[Float], ldb: Lapack_int, x: FixedArray[Float], ldx: Lapack_int, ferr: FixedArray[Float], berr: FixedArray[Float]) -> Lapack_int = "LAPACKE_ssyrfs"
+pub extern "C" fn lapacke_ssyrfs(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  af : FixedArray[Float],
+  ldaf : Lapack_int,
+  ipiv : FixedArray[Int],
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  x : FixedArray[Float],
+  ldx : Lapack_int,
+  ferr : FixedArray[Float],
+  berr : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ssyrfs"
 
 ///|
 ///
@@ -373,7 +773,23 @@ pub extern "C" fn lapacke_ssyrfs(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int ldx, double* ferr, double* berr
 /// );
 /// ```
-pub extern "C" fn lapacke_dsyrfs(matrix_layout: Int, uplo: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Double], lda: Lapack_int, af: FixedArray[Double], ldaf: Lapack_int, ipiv: FixedArray[Int], b: FixedArray[Double], ldb: Lapack_int, x: FixedArray[Double], ldx: Lapack_int, ferr: FixedArray[Double], berr: FixedArray[Double]) -> Lapack_int = "LAPACKE_dsyrfs"
+pub extern "C" fn lapacke_dsyrfs(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  af : FixedArray[Double],
+  ldaf : Lapack_int,
+  ipiv : FixedArray[Int],
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  x : FixedArray[Double],
+  ldx : Lapack_int,
+  ferr : FixedArray[Double],
+  berr : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dsyrfs"
 
 ///|
 ///
@@ -385,7 +801,23 @@ pub extern "C" fn lapacke_dsyrfs(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int ldx, float* ferr, float* berr
 /// );
 /// ```
-pub extern "C" fn lapacke_csyrfs(matrix_layout: Int, uplo: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Float], lda: Lapack_int, af: FixedArray[Float], ldaf: Lapack_int, ipiv: FixedArray[Int], b: FixedArray[Float], ldb: Lapack_int, x: FixedArray[Float], ldx: Lapack_int, ferr: FixedArray[Float], berr: FixedArray[Float]) -> Lapack_int = "LAPACKE_csyrfs"
+pub extern "C" fn lapacke_csyrfs(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  af : FixedArray[Float],
+  ldaf : Lapack_int,
+  ipiv : FixedArray[Int],
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  x : FixedArray[Float],
+  ldx : Lapack_int,
+  ferr : FixedArray[Float],
+  berr : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_csyrfs"
 
 ///|
 ///
@@ -397,7 +829,23 @@ pub extern "C" fn lapacke_csyrfs(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int ldx, double* ferr, double* berr
 /// );
 /// ```
-pub extern "C" fn lapacke_zsyrfs(matrix_layout: Int, uplo: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Double], lda: Lapack_int, af: FixedArray[Double], ldaf: Lapack_int, ipiv: FixedArray[Int], b: FixedArray[Double], ldb: Lapack_int, x: FixedArray[Double], ldx: Lapack_int, ferr: FixedArray[Double], berr: FixedArray[Double]) -> Lapack_int = "LAPACKE_zsyrfs"
+pub extern "C" fn lapacke_zsyrfs(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  af : FixedArray[Double],
+  ldaf : Lapack_int,
+  ipiv : FixedArray[Int],
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  x : FixedArray[Double],
+  ldx : Lapack_int,
+  ferr : FixedArray[Double],
+  berr : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_zsyrfs"
 
 ///|
 ///
@@ -411,7 +859,30 @@ pub extern "C" fn lapacke_zsyrfs(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int nparams, float* params
 /// );
 /// ```
-pub extern "C" fn lapacke_ssyrfsx(matrix_layout: Int, uplo: Byte, equed: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Float], lda: Lapack_int, af: FixedArray[Float], ldaf: Lapack_int, ipiv: FixedArray[Int], s: FixedArray[Float], b: FixedArray[Float], ldb: Lapack_int, x: FixedArray[Float], ldx: Lapack_int, rcond: FixedArray[Float], berr: FixedArray[Float], n_err_bnds: Lapack_int, err_bnds_norm: FixedArray[Float], err_bnds_comp: FixedArray[Float], nparams: Lapack_int, params: FixedArray[Float]) -> Lapack_int = "LAPACKE_ssyrfsx"
+pub extern "C" fn lapacke_ssyrfsx(
+  matrix_layout : Int,
+  uplo : Byte,
+  equed : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  af : FixedArray[Float],
+  ldaf : Lapack_int,
+  ipiv : FixedArray[Int],
+  s : FixedArray[Float],
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  x : FixedArray[Float],
+  ldx : Lapack_int,
+  rcond : FixedArray[Float],
+  berr : FixedArray[Float],
+  n_err_bnds : Lapack_int,
+  err_bnds_norm : FixedArray[Float],
+  err_bnds_comp : FixedArray[Float],
+  nparams : Lapack_int,
+  params : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ssyrfsx"
 
 ///|
 ///
@@ -425,7 +896,30 @@ pub extern "C" fn lapacke_ssyrfsx(matrix_layout: Int, uplo: Byte, equed: Byte, n
 ///     lapack_int nparams, double* params
 /// );
 /// ```
-pub extern "C" fn lapacke_dsyrfsx(matrix_layout: Int, uplo: Byte, equed: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Double], lda: Lapack_int, af: FixedArray[Double], ldaf: Lapack_int, ipiv: FixedArray[Int], s: FixedArray[Double], b: FixedArray[Double], ldb: Lapack_int, x: FixedArray[Double], ldx: Lapack_int, rcond: FixedArray[Double], berr: FixedArray[Double], n_err_bnds: Lapack_int, err_bnds_norm: FixedArray[Double], err_bnds_comp: FixedArray[Double], nparams: Lapack_int, params: FixedArray[Double]) -> Lapack_int = "LAPACKE_dsyrfsx"
+pub extern "C" fn lapacke_dsyrfsx(
+  matrix_layout : Int,
+  uplo : Byte,
+  equed : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  af : FixedArray[Double],
+  ldaf : Lapack_int,
+  ipiv : FixedArray[Int],
+  s : FixedArray[Double],
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  x : FixedArray[Double],
+  ldx : Lapack_int,
+  rcond : FixedArray[Double],
+  berr : FixedArray[Double],
+  n_err_bnds : Lapack_int,
+  err_bnds_norm : FixedArray[Double],
+  err_bnds_comp : FixedArray[Double],
+  nparams : Lapack_int,
+  params : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dsyrfsx"
 
 ///|
 ///
@@ -439,7 +933,30 @@ pub extern "C" fn lapacke_dsyrfsx(matrix_layout: Int, uplo: Byte, equed: Byte, n
 ///     lapack_int nparams, float* params
 /// );
 /// ```
-pub extern "C" fn lapacke_csyrfsx(matrix_layout: Int, uplo: Byte, equed: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Float], lda: Lapack_int, af: FixedArray[Float], ldaf: Lapack_int, ipiv: FixedArray[Int], s: FixedArray[Float], b: FixedArray[Float], ldb: Lapack_int, x: FixedArray[Float], ldx: Lapack_int, rcond: FixedArray[Float], berr: FixedArray[Float], n_err_bnds: Lapack_int, err_bnds_norm: FixedArray[Float], err_bnds_comp: FixedArray[Float], nparams: Lapack_int, params: FixedArray[Float]) -> Lapack_int = "LAPACKE_csyrfsx"
+pub extern "C" fn lapacke_csyrfsx(
+  matrix_layout : Int,
+  uplo : Byte,
+  equed : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  af : FixedArray[Float],
+  ldaf : Lapack_int,
+  ipiv : FixedArray[Int],
+  s : FixedArray[Float],
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  x : FixedArray[Float],
+  ldx : Lapack_int,
+  rcond : FixedArray[Float],
+  berr : FixedArray[Float],
+  n_err_bnds : Lapack_int,
+  err_bnds_norm : FixedArray[Float],
+  err_bnds_comp : FixedArray[Float],
+  nparams : Lapack_int,
+  params : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_csyrfsx"
 
 ///|
 ///
@@ -453,7 +970,30 @@ pub extern "C" fn lapacke_csyrfsx(matrix_layout: Int, uplo: Byte, equed: Byte, n
 ///     lapack_int nparams, double* params
 /// );
 /// ```
-pub extern "C" fn lapacke_zsyrfsx(matrix_layout: Int, uplo: Byte, equed: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Double], lda: Lapack_int, af: FixedArray[Double], ldaf: Lapack_int, ipiv: FixedArray[Int], s: FixedArray[Double], b: FixedArray[Double], ldb: Lapack_int, x: FixedArray[Double], ldx: Lapack_int, rcond: FixedArray[Double], berr: FixedArray[Double], n_err_bnds: Lapack_int, err_bnds_norm: FixedArray[Double], err_bnds_comp: FixedArray[Double], nparams: Lapack_int, params: FixedArray[Double]) -> Lapack_int = "LAPACKE_zsyrfsx"
+pub extern "C" fn lapacke_zsyrfsx(
+  matrix_layout : Int,
+  uplo : Byte,
+  equed : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  af : FixedArray[Double],
+  ldaf : Lapack_int,
+  ipiv : FixedArray[Int],
+  s : FixedArray[Double],
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  x : FixedArray[Double],
+  ldx : Lapack_int,
+  rcond : FixedArray[Double],
+  berr : FixedArray[Double],
+  n_err_bnds : Lapack_int,
+  err_bnds_norm : FixedArray[Double],
+  err_bnds_comp : FixedArray[Double],
+  nparams : Lapack_int,
+  params : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_zsyrfsx"
 
 ///|
 ///
@@ -463,7 +1003,17 @@ pub extern "C" fn lapacke_zsyrfsx(matrix_layout: Int, uplo: Byte, equed: Byte, n
 ///     float* a, lapack_int lda, lapack_int* ipiv, float* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_ssysv(matrix_layout: Int, uplo: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Float], lda: Lapack_int, ipiv: FixedArray[Int], b: FixedArray[Float], ldb: Lapack_int) -> Lapack_int = "LAPACKE_ssysv"
+pub extern "C" fn lapacke_ssysv(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  ipiv : FixedArray[Int],
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_ssysv"
 
 ///|
 ///
@@ -473,7 +1023,17 @@ pub extern "C" fn lapacke_ssysv(matrix_layout: Int, uplo: Byte, n: Lapack_int, n
 ///     double* a, lapack_int lda, lapack_int* ipiv, double* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_dsysv(matrix_layout: Int, uplo: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Double], lda: Lapack_int, ipiv: FixedArray[Int], b: FixedArray[Double], ldb: Lapack_int) -> Lapack_int = "LAPACKE_dsysv"
+pub extern "C" fn lapacke_dsysv(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  ipiv : FixedArray[Int],
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_dsysv"
 
 ///|
 ///
@@ -483,7 +1043,17 @@ pub extern "C" fn lapacke_dsysv(matrix_layout: Int, uplo: Byte, n: Lapack_int, n
 ///     lapack_complex_float* a, lapack_int lda, lapack_int* ipiv, lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_csysv(matrix_layout: Int, uplo: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Float], lda: Lapack_int, ipiv: FixedArray[Int], b: FixedArray[Float], ldb: Lapack_int) -> Lapack_int = "LAPACKE_csysv"
+pub extern "C" fn lapacke_csysv(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  ipiv : FixedArray[Int],
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_csysv"
 
 ///|
 ///
@@ -493,7 +1063,17 @@ pub extern "C" fn lapacke_csysv(matrix_layout: Int, uplo: Byte, n: Lapack_int, n
 ///     lapack_complex_double* a, lapack_int lda, lapack_int* ipiv, lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_zsysv(matrix_layout: Int, uplo: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Double], lda: Lapack_int, ipiv: FixedArray[Int], b: FixedArray[Double], ldb: Lapack_int) -> Lapack_int = "LAPACKE_zsysv"
+pub extern "C" fn lapacke_zsysv(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  ipiv : FixedArray[Int],
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_zsysv"
 
 ///|
 ///
@@ -505,7 +1085,25 @@ pub extern "C" fn lapacke_zsysv(matrix_layout: Int, uplo: Byte, n: Lapack_int, n
 ///     float* x, lapack_int ldx, float* rcond, float* ferr, float* berr
 /// );
 /// ```
-pub extern "C" fn lapacke_ssysvx(matrix_layout: Int, fact: Byte, uplo: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Float], lda: Lapack_int, af: FixedArray[Float], ldaf: Lapack_int, ipiv: FixedArray[Int], b: FixedArray[Float], ldb: Lapack_int, x: FixedArray[Float], ldx: Lapack_int, rcond: FixedArray[Float], ferr: FixedArray[Float], berr: FixedArray[Float]) -> Lapack_int = "LAPACKE_ssysvx"
+pub extern "C" fn lapacke_ssysvx(
+  matrix_layout : Int,
+  fact : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  af : FixedArray[Float],
+  ldaf : Lapack_int,
+  ipiv : FixedArray[Int],
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  x : FixedArray[Float],
+  ldx : Lapack_int,
+  rcond : FixedArray[Float],
+  ferr : FixedArray[Float],
+  berr : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ssysvx"
 
 ///|
 ///
@@ -517,7 +1115,25 @@ pub extern "C" fn lapacke_ssysvx(matrix_layout: Int, fact: Byte, uplo: Byte, n: 
 ///     double* x, lapack_int ldx, double* rcond, double* ferr, double* berr
 /// );
 /// ```
-pub extern "C" fn lapacke_dsysvx(matrix_layout: Int, fact: Byte, uplo: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Double], lda: Lapack_int, af: FixedArray[Double], ldaf: Lapack_int, ipiv: FixedArray[Int], b: FixedArray[Double], ldb: Lapack_int, x: FixedArray[Double], ldx: Lapack_int, rcond: FixedArray[Double], ferr: FixedArray[Double], berr: FixedArray[Double]) -> Lapack_int = "LAPACKE_dsysvx"
+pub extern "C" fn lapacke_dsysvx(
+  matrix_layout : Int,
+  fact : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  af : FixedArray[Double],
+  ldaf : Lapack_int,
+  ipiv : FixedArray[Int],
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  x : FixedArray[Double],
+  ldx : Lapack_int,
+  rcond : FixedArray[Double],
+  ferr : FixedArray[Double],
+  berr : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dsysvx"
 
 ///|
 ///
@@ -529,7 +1145,25 @@ pub extern "C" fn lapacke_dsysvx(matrix_layout: Int, fact: Byte, uplo: Byte, n: 
 ///     lapack_complex_float* x, lapack_int ldx, float* rcond, float* ferr, float* berr
 /// );
 /// ```
-pub extern "C" fn lapacke_csysvx(matrix_layout: Int, fact: Byte, uplo: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Float], lda: Lapack_int, af: FixedArray[Float], ldaf: Lapack_int, ipiv: FixedArray[Int], b: FixedArray[Float], ldb: Lapack_int, x: FixedArray[Float], ldx: Lapack_int, rcond: FixedArray[Float], ferr: FixedArray[Float], berr: FixedArray[Float]) -> Lapack_int = "LAPACKE_csysvx"
+pub extern "C" fn lapacke_csysvx(
+  matrix_layout : Int,
+  fact : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  af : FixedArray[Float],
+  ldaf : Lapack_int,
+  ipiv : FixedArray[Int],
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  x : FixedArray[Float],
+  ldx : Lapack_int,
+  rcond : FixedArray[Float],
+  ferr : FixedArray[Float],
+  berr : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_csysvx"
 
 ///|
 ///
@@ -541,7 +1175,25 @@ pub extern "C" fn lapacke_csysvx(matrix_layout: Int, fact: Byte, uplo: Byte, n: 
 ///     lapack_complex_double* x, lapack_int ldx, double* rcond, double* ferr, double* berr
 /// );
 /// ```
-pub extern "C" fn lapacke_zsysvx(matrix_layout: Int, fact: Byte, uplo: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Double], lda: Lapack_int, af: FixedArray[Double], ldaf: Lapack_int, ipiv: FixedArray[Int], b: FixedArray[Double], ldb: Lapack_int, x: FixedArray[Double], ldx: Lapack_int, rcond: FixedArray[Double], ferr: FixedArray[Double], berr: FixedArray[Double]) -> Lapack_int = "LAPACKE_zsysvx"
+pub extern "C" fn lapacke_zsysvx(
+  matrix_layout : Int,
+  fact : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  af : FixedArray[Double],
+  ldaf : Lapack_int,
+  ipiv : FixedArray[Int],
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  x : FixedArray[Double],
+  ldx : Lapack_int,
+  rcond : FixedArray[Double],
+  ferr : FixedArray[Double],
+  berr : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_zsysvx"
 
 ///|
 ///
@@ -555,7 +1207,32 @@ pub extern "C" fn lapacke_zsysvx(matrix_layout: Int, fact: Byte, uplo: Byte, n: 
 ///     float* err_bnds_norm, float* err_bnds_comp, lapack_int nparams, float* params
 /// );
 /// ```
-pub extern "C" fn lapacke_ssysvxx(matrix_layout: Int, fact: Byte, uplo: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Float], lda: Lapack_int, af: FixedArray[Float], ldaf: Lapack_int, ipiv: FixedArray[Int], equed: FixedArray[Byte], s: FixedArray[Float], b: FixedArray[Float], ldb: Lapack_int, x: FixedArray[Float], ldx: Lapack_int, rcond: FixedArray[Float], rpvgrw: FixedArray[Float], berr: FixedArray[Float], n_err_bnds: Lapack_int, err_bnds_norm: FixedArray[Float], err_bnds_comp: FixedArray[Float], nparams: Lapack_int, params: FixedArray[Float]) -> Lapack_int = "LAPACKE_ssysvxx"
+pub extern "C" fn lapacke_ssysvxx(
+  matrix_layout : Int,
+  fact : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  af : FixedArray[Float],
+  ldaf : Lapack_int,
+  ipiv : FixedArray[Int],
+  equed : FixedArray[Byte],
+  s : FixedArray[Float],
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  x : FixedArray[Float],
+  ldx : Lapack_int,
+  rcond : FixedArray[Float],
+  rpvgrw : FixedArray[Float],
+  berr : FixedArray[Float],
+  n_err_bnds : Lapack_int,
+  err_bnds_norm : FixedArray[Float],
+  err_bnds_comp : FixedArray[Float],
+  nparams : Lapack_int,
+  params : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ssysvxx"
 
 ///|
 ///
@@ -569,7 +1246,32 @@ pub extern "C" fn lapacke_ssysvxx(matrix_layout: Int, fact: Byte, uplo: Byte, n:
 ///     double* err_bnds_norm, double* err_bnds_comp, lapack_int nparams, double* params
 /// );
 /// ```
-pub extern "C" fn lapacke_dsysvxx(matrix_layout: Int, fact: Byte, uplo: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Double], lda: Lapack_int, af: FixedArray[Double], ldaf: Lapack_int, ipiv: FixedArray[Int], equed: FixedArray[Byte], s: FixedArray[Double], b: FixedArray[Double], ldb: Lapack_int, x: FixedArray[Double], ldx: Lapack_int, rcond: FixedArray[Double], rpvgrw: FixedArray[Double], berr: FixedArray[Double], n_err_bnds: Lapack_int, err_bnds_norm: FixedArray[Double], err_bnds_comp: FixedArray[Double], nparams: Lapack_int, params: FixedArray[Double]) -> Lapack_int = "LAPACKE_dsysvxx"
+pub extern "C" fn lapacke_dsysvxx(
+  matrix_layout : Int,
+  fact : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  af : FixedArray[Double],
+  ldaf : Lapack_int,
+  ipiv : FixedArray[Int],
+  equed : FixedArray[Byte],
+  s : FixedArray[Double],
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  x : FixedArray[Double],
+  ldx : Lapack_int,
+  rcond : FixedArray[Double],
+  rpvgrw : FixedArray[Double],
+  berr : FixedArray[Double],
+  n_err_bnds : Lapack_int,
+  err_bnds_norm : FixedArray[Double],
+  err_bnds_comp : FixedArray[Double],
+  nparams : Lapack_int,
+  params : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dsysvxx"
 
 ///|
 ///
@@ -583,7 +1285,32 @@ pub extern "C" fn lapacke_dsysvxx(matrix_layout: Int, fact: Byte, uplo: Byte, n:
 ///     float* err_bnds_norm, float* err_bnds_comp, lapack_int nparams, float* params
 /// );
 /// ```
-pub extern "C" fn lapacke_csysvxx(matrix_layout: Int, fact: Byte, uplo: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Float], lda: Lapack_int, af: FixedArray[Float], ldaf: Lapack_int, ipiv: FixedArray[Int], equed: FixedArray[Byte], s: FixedArray[Float], b: FixedArray[Float], ldb: Lapack_int, x: FixedArray[Float], ldx: Lapack_int, rcond: FixedArray[Float], rpvgrw: FixedArray[Float], berr: FixedArray[Float], n_err_bnds: Lapack_int, err_bnds_norm: FixedArray[Float], err_bnds_comp: FixedArray[Float], nparams: Lapack_int, params: FixedArray[Float]) -> Lapack_int = "LAPACKE_csysvxx"
+pub extern "C" fn lapacke_csysvxx(
+  matrix_layout : Int,
+  fact : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  af : FixedArray[Float],
+  ldaf : Lapack_int,
+  ipiv : FixedArray[Int],
+  equed : FixedArray[Byte],
+  s : FixedArray[Float],
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  x : FixedArray[Float],
+  ldx : Lapack_int,
+  rcond : FixedArray[Float],
+  rpvgrw : FixedArray[Float],
+  berr : FixedArray[Float],
+  n_err_bnds : Lapack_int,
+  err_bnds_norm : FixedArray[Float],
+  err_bnds_comp : FixedArray[Float],
+  nparams : Lapack_int,
+  params : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_csysvxx"
 
 ///|
 ///
@@ -597,7 +1324,32 @@ pub extern "C" fn lapacke_csysvxx(matrix_layout: Int, fact: Byte, uplo: Byte, n:
 ///     double* err_bnds_norm, double* err_bnds_comp, lapack_int nparams, double* params
 /// );
 /// ```
-pub extern "C" fn lapacke_zsysvxx(matrix_layout: Int, fact: Byte, uplo: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Double], lda: Lapack_int, af: FixedArray[Double], ldaf: Lapack_int, ipiv: FixedArray[Int], equed: FixedArray[Byte], s: FixedArray[Double], b: FixedArray[Double], ldb: Lapack_int, x: FixedArray[Double], ldx: Lapack_int, rcond: FixedArray[Double], rpvgrw: FixedArray[Double], berr: FixedArray[Double], n_err_bnds: Lapack_int, err_bnds_norm: FixedArray[Double], err_bnds_comp: FixedArray[Double], nparams: Lapack_int, params: FixedArray[Double]) -> Lapack_int = "LAPACKE_zsysvxx"
+pub extern "C" fn lapacke_zsysvxx(
+  matrix_layout : Int,
+  fact : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  af : FixedArray[Double],
+  ldaf : Lapack_int,
+  ipiv : FixedArray[Int],
+  equed : FixedArray[Byte],
+  s : FixedArray[Double],
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  x : FixedArray[Double],
+  ldx : Lapack_int,
+  rcond : FixedArray[Double],
+  rpvgrw : FixedArray[Double],
+  berr : FixedArray[Double],
+  n_err_bnds : Lapack_int,
+  err_bnds_norm : FixedArray[Double],
+  err_bnds_comp : FixedArray[Double],
+  nparams : Lapack_int,
+  params : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_zsysvxx"
 
 ///|
 ///
@@ -607,7 +1359,16 @@ pub extern "C" fn lapacke_zsysvxx(matrix_layout: Int, fact: Byte, uplo: Byte, n:
 ///     lapack_int lda, float* d, float* e, float* tau
 /// );
 /// ```
-pub extern "C" fn lapacke_ssytrd(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, d: FixedArray[Float], e: FixedArray[Float], tau: FixedArray[Float]) -> Lapack_int = "LAPACKE_ssytrd"
+pub extern "C" fn lapacke_ssytrd(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  d : FixedArray[Float],
+  e : FixedArray[Float],
+  tau : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ssytrd"
 
 ///|
 ///
@@ -617,7 +1378,16 @@ pub extern "C" fn lapacke_ssytrd(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int lda, double* d, double* e, double* tau
 /// );
 /// ```
-pub extern "C" fn lapacke_dsytrd(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, d: FixedArray[Double], e: FixedArray[Double], tau: FixedArray[Double]) -> Lapack_int = "LAPACKE_dsytrd"
+pub extern "C" fn lapacke_dsytrd(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  d : FixedArray[Double],
+  e : FixedArray[Double],
+  tau : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dsytrd"
 
 ///|
 ///
@@ -627,7 +1397,14 @@ pub extern "C" fn lapacke_dsytrd(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int lda, lapack_int* ipiv
 /// );
 /// ```
-pub extern "C" fn lapacke_ssytrf(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, ipiv: FixedArray[Int]) -> Lapack_int = "LAPACKE_ssytrf"
+pub extern "C" fn lapacke_ssytrf(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  ipiv : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_ssytrf"
 
 ///|
 ///
@@ -637,7 +1414,14 @@ pub extern "C" fn lapacke_ssytrf(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int lda, lapack_int* ipiv
 /// );
 /// ```
-pub extern "C" fn lapacke_dsytrf(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, ipiv: FixedArray[Int]) -> Lapack_int = "LAPACKE_dsytrf"
+pub extern "C" fn lapacke_dsytrf(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  ipiv : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_dsytrf"
 
 ///|
 ///
@@ -647,7 +1431,14 @@ pub extern "C" fn lapacke_dsytrf(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int lda, lapack_int* ipiv
 /// );
 /// ```
-pub extern "C" fn lapacke_csytrf(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, ipiv: FixedArray[Int]) -> Lapack_int = "LAPACKE_csytrf"
+pub extern "C" fn lapacke_csytrf(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  ipiv : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_csytrf"
 
 ///|
 ///
@@ -657,7 +1448,14 @@ pub extern "C" fn lapacke_csytrf(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int lda, lapack_int* ipiv
 /// );
 /// ```
-pub extern "C" fn lapacke_zsytrf(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, ipiv: FixedArray[Int]) -> Lapack_int = "LAPACKE_zsytrf"
+pub extern "C" fn lapacke_zsytrf(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  ipiv : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_zsytrf"
 
 ///|
 ///
@@ -667,7 +1465,14 @@ pub extern "C" fn lapacke_zsytrf(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int lda, const lapack_int* ipiv
 /// );
 /// ```
-pub extern "C" fn lapacke_ssytri(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, ipiv: FixedArray[Int]) -> Lapack_int = "LAPACKE_ssytri"
+pub extern "C" fn lapacke_ssytri(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  ipiv : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_ssytri"
 
 ///|
 ///
@@ -677,7 +1482,14 @@ pub extern "C" fn lapacke_ssytri(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int lda, const lapack_int* ipiv
 /// );
 /// ```
-pub extern "C" fn lapacke_dsytri(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, ipiv: FixedArray[Int]) -> Lapack_int = "LAPACKE_dsytri"
+pub extern "C" fn lapacke_dsytri(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  ipiv : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_dsytri"
 
 ///|
 ///
@@ -687,7 +1499,14 @@ pub extern "C" fn lapacke_dsytri(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int lda, const lapack_int* ipiv
 /// );
 /// ```
-pub extern "C" fn lapacke_csytri(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, ipiv: FixedArray[Int]) -> Lapack_int = "LAPACKE_csytri"
+pub extern "C" fn lapacke_csytri(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  ipiv : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_csytri"
 
 ///|
 ///
@@ -697,7 +1516,14 @@ pub extern "C" fn lapacke_csytri(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int lda, const lapack_int* ipiv
 /// );
 /// ```
-pub extern "C" fn lapacke_zsytri(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, ipiv: FixedArray[Int]) -> Lapack_int = "LAPACKE_zsytri"
+pub extern "C" fn lapacke_zsytri(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  ipiv : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_zsytri"
 
 ///|
 ///
@@ -707,7 +1533,17 @@ pub extern "C" fn lapacke_zsytri(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     const float* a, lapack_int lda, const lapack_int* ipiv, float* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_ssytrs(matrix_layout: Int, uplo: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Float], lda: Lapack_int, ipiv: FixedArray[Int], b: FixedArray[Float], ldb: Lapack_int) -> Lapack_int = "LAPACKE_ssytrs"
+pub extern "C" fn lapacke_ssytrs(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  ipiv : FixedArray[Int],
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_ssytrs"
 
 ///|
 ///
@@ -717,7 +1553,17 @@ pub extern "C" fn lapacke_ssytrs(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     const double* a, lapack_int lda, const lapack_int* ipiv, double* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_dsytrs(matrix_layout: Int, uplo: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Double], lda: Lapack_int, ipiv: FixedArray[Int], b: FixedArray[Double], ldb: Lapack_int) -> Lapack_int = "LAPACKE_dsytrs"
+pub extern "C" fn lapacke_dsytrs(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  ipiv : FixedArray[Int],
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_dsytrs"
 
 ///|
 ///
@@ -727,7 +1573,17 @@ pub extern "C" fn lapacke_dsytrs(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     const lapack_complex_float* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_csytrs(matrix_layout: Int, uplo: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Float], lda: Lapack_int, ipiv: FixedArray[Int], b: FixedArray[Float], ldb: Lapack_int) -> Lapack_int = "LAPACKE_csytrs"
+pub extern "C" fn lapacke_csytrs(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  ipiv : FixedArray[Int],
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_csytrs"
 
 ///|
 ///
@@ -737,7 +1593,17 @@ pub extern "C" fn lapacke_csytrs(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     const lapack_complex_double* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_zsytrs(matrix_layout: Int, uplo: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Double], lda: Lapack_int, ipiv: FixedArray[Int], b: FixedArray[Double], ldb: Lapack_int) -> Lapack_int = "LAPACKE_zsytrs"
+pub extern "C" fn lapacke_zsytrs(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  ipiv : FixedArray[Int],
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_zsytrs"
 
 ///|
 ///
@@ -747,7 +1613,17 @@ pub extern "C" fn lapacke_zsytrs(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int n, lapack_int kd, const float* ab, lapack_int ldab, float* rcond
 /// );
 /// ```
-pub extern "C" fn lapacke_stbcon(matrix_layout: Int, norm: Byte, uplo: Byte, diag: Byte, n: Lapack_int, kd: Lapack_int, ab: FixedArray[Float], ldab: Lapack_int, rcond: FixedArray[Float]) -> Lapack_int = "LAPACKE_stbcon"
+pub extern "C" fn lapacke_stbcon(
+  matrix_layout : Int,
+  norm : Byte,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  kd : Lapack_int,
+  ab : FixedArray[Float],
+  ldab : Lapack_int,
+  rcond : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_stbcon"
 
 ///|
 ///
@@ -757,7 +1633,17 @@ pub extern "C" fn lapacke_stbcon(matrix_layout: Int, norm: Byte, uplo: Byte, dia
 ///     lapack_int n, lapack_int kd, const double* ab, lapack_int ldab, double* rcond
 /// );
 /// ```
-pub extern "C" fn lapacke_dtbcon(matrix_layout: Int, norm: Byte, uplo: Byte, diag: Byte, n: Lapack_int, kd: Lapack_int, ab: FixedArray[Double], ldab: Lapack_int, rcond: FixedArray[Double]) -> Lapack_int = "LAPACKE_dtbcon"
+pub extern "C" fn lapacke_dtbcon(
+  matrix_layout : Int,
+  norm : Byte,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  kd : Lapack_int,
+  ab : FixedArray[Double],
+  ldab : Lapack_int,
+  rcond : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dtbcon"
 
 ///|
 ///
@@ -767,7 +1653,17 @@ pub extern "C" fn lapacke_dtbcon(matrix_layout: Int, norm: Byte, uplo: Byte, dia
 ///     lapack_int n, lapack_int kd, const lapack_complex_float* ab, lapack_int ldab, float* rcond
 /// );
 /// ```
-pub extern "C" fn lapacke_ctbcon(matrix_layout: Int, norm: Byte, uplo: Byte, diag: Byte, n: Lapack_int, kd: Lapack_int, ab: FixedArray[Float], ldab: Lapack_int, rcond: FixedArray[Float]) -> Lapack_int = "LAPACKE_ctbcon"
+pub extern "C" fn lapacke_ctbcon(
+  matrix_layout : Int,
+  norm : Byte,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  kd : Lapack_int,
+  ab : FixedArray[Float],
+  ldab : Lapack_int,
+  rcond : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ctbcon"
 
 ///|
 ///
@@ -777,7 +1673,17 @@ pub extern "C" fn lapacke_ctbcon(matrix_layout: Int, norm: Byte, uplo: Byte, dia
 ///     lapack_int n, lapack_int kd, const lapack_complex_double* ab, lapack_int ldab, double* rcond
 /// );
 /// ```
-pub extern "C" fn lapacke_ztbcon(matrix_layout: Int, norm: Byte, uplo: Byte, diag: Byte, n: Lapack_int, kd: Lapack_int, ab: FixedArray[Double], ldab: Lapack_int, rcond: FixedArray[Double]) -> Lapack_int = "LAPACKE_ztbcon"
+pub extern "C" fn lapacke_ztbcon(
+  matrix_layout : Int,
+  norm : Byte,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  kd : Lapack_int,
+  ab : FixedArray[Double],
+  ldab : Lapack_int,
+  rcond : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_ztbcon"
 
 ///|
 ///
@@ -789,7 +1695,23 @@ pub extern "C" fn lapacke_ztbcon(matrix_layout: Int, norm: Byte, uplo: Byte, dia
 ///     lapack_int ldx, float* ferr, float* berr
 /// );
 /// ```
-pub extern "C" fn lapacke_stbrfs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, kd: Lapack_int, nrhs: Lapack_int, ab: FixedArray[Float], ldab: Lapack_int, b: FixedArray[Float], ldb: Lapack_int, x: FixedArray[Float], ldx: Lapack_int, ferr: FixedArray[Float], berr: FixedArray[Float]) -> Lapack_int = "LAPACKE_stbrfs"
+pub extern "C" fn lapacke_stbrfs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  kd : Lapack_int,
+  nrhs : Lapack_int,
+  ab : FixedArray[Float],
+  ldab : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  x : FixedArray[Float],
+  ldx : Lapack_int,
+  ferr : FixedArray[Float],
+  berr : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_stbrfs"
 
 ///|
 ///
@@ -801,7 +1723,23 @@ pub extern "C" fn lapacke_stbrfs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     lapack_int ldx, double* ferr, double* berr
 /// );
 /// ```
-pub extern "C" fn lapacke_dtbrfs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, kd: Lapack_int, nrhs: Lapack_int, ab: FixedArray[Double], ldab: Lapack_int, b: FixedArray[Double], ldb: Lapack_int, x: FixedArray[Double], ldx: Lapack_int, ferr: FixedArray[Double], berr: FixedArray[Double]) -> Lapack_int = "LAPACKE_dtbrfs"
+pub extern "C" fn lapacke_dtbrfs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  kd : Lapack_int,
+  nrhs : Lapack_int,
+  ab : FixedArray[Double],
+  ldab : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  x : FixedArray[Double],
+  ldx : Lapack_int,
+  ferr : FixedArray[Double],
+  berr : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dtbrfs"
 
 ///|
 ///
@@ -813,7 +1751,23 @@ pub extern "C" fn lapacke_dtbrfs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     lapack_int ldx, float* ferr, float* berr
 /// );
 /// ```
-pub extern "C" fn lapacke_ctbrfs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, kd: Lapack_int, nrhs: Lapack_int, ab: FixedArray[Float], ldab: Lapack_int, b: FixedArray[Float], ldb: Lapack_int, x: FixedArray[Float], ldx: Lapack_int, ferr: FixedArray[Float], berr: FixedArray[Float]) -> Lapack_int = "LAPACKE_ctbrfs"
+pub extern "C" fn lapacke_ctbrfs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  kd : Lapack_int,
+  nrhs : Lapack_int,
+  ab : FixedArray[Float],
+  ldab : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  x : FixedArray[Float],
+  ldx : Lapack_int,
+  ferr : FixedArray[Float],
+  berr : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ctbrfs"
 
 ///|
 ///
@@ -825,7 +1779,23 @@ pub extern "C" fn lapacke_ctbrfs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     lapack_int ldx, double* ferr, double* berr
 /// );
 /// ```
-pub extern "C" fn lapacke_ztbrfs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, kd: Lapack_int, nrhs: Lapack_int, ab: FixedArray[Double], ldab: Lapack_int, b: FixedArray[Double], ldb: Lapack_int, x: FixedArray[Double], ldx: Lapack_int, ferr: FixedArray[Double], berr: FixedArray[Double]) -> Lapack_int = "LAPACKE_ztbrfs"
+pub extern "C" fn lapacke_ztbrfs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  kd : Lapack_int,
+  nrhs : Lapack_int,
+  ab : FixedArray[Double],
+  ldab : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  x : FixedArray[Double],
+  ldx : Lapack_int,
+  ferr : FixedArray[Double],
+  berr : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_ztbrfs"
 
 ///|
 ///
@@ -836,7 +1806,19 @@ pub extern "C" fn lapacke_ztbrfs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     lapack_int ldab, float* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_stbtrs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, kd: Lapack_int, nrhs: Lapack_int, ab: FixedArray[Float], ldab: Lapack_int, b: FixedArray[Float], ldb: Lapack_int) -> Lapack_int = "LAPACKE_stbtrs"
+pub extern "C" fn lapacke_stbtrs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  kd : Lapack_int,
+  nrhs : Lapack_int,
+  ab : FixedArray[Float],
+  ldab : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_stbtrs"
 
 ///|
 ///
@@ -847,7 +1829,19 @@ pub extern "C" fn lapacke_stbtrs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     lapack_int ldab, double* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_dtbtrs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, kd: Lapack_int, nrhs: Lapack_int, ab: FixedArray[Double], ldab: Lapack_int, b: FixedArray[Double], ldb: Lapack_int) -> Lapack_int = "LAPACKE_dtbtrs"
+pub extern "C" fn lapacke_dtbtrs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  kd : Lapack_int,
+  nrhs : Lapack_int,
+  ab : FixedArray[Double],
+  ldab : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_dtbtrs"
 
 ///|
 ///
@@ -858,7 +1852,19 @@ pub extern "C" fn lapacke_dtbtrs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     lapack_int ldab, lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_ctbtrs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, kd: Lapack_int, nrhs: Lapack_int, ab: FixedArray[Float], ldab: Lapack_int, b: FixedArray[Float], ldb: Lapack_int) -> Lapack_int = "LAPACKE_ctbtrs"
+pub extern "C" fn lapacke_ctbtrs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  kd : Lapack_int,
+  nrhs : Lapack_int,
+  ab : FixedArray[Float],
+  ldab : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_ctbtrs"
 
 ///|
 ///
@@ -869,7 +1875,19 @@ pub extern "C" fn lapacke_ctbtrs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     lapack_int ldab, lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_ztbtrs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, kd: Lapack_int, nrhs: Lapack_int, ab: FixedArray[Double], ldab: Lapack_int, b: FixedArray[Double], ldb: Lapack_int) -> Lapack_int = "LAPACKE_ztbtrs"
+pub extern "C" fn lapacke_ztbtrs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  kd : Lapack_int,
+  nrhs : Lapack_int,
+  ab : FixedArray[Double],
+  ldab : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_ztbtrs"
 
 ///|
 ///
@@ -880,7 +1898,20 @@ pub extern "C" fn lapacke_ztbtrs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     float alpha, const float* a, float* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_stfsm(matrix_layout: Int, transr: Byte, side: Byte, uplo: Byte, trans: Byte, diag: Byte, m: Lapack_int, n: Lapack_int, alpha: Float, a: FixedArray[Float], b: FixedArray[Float], ldb: Lapack_int) -> Lapack_int = "LAPACKE_stfsm"
+pub extern "C" fn lapacke_stfsm(
+  matrix_layout : Int,
+  transr : Byte,
+  side : Byte,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  alpha : Float,
+  a : FixedArray[Float],
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_stfsm"
 
 ///|
 ///
@@ -891,7 +1922,20 @@ pub extern "C" fn lapacke_stfsm(matrix_layout: Int, transr: Byte, side: Byte, up
 ///     double alpha, const double* a, double* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_dtfsm(matrix_layout: Int, transr: Byte, side: Byte, uplo: Byte, trans: Byte, diag: Byte, m: Lapack_int, n: Lapack_int, alpha: Double, a: FixedArray[Double], b: FixedArray[Double], ldb: Lapack_int) -> Lapack_int = "LAPACKE_dtfsm"
+pub extern "C" fn lapacke_dtfsm(
+  matrix_layout : Int,
+  transr : Byte,
+  side : Byte,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  alpha : Double,
+  a : FixedArray[Double],
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_dtfsm"
 
 ///|
 ///
@@ -902,7 +1946,20 @@ pub extern "C" fn lapacke_dtfsm(matrix_layout: Int, transr: Byte, side: Byte, up
 ///     lapack_complex_float alpha, const lapack_complex_float* a, lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_ctfsm(matrix_layout: Int, transr: Byte, side: Byte, uplo: Byte, trans: Byte, diag: Byte, m: Lapack_int, n: Lapack_int, alpha: Lapack_complex_float, a: FixedArray[Float], b: FixedArray[Float], ldb: Lapack_int) -> Lapack_int = "LAPACKE_ctfsm"
+pub extern "C" fn lapacke_ctfsm(
+  matrix_layout : Int,
+  transr : Byte,
+  side : Byte,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  alpha : Lapack_complex_float,
+  a : FixedArray[Float],
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_ctfsm"
 
 ///|
 ///
@@ -913,7 +1970,20 @@ pub extern "C" fn lapacke_ctfsm(matrix_layout: Int, transr: Byte, side: Byte, up
 ///     lapack_complex_double alpha, const lapack_complex_double* a, lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_ztfsm(matrix_layout: Int, transr: Byte, side: Byte, uplo: Byte, trans: Byte, diag: Byte, m: Lapack_int, n: Lapack_int, alpha: Lapack_complex_double, a: FixedArray[Double], b: FixedArray[Double], ldb: Lapack_int) -> Lapack_int = "LAPACKE_ztfsm"
+pub extern "C" fn lapacke_ztfsm(
+  matrix_layout : Int,
+  transr : Byte,
+  side : Byte,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  alpha : Lapack_complex_double,
+  a : FixedArray[Double],
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_ztfsm"
 
 ///|
 ///
@@ -923,7 +1993,14 @@ pub extern "C" fn lapacke_ztfsm(matrix_layout: Int, transr: Byte, side: Byte, up
 ///     lapack_int n, float* a
 /// );
 /// ```
-pub extern "C" fn lapacke_stftri(matrix_layout: Int, transr: Byte, uplo: Byte, diag: Byte, n: Lapack_int, a: FixedArray[Float]) -> Lapack_int = "LAPACKE_stftri"
+pub extern "C" fn lapacke_stftri(
+  matrix_layout : Int,
+  transr : Byte,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_stftri"
 
 ///|
 ///
@@ -933,7 +2010,14 @@ pub extern "C" fn lapacke_stftri(matrix_layout: Int, transr: Byte, uplo: Byte, d
 ///     lapack_int n, double* a
 /// );
 /// ```
-pub extern "C" fn lapacke_dtftri(matrix_layout: Int, transr: Byte, uplo: Byte, diag: Byte, n: Lapack_int, a: FixedArray[Double]) -> Lapack_int = "LAPACKE_dtftri"
+pub extern "C" fn lapacke_dtftri(
+  matrix_layout : Int,
+  transr : Byte,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dtftri"
 
 ///|
 ///
@@ -943,7 +2027,14 @@ pub extern "C" fn lapacke_dtftri(matrix_layout: Int, transr: Byte, uplo: Byte, d
 ///     lapack_int n, lapack_complex_float* a
 /// );
 /// ```
-pub extern "C" fn lapacke_ctftri(matrix_layout: Int, transr: Byte, uplo: Byte, diag: Byte, n: Lapack_int, a: FixedArray[Float]) -> Lapack_int = "LAPACKE_ctftri"
+pub extern "C" fn lapacke_ctftri(
+  matrix_layout : Int,
+  transr : Byte,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ctftri"
 
 ///|
 ///
@@ -953,7 +2044,14 @@ pub extern "C" fn lapacke_ctftri(matrix_layout: Int, transr: Byte, uplo: Byte, d
 ///     lapack_int n, lapack_complex_double* a
 /// );
 /// ```
-pub extern "C" fn lapacke_ztftri(matrix_layout: Int, transr: Byte, uplo: Byte, diag: Byte, n: Lapack_int, a: FixedArray[Double]) -> Lapack_int = "LAPACKE_ztftri"
+pub extern "C" fn lapacke_ztftri(
+  matrix_layout : Int,
+  transr : Byte,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_ztftri"
 
 ///|
 ///
@@ -963,7 +2061,14 @@ pub extern "C" fn lapacke_ztftri(matrix_layout: Int, transr: Byte, uplo: Byte, d
 ///     const float* arf, float* ap
 /// );
 /// ```
-pub extern "C" fn lapacke_stfttp(matrix_layout: Int, transr: Byte, uplo: Byte, n: Lapack_int, arf: FixedArray[Float], ap: FixedArray[Float]) -> Lapack_int = "LAPACKE_stfttp"
+pub extern "C" fn lapacke_stfttp(
+  matrix_layout : Int,
+  transr : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  arf : FixedArray[Float],
+  ap : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_stfttp"
 
 ///|
 ///
@@ -973,7 +2078,14 @@ pub extern "C" fn lapacke_stfttp(matrix_layout: Int, transr: Byte, uplo: Byte, n
 ///     const double* arf, double* ap
 /// );
 /// ```
-pub extern "C" fn lapacke_dtfttp(matrix_layout: Int, transr: Byte, uplo: Byte, n: Lapack_int, arf: FixedArray[Double], ap: FixedArray[Double]) -> Lapack_int = "LAPACKE_dtfttp"
+pub extern "C" fn lapacke_dtfttp(
+  matrix_layout : Int,
+  transr : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  arf : FixedArray[Double],
+  ap : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dtfttp"
 
 ///|
 ///
@@ -983,7 +2095,14 @@ pub extern "C" fn lapacke_dtfttp(matrix_layout: Int, transr: Byte, uplo: Byte, n
 ///     const lapack_complex_float* arf, lapack_complex_float* ap
 /// );
 /// ```
-pub extern "C" fn lapacke_ctfttp(matrix_layout: Int, transr: Byte, uplo: Byte, n: Lapack_int, arf: FixedArray[Float], ap: FixedArray[Float]) -> Lapack_int = "LAPACKE_ctfttp"
+pub extern "C" fn lapacke_ctfttp(
+  matrix_layout : Int,
+  transr : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  arf : FixedArray[Float],
+  ap : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ctfttp"
 
 ///|
 ///
@@ -993,7 +2112,14 @@ pub extern "C" fn lapacke_ctfttp(matrix_layout: Int, transr: Byte, uplo: Byte, n
 ///     const lapack_complex_double* arf, lapack_complex_double* ap
 /// );
 /// ```
-pub extern "C" fn lapacke_ztfttp(matrix_layout: Int, transr: Byte, uplo: Byte, n: Lapack_int, arf: FixedArray[Double], ap: FixedArray[Double]) -> Lapack_int = "LAPACKE_ztfttp"
+pub extern "C" fn lapacke_ztfttp(
+  matrix_layout : Int,
+  transr : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  arf : FixedArray[Double],
+  ap : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_ztfttp"
 
 ///|
 ///
@@ -1003,7 +2129,15 @@ pub extern "C" fn lapacke_ztfttp(matrix_layout: Int, transr: Byte, uplo: Byte, n
 ///     const float* arf, float* a, lapack_int lda
 /// );
 /// ```
-pub extern "C" fn lapacke_stfttr(matrix_layout: Int, transr: Byte, uplo: Byte, n: Lapack_int, arf: FixedArray[Float], a: FixedArray[Float], lda: Lapack_int) -> Lapack_int = "LAPACKE_stfttr"
+pub extern "C" fn lapacke_stfttr(
+  matrix_layout : Int,
+  transr : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  arf : FixedArray[Float],
+  a : FixedArray[Float],
+  lda : Lapack_int,
+) -> Lapack_int = "LAPACKE_stfttr"
 
 ///|
 ///
@@ -1013,7 +2147,15 @@ pub extern "C" fn lapacke_stfttr(matrix_layout: Int, transr: Byte, uplo: Byte, n
 ///     const double* arf, double* a, lapack_int lda
 /// );
 /// ```
-pub extern "C" fn lapacke_dtfttr(matrix_layout: Int, transr: Byte, uplo: Byte, n: Lapack_int, arf: FixedArray[Double], a: FixedArray[Double], lda: Lapack_int) -> Lapack_int = "LAPACKE_dtfttr"
+pub extern "C" fn lapacke_dtfttr(
+  matrix_layout : Int,
+  transr : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  arf : FixedArray[Double],
+  a : FixedArray[Double],
+  lda : Lapack_int,
+) -> Lapack_int = "LAPACKE_dtfttr"
 
 ///|
 ///
@@ -1023,7 +2165,15 @@ pub extern "C" fn lapacke_dtfttr(matrix_layout: Int, transr: Byte, uplo: Byte, n
 ///     const lapack_complex_float* arf, lapack_complex_float* a, lapack_int lda
 /// );
 /// ```
-pub extern "C" fn lapacke_ctfttr(matrix_layout: Int, transr: Byte, uplo: Byte, n: Lapack_int, arf: FixedArray[Float], a: FixedArray[Float], lda: Lapack_int) -> Lapack_int = "LAPACKE_ctfttr"
+pub extern "C" fn lapacke_ctfttr(
+  matrix_layout : Int,
+  transr : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  arf : FixedArray[Float],
+  a : FixedArray[Float],
+  lda : Lapack_int,
+) -> Lapack_int = "LAPACKE_ctfttr"
 
 ///|
 ///
@@ -1033,7 +2183,15 @@ pub extern "C" fn lapacke_ctfttr(matrix_layout: Int, transr: Byte, uplo: Byte, n
 ///     const lapack_complex_double* arf, lapack_complex_double* a, lapack_int lda
 /// );
 /// ```
-pub extern "C" fn lapacke_ztfttr(matrix_layout: Int, transr: Byte, uplo: Byte, n: Lapack_int, arf: FixedArray[Double], a: FixedArray[Double], lda: Lapack_int) -> Lapack_int = "LAPACKE_ztfttr"
+pub extern "C" fn lapacke_ztfttr(
+  matrix_layout : Int,
+  transr : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  arf : FixedArray[Double],
+  a : FixedArray[Double],
+  lda : Lapack_int,
+) -> Lapack_int = "LAPACKE_ztfttr"
 
 ///|
 ///
@@ -1045,7 +2203,23 @@ pub extern "C" fn lapacke_ztfttr(matrix_layout: Int, transr: Byte, uplo: Byte, n
 ///     lapack_int ldvr, lapack_int mm, lapack_int* m
 /// );
 /// ```
-pub extern "C" fn lapacke_stgevc(matrix_layout: Int, side: Byte, howmny: Byte, select: Lapack_logical, n: Lapack_int, s: FixedArray[Float], lds: Lapack_int, p: FixedArray[Float], ldp: Lapack_int, vl: FixedArray[Float], ldvl: Lapack_int, vr: FixedArray[Float], ldvr: Lapack_int, mm: Lapack_int, m: FixedArray[Int]) -> Lapack_int = "LAPACKE_stgevc"
+pub extern "C" fn lapacke_stgevc(
+  matrix_layout : Int,
+  side : Byte,
+  howmny : Byte,
+  select : Lapack_logical,
+  n : Lapack_int,
+  s : FixedArray[Float],
+  lds : Lapack_int,
+  p : FixedArray[Float],
+  ldp : Lapack_int,
+  vl : FixedArray[Float],
+  ldvl : Lapack_int,
+  vr : FixedArray[Float],
+  ldvr : Lapack_int,
+  mm : Lapack_int,
+  m : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_stgevc"
 
 ///|
 ///
@@ -1057,7 +2231,23 @@ pub extern "C" fn lapacke_stgevc(matrix_layout: Int, side: Byte, howmny: Byte, s
 ///     lapack_int ldvr, lapack_int mm, lapack_int* m
 /// );
 /// ```
-pub extern "C" fn lapacke_dtgevc(matrix_layout: Int, side: Byte, howmny: Byte, select: Lapack_logical, n: Lapack_int, s: FixedArray[Double], lds: Lapack_int, p: FixedArray[Double], ldp: Lapack_int, vl: FixedArray[Double], ldvl: Lapack_int, vr: FixedArray[Double], ldvr: Lapack_int, mm: Lapack_int, m: FixedArray[Int]) -> Lapack_int = "LAPACKE_dtgevc"
+pub extern "C" fn lapacke_dtgevc(
+  matrix_layout : Int,
+  side : Byte,
+  howmny : Byte,
+  select : Lapack_logical,
+  n : Lapack_int,
+  s : FixedArray[Double],
+  lds : Lapack_int,
+  p : FixedArray[Double],
+  ldp : Lapack_int,
+  vl : FixedArray[Double],
+  ldvl : Lapack_int,
+  vr : FixedArray[Double],
+  ldvr : Lapack_int,
+  mm : Lapack_int,
+  m : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_dtgevc"
 
 ///|
 ///
@@ -1069,7 +2259,23 @@ pub extern "C" fn lapacke_dtgevc(matrix_layout: Int, side: Byte, howmny: Byte, s
 ///     lapack_int ldvr, lapack_int mm, lapack_int* m
 /// );
 /// ```
-pub extern "C" fn lapacke_ctgevc(matrix_layout: Int, side: Byte, howmny: Byte, select: Lapack_logical, n: Lapack_int, s: FixedArray[Float], lds: Lapack_int, p: FixedArray[Float], ldp: Lapack_int, vl: FixedArray[Float], ldvl: Lapack_int, vr: FixedArray[Float], ldvr: Lapack_int, mm: Lapack_int, m: FixedArray[Int]) -> Lapack_int = "LAPACKE_ctgevc"
+pub extern "C" fn lapacke_ctgevc(
+  matrix_layout : Int,
+  side : Byte,
+  howmny : Byte,
+  select : Lapack_logical,
+  n : Lapack_int,
+  s : FixedArray[Float],
+  lds : Lapack_int,
+  p : FixedArray[Float],
+  ldp : Lapack_int,
+  vl : FixedArray[Float],
+  ldvl : Lapack_int,
+  vr : FixedArray[Float],
+  ldvr : Lapack_int,
+  mm : Lapack_int,
+  m : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_ctgevc"
 
 ///|
 ///
@@ -1081,7 +2287,23 @@ pub extern "C" fn lapacke_ctgevc(matrix_layout: Int, side: Byte, howmny: Byte, s
 ///     lapack_int ldvr, lapack_int mm, lapack_int* m
 /// );
 /// ```
-pub extern "C" fn lapacke_ztgevc(matrix_layout: Int, side: Byte, howmny: Byte, select: Lapack_logical, n: Lapack_int, s: FixedArray[Double], lds: Lapack_int, p: FixedArray[Double], ldp: Lapack_int, vl: FixedArray[Double], ldvl: Lapack_int, vr: FixedArray[Double], ldvr: Lapack_int, mm: Lapack_int, m: FixedArray[Int]) -> Lapack_int = "LAPACKE_ztgevc"
+pub extern "C" fn lapacke_ztgevc(
+  matrix_layout : Int,
+  side : Byte,
+  howmny : Byte,
+  select : Lapack_logical,
+  n : Lapack_int,
+  s : FixedArray[Double],
+  lds : Lapack_int,
+  p : FixedArray[Double],
+  ldp : Lapack_int,
+  vl : FixedArray[Double],
+  ldvl : Lapack_int,
+  vr : FixedArray[Double],
+  ldvr : Lapack_int,
+  mm : Lapack_int,
+  m : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_ztgevc"
 
 ///|
 ///
@@ -1093,7 +2315,22 @@ pub extern "C" fn lapacke_ztgevc(matrix_layout: Int, side: Byte, howmny: Byte, s
 ///     lapack_int* ifst, lapack_int* ilst
 /// );
 /// ```
-pub extern "C" fn lapacke_stgexc(matrix_layout: Int, wantq: Lapack_logical, wantz: Lapack_logical, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, b: FixedArray[Float], ldb: Lapack_int, q: FixedArray[Float], ldq: Lapack_int, z: FixedArray[Float], ldz: Lapack_int, ifst: FixedArray[Int], ilst: FixedArray[Int]) -> Lapack_int = "LAPACKE_stgexc"
+pub extern "C" fn lapacke_stgexc(
+  matrix_layout : Int,
+  wantq : Lapack_logical,
+  wantz : Lapack_logical,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  q : FixedArray[Float],
+  ldq : Lapack_int,
+  z : FixedArray[Float],
+  ldz : Lapack_int,
+  ifst : FixedArray[Int],
+  ilst : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_stgexc"
 
 ///|
 ///
@@ -1105,7 +2342,22 @@ pub extern "C" fn lapacke_stgexc(matrix_layout: Int, wantq: Lapack_logical, want
 ///     lapack_int* ifst, lapack_int* ilst
 /// );
 /// ```
-pub extern "C" fn lapacke_dtgexc(matrix_layout: Int, wantq: Lapack_logical, wantz: Lapack_logical, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int, q: FixedArray[Double], ldq: Lapack_int, z: FixedArray[Double], ldz: Lapack_int, ifst: FixedArray[Int], ilst: FixedArray[Int]) -> Lapack_int = "LAPACKE_dtgexc"
+pub extern "C" fn lapacke_dtgexc(
+  matrix_layout : Int,
+  wantq : Lapack_logical,
+  wantz : Lapack_logical,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  q : FixedArray[Double],
+  ldq : Lapack_int,
+  z : FixedArray[Double],
+  ldz : Lapack_int,
+  ifst : FixedArray[Int],
+  ilst : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_dtgexc"
 
 ///|
 ///
@@ -1117,7 +2369,22 @@ pub extern "C" fn lapacke_dtgexc(matrix_layout: Int, wantq: Lapack_logical, want
 ///     lapack_int ifst, lapack_int ilst
 /// );
 /// ```
-pub extern "C" fn lapacke_ctgexc(matrix_layout: Int, wantq: Lapack_logical, wantz: Lapack_logical, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, b: FixedArray[Float], ldb: Lapack_int, q: FixedArray[Float], ldq: Lapack_int, z: FixedArray[Float], ldz: Lapack_int, ifst: Lapack_int, ilst: Lapack_int) -> Lapack_int = "LAPACKE_ctgexc"
+pub extern "C" fn lapacke_ctgexc(
+  matrix_layout : Int,
+  wantq : Lapack_logical,
+  wantz : Lapack_logical,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  q : FixedArray[Float],
+  ldq : Lapack_int,
+  z : FixedArray[Float],
+  ldz : Lapack_int,
+  ifst : Lapack_int,
+  ilst : Lapack_int,
+) -> Lapack_int = "LAPACKE_ctgexc"
 
 ///|
 ///
@@ -1129,7 +2396,22 @@ pub extern "C" fn lapacke_ctgexc(matrix_layout: Int, wantq: Lapack_logical, want
 ///     lapack_int ifst, lapack_int ilst
 /// );
 /// ```
-pub extern "C" fn lapacke_ztgexc(matrix_layout: Int, wantq: Lapack_logical, wantz: Lapack_logical, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int, q: FixedArray[Double], ldq: Lapack_int, z: FixedArray[Double], ldz: Lapack_int, ifst: Lapack_int, ilst: Lapack_int) -> Lapack_int = "LAPACKE_ztgexc"
+pub extern "C" fn lapacke_ztgexc(
+  matrix_layout : Int,
+  wantq : Lapack_logical,
+  wantz : Lapack_logical,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  q : FixedArray[Double],
+  ldq : Lapack_int,
+  z : FixedArray[Double],
+  ldz : Lapack_int,
+  ifst : Lapack_int,
+  ilst : Lapack_int,
+) -> Lapack_int = "LAPACKE_ztgexc"
 
 ///|
 ///
@@ -1142,7 +2424,29 @@ pub extern "C" fn lapacke_ztgexc(matrix_layout: Int, wantq: Lapack_logical, want
 ///     lapack_int ldz, lapack_int* m, float* pl, float* pr, float* dif
 /// );
 /// ```
-pub extern "C" fn lapacke_stgsen(matrix_layout: Int, ijob: Lapack_int, wantq: Lapack_logical, wantz: Lapack_logical, select: Lapack_logical, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, b: FixedArray[Float], ldb: Lapack_int, alphar: FixedArray[Float], alphai: FixedArray[Float], beta: FixedArray[Float], q: FixedArray[Float], ldq: Lapack_int, z: FixedArray[Float], ldz: Lapack_int, m: FixedArray[Int], pl: FixedArray[Float], pr: FixedArray[Float], dif: FixedArray[Float]) -> Lapack_int = "LAPACKE_stgsen"
+pub extern "C" fn lapacke_stgsen(
+  matrix_layout : Int,
+  ijob : Lapack_int,
+  wantq : Lapack_logical,
+  wantz : Lapack_logical,
+  select : Lapack_logical,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  alphar : FixedArray[Float],
+  alphai : FixedArray[Float],
+  beta : FixedArray[Float],
+  q : FixedArray[Float],
+  ldq : Lapack_int,
+  z : FixedArray[Float],
+  ldz : Lapack_int,
+  m : FixedArray[Int],
+  pl : FixedArray[Float],
+  pr : FixedArray[Float],
+  dif : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_stgsen"
 
 ///|
 ///
@@ -1155,7 +2459,29 @@ pub extern "C" fn lapacke_stgsen(matrix_layout: Int, ijob: Lapack_int, wantq: La
 ///     lapack_int ldz, lapack_int* m, double* pl, double* pr, double* dif
 /// );
 /// ```
-pub extern "C" fn lapacke_dtgsen(matrix_layout: Int, ijob: Lapack_int, wantq: Lapack_logical, wantz: Lapack_logical, select: Lapack_logical, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int, alphar: FixedArray[Double], alphai: FixedArray[Double], beta: FixedArray[Double], q: FixedArray[Double], ldq: Lapack_int, z: FixedArray[Double], ldz: Lapack_int, m: FixedArray[Int], pl: FixedArray[Double], pr: FixedArray[Double], dif: FixedArray[Double]) -> Lapack_int = "LAPACKE_dtgsen"
+pub extern "C" fn lapacke_dtgsen(
+  matrix_layout : Int,
+  ijob : Lapack_int,
+  wantq : Lapack_logical,
+  wantz : Lapack_logical,
+  select : Lapack_logical,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  alphar : FixedArray[Double],
+  alphai : FixedArray[Double],
+  beta : FixedArray[Double],
+  q : FixedArray[Double],
+  ldq : Lapack_int,
+  z : FixedArray[Double],
+  ldz : Lapack_int,
+  m : FixedArray[Int],
+  pl : FixedArray[Double],
+  pr : FixedArray[Double],
+  dif : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dtgsen"
 
 ///|
 ///
@@ -1168,7 +2494,28 @@ pub extern "C" fn lapacke_dtgsen(matrix_layout: Int, ijob: Lapack_int, wantq: La
 ///     lapack_int* m, float* pl, float* pr, float* dif
 /// );
 /// ```
-pub extern "C" fn lapacke_ctgsen(matrix_layout: Int, ijob: Lapack_int, wantq: Lapack_logical, wantz: Lapack_logical, select: Lapack_logical, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, b: FixedArray[Float], ldb: Lapack_int, alpha: FixedArray[Float], beta: FixedArray[Float], q: FixedArray[Float], ldq: Lapack_int, z: FixedArray[Float], ldz: Lapack_int, m: FixedArray[Int], pl: FixedArray[Float], pr: FixedArray[Float], dif: FixedArray[Float]) -> Lapack_int = "LAPACKE_ctgsen"
+pub extern "C" fn lapacke_ctgsen(
+  matrix_layout : Int,
+  ijob : Lapack_int,
+  wantq : Lapack_logical,
+  wantz : Lapack_logical,
+  select : Lapack_logical,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  alpha : FixedArray[Float],
+  beta : FixedArray[Float],
+  q : FixedArray[Float],
+  ldq : Lapack_int,
+  z : FixedArray[Float],
+  ldz : Lapack_int,
+  m : FixedArray[Int],
+  pl : FixedArray[Float],
+  pr : FixedArray[Float],
+  dif : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ctgsen"
 
 ///|
 ///
@@ -1181,7 +2528,28 @@ pub extern "C" fn lapacke_ctgsen(matrix_layout: Int, ijob: Lapack_int, wantq: La
 ///     lapack_int* m, double* pl, double* pr, double* dif
 /// );
 /// ```
-pub extern "C" fn lapacke_ztgsen(matrix_layout: Int, ijob: Lapack_int, wantq: Lapack_logical, wantz: Lapack_logical, select: Lapack_logical, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int, alpha: FixedArray[Double], beta: FixedArray[Double], q: FixedArray[Double], ldq: Lapack_int, z: FixedArray[Double], ldz: Lapack_int, m: FixedArray[Int], pl: FixedArray[Double], pr: FixedArray[Double], dif: FixedArray[Double]) -> Lapack_int = "LAPACKE_ztgsen"
+pub extern "C" fn lapacke_ztgsen(
+  matrix_layout : Int,
+  ijob : Lapack_int,
+  wantq : Lapack_logical,
+  wantz : Lapack_logical,
+  select : Lapack_logical,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  alpha : FixedArray[Double],
+  beta : FixedArray[Double],
+  q : FixedArray[Double],
+  ldq : Lapack_int,
+  z : FixedArray[Double],
+  ldz : Lapack_int,
+  m : FixedArray[Int],
+  pl : FixedArray[Double],
+  pr : FixedArray[Double],
+  dif : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_ztgsen"
 
 ///|
 ///
@@ -1195,7 +2563,32 @@ pub extern "C" fn lapacke_ztgsen(matrix_layout: Int, ijob: Lapack_int, wantq: La
 ///     lapack_int ldv, float* q, lapack_int ldq, lapack_int* ncycle
 /// );
 /// ```
-pub extern "C" fn lapacke_stgsja(matrix_layout: Int, jobu: Byte, jobv: Byte, jobq: Byte, m: Lapack_int, p: Lapack_int, n: Lapack_int, k: Lapack_int, l: Lapack_int, a: FixedArray[Float], lda: Lapack_int, b: FixedArray[Float], ldb: Lapack_int, tola: Float, tolb: Float, alpha: FixedArray[Float], beta: FixedArray[Float], u: FixedArray[Float], ldu: Lapack_int, v: FixedArray[Float], ldv: Lapack_int, q: FixedArray[Float], ldq: Lapack_int, ncycle: FixedArray[Int]) -> Lapack_int = "LAPACKE_stgsja"
+pub extern "C" fn lapacke_stgsja(
+  matrix_layout : Int,
+  jobu : Byte,
+  jobv : Byte,
+  jobq : Byte,
+  m : Lapack_int,
+  p : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  l : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  tola : Float,
+  tolb : Float,
+  alpha : FixedArray[Float],
+  beta : FixedArray[Float],
+  u : FixedArray[Float],
+  ldu : Lapack_int,
+  v : FixedArray[Float],
+  ldv : Lapack_int,
+  q : FixedArray[Float],
+  ldq : Lapack_int,
+  ncycle : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_stgsja"
 
 ///|
 ///
@@ -1209,7 +2602,32 @@ pub extern "C" fn lapacke_stgsja(matrix_layout: Int, jobu: Byte, jobv: Byte, job
 ///     lapack_int ldv, double* q, lapack_int ldq, lapack_int* ncycle
 /// );
 /// ```
-pub extern "C" fn lapacke_dtgsja(matrix_layout: Int, jobu: Byte, jobv: Byte, jobq: Byte, m: Lapack_int, p: Lapack_int, n: Lapack_int, k: Lapack_int, l: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int, tola: Double, tolb: Double, alpha: FixedArray[Double], beta: FixedArray[Double], u: FixedArray[Double], ldu: Lapack_int, v: FixedArray[Double], ldv: Lapack_int, q: FixedArray[Double], ldq: Lapack_int, ncycle: FixedArray[Int]) -> Lapack_int = "LAPACKE_dtgsja"
+pub extern "C" fn lapacke_dtgsja(
+  matrix_layout : Int,
+  jobu : Byte,
+  jobv : Byte,
+  jobq : Byte,
+  m : Lapack_int,
+  p : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  l : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  tola : Double,
+  tolb : Double,
+  alpha : FixedArray[Double],
+  beta : FixedArray[Double],
+  u : FixedArray[Double],
+  ldu : Lapack_int,
+  v : FixedArray[Double],
+  ldv : Lapack_int,
+  q : FixedArray[Double],
+  ldq : Lapack_int,
+  ncycle : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_dtgsja"
 
 ///|
 ///
@@ -1223,7 +2641,32 @@ pub extern "C" fn lapacke_dtgsja(matrix_layout: Int, jobu: Byte, jobv: Byte, job
 ///     lapack_int ldv, lapack_complex_float* q, lapack_int ldq, lapack_int* ncycle
 /// );
 /// ```
-pub extern "C" fn lapacke_ctgsja(matrix_layout: Int, jobu: Byte, jobv: Byte, jobq: Byte, m: Lapack_int, p: Lapack_int, n: Lapack_int, k: Lapack_int, l: Lapack_int, a: FixedArray[Float], lda: Lapack_int, b: FixedArray[Float], ldb: Lapack_int, tola: Float, tolb: Float, alpha: FixedArray[Float], beta: FixedArray[Float], u: FixedArray[Float], ldu: Lapack_int, v: FixedArray[Float], ldv: Lapack_int, q: FixedArray[Float], ldq: Lapack_int, ncycle: FixedArray[Int]) -> Lapack_int = "LAPACKE_ctgsja"
+pub extern "C" fn lapacke_ctgsja(
+  matrix_layout : Int,
+  jobu : Byte,
+  jobv : Byte,
+  jobq : Byte,
+  m : Lapack_int,
+  p : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  l : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  tola : Float,
+  tolb : Float,
+  alpha : FixedArray[Float],
+  beta : FixedArray[Float],
+  u : FixedArray[Float],
+  ldu : Lapack_int,
+  v : FixedArray[Float],
+  ldv : Lapack_int,
+  q : FixedArray[Float],
+  ldq : Lapack_int,
+  ncycle : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_ctgsja"
 
 ///|
 ///
@@ -1237,7 +2680,32 @@ pub extern "C" fn lapacke_ctgsja(matrix_layout: Int, jobu: Byte, jobv: Byte, job
 ///     lapack_int ldv, lapack_complex_double* q, lapack_int ldq, lapack_int* ncycle
 /// );
 /// ```
-pub extern "C" fn lapacke_ztgsja(matrix_layout: Int, jobu: Byte, jobv: Byte, jobq: Byte, m: Lapack_int, p: Lapack_int, n: Lapack_int, k: Lapack_int, l: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int, tola: Double, tolb: Double, alpha: FixedArray[Double], beta: FixedArray[Double], u: FixedArray[Double], ldu: Lapack_int, v: FixedArray[Double], ldv: Lapack_int, q: FixedArray[Double], ldq: Lapack_int, ncycle: FixedArray[Int]) -> Lapack_int = "LAPACKE_ztgsja"
+pub extern "C" fn lapacke_ztgsja(
+  matrix_layout : Int,
+  jobu : Byte,
+  jobv : Byte,
+  jobq : Byte,
+  m : Lapack_int,
+  p : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  l : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  tola : Double,
+  tolb : Double,
+  alpha : FixedArray[Double],
+  beta : FixedArray[Double],
+  u : FixedArray[Double],
+  ldu : Lapack_int,
+  v : FixedArray[Double],
+  ldv : Lapack_int,
+  q : FixedArray[Double],
+  ldq : Lapack_int,
+  ncycle : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_ztgsja"
 
 ///|
 ///
@@ -1249,7 +2717,25 @@ pub extern "C" fn lapacke_ztgsja(matrix_layout: Int, jobu: Byte, jobv: Byte, job
 ///     lapack_int ldvr, float* s, float* dif, lapack_int mm, lapack_int* m
 /// );
 /// ```
-pub extern "C" fn lapacke_stgsna(matrix_layout: Int, job: Byte, howmny: Byte, select: Lapack_logical, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, b: FixedArray[Float], ldb: Lapack_int, vl: FixedArray[Float], ldvl: Lapack_int, vr: FixedArray[Float], ldvr: Lapack_int, s: FixedArray[Float], dif: FixedArray[Float], mm: Lapack_int, m: FixedArray[Int]) -> Lapack_int = "LAPACKE_stgsna"
+pub extern "C" fn lapacke_stgsna(
+  matrix_layout : Int,
+  job : Byte,
+  howmny : Byte,
+  select : Lapack_logical,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  vl : FixedArray[Float],
+  ldvl : Lapack_int,
+  vr : FixedArray[Float],
+  ldvr : Lapack_int,
+  s : FixedArray[Float],
+  dif : FixedArray[Float],
+  mm : Lapack_int,
+  m : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_stgsna"
 
 ///|
 ///
@@ -1261,7 +2747,25 @@ pub extern "C" fn lapacke_stgsna(matrix_layout: Int, job: Byte, howmny: Byte, se
 ///     lapack_int ldvr, double* s, double* dif, lapack_int mm, lapack_int* m
 /// );
 /// ```
-pub extern "C" fn lapacke_dtgsna(matrix_layout: Int, job: Byte, howmny: Byte, select: Lapack_logical, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int, vl: FixedArray[Double], ldvl: Lapack_int, vr: FixedArray[Double], ldvr: Lapack_int, s: FixedArray[Double], dif: FixedArray[Double], mm: Lapack_int, m: FixedArray[Int]) -> Lapack_int = "LAPACKE_dtgsna"
+pub extern "C" fn lapacke_dtgsna(
+  matrix_layout : Int,
+  job : Byte,
+  howmny : Byte,
+  select : Lapack_logical,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  vl : FixedArray[Double],
+  ldvl : Lapack_int,
+  vr : FixedArray[Double],
+  ldvr : Lapack_int,
+  s : FixedArray[Double],
+  dif : FixedArray[Double],
+  mm : Lapack_int,
+  m : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_dtgsna"
 
 ///|
 ///
@@ -1273,7 +2777,25 @@ pub extern "C" fn lapacke_dtgsna(matrix_layout: Int, job: Byte, howmny: Byte, se
 ///     lapack_int ldvr, float* s, float* dif, lapack_int mm, lapack_int* m
 /// );
 /// ```
-pub extern "C" fn lapacke_ctgsna(matrix_layout: Int, job: Byte, howmny: Byte, select: Lapack_logical, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, b: FixedArray[Float], ldb: Lapack_int, vl: FixedArray[Float], ldvl: Lapack_int, vr: FixedArray[Float], ldvr: Lapack_int, s: FixedArray[Float], dif: FixedArray[Float], mm: Lapack_int, m: FixedArray[Int]) -> Lapack_int = "LAPACKE_ctgsna"
+pub extern "C" fn lapacke_ctgsna(
+  matrix_layout : Int,
+  job : Byte,
+  howmny : Byte,
+  select : Lapack_logical,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  vl : FixedArray[Float],
+  ldvl : Lapack_int,
+  vr : FixedArray[Float],
+  ldvr : Lapack_int,
+  s : FixedArray[Float],
+  dif : FixedArray[Float],
+  mm : Lapack_int,
+  m : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_ctgsna"
 
 ///|
 ///
@@ -1285,7 +2807,25 @@ pub extern "C" fn lapacke_ctgsna(matrix_layout: Int, job: Byte, howmny: Byte, se
 ///     lapack_int ldvr, double* s, double* dif, lapack_int mm, lapack_int* m
 /// );
 /// ```
-pub extern "C" fn lapacke_ztgsna(matrix_layout: Int, job: Byte, howmny: Byte, select: Lapack_logical, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int, vl: FixedArray[Double], ldvl: Lapack_int, vr: FixedArray[Double], ldvr: Lapack_int, s: FixedArray[Double], dif: FixedArray[Double], mm: Lapack_int, m: FixedArray[Int]) -> Lapack_int = "LAPACKE_ztgsna"
+pub extern "C" fn lapacke_ztgsna(
+  matrix_layout : Int,
+  job : Byte,
+  howmny : Byte,
+  select : Lapack_logical,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  vl : FixedArray[Double],
+  ldvl : Lapack_int,
+  vr : FixedArray[Double],
+  ldvr : Lapack_int,
+  s : FixedArray[Double],
+  dif : FixedArray[Double],
+  mm : Lapack_int,
+  m : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_ztgsna"
 
 ///|
 ///
@@ -1298,7 +2838,27 @@ pub extern "C" fn lapacke_ztgsna(matrix_layout: Int, job: Byte, howmny: Byte, se
 ///     lapack_int ldf, float* scale, float* dif
 /// );
 /// ```
-pub extern "C" fn lapacke_stgsyl(matrix_layout: Int, trans: Byte, ijob: Lapack_int, m: Lapack_int, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, b: FixedArray[Float], ldb: Lapack_int, c: FixedArray[Float], ldc: Lapack_int, d: FixedArray[Float], ldd: Lapack_int, e: FixedArray[Float], lde: Lapack_int, f: FixedArray[Float], ldf: Lapack_int, scale: FixedArray[Float], dif: FixedArray[Float]) -> Lapack_int = "LAPACKE_stgsyl"
+pub extern "C" fn lapacke_stgsyl(
+  matrix_layout : Int,
+  trans : Byte,
+  ijob : Lapack_int,
+  m : Lapack_int,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  c : FixedArray[Float],
+  ldc : Lapack_int,
+  d : FixedArray[Float],
+  ldd : Lapack_int,
+  e : FixedArray[Float],
+  lde : Lapack_int,
+  f : FixedArray[Float],
+  ldf : Lapack_int,
+  scale : FixedArray[Float],
+  dif : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_stgsyl"
 
 ///|
 ///
@@ -1311,7 +2871,27 @@ pub extern "C" fn lapacke_stgsyl(matrix_layout: Int, trans: Byte, ijob: Lapack_i
 ///     lapack_int ldf, double* scale, double* dif
 /// );
 /// ```
-pub extern "C" fn lapacke_dtgsyl(matrix_layout: Int, trans: Byte, ijob: Lapack_int, m: Lapack_int, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int, c: FixedArray[Double], ldc: Lapack_int, d: FixedArray[Double], ldd: Lapack_int, e: FixedArray[Double], lde: Lapack_int, f: FixedArray[Double], ldf: Lapack_int, scale: FixedArray[Double], dif: FixedArray[Double]) -> Lapack_int = "LAPACKE_dtgsyl"
+pub extern "C" fn lapacke_dtgsyl(
+  matrix_layout : Int,
+  trans : Byte,
+  ijob : Lapack_int,
+  m : Lapack_int,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  c : FixedArray[Double],
+  ldc : Lapack_int,
+  d : FixedArray[Double],
+  ldd : Lapack_int,
+  e : FixedArray[Double],
+  lde : Lapack_int,
+  f : FixedArray[Double],
+  ldf : Lapack_int,
+  scale : FixedArray[Double],
+  dif : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dtgsyl"
 
 ///|
 ///
@@ -1324,7 +2904,27 @@ pub extern "C" fn lapacke_dtgsyl(matrix_layout: Int, trans: Byte, ijob: Lapack_i
 ///     lapack_int ldf, float* scale, float* dif
 /// );
 /// ```
-pub extern "C" fn lapacke_ctgsyl(matrix_layout: Int, trans: Byte, ijob: Lapack_int, m: Lapack_int, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, b: FixedArray[Float], ldb: Lapack_int, c: FixedArray[Float], ldc: Lapack_int, d: FixedArray[Float], ldd: Lapack_int, e: FixedArray[Float], lde: Lapack_int, f: FixedArray[Float], ldf: Lapack_int, scale: FixedArray[Float], dif: FixedArray[Float]) -> Lapack_int = "LAPACKE_ctgsyl"
+pub extern "C" fn lapacke_ctgsyl(
+  matrix_layout : Int,
+  trans : Byte,
+  ijob : Lapack_int,
+  m : Lapack_int,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  c : FixedArray[Float],
+  ldc : Lapack_int,
+  d : FixedArray[Float],
+  ldd : Lapack_int,
+  e : FixedArray[Float],
+  lde : Lapack_int,
+  f : FixedArray[Float],
+  ldf : Lapack_int,
+  scale : FixedArray[Float],
+  dif : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ctgsyl"
 
 ///|
 ///
@@ -1337,7 +2937,27 @@ pub extern "C" fn lapacke_ctgsyl(matrix_layout: Int, trans: Byte, ijob: Lapack_i
 ///     lapack_int ldf, double* scale, double* dif
 /// );
 /// ```
-pub extern "C" fn lapacke_ztgsyl(matrix_layout: Int, trans: Byte, ijob: Lapack_int, m: Lapack_int, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int, c: FixedArray[Double], ldc: Lapack_int, d: FixedArray[Double], ldd: Lapack_int, e: FixedArray[Double], lde: Lapack_int, f: FixedArray[Double], ldf: Lapack_int, scale: FixedArray[Double], dif: FixedArray[Double]) -> Lapack_int = "LAPACKE_ztgsyl"
+pub extern "C" fn lapacke_ztgsyl(
+  matrix_layout : Int,
+  trans : Byte,
+  ijob : Lapack_int,
+  m : Lapack_int,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  c : FixedArray[Double],
+  ldc : Lapack_int,
+  d : FixedArray[Double],
+  ldd : Lapack_int,
+  e : FixedArray[Double],
+  lde : Lapack_int,
+  f : FixedArray[Double],
+  ldf : Lapack_int,
+  scale : FixedArray[Double],
+  dif : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_ztgsyl"
 
 ///|
 ///
@@ -1347,7 +2967,15 @@ pub extern "C" fn lapacke_ztgsyl(matrix_layout: Int, trans: Byte, ijob: Lapack_i
 ///     lapack_int n, const float* ap, float* rcond
 /// );
 /// ```
-pub extern "C" fn lapacke_stpcon(matrix_layout: Int, norm: Byte, uplo: Byte, diag: Byte, n: Lapack_int, ap: FixedArray[Float], rcond: FixedArray[Float]) -> Lapack_int = "LAPACKE_stpcon"
+pub extern "C" fn lapacke_stpcon(
+  matrix_layout : Int,
+  norm : Byte,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  ap : FixedArray[Float],
+  rcond : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_stpcon"
 
 ///|
 ///
@@ -1357,7 +2985,15 @@ pub extern "C" fn lapacke_stpcon(matrix_layout: Int, norm: Byte, uplo: Byte, dia
 ///     lapack_int n, const double* ap, double* rcond
 /// );
 /// ```
-pub extern "C" fn lapacke_dtpcon(matrix_layout: Int, norm: Byte, uplo: Byte, diag: Byte, n: Lapack_int, ap: FixedArray[Double], rcond: FixedArray[Double]) -> Lapack_int = "LAPACKE_dtpcon"
+pub extern "C" fn lapacke_dtpcon(
+  matrix_layout : Int,
+  norm : Byte,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  ap : FixedArray[Double],
+  rcond : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dtpcon"
 
 ///|
 ///
@@ -1367,7 +3003,15 @@ pub extern "C" fn lapacke_dtpcon(matrix_layout: Int, norm: Byte, uplo: Byte, dia
 ///     lapack_int n, const lapack_complex_float* ap, float* rcond
 /// );
 /// ```
-pub extern "C" fn lapacke_ctpcon(matrix_layout: Int, norm: Byte, uplo: Byte, diag: Byte, n: Lapack_int, ap: FixedArray[Float], rcond: FixedArray[Float]) -> Lapack_int = "LAPACKE_ctpcon"
+pub extern "C" fn lapacke_ctpcon(
+  matrix_layout : Int,
+  norm : Byte,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  ap : FixedArray[Float],
+  rcond : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ctpcon"
 
 ///|
 ///
@@ -1377,7 +3021,15 @@ pub extern "C" fn lapacke_ctpcon(matrix_layout: Int, norm: Byte, uplo: Byte, dia
 ///     lapack_int n, const lapack_complex_double* ap, double* rcond
 /// );
 /// ```
-pub extern "C" fn lapacke_ztpcon(matrix_layout: Int, norm: Byte, uplo: Byte, diag: Byte, n: Lapack_int, ap: FixedArray[Double], rcond: FixedArray[Double]) -> Lapack_int = "LAPACKE_ztpcon"
+pub extern "C" fn lapacke_ztpcon(
+  matrix_layout : Int,
+  norm : Byte,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  ap : FixedArray[Double],
+  rcond : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_ztpcon"
 
 ///|
 ///
@@ -1388,7 +3040,21 @@ pub extern "C" fn lapacke_ztpcon(matrix_layout: Int, norm: Byte, uplo: Byte, dia
 ///     lapack_int ldb, const float* x, lapack_int ldx, float* ferr, float* berr
 /// );
 /// ```
-pub extern "C" fn lapacke_stprfs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, nrhs: Lapack_int, ap: FixedArray[Float], b: FixedArray[Float], ldb: Lapack_int, x: FixedArray[Float], ldx: Lapack_int, ferr: FixedArray[Float], berr: FixedArray[Float]) -> Lapack_int = "LAPACKE_stprfs"
+pub extern "C" fn lapacke_stprfs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  ap : FixedArray[Float],
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  x : FixedArray[Float],
+  ldx : Lapack_int,
+  ferr : FixedArray[Float],
+  berr : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_stprfs"
 
 ///|
 ///
@@ -1399,7 +3065,21 @@ pub extern "C" fn lapacke_stprfs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     lapack_int ldb, const double* x, lapack_int ldx, double* ferr, double* berr
 /// );
 /// ```
-pub extern "C" fn lapacke_dtprfs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, nrhs: Lapack_int, ap: FixedArray[Double], b: FixedArray[Double], ldb: Lapack_int, x: FixedArray[Double], ldx: Lapack_int, ferr: FixedArray[Double], berr: FixedArray[Double]) -> Lapack_int = "LAPACKE_dtprfs"
+pub extern "C" fn lapacke_dtprfs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  ap : FixedArray[Double],
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  x : FixedArray[Double],
+  ldx : Lapack_int,
+  ferr : FixedArray[Double],
+  berr : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dtprfs"
 
 ///|
 ///
@@ -1410,7 +3090,21 @@ pub extern "C" fn lapacke_dtprfs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     lapack_int ldb, const lapack_complex_float* x, lapack_int ldx, float* ferr, float* berr
 /// );
 /// ```
-pub extern "C" fn lapacke_ctprfs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, nrhs: Lapack_int, ap: FixedArray[Float], b: FixedArray[Float], ldb: Lapack_int, x: FixedArray[Float], ldx: Lapack_int, ferr: FixedArray[Float], berr: FixedArray[Float]) -> Lapack_int = "LAPACKE_ctprfs"
+pub extern "C" fn lapacke_ctprfs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  ap : FixedArray[Float],
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  x : FixedArray[Float],
+  ldx : Lapack_int,
+  ferr : FixedArray[Float],
+  berr : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ctprfs"
 
 ///|
 ///
@@ -1421,7 +3115,21 @@ pub extern "C" fn lapacke_ctprfs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     lapack_int ldb, const lapack_complex_double* x, lapack_int ldx, double* ferr, double* berr
 /// );
 /// ```
-pub extern "C" fn lapacke_ztprfs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, nrhs: Lapack_int, ap: FixedArray[Double], b: FixedArray[Double], ldb: Lapack_int, x: FixedArray[Double], ldx: Lapack_int, ferr: FixedArray[Double], berr: FixedArray[Double]) -> Lapack_int = "LAPACKE_ztprfs"
+pub extern "C" fn lapacke_ztprfs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  ap : FixedArray[Double],
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  x : FixedArray[Double],
+  ldx : Lapack_int,
+  ferr : FixedArray[Double],
+  berr : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_ztprfs"
 
 ///|
 ///
@@ -1430,7 +3138,13 @@ pub extern "C" fn lapacke_ztprfs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     int matrix_layout, char uplo, char diag, lapack_int n, float* ap
 /// );
 /// ```
-pub extern "C" fn lapacke_stptri(matrix_layout: Int, uplo: Byte, diag: Byte, n: Lapack_int, ap: FixedArray[Float]) -> Lapack_int = "LAPACKE_stptri"
+pub extern "C" fn lapacke_stptri(
+  matrix_layout : Int,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  ap : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_stptri"
 
 ///|
 ///
@@ -1439,7 +3153,13 @@ pub extern "C" fn lapacke_stptri(matrix_layout: Int, uplo: Byte, diag: Byte, n: 
 ///     int matrix_layout, char uplo, char diag, lapack_int n, double* ap
 /// );
 /// ```
-pub extern "C" fn lapacke_dtptri(matrix_layout: Int, uplo: Byte, diag: Byte, n: Lapack_int, ap: FixedArray[Double]) -> Lapack_int = "LAPACKE_dtptri"
+pub extern "C" fn lapacke_dtptri(
+  matrix_layout : Int,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  ap : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dtptri"
 
 ///|
 ///
@@ -1448,7 +3168,13 @@ pub extern "C" fn lapacke_dtptri(matrix_layout: Int, uplo: Byte, diag: Byte, n: 
 ///     int matrix_layout, char uplo, char diag, lapack_int n, lapack_complex_float* ap
 /// );
 /// ```
-pub extern "C" fn lapacke_ctptri(matrix_layout: Int, uplo: Byte, diag: Byte, n: Lapack_int, ap: FixedArray[Float]) -> Lapack_int = "LAPACKE_ctptri"
+pub extern "C" fn lapacke_ctptri(
+  matrix_layout : Int,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  ap : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ctptri"
 
 ///|
 ///
@@ -1457,7 +3183,13 @@ pub extern "C" fn lapacke_ctptri(matrix_layout: Int, uplo: Byte, diag: Byte, n: 
 ///     int matrix_layout, char uplo, char diag, lapack_int n, lapack_complex_double* ap
 /// );
 /// ```
-pub extern "C" fn lapacke_ztptri(matrix_layout: Int, uplo: Byte, diag: Byte, n: Lapack_int, ap: FixedArray[Double]) -> Lapack_int = "LAPACKE_ztptri"
+pub extern "C" fn lapacke_ztptri(
+  matrix_layout : Int,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  ap : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_ztptri"
 
 ///|
 ///
@@ -1467,7 +3199,17 @@ pub extern "C" fn lapacke_ztptri(matrix_layout: Int, uplo: Byte, diag: Byte, n: 
 ///     lapack_int n, lapack_int nrhs, const float* ap, float* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_stptrs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, nrhs: Lapack_int, ap: FixedArray[Float], b: FixedArray[Float], ldb: Lapack_int) -> Lapack_int = "LAPACKE_stptrs"
+pub extern "C" fn lapacke_stptrs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  ap : FixedArray[Float],
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_stptrs"
 
 ///|
 ///
@@ -1477,7 +3219,17 @@ pub extern "C" fn lapacke_stptrs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     lapack_int n, lapack_int nrhs, const double* ap, double* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_dtptrs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, nrhs: Lapack_int, ap: FixedArray[Double], b: FixedArray[Double], ldb: Lapack_int) -> Lapack_int = "LAPACKE_dtptrs"
+pub extern "C" fn lapacke_dtptrs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  ap : FixedArray[Double],
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_dtptrs"
 
 ///|
 ///
@@ -1487,7 +3239,17 @@ pub extern "C" fn lapacke_dtptrs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     lapack_int n, lapack_int nrhs, const lapack_complex_float* ap, lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_ctptrs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, nrhs: Lapack_int, ap: FixedArray[Float], b: FixedArray[Float], ldb: Lapack_int) -> Lapack_int = "LAPACKE_ctptrs"
+pub extern "C" fn lapacke_ctptrs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  ap : FixedArray[Float],
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_ctptrs"
 
 ///|
 ///
@@ -1497,7 +3259,17 @@ pub extern "C" fn lapacke_ctptrs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     lapack_int n, lapack_int nrhs, const lapack_complex_double* ap, lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_ztptrs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, nrhs: Lapack_int, ap: FixedArray[Double], b: FixedArray[Double], ldb: Lapack_int) -> Lapack_int = "LAPACKE_ztptrs"
+pub extern "C" fn lapacke_ztptrs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  ap : FixedArray[Double],
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_ztptrs"
 
 ///|
 ///
@@ -1507,7 +3279,14 @@ pub extern "C" fn lapacke_ztptrs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     const float* ap, float* arf
 /// );
 /// ```
-pub extern "C" fn lapacke_stpttf(matrix_layout: Int, transr: Byte, uplo: Byte, n: Lapack_int, ap: FixedArray[Float], arf: FixedArray[Float]) -> Lapack_int = "LAPACKE_stpttf"
+pub extern "C" fn lapacke_stpttf(
+  matrix_layout : Int,
+  transr : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  ap : FixedArray[Float],
+  arf : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_stpttf"
 
 ///|
 ///
@@ -1517,7 +3296,14 @@ pub extern "C" fn lapacke_stpttf(matrix_layout: Int, transr: Byte, uplo: Byte, n
 ///     const double* ap, double* arf
 /// );
 /// ```
-pub extern "C" fn lapacke_dtpttf(matrix_layout: Int, transr: Byte, uplo: Byte, n: Lapack_int, ap: FixedArray[Double], arf: FixedArray[Double]) -> Lapack_int = "LAPACKE_dtpttf"
+pub extern "C" fn lapacke_dtpttf(
+  matrix_layout : Int,
+  transr : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  ap : FixedArray[Double],
+  arf : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dtpttf"
 
 ///|
 ///
@@ -1527,7 +3313,14 @@ pub extern "C" fn lapacke_dtpttf(matrix_layout: Int, transr: Byte, uplo: Byte, n
 ///     const lapack_complex_float* ap, lapack_complex_float* arf
 /// );
 /// ```
-pub extern "C" fn lapacke_ctpttf(matrix_layout: Int, transr: Byte, uplo: Byte, n: Lapack_int, ap: FixedArray[Float], arf: FixedArray[Float]) -> Lapack_int = "LAPACKE_ctpttf"
+pub extern "C" fn lapacke_ctpttf(
+  matrix_layout : Int,
+  transr : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  ap : FixedArray[Float],
+  arf : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ctpttf"
 
 ///|
 ///
@@ -1537,7 +3330,14 @@ pub extern "C" fn lapacke_ctpttf(matrix_layout: Int, transr: Byte, uplo: Byte, n
 ///     const lapack_complex_double* ap, lapack_complex_double* arf
 /// );
 /// ```
-pub extern "C" fn lapacke_ztpttf(matrix_layout: Int, transr: Byte, uplo: Byte, n: Lapack_int, ap: FixedArray[Double], arf: FixedArray[Double]) -> Lapack_int = "LAPACKE_ztpttf"
+pub extern "C" fn lapacke_ztpttf(
+  matrix_layout : Int,
+  transr : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  ap : FixedArray[Double],
+  arf : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_ztpttf"
 
 ///|
 ///
@@ -1547,7 +3347,14 @@ pub extern "C" fn lapacke_ztpttf(matrix_layout: Int, transr: Byte, uplo: Byte, n
 ///     float* a, lapack_int lda
 /// );
 /// ```
-pub extern "C" fn lapacke_stpttr(matrix_layout: Int, uplo: Byte, n: Lapack_int, ap: FixedArray[Float], a: FixedArray[Float], lda: Lapack_int) -> Lapack_int = "LAPACKE_stpttr"
+pub extern "C" fn lapacke_stpttr(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  ap : FixedArray[Float],
+  a : FixedArray[Float],
+  lda : Lapack_int,
+) -> Lapack_int = "LAPACKE_stpttr"
 
 ///|
 ///
@@ -1557,7 +3364,14 @@ pub extern "C" fn lapacke_stpttr(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     double* a, lapack_int lda
 /// );
 /// ```
-pub extern "C" fn lapacke_dtpttr(matrix_layout: Int, uplo: Byte, n: Lapack_int, ap: FixedArray[Double], a: FixedArray[Double], lda: Lapack_int) -> Lapack_int = "LAPACKE_dtpttr"
+pub extern "C" fn lapacke_dtpttr(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  ap : FixedArray[Double],
+  a : FixedArray[Double],
+  lda : Lapack_int,
+) -> Lapack_int = "LAPACKE_dtpttr"
 
 ///|
 ///
@@ -1567,7 +3381,14 @@ pub extern "C" fn lapacke_dtpttr(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_complex_float* a, lapack_int lda
 /// );
 /// ```
-pub extern "C" fn lapacke_ctpttr(matrix_layout: Int, uplo: Byte, n: Lapack_int, ap: FixedArray[Float], a: FixedArray[Float], lda: Lapack_int) -> Lapack_int = "LAPACKE_ctpttr"
+pub extern "C" fn lapacke_ctpttr(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  ap : FixedArray[Float],
+  a : FixedArray[Float],
+  lda : Lapack_int,
+) -> Lapack_int = "LAPACKE_ctpttr"
 
 ///|
 ///
@@ -1577,7 +3398,14 @@ pub extern "C" fn lapacke_ctpttr(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_complex_double* a, lapack_int lda
 /// );
 /// ```
-pub extern "C" fn lapacke_ztpttr(matrix_layout: Int, uplo: Byte, n: Lapack_int, ap: FixedArray[Double], a: FixedArray[Double], lda: Lapack_int) -> Lapack_int = "LAPACKE_ztpttr"
+pub extern "C" fn lapacke_ztpttr(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  ap : FixedArray[Double],
+  a : FixedArray[Double],
+  lda : Lapack_int,
+) -> Lapack_int = "LAPACKE_ztpttr"
 
 ///|
 ///
@@ -1587,7 +3415,16 @@ pub extern "C" fn lapacke_ztpttr(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int n, const float* a, lapack_int lda, float* rcond
 /// );
 /// ```
-pub extern "C" fn lapacke_strcon(matrix_layout: Int, norm: Byte, uplo: Byte, diag: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, rcond: FixedArray[Float]) -> Lapack_int = "LAPACKE_strcon"
+pub extern "C" fn lapacke_strcon(
+  matrix_layout : Int,
+  norm : Byte,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  rcond : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_strcon"
 
 ///|
 ///
@@ -1597,7 +3434,16 @@ pub extern "C" fn lapacke_strcon(matrix_layout: Int, norm: Byte, uplo: Byte, dia
 ///     lapack_int n, const double* a, lapack_int lda, double* rcond
 /// );
 /// ```
-pub extern "C" fn lapacke_dtrcon(matrix_layout: Int, norm: Byte, uplo: Byte, diag: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, rcond: FixedArray[Double]) -> Lapack_int = "LAPACKE_dtrcon"
+pub extern "C" fn lapacke_dtrcon(
+  matrix_layout : Int,
+  norm : Byte,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  rcond : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dtrcon"
 
 ///|
 ///
@@ -1607,7 +3453,16 @@ pub extern "C" fn lapacke_dtrcon(matrix_layout: Int, norm: Byte, uplo: Byte, dia
 ///     lapack_int n, const lapack_complex_float* a, lapack_int lda, float* rcond
 /// );
 /// ```
-pub extern "C" fn lapacke_ctrcon(matrix_layout: Int, norm: Byte, uplo: Byte, diag: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, rcond: FixedArray[Float]) -> Lapack_int = "LAPACKE_ctrcon"
+pub extern "C" fn lapacke_ctrcon(
+  matrix_layout : Int,
+  norm : Byte,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  rcond : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ctrcon"
 
 ///|
 ///
@@ -1617,7 +3472,16 @@ pub extern "C" fn lapacke_ctrcon(matrix_layout: Int, norm: Byte, uplo: Byte, dia
 ///     lapack_int n, const lapack_complex_double* a, lapack_int lda, double* rcond
 /// );
 /// ```
-pub extern "C" fn lapacke_ztrcon(matrix_layout: Int, norm: Byte, uplo: Byte, diag: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, rcond: FixedArray[Double]) -> Lapack_int = "LAPACKE_ztrcon"
+pub extern "C" fn lapacke_ztrcon(
+  matrix_layout : Int,
+  norm : Byte,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  rcond : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_ztrcon"
 
 ///|
 ///
@@ -1628,7 +3492,21 @@ pub extern "C" fn lapacke_ztrcon(matrix_layout: Int, norm: Byte, uplo: Byte, dia
 ///     lapack_int ldvl, float* vr, lapack_int ldvr, lapack_int mm, lapack_int* m
 /// );
 /// ```
-pub extern "C" fn lapacke_strevc(matrix_layout: Int, side: Byte, howmny: Byte, select: Lapack_logical, n: Lapack_int, t: FixedArray[Float], ldt: Lapack_int, vl: FixedArray[Float], ldvl: Lapack_int, vr: FixedArray[Float], ldvr: Lapack_int, mm: Lapack_int, m: FixedArray[Int]) -> Lapack_int = "LAPACKE_strevc"
+pub extern "C" fn lapacke_strevc(
+  matrix_layout : Int,
+  side : Byte,
+  howmny : Byte,
+  select : Lapack_logical,
+  n : Lapack_int,
+  t : FixedArray[Float],
+  ldt : Lapack_int,
+  vl : FixedArray[Float],
+  ldvl : Lapack_int,
+  vr : FixedArray[Float],
+  ldvr : Lapack_int,
+  mm : Lapack_int,
+  m : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_strevc"
 
 ///|
 ///
@@ -1639,7 +3517,21 @@ pub extern "C" fn lapacke_strevc(matrix_layout: Int, side: Byte, howmny: Byte, s
 ///     lapack_int ldvl, double* vr, lapack_int ldvr, lapack_int mm, lapack_int* m
 /// );
 /// ```
-pub extern "C" fn lapacke_dtrevc(matrix_layout: Int, side: Byte, howmny: Byte, select: Lapack_logical, n: Lapack_int, t: FixedArray[Double], ldt: Lapack_int, vl: FixedArray[Double], ldvl: Lapack_int, vr: FixedArray[Double], ldvr: Lapack_int, mm: Lapack_int, m: FixedArray[Int]) -> Lapack_int = "LAPACKE_dtrevc"
+pub extern "C" fn lapacke_dtrevc(
+  matrix_layout : Int,
+  side : Byte,
+  howmny : Byte,
+  select : Lapack_logical,
+  n : Lapack_int,
+  t : FixedArray[Double],
+  ldt : Lapack_int,
+  vl : FixedArray[Double],
+  ldvl : Lapack_int,
+  vr : FixedArray[Double],
+  ldvr : Lapack_int,
+  mm : Lapack_int,
+  m : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_dtrevc"
 
 ///|
 ///
@@ -1650,7 +3542,21 @@ pub extern "C" fn lapacke_dtrevc(matrix_layout: Int, side: Byte, howmny: Byte, s
 ///     lapack_int ldvl, lapack_complex_float* vr, lapack_int ldvr, lapack_int mm, lapack_int* m
 /// );
 /// ```
-pub extern "C" fn lapacke_ctrevc(matrix_layout: Int, side: Byte, howmny: Byte, select: Lapack_logical, n: Lapack_int, t: FixedArray[Float], ldt: Lapack_int, vl: FixedArray[Float], ldvl: Lapack_int, vr: FixedArray[Float], ldvr: Lapack_int, mm: Lapack_int, m: FixedArray[Int]) -> Lapack_int = "LAPACKE_ctrevc"
+pub extern "C" fn lapacke_ctrevc(
+  matrix_layout : Int,
+  side : Byte,
+  howmny : Byte,
+  select : Lapack_logical,
+  n : Lapack_int,
+  t : FixedArray[Float],
+  ldt : Lapack_int,
+  vl : FixedArray[Float],
+  ldvl : Lapack_int,
+  vr : FixedArray[Float],
+  ldvr : Lapack_int,
+  mm : Lapack_int,
+  m : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_ctrevc"
 
 ///|
 ///
@@ -1661,7 +3567,21 @@ pub extern "C" fn lapacke_ctrevc(matrix_layout: Int, side: Byte, howmny: Byte, s
 ///     lapack_int ldvl, lapack_complex_double* vr, lapack_int ldvr, lapack_int mm, lapack_int* m
 /// );
 /// ```
-pub extern "C" fn lapacke_ztrevc(matrix_layout: Int, side: Byte, howmny: Byte, select: Lapack_logical, n: Lapack_int, t: FixedArray[Double], ldt: Lapack_int, vl: FixedArray[Double], ldvl: Lapack_int, vr: FixedArray[Double], ldvr: Lapack_int, mm: Lapack_int, m: FixedArray[Int]) -> Lapack_int = "LAPACKE_ztrevc"
+pub extern "C" fn lapacke_ztrevc(
+  matrix_layout : Int,
+  side : Byte,
+  howmny : Byte,
+  select : Lapack_logical,
+  n : Lapack_int,
+  t : FixedArray[Double],
+  ldt : Lapack_int,
+  vl : FixedArray[Double],
+  ldvl : Lapack_int,
+  vr : FixedArray[Double],
+  ldvr : Lapack_int,
+  mm : Lapack_int,
+  m : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_ztrevc"
 
 ///|
 ///
@@ -1671,7 +3591,17 @@ pub extern "C" fn lapacke_ztrevc(matrix_layout: Int, side: Byte, howmny: Byte, s
 ///     lapack_int ldt, float* q, lapack_int ldq, lapack_int* ifst, lapack_int* ilst
 /// );
 /// ```
-pub extern "C" fn lapacke_strexc(matrix_layout: Int, compq: Byte, n: Lapack_int, t: FixedArray[Float], ldt: Lapack_int, q: FixedArray[Float], ldq: Lapack_int, ifst: FixedArray[Int], ilst: FixedArray[Int]) -> Lapack_int = "LAPACKE_strexc"
+pub extern "C" fn lapacke_strexc(
+  matrix_layout : Int,
+  compq : Byte,
+  n : Lapack_int,
+  t : FixedArray[Float],
+  ldt : Lapack_int,
+  q : FixedArray[Float],
+  ldq : Lapack_int,
+  ifst : FixedArray[Int],
+  ilst : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_strexc"
 
 ///|
 ///
@@ -1681,7 +3611,17 @@ pub extern "C" fn lapacke_strexc(matrix_layout: Int, compq: Byte, n: Lapack_int,
 ///     lapack_int ldt, double* q, lapack_int ldq, lapack_int* ifst, lapack_int* ilst
 /// );
 /// ```
-pub extern "C" fn lapacke_dtrexc(matrix_layout: Int, compq: Byte, n: Lapack_int, t: FixedArray[Double], ldt: Lapack_int, q: FixedArray[Double], ldq: Lapack_int, ifst: FixedArray[Int], ilst: FixedArray[Int]) -> Lapack_int = "LAPACKE_dtrexc"
+pub extern "C" fn lapacke_dtrexc(
+  matrix_layout : Int,
+  compq : Byte,
+  n : Lapack_int,
+  t : FixedArray[Double],
+  ldt : Lapack_int,
+  q : FixedArray[Double],
+  ldq : Lapack_int,
+  ifst : FixedArray[Int],
+  ilst : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_dtrexc"
 
 ///|
 ///
@@ -1691,7 +3631,17 @@ pub extern "C" fn lapacke_dtrexc(matrix_layout: Int, compq: Byte, n: Lapack_int,
 ///     lapack_int ldt, lapack_complex_float* q, lapack_int ldq, lapack_int ifst, lapack_int ilst
 /// );
 /// ```
-pub extern "C" fn lapacke_ctrexc(matrix_layout: Int, compq: Byte, n: Lapack_int, t: FixedArray[Float], ldt: Lapack_int, q: FixedArray[Float], ldq: Lapack_int, ifst: Lapack_int, ilst: Lapack_int) -> Lapack_int = "LAPACKE_ctrexc"
+pub extern "C" fn lapacke_ctrexc(
+  matrix_layout : Int,
+  compq : Byte,
+  n : Lapack_int,
+  t : FixedArray[Float],
+  ldt : Lapack_int,
+  q : FixedArray[Float],
+  ldq : Lapack_int,
+  ifst : Lapack_int,
+  ilst : Lapack_int,
+) -> Lapack_int = "LAPACKE_ctrexc"
 
 ///|
 ///
@@ -1701,7 +3651,17 @@ pub extern "C" fn lapacke_ctrexc(matrix_layout: Int, compq: Byte, n: Lapack_int,
 ///     lapack_int ldt, lapack_complex_double* q, lapack_int ldq, lapack_int ifst, lapack_int ilst
 /// );
 /// ```
-pub extern "C" fn lapacke_ztrexc(matrix_layout: Int, compq: Byte, n: Lapack_int, t: FixedArray[Double], ldt: Lapack_int, q: FixedArray[Double], ldq: Lapack_int, ifst: Lapack_int, ilst: Lapack_int) -> Lapack_int = "LAPACKE_ztrexc"
+pub extern "C" fn lapacke_ztrexc(
+  matrix_layout : Int,
+  compq : Byte,
+  n : Lapack_int,
+  t : FixedArray[Double],
+  ldt : Lapack_int,
+  q : FixedArray[Double],
+  ldq : Lapack_int,
+  ifst : Lapack_int,
+  ilst : Lapack_int,
+) -> Lapack_int = "LAPACKE_ztrexc"
 
 ///|
 ///
@@ -1713,7 +3673,22 @@ pub extern "C" fn lapacke_ztrexc(matrix_layout: Int, compq: Byte, n: Lapack_int,
 ///     float* ferr, float* berr
 /// );
 /// ```
-pub extern "C" fn lapacke_strrfs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Float], lda: Lapack_int, b: FixedArray[Float], ldb: Lapack_int, x: FixedArray[Float], ldx: Lapack_int, ferr: FixedArray[Float], berr: FixedArray[Float]) -> Lapack_int = "LAPACKE_strrfs"
+pub extern "C" fn lapacke_strrfs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  x : FixedArray[Float],
+  ldx : Lapack_int,
+  ferr : FixedArray[Float],
+  berr : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_strrfs"
 
 ///|
 ///
@@ -1725,7 +3700,22 @@ pub extern "C" fn lapacke_strrfs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     double* ferr, double* berr
 /// );
 /// ```
-pub extern "C" fn lapacke_dtrrfs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int, x: FixedArray[Double], ldx: Lapack_int, ferr: FixedArray[Double], berr: FixedArray[Double]) -> Lapack_int = "LAPACKE_dtrrfs"
+pub extern "C" fn lapacke_dtrrfs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  x : FixedArray[Double],
+  ldx : Lapack_int,
+  ferr : FixedArray[Double],
+  berr : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dtrrfs"
 
 ///|
 ///
@@ -1737,7 +3727,22 @@ pub extern "C" fn lapacke_dtrrfs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     float* ferr, float* berr
 /// );
 /// ```
-pub extern "C" fn lapacke_ctrrfs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Float], lda: Lapack_int, b: FixedArray[Float], ldb: Lapack_int, x: FixedArray[Float], ldx: Lapack_int, ferr: FixedArray[Float], berr: FixedArray[Float]) -> Lapack_int = "LAPACKE_ctrrfs"
+pub extern "C" fn lapacke_ctrrfs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  x : FixedArray[Float],
+  ldx : Lapack_int,
+  ferr : FixedArray[Float],
+  berr : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ctrrfs"
 
 ///|
 ///
@@ -1749,7 +3754,22 @@ pub extern "C" fn lapacke_ctrrfs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     double* ferr, double* berr
 /// );
 /// ```
-pub extern "C" fn lapacke_ztrrfs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int, x: FixedArray[Double], ldx: Lapack_int, ferr: FixedArray[Double], berr: FixedArray[Double]) -> Lapack_int = "LAPACKE_ztrrfs"
+pub extern "C" fn lapacke_ztrrfs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  x : FixedArray[Double],
+  ldx : Lapack_int,
+  ferr : FixedArray[Double],
+  berr : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_ztrrfs"
 
 ///|
 ///
@@ -1761,7 +3781,22 @@ pub extern "C" fn lapacke_ztrrfs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     float* s, float* sep
 /// );
 /// ```
-pub extern "C" fn lapacke_strsen(matrix_layout: Int, job: Byte, compq: Byte, select: Lapack_logical, n: Lapack_int, t: FixedArray[Float], ldt: Lapack_int, q: FixedArray[Float], ldq: Lapack_int, wr: FixedArray[Float], wi: FixedArray[Float], m: FixedArray[Int], s: FixedArray[Float], sep: FixedArray[Float]) -> Lapack_int = "LAPACKE_strsen"
+pub extern "C" fn lapacke_strsen(
+  matrix_layout : Int,
+  job : Byte,
+  compq : Byte,
+  select : Lapack_logical,
+  n : Lapack_int,
+  t : FixedArray[Float],
+  ldt : Lapack_int,
+  q : FixedArray[Float],
+  ldq : Lapack_int,
+  wr : FixedArray[Float],
+  wi : FixedArray[Float],
+  m : FixedArray[Int],
+  s : FixedArray[Float],
+  sep : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_strsen"
 
 ///|
 ///
@@ -1773,7 +3808,22 @@ pub extern "C" fn lapacke_strsen(matrix_layout: Int, job: Byte, compq: Byte, sel
 ///     double* s, double* sep
 /// );
 /// ```
-pub extern "C" fn lapacke_dtrsen(matrix_layout: Int, job: Byte, compq: Byte, select: Lapack_logical, n: Lapack_int, t: FixedArray[Double], ldt: Lapack_int, q: FixedArray[Double], ldq: Lapack_int, wr: FixedArray[Double], wi: FixedArray[Double], m: FixedArray[Int], s: FixedArray[Double], sep: FixedArray[Double]) -> Lapack_int = "LAPACKE_dtrsen"
+pub extern "C" fn lapacke_dtrsen(
+  matrix_layout : Int,
+  job : Byte,
+  compq : Byte,
+  select : Lapack_logical,
+  n : Lapack_int,
+  t : FixedArray[Double],
+  ldt : Lapack_int,
+  q : FixedArray[Double],
+  ldq : Lapack_int,
+  wr : FixedArray[Double],
+  wi : FixedArray[Double],
+  m : FixedArray[Int],
+  s : FixedArray[Double],
+  sep : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dtrsen"
 
 ///|
 ///
@@ -1784,7 +3834,21 @@ pub extern "C" fn lapacke_dtrsen(matrix_layout: Int, job: Byte, compq: Byte, sel
 ///     lapack_int ldq, lapack_complex_float* w, lapack_int* m, float* s, float* sep
 /// );
 /// ```
-pub extern "C" fn lapacke_ctrsen(matrix_layout: Int, job: Byte, compq: Byte, select: Lapack_logical, n: Lapack_int, t: FixedArray[Float], ldt: Lapack_int, q: FixedArray[Float], ldq: Lapack_int, w: FixedArray[Float], m: FixedArray[Int], s: FixedArray[Float], sep: FixedArray[Float]) -> Lapack_int = "LAPACKE_ctrsen"
+pub extern "C" fn lapacke_ctrsen(
+  matrix_layout : Int,
+  job : Byte,
+  compq : Byte,
+  select : Lapack_logical,
+  n : Lapack_int,
+  t : FixedArray[Float],
+  ldt : Lapack_int,
+  q : FixedArray[Float],
+  ldq : Lapack_int,
+  w : FixedArray[Float],
+  m : FixedArray[Int],
+  s : FixedArray[Float],
+  sep : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ctrsen"
 
 ///|
 ///
@@ -1795,7 +3859,21 @@ pub extern "C" fn lapacke_ctrsen(matrix_layout: Int, job: Byte, compq: Byte, sel
 ///     lapack_int ldq, lapack_complex_double* w, lapack_int* m, double* s, double* sep
 /// );
 /// ```
-pub extern "C" fn lapacke_ztrsen(matrix_layout: Int, job: Byte, compq: Byte, select: Lapack_logical, n: Lapack_int, t: FixedArray[Double], ldt: Lapack_int, q: FixedArray[Double], ldq: Lapack_int, w: FixedArray[Double], m: FixedArray[Int], s: FixedArray[Double], sep: FixedArray[Double]) -> Lapack_int = "LAPACKE_ztrsen"
+pub extern "C" fn lapacke_ztrsen(
+  matrix_layout : Int,
+  job : Byte,
+  compq : Byte,
+  select : Lapack_logical,
+  n : Lapack_int,
+  t : FixedArray[Double],
+  ldt : Lapack_int,
+  q : FixedArray[Double],
+  ldq : Lapack_int,
+  w : FixedArray[Double],
+  m : FixedArray[Int],
+  s : FixedArray[Double],
+  sep : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_ztrsen"
 
 ///|
 ///
@@ -1807,7 +3885,23 @@ pub extern "C" fn lapacke_ztrsen(matrix_layout: Int, job: Byte, compq: Byte, sel
 ///     float* sep, lapack_int mm, lapack_int* m
 /// );
 /// ```
-pub extern "C" fn lapacke_strsna(matrix_layout: Int, job: Byte, howmny: Byte, select: Lapack_logical, n: Lapack_int, t: FixedArray[Float], ldt: Lapack_int, vl: FixedArray[Float], ldvl: Lapack_int, vr: FixedArray[Float], ldvr: Lapack_int, s: FixedArray[Float], sep: FixedArray[Float], mm: Lapack_int, m: FixedArray[Int]) -> Lapack_int = "LAPACKE_strsna"
+pub extern "C" fn lapacke_strsna(
+  matrix_layout : Int,
+  job : Byte,
+  howmny : Byte,
+  select : Lapack_logical,
+  n : Lapack_int,
+  t : FixedArray[Float],
+  ldt : Lapack_int,
+  vl : FixedArray[Float],
+  ldvl : Lapack_int,
+  vr : FixedArray[Float],
+  ldvr : Lapack_int,
+  s : FixedArray[Float],
+  sep : FixedArray[Float],
+  mm : Lapack_int,
+  m : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_strsna"
 
 ///|
 ///
@@ -1819,7 +3913,23 @@ pub extern "C" fn lapacke_strsna(matrix_layout: Int, job: Byte, howmny: Byte, se
 ///     double* sep, lapack_int mm, lapack_int* m
 /// );
 /// ```
-pub extern "C" fn lapacke_dtrsna(matrix_layout: Int, job: Byte, howmny: Byte, select: Lapack_logical, n: Lapack_int, t: FixedArray[Double], ldt: Lapack_int, vl: FixedArray[Double], ldvl: Lapack_int, vr: FixedArray[Double], ldvr: Lapack_int, s: FixedArray[Double], sep: FixedArray[Double], mm: Lapack_int, m: FixedArray[Int]) -> Lapack_int = "LAPACKE_dtrsna"
+pub extern "C" fn lapacke_dtrsna(
+  matrix_layout : Int,
+  job : Byte,
+  howmny : Byte,
+  select : Lapack_logical,
+  n : Lapack_int,
+  t : FixedArray[Double],
+  ldt : Lapack_int,
+  vl : FixedArray[Double],
+  ldvl : Lapack_int,
+  vr : FixedArray[Double],
+  ldvr : Lapack_int,
+  s : FixedArray[Double],
+  sep : FixedArray[Double],
+  mm : Lapack_int,
+  m : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_dtrsna"
 
 ///|
 ///
@@ -1831,7 +3941,23 @@ pub extern "C" fn lapacke_dtrsna(matrix_layout: Int, job: Byte, howmny: Byte, se
 ///     float* sep, lapack_int mm, lapack_int* m
 /// );
 /// ```
-pub extern "C" fn lapacke_ctrsna(matrix_layout: Int, job: Byte, howmny: Byte, select: Lapack_logical, n: Lapack_int, t: FixedArray[Float], ldt: Lapack_int, vl: FixedArray[Float], ldvl: Lapack_int, vr: FixedArray[Float], ldvr: Lapack_int, s: FixedArray[Float], sep: FixedArray[Float], mm: Lapack_int, m: FixedArray[Int]) -> Lapack_int = "LAPACKE_ctrsna"
+pub extern "C" fn lapacke_ctrsna(
+  matrix_layout : Int,
+  job : Byte,
+  howmny : Byte,
+  select : Lapack_logical,
+  n : Lapack_int,
+  t : FixedArray[Float],
+  ldt : Lapack_int,
+  vl : FixedArray[Float],
+  ldvl : Lapack_int,
+  vr : FixedArray[Float],
+  ldvr : Lapack_int,
+  s : FixedArray[Float],
+  sep : FixedArray[Float],
+  mm : Lapack_int,
+  m : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_ctrsna"
 
 ///|
 ///
@@ -1843,7 +3969,23 @@ pub extern "C" fn lapacke_ctrsna(matrix_layout: Int, job: Byte, howmny: Byte, se
 ///     double* sep, lapack_int mm, lapack_int* m
 /// );
 /// ```
-pub extern "C" fn lapacke_ztrsna(matrix_layout: Int, job: Byte, howmny: Byte, select: Lapack_logical, n: Lapack_int, t: FixedArray[Double], ldt: Lapack_int, vl: FixedArray[Double], ldvl: Lapack_int, vr: FixedArray[Double], ldvr: Lapack_int, s: FixedArray[Double], sep: FixedArray[Double], mm: Lapack_int, m: FixedArray[Int]) -> Lapack_int = "LAPACKE_ztrsna"
+pub extern "C" fn lapacke_ztrsna(
+  matrix_layout : Int,
+  job : Byte,
+  howmny : Byte,
+  select : Lapack_logical,
+  n : Lapack_int,
+  t : FixedArray[Double],
+  ldt : Lapack_int,
+  vl : FixedArray[Double],
+  ldvl : Lapack_int,
+  vr : FixedArray[Double],
+  ldvr : Lapack_int,
+  s : FixedArray[Double],
+  sep : FixedArray[Double],
+  mm : Lapack_int,
+  m : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_ztrsna"
 
 ///|
 ///
@@ -1854,7 +3996,21 @@ pub extern "C" fn lapacke_ztrsna(matrix_layout: Int, job: Byte, howmny: Byte, se
 ///     const float* b, lapack_int ldb, float* c, lapack_int ldc, float* scale
 /// );
 /// ```
-pub extern "C" fn lapacke_strsyl(matrix_layout: Int, trana: Byte, tranb: Byte, isgn: Lapack_int, m: Lapack_int, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, b: FixedArray[Float], ldb: Lapack_int, c: FixedArray[Float], ldc: Lapack_int, scale: FixedArray[Float]) -> Lapack_int = "LAPACKE_strsyl"
+pub extern "C" fn lapacke_strsyl(
+  matrix_layout : Int,
+  trana : Byte,
+  tranb : Byte,
+  isgn : Lapack_int,
+  m : Lapack_int,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  c : FixedArray[Float],
+  ldc : Lapack_int,
+  scale : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_strsyl"
 
 ///|
 ///
@@ -1865,7 +4021,21 @@ pub extern "C" fn lapacke_strsyl(matrix_layout: Int, trana: Byte, tranb: Byte, i
 ///     const double* b, lapack_int ldb, double* c, lapack_int ldc, double* scale
 /// );
 /// ```
-pub extern "C" fn lapacke_dtrsyl(matrix_layout: Int, trana: Byte, tranb: Byte, isgn: Lapack_int, m: Lapack_int, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int, c: FixedArray[Double], ldc: Lapack_int, scale: FixedArray[Double]) -> Lapack_int = "LAPACKE_dtrsyl"
+pub extern "C" fn lapacke_dtrsyl(
+  matrix_layout : Int,
+  trana : Byte,
+  tranb : Byte,
+  isgn : Lapack_int,
+  m : Lapack_int,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  c : FixedArray[Double],
+  ldc : Lapack_int,
+  scale : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dtrsyl"
 
 ///|
 ///
@@ -1876,7 +4046,21 @@ pub extern "C" fn lapacke_dtrsyl(matrix_layout: Int, trana: Byte, tranb: Byte, i
 ///     const lapack_complex_float* b, lapack_int ldb, lapack_complex_float* c, lapack_int ldc, float* scale
 /// );
 /// ```
-pub extern "C" fn lapacke_ctrsyl(matrix_layout: Int, trana: Byte, tranb: Byte, isgn: Lapack_int, m: Lapack_int, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, b: FixedArray[Float], ldb: Lapack_int, c: FixedArray[Float], ldc: Lapack_int, scale: FixedArray[Float]) -> Lapack_int = "LAPACKE_ctrsyl"
+pub extern "C" fn lapacke_ctrsyl(
+  matrix_layout : Int,
+  trana : Byte,
+  tranb : Byte,
+  isgn : Lapack_int,
+  m : Lapack_int,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  c : FixedArray[Float],
+  ldc : Lapack_int,
+  scale : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ctrsyl"
 
 ///|
 ///
@@ -1887,7 +4071,21 @@ pub extern "C" fn lapacke_ctrsyl(matrix_layout: Int, trana: Byte, tranb: Byte, i
 ///     const lapack_complex_double* b, lapack_int ldb, lapack_complex_double* c, lapack_int ldc, double* scale
 /// );
 /// ```
-pub extern "C" fn lapacke_ztrsyl(matrix_layout: Int, trana: Byte, tranb: Byte, isgn: Lapack_int, m: Lapack_int, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int, c: FixedArray[Double], ldc: Lapack_int, scale: FixedArray[Double]) -> Lapack_int = "LAPACKE_ztrsyl"
+pub extern "C" fn lapacke_ztrsyl(
+  matrix_layout : Int,
+  trana : Byte,
+  tranb : Byte,
+  isgn : Lapack_int,
+  m : Lapack_int,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  c : FixedArray[Double],
+  ldc : Lapack_int,
+  scale : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_ztrsyl"
 
 ///|
 ///
@@ -1898,7 +4096,21 @@ pub extern "C" fn lapacke_ztrsyl(matrix_layout: Int, trana: Byte, tranb: Byte, i
 ///     const float* b, lapack_int ldb, float* c, lapack_int ldc, float* scale
 /// );
 /// ```
-pub extern "C" fn lapacke_strsyl3(matrix_layout: Int, trana: Byte, tranb: Byte, isgn: Lapack_int, m: Lapack_int, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, b: FixedArray[Float], ldb: Lapack_int, c: FixedArray[Float], ldc: Lapack_int, scale: FixedArray[Float]) -> Lapack_int = "LAPACKE_strsyl3"
+pub extern "C" fn lapacke_strsyl3(
+  matrix_layout : Int,
+  trana : Byte,
+  tranb : Byte,
+  isgn : Lapack_int,
+  m : Lapack_int,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  c : FixedArray[Float],
+  ldc : Lapack_int,
+  scale : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_strsyl3"
 
 ///|
 ///
@@ -1909,7 +4121,21 @@ pub extern "C" fn lapacke_strsyl3(matrix_layout: Int, trana: Byte, tranb: Byte, 
 ///     const double* b, lapack_int ldb, double* c, lapack_int ldc, double* scale
 /// );
 /// ```
-pub extern "C" fn lapacke_dtrsyl3(matrix_layout: Int, trana: Byte, tranb: Byte, isgn: Lapack_int, m: Lapack_int, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int, c: FixedArray[Double], ldc: Lapack_int, scale: FixedArray[Double]) -> Lapack_int = "LAPACKE_dtrsyl3"
+pub extern "C" fn lapacke_dtrsyl3(
+  matrix_layout : Int,
+  trana : Byte,
+  tranb : Byte,
+  isgn : Lapack_int,
+  m : Lapack_int,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  c : FixedArray[Double],
+  ldc : Lapack_int,
+  scale : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dtrsyl3"
 
 ///|
 ///
@@ -1920,7 +4146,21 @@ pub extern "C" fn lapacke_dtrsyl3(matrix_layout: Int, trana: Byte, tranb: Byte, 
 ///     const lapack_complex_double* b, lapack_int ldb, lapack_complex_double* c, lapack_int ldc, double* scale
 /// );
 /// ```
-pub extern "C" fn lapacke_ztrsyl3(matrix_layout: Int, trana: Byte, tranb: Byte, isgn: Lapack_int, m: Lapack_int, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int, c: FixedArray[Double], ldc: Lapack_int, scale: FixedArray[Double]) -> Lapack_int = "LAPACKE_ztrsyl3"
+pub extern "C" fn lapacke_ztrsyl3(
+  matrix_layout : Int,
+  trana : Byte,
+  tranb : Byte,
+  isgn : Lapack_int,
+  m : Lapack_int,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  c : FixedArray[Double],
+  ldc : Lapack_int,
+  scale : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_ztrsyl3"
 
 ///|
 ///
@@ -1930,7 +4170,14 @@ pub extern "C" fn lapacke_ztrsyl3(matrix_layout: Int, trana: Byte, tranb: Byte, 
 ///     float* a, lapack_int lda
 /// );
 /// ```
-pub extern "C" fn lapacke_strtri(matrix_layout: Int, uplo: Byte, diag: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int) -> Lapack_int = "LAPACKE_strtri"
+pub extern "C" fn lapacke_strtri(
+  matrix_layout : Int,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+) -> Lapack_int = "LAPACKE_strtri"
 
 ///|
 ///
@@ -1940,7 +4187,14 @@ pub extern "C" fn lapacke_strtri(matrix_layout: Int, uplo: Byte, diag: Byte, n: 
 ///     double* a, lapack_int lda
 /// );
 /// ```
-pub extern "C" fn lapacke_dtrtri(matrix_layout: Int, uplo: Byte, diag: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int) -> Lapack_int = "LAPACKE_dtrtri"
+pub extern "C" fn lapacke_dtrtri(
+  matrix_layout : Int,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+) -> Lapack_int = "LAPACKE_dtrtri"
 
 ///|
 ///
@@ -1950,7 +4204,14 @@ pub extern "C" fn lapacke_dtrtri(matrix_layout: Int, uplo: Byte, diag: Byte, n: 
 ///     lapack_complex_float* a, lapack_int lda
 /// );
 /// ```
-pub extern "C" fn lapacke_ctrtri(matrix_layout: Int, uplo: Byte, diag: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int) -> Lapack_int = "LAPACKE_ctrtri"
+pub extern "C" fn lapacke_ctrtri(
+  matrix_layout : Int,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+) -> Lapack_int = "LAPACKE_ctrtri"
 
 ///|
 ///
@@ -1960,7 +4221,14 @@ pub extern "C" fn lapacke_ctrtri(matrix_layout: Int, uplo: Byte, diag: Byte, n: 
 ///     lapack_complex_double* a, lapack_int lda
 /// );
 /// ```
-pub extern "C" fn lapacke_ztrtri(matrix_layout: Int, uplo: Byte, diag: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int) -> Lapack_int = "LAPACKE_ztrtri"
+pub extern "C" fn lapacke_ztrtri(
+  matrix_layout : Int,
+  uplo : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+) -> Lapack_int = "LAPACKE_ztrtri"
 
 ///|
 ///
@@ -1971,7 +4239,18 @@ pub extern "C" fn lapacke_ztrtri(matrix_layout: Int, uplo: Byte, diag: Byte, n: 
 ///     float* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_strtrs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Float], lda: Lapack_int, b: FixedArray[Float], ldb: Lapack_int) -> Lapack_int = "LAPACKE_strtrs"
+pub extern "C" fn lapacke_strtrs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_strtrs"
 
 ///|
 ///
@@ -1982,7 +4261,18 @@ pub extern "C" fn lapacke_strtrs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     double* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_dtrtrs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int) -> Lapack_int = "LAPACKE_dtrtrs"
+pub extern "C" fn lapacke_dtrtrs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_dtrtrs"
 
 ///|
 ///
@@ -1993,7 +4283,18 @@ pub extern "C" fn lapacke_dtrtrs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_ctrtrs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Float], lda: Lapack_int, b: FixedArray[Float], ldb: Lapack_int) -> Lapack_int = "LAPACKE_ctrtrs"
+pub extern "C" fn lapacke_ctrtrs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_ctrtrs"
 
 ///|
 ///
@@ -2004,7 +4305,18 @@ pub extern "C" fn lapacke_ctrtrs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
-pub extern "C" fn lapacke_ztrtrs(matrix_layout: Int, uplo: Byte, trans: Byte, diag: Byte, n: Lapack_int, nrhs: Lapack_int, a: FixedArray[Double], lda: Lapack_int, b: FixedArray[Double], ldb: Lapack_int) -> Lapack_int = "LAPACKE_ztrtrs"
+pub extern "C" fn lapacke_ztrtrs(
+  matrix_layout : Int,
+  uplo : Byte,
+  trans : Byte,
+  diag : Byte,
+  n : Lapack_int,
+  nrhs : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+) -> Lapack_int = "LAPACKE_ztrtrs"
 
 ///|
 ///
@@ -2014,7 +4326,15 @@ pub extern "C" fn lapacke_ztrtrs(matrix_layout: Int, uplo: Byte, trans: Byte, di
 ///     const float* a, lapack_int lda, float* arf
 /// );
 /// ```
-pub extern "C" fn lapacke_strttf(matrix_layout: Int, transr: Byte, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, arf: FixedArray[Float]) -> Lapack_int = "LAPACKE_strttf"
+pub extern "C" fn lapacke_strttf(
+  matrix_layout : Int,
+  transr : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  arf : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_strttf"
 
 ///|
 ///
@@ -2024,7 +4344,15 @@ pub extern "C" fn lapacke_strttf(matrix_layout: Int, transr: Byte, uplo: Byte, n
 ///     const double* a, lapack_int lda, double* arf
 /// );
 /// ```
-pub extern "C" fn lapacke_dtrttf(matrix_layout: Int, transr: Byte, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, arf: FixedArray[Double]) -> Lapack_int = "LAPACKE_dtrttf"
+pub extern "C" fn lapacke_dtrttf(
+  matrix_layout : Int,
+  transr : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  arf : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dtrttf"
 
 ///|
 ///
@@ -2034,7 +4362,15 @@ pub extern "C" fn lapacke_dtrttf(matrix_layout: Int, transr: Byte, uplo: Byte, n
 ///     const lapack_complex_float* a, lapack_int lda, lapack_complex_float* arf
 /// );
 /// ```
-pub extern "C" fn lapacke_ctrttf(matrix_layout: Int, transr: Byte, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, arf: FixedArray[Float]) -> Lapack_int = "LAPACKE_ctrttf"
+pub extern "C" fn lapacke_ctrttf(
+  matrix_layout : Int,
+  transr : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  arf : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ctrttf"
 
 ///|
 ///
@@ -2044,7 +4380,15 @@ pub extern "C" fn lapacke_ctrttf(matrix_layout: Int, transr: Byte, uplo: Byte, n
 ///     const lapack_complex_double* a, lapack_int lda, lapack_complex_double* arf
 /// );
 /// ```
-pub extern "C" fn lapacke_ztrttf(matrix_layout: Int, transr: Byte, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, arf: FixedArray[Double]) -> Lapack_int = "LAPACKE_ztrttf"
+pub extern "C" fn lapacke_ztrttf(
+  matrix_layout : Int,
+  transr : Byte,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  arf : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_ztrttf"
 
 ///|
 ///
@@ -2054,7 +4398,14 @@ pub extern "C" fn lapacke_ztrttf(matrix_layout: Int, transr: Byte, uplo: Byte, n
 ///     lapack_int lda, float* ap
 /// );
 /// ```
-pub extern "C" fn lapacke_strttp(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, ap: FixedArray[Float]) -> Lapack_int = "LAPACKE_strttp"
+pub extern "C" fn lapacke_strttp(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  ap : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_strttp"
 
 ///|
 ///
@@ -2064,7 +4415,14 @@ pub extern "C" fn lapacke_strttp(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int lda, double* ap
 /// );
 /// ```
-pub extern "C" fn lapacke_dtrttp(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, ap: FixedArray[Double]) -> Lapack_int = "LAPACKE_dtrttp"
+pub extern "C" fn lapacke_dtrttp(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  ap : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dtrttp"
 
 ///|
 ///
@@ -2074,7 +4432,14 @@ pub extern "C" fn lapacke_dtrttp(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int lda, lapack_complex_float* ap
 /// );
 /// ```
-pub extern "C" fn lapacke_ctrttp(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, ap: FixedArray[Float]) -> Lapack_int = "LAPACKE_ctrttp"
+pub extern "C" fn lapacke_ctrttp(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  ap : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ctrttp"
 
 ///|
 ///
@@ -2084,7 +4449,14 @@ pub extern "C" fn lapacke_ctrttp(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int lda, lapack_complex_double* ap
 /// );
 /// ```
-pub extern "C" fn lapacke_ztrttp(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, ap: FixedArray[Double]) -> Lapack_int = "LAPACKE_ztrttp"
+pub extern "C" fn lapacke_ztrttp(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  ap : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_ztrttp"
 
 ///|
 ///
@@ -2094,7 +4466,14 @@ pub extern "C" fn lapacke_ztrttp(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int lda, float* tau
 /// );
 /// ```
-pub extern "C" fn lapacke_stzrzf(matrix_layout: Int, m: Lapack_int, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, tau: FixedArray[Float]) -> Lapack_int = "LAPACKE_stzrzf"
+pub extern "C" fn lapacke_stzrzf(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  tau : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_stzrzf"
 
 ///|
 ///
@@ -2104,7 +4483,14 @@ pub extern "C" fn lapacke_stzrzf(matrix_layout: Int, m: Lapack_int, n: Lapack_in
 ///     lapack_int lda, double* tau
 /// );
 /// ```
-pub extern "C" fn lapacke_dtzrzf(matrix_layout: Int, m: Lapack_int, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, tau: FixedArray[Double]) -> Lapack_int = "LAPACKE_dtzrzf"
+pub extern "C" fn lapacke_dtzrzf(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  tau : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dtzrzf"
 
 ///|
 ///
@@ -2114,7 +4500,14 @@ pub extern "C" fn lapacke_dtzrzf(matrix_layout: Int, m: Lapack_int, n: Lapack_in
 ///     lapack_int lda, lapack_complex_float* tau
 /// );
 /// ```
-pub extern "C" fn lapacke_ctzrzf(matrix_layout: Int, m: Lapack_int, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, tau: FixedArray[Float]) -> Lapack_int = "LAPACKE_ctzrzf"
+pub extern "C" fn lapacke_ctzrzf(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  tau : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_ctzrzf"
 
 ///|
 ///
@@ -2124,7 +4517,14 @@ pub extern "C" fn lapacke_ctzrzf(matrix_layout: Int, m: Lapack_int, n: Lapack_in
 ///     lapack_int lda, lapack_complex_double* tau
 /// );
 /// ```
-pub extern "C" fn lapacke_ztzrzf(matrix_layout: Int, m: Lapack_int, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, tau: FixedArray[Double]) -> Lapack_int = "LAPACKE_ztzrzf"
+pub extern "C" fn lapacke_ztzrzf(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  tau : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_ztzrzf"
 
 ///|
 ///
@@ -2134,7 +4534,16 @@ pub extern "C" fn lapacke_ztzrzf(matrix_layout: Int, m: Lapack_int, n: Lapack_in
 ///     lapack_int k, lapack_complex_float* a, lapack_int lda, const lapack_complex_float* tau
 /// );
 /// ```
-pub extern "C" fn lapacke_cungbr(matrix_layout: Int, vect: Byte, m: Lapack_int, n: Lapack_int, k: Lapack_int, a: FixedArray[Float], lda: Lapack_int, tau: FixedArray[Float]) -> Lapack_int = "LAPACKE_cungbr"
+pub extern "C" fn lapacke_cungbr(
+  matrix_layout : Int,
+  vect : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  tau : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_cungbr"
 
 ///|
 ///
@@ -2144,7 +4553,16 @@ pub extern "C" fn lapacke_cungbr(matrix_layout: Int, vect: Byte, m: Lapack_int, 
 ///     lapack_int k, lapack_complex_double* a, lapack_int lda, const lapack_complex_double* tau
 /// );
 /// ```
-pub extern "C" fn lapacke_zungbr(matrix_layout: Int, vect: Byte, m: Lapack_int, n: Lapack_int, k: Lapack_int, a: FixedArray[Double], lda: Lapack_int, tau: FixedArray[Double]) -> Lapack_int = "LAPACKE_zungbr"
+pub extern "C" fn lapacke_zungbr(
+  matrix_layout : Int,
+  vect : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  tau : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_zungbr"
 
 ///|
 ///
@@ -2154,7 +4572,15 @@ pub extern "C" fn lapacke_zungbr(matrix_layout: Int, vect: Byte, m: Lapack_int, 
 ///     lapack_complex_float* a, lapack_int lda, const lapack_complex_float* tau
 /// );
 /// ```
-pub extern "C" fn lapacke_cunghr(matrix_layout: Int, n: Lapack_int, ilo: Lapack_int, ihi: Lapack_int, a: FixedArray[Float], lda: Lapack_int, tau: FixedArray[Float]) -> Lapack_int = "LAPACKE_cunghr"
+pub extern "C" fn lapacke_cunghr(
+  matrix_layout : Int,
+  n : Lapack_int,
+  ilo : Lapack_int,
+  ihi : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  tau : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_cunghr"
 
 ///|
 ///
@@ -2164,7 +4590,15 @@ pub extern "C" fn lapacke_cunghr(matrix_layout: Int, n: Lapack_int, ilo: Lapack_
 ///     lapack_complex_double* a, lapack_int lda, const lapack_complex_double* tau
 /// );
 /// ```
-pub extern "C" fn lapacke_zunghr(matrix_layout: Int, n: Lapack_int, ilo: Lapack_int, ihi: Lapack_int, a: FixedArray[Double], lda: Lapack_int, tau: FixedArray[Double]) -> Lapack_int = "LAPACKE_zunghr"
+pub extern "C" fn lapacke_zunghr(
+  matrix_layout : Int,
+  n : Lapack_int,
+  ilo : Lapack_int,
+  ihi : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  tau : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_zunghr"
 
 ///|
 ///
@@ -2174,7 +4608,15 @@ pub extern "C" fn lapacke_zunghr(matrix_layout: Int, n: Lapack_int, ilo: Lapack_
 ///     lapack_complex_float* a, lapack_int lda, const lapack_complex_float* tau
 /// );
 /// ```
-pub extern "C" fn lapacke_cunglq(matrix_layout: Int, m: Lapack_int, n: Lapack_int, k: Lapack_int, a: FixedArray[Float], lda: Lapack_int, tau: FixedArray[Float]) -> Lapack_int = "LAPACKE_cunglq"
+pub extern "C" fn lapacke_cunglq(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  tau : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_cunglq"
 
 ///|
 ///
@@ -2184,7 +4626,15 @@ pub extern "C" fn lapacke_cunglq(matrix_layout: Int, m: Lapack_int, n: Lapack_in
 ///     lapack_complex_double* a, lapack_int lda, const lapack_complex_double* tau
 /// );
 /// ```
-pub extern "C" fn lapacke_zunglq(matrix_layout: Int, m: Lapack_int, n: Lapack_int, k: Lapack_int, a: FixedArray[Double], lda: Lapack_int, tau: FixedArray[Double]) -> Lapack_int = "LAPACKE_zunglq"
+pub extern "C" fn lapacke_zunglq(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  tau : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_zunglq"
 
 ///|
 ///
@@ -2194,7 +4644,15 @@ pub extern "C" fn lapacke_zunglq(matrix_layout: Int, m: Lapack_int, n: Lapack_in
 ///     lapack_complex_float* a, lapack_int lda, const lapack_complex_float* tau
 /// );
 /// ```
-pub extern "C" fn lapacke_cungql(matrix_layout: Int, m: Lapack_int, n: Lapack_int, k: Lapack_int, a: FixedArray[Float], lda: Lapack_int, tau: FixedArray[Float]) -> Lapack_int = "LAPACKE_cungql"
+pub extern "C" fn lapacke_cungql(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  tau : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_cungql"
 
 ///|
 ///
@@ -2204,7 +4662,15 @@ pub extern "C" fn lapacke_cungql(matrix_layout: Int, m: Lapack_int, n: Lapack_in
 ///     lapack_complex_double* a, lapack_int lda, const lapack_complex_double* tau
 /// );
 /// ```
-pub extern "C" fn lapacke_zungql(matrix_layout: Int, m: Lapack_int, n: Lapack_int, k: Lapack_int, a: FixedArray[Double], lda: Lapack_int, tau: FixedArray[Double]) -> Lapack_int = "LAPACKE_zungql"
+pub extern "C" fn lapacke_zungql(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  tau : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_zungql"
 
 ///|
 ///
@@ -2214,7 +4680,15 @@ pub extern "C" fn lapacke_zungql(matrix_layout: Int, m: Lapack_int, n: Lapack_in
 ///     lapack_complex_float* a, lapack_int lda, const lapack_complex_float* tau
 /// );
 /// ```
-pub extern "C" fn lapacke_cungqr(matrix_layout: Int, m: Lapack_int, n: Lapack_int, k: Lapack_int, a: FixedArray[Float], lda: Lapack_int, tau: FixedArray[Float]) -> Lapack_int = "LAPACKE_cungqr"
+pub extern "C" fn lapacke_cungqr(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  tau : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_cungqr"
 
 ///|
 ///
@@ -2224,7 +4698,15 @@ pub extern "C" fn lapacke_cungqr(matrix_layout: Int, m: Lapack_int, n: Lapack_in
 ///     lapack_complex_double* a, lapack_int lda, const lapack_complex_double* tau
 /// );
 /// ```
-pub extern "C" fn lapacke_zungqr(matrix_layout: Int, m: Lapack_int, n: Lapack_int, k: Lapack_int, a: FixedArray[Double], lda: Lapack_int, tau: FixedArray[Double]) -> Lapack_int = "LAPACKE_zungqr"
+pub extern "C" fn lapacke_zungqr(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  tau : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_zungqr"
 
 ///|
 ///
@@ -2234,7 +4716,15 @@ pub extern "C" fn lapacke_zungqr(matrix_layout: Int, m: Lapack_int, n: Lapack_in
 ///     lapack_complex_float* a, lapack_int lda, const lapack_complex_float* tau
 /// );
 /// ```
-pub extern "C" fn lapacke_cungrq(matrix_layout: Int, m: Lapack_int, n: Lapack_int, k: Lapack_int, a: FixedArray[Float], lda: Lapack_int, tau: FixedArray[Float]) -> Lapack_int = "LAPACKE_cungrq"
+pub extern "C" fn lapacke_cungrq(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  tau : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_cungrq"
 
 ///|
 ///
@@ -2244,7 +4734,15 @@ pub extern "C" fn lapacke_cungrq(matrix_layout: Int, m: Lapack_int, n: Lapack_in
 ///     lapack_complex_double* a, lapack_int lda, const lapack_complex_double* tau
 /// );
 /// ```
-pub extern "C" fn lapacke_zungrq(matrix_layout: Int, m: Lapack_int, n: Lapack_int, k: Lapack_int, a: FixedArray[Double], lda: Lapack_int, tau: FixedArray[Double]) -> Lapack_int = "LAPACKE_zungrq"
+pub extern "C" fn lapacke_zungrq(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  tau : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_zungrq"
 
 ///|
 ///
@@ -2254,7 +4752,14 @@ pub extern "C" fn lapacke_zungrq(matrix_layout: Int, m: Lapack_int, n: Lapack_in
 ///     lapack_int lda, const lapack_complex_float* tau
 /// );
 /// ```
-pub extern "C" fn lapacke_cungtr(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, tau: FixedArray[Float]) -> Lapack_int = "LAPACKE_cungtr"
+pub extern "C" fn lapacke_cungtr(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  tau : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_cungtr"
 
 ///|
 ///
@@ -2264,7 +4769,14 @@ pub extern "C" fn lapacke_cungtr(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int lda, const lapack_complex_double* tau
 /// );
 /// ```
-pub extern "C" fn lapacke_zungtr(matrix_layout: Int, uplo: Byte, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, tau: FixedArray[Double]) -> Lapack_int = "LAPACKE_zungtr"
+pub extern "C" fn lapacke_zungtr(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  tau : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_zungtr"
 
 ///|
 ///
@@ -2274,7 +4786,17 @@ pub extern "C" fn lapacke_zungtr(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_int nb, lapack_complex_float* a, lapack_int lda, const lapack_complex_float* t, lapack_int ldt
 /// );
 /// ```
-pub extern "C" fn lapacke_cungtsqr_row(matrix_layout: Int, m: Lapack_int, n: Lapack_int, mb: Lapack_int, nb: Lapack_int, a: FixedArray[Float], lda: Lapack_int, t: FixedArray[Float], ldt: Lapack_int) -> Lapack_int = "LAPACKE_cungtsqr_row"
+pub extern "C" fn lapacke_cungtsqr_row(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  mb : Lapack_int,
+  nb : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  t : FixedArray[Float],
+  ldt : Lapack_int,
+) -> Lapack_int = "LAPACKE_cungtsqr_row"
 
 ///|
 ///
@@ -2284,7 +4806,17 @@ pub extern "C" fn lapacke_cungtsqr_row(matrix_layout: Int, m: Lapack_int, n: Lap
 ///     lapack_int nb, lapack_complex_double* a, lapack_int lda, const lapack_complex_double* t, lapack_int ldt
 /// );
 /// ```
-pub extern "C" fn lapacke_zungtsqr_row(matrix_layout: Int, m: Lapack_int, n: Lapack_int, mb: Lapack_int, nb: Lapack_int, a: FixedArray[Double], lda: Lapack_int, t: FixedArray[Double], ldt: Lapack_int) -> Lapack_int = "LAPACKE_zungtsqr_row"
+pub extern "C" fn lapacke_zungtsqr_row(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  mb : Lapack_int,
+  nb : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  t : FixedArray[Double],
+  ldt : Lapack_int,
+) -> Lapack_int = "LAPACKE_zungtsqr_row"
 
 ///|
 ///
@@ -2295,7 +4827,20 @@ pub extern "C" fn lapacke_zungtsqr_row(matrix_layout: Int, m: Lapack_int, n: Lap
 ///     lapack_int lda, const lapack_complex_float* tau, lapack_complex_float* c, lapack_int ldc
 /// );
 /// ```
-pub extern "C" fn lapacke_cunmbr(matrix_layout: Int, vect: Byte, side: Byte, trans: Byte, m: Lapack_int, n: Lapack_int, k: Lapack_int, a: FixedArray[Float], lda: Lapack_int, tau: FixedArray[Float], c: FixedArray[Float], ldc: Lapack_int) -> Lapack_int = "LAPACKE_cunmbr"
+pub extern "C" fn lapacke_cunmbr(
+  matrix_layout : Int,
+  vect : Byte,
+  side : Byte,
+  trans : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  tau : FixedArray[Float],
+  c : FixedArray[Float],
+  ldc : Lapack_int,
+) -> Lapack_int = "LAPACKE_cunmbr"
 
 ///|
 ///
@@ -2306,7 +4851,20 @@ pub extern "C" fn lapacke_cunmbr(matrix_layout: Int, vect: Byte, side: Byte, tra
 ///     lapack_int lda, const lapack_complex_double* tau, lapack_complex_double* c, lapack_int ldc
 /// );
 /// ```
-pub extern "C" fn lapacke_zunmbr(matrix_layout: Int, vect: Byte, side: Byte, trans: Byte, m: Lapack_int, n: Lapack_int, k: Lapack_int, a: FixedArray[Double], lda: Lapack_int, tau: FixedArray[Double], c: FixedArray[Double], ldc: Lapack_int) -> Lapack_int = "LAPACKE_zunmbr"
+pub extern "C" fn lapacke_zunmbr(
+  matrix_layout : Int,
+  vect : Byte,
+  side : Byte,
+  trans : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  tau : FixedArray[Double],
+  c : FixedArray[Double],
+  ldc : Lapack_int,
+) -> Lapack_int = "LAPACKE_zunmbr"
 
 ///|
 ///
@@ -2317,7 +4875,20 @@ pub extern "C" fn lapacke_zunmbr(matrix_layout: Int, vect: Byte, side: Byte, tra
 ///     lapack_int lda, const lapack_complex_float* tau, lapack_complex_float* c, lapack_int ldc
 /// );
 /// ```
-pub extern "C" fn lapacke_cunmhr(matrix_layout: Int, side: Byte, trans: Byte, m: Lapack_int, n: Lapack_int, ilo: Lapack_int, ihi: Lapack_int, a: FixedArray[Float], lda: Lapack_int, tau: FixedArray[Float], c: FixedArray[Float], ldc: Lapack_int) -> Lapack_int = "LAPACKE_cunmhr"
+pub extern "C" fn lapacke_cunmhr(
+  matrix_layout : Int,
+  side : Byte,
+  trans : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  ilo : Lapack_int,
+  ihi : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  tau : FixedArray[Float],
+  c : FixedArray[Float],
+  ldc : Lapack_int,
+) -> Lapack_int = "LAPACKE_cunmhr"
 
 ///|
 ///
@@ -2328,7 +4899,20 @@ pub extern "C" fn lapacke_cunmhr(matrix_layout: Int, side: Byte, trans: Byte, m:
 ///     lapack_int lda, const lapack_complex_double* tau, lapack_complex_double* c, lapack_int ldc
 /// );
 /// ```
-pub extern "C" fn lapacke_zunmhr(matrix_layout: Int, side: Byte, trans: Byte, m: Lapack_int, n: Lapack_int, ilo: Lapack_int, ihi: Lapack_int, a: FixedArray[Double], lda: Lapack_int, tau: FixedArray[Double], c: FixedArray[Double], ldc: Lapack_int) -> Lapack_int = "LAPACKE_zunmhr"
+pub extern "C" fn lapacke_zunmhr(
+  matrix_layout : Int,
+  side : Byte,
+  trans : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  ilo : Lapack_int,
+  ihi : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  tau : FixedArray[Double],
+  c : FixedArray[Double],
+  ldc : Lapack_int,
+) -> Lapack_int = "LAPACKE_zunmhr"
 
 ///|
 ///
@@ -2339,7 +4923,19 @@ pub extern "C" fn lapacke_zunmhr(matrix_layout: Int, side: Byte, trans: Byte, m:
 ///     const lapack_complex_float* tau, lapack_complex_float* c, lapack_int ldc
 /// );
 /// ```
-pub extern "C" fn lapacke_cunmlq(matrix_layout: Int, side: Byte, trans: Byte, m: Lapack_int, n: Lapack_int, k: Lapack_int, a: FixedArray[Float], lda: Lapack_int, tau: FixedArray[Float], c: FixedArray[Float], ldc: Lapack_int) -> Lapack_int = "LAPACKE_cunmlq"
+pub extern "C" fn lapacke_cunmlq(
+  matrix_layout : Int,
+  side : Byte,
+  trans : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  tau : FixedArray[Float],
+  c : FixedArray[Float],
+  ldc : Lapack_int,
+) -> Lapack_int = "LAPACKE_cunmlq"
 
 ///|
 ///
@@ -2350,7 +4946,19 @@ pub extern "C" fn lapacke_cunmlq(matrix_layout: Int, side: Byte, trans: Byte, m:
 ///     const lapack_complex_double* tau, lapack_complex_double* c, lapack_int ldc
 /// );
 /// ```
-pub extern "C" fn lapacke_zunmlq(matrix_layout: Int, side: Byte, trans: Byte, m: Lapack_int, n: Lapack_int, k: Lapack_int, a: FixedArray[Double], lda: Lapack_int, tau: FixedArray[Double], c: FixedArray[Double], ldc: Lapack_int) -> Lapack_int = "LAPACKE_zunmlq"
+pub extern "C" fn lapacke_zunmlq(
+  matrix_layout : Int,
+  side : Byte,
+  trans : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  tau : FixedArray[Double],
+  c : FixedArray[Double],
+  ldc : Lapack_int,
+) -> Lapack_int = "LAPACKE_zunmlq"
 
 ///|
 ///
@@ -2361,7 +4969,19 @@ pub extern "C" fn lapacke_zunmlq(matrix_layout: Int, side: Byte, trans: Byte, m:
 ///     const lapack_complex_float* tau, lapack_complex_float* c, lapack_int ldc
 /// );
 /// ```
-pub extern "C" fn lapacke_cunmql(matrix_layout: Int, side: Byte, trans: Byte, m: Lapack_int, n: Lapack_int, k: Lapack_int, a: FixedArray[Float], lda: Lapack_int, tau: FixedArray[Float], c: FixedArray[Float], ldc: Lapack_int) -> Lapack_int = "LAPACKE_cunmql"
+pub extern "C" fn lapacke_cunmql(
+  matrix_layout : Int,
+  side : Byte,
+  trans : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  tau : FixedArray[Float],
+  c : FixedArray[Float],
+  ldc : Lapack_int,
+) -> Lapack_int = "LAPACKE_cunmql"
 
 ///|
 ///
@@ -2372,7 +4992,19 @@ pub extern "C" fn lapacke_cunmql(matrix_layout: Int, side: Byte, trans: Byte, m:
 ///     const lapack_complex_double* tau, lapack_complex_double* c, lapack_int ldc
 /// );
 /// ```
-pub extern "C" fn lapacke_zunmql(matrix_layout: Int, side: Byte, trans: Byte, m: Lapack_int, n: Lapack_int, k: Lapack_int, a: FixedArray[Double], lda: Lapack_int, tau: FixedArray[Double], c: FixedArray[Double], ldc: Lapack_int) -> Lapack_int = "LAPACKE_zunmql"
+pub extern "C" fn lapacke_zunmql(
+  matrix_layout : Int,
+  side : Byte,
+  trans : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  tau : FixedArray[Double],
+  c : FixedArray[Double],
+  ldc : Lapack_int,
+) -> Lapack_int = "LAPACKE_zunmql"
 
 ///|
 ///
@@ -2383,7 +5015,19 @@ pub extern "C" fn lapacke_zunmql(matrix_layout: Int, side: Byte, trans: Byte, m:
 ///     const lapack_complex_float* tau, lapack_complex_float* c, lapack_int ldc
 /// );
 /// ```
-pub extern "C" fn lapacke_cunmqr(matrix_layout: Int, side: Byte, trans: Byte, m: Lapack_int, n: Lapack_int, k: Lapack_int, a: FixedArray[Float], lda: Lapack_int, tau: FixedArray[Float], c: FixedArray[Float], ldc: Lapack_int) -> Lapack_int = "LAPACKE_cunmqr"
+pub extern "C" fn lapacke_cunmqr(
+  matrix_layout : Int,
+  side : Byte,
+  trans : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  tau : FixedArray[Float],
+  c : FixedArray[Float],
+  ldc : Lapack_int,
+) -> Lapack_int = "LAPACKE_cunmqr"
 
 ///|
 ///
@@ -2394,7 +5038,19 @@ pub extern "C" fn lapacke_cunmqr(matrix_layout: Int, side: Byte, trans: Byte, m:
 ///     const lapack_complex_double* tau, lapack_complex_double* c, lapack_int ldc
 /// );
 /// ```
-pub extern "C" fn lapacke_zunmqr(matrix_layout: Int, side: Byte, trans: Byte, m: Lapack_int, n: Lapack_int, k: Lapack_int, a: FixedArray[Double], lda: Lapack_int, tau: FixedArray[Double], c: FixedArray[Double], ldc: Lapack_int) -> Lapack_int = "LAPACKE_zunmqr"
+pub extern "C" fn lapacke_zunmqr(
+  matrix_layout : Int,
+  side : Byte,
+  trans : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  tau : FixedArray[Double],
+  c : FixedArray[Double],
+  ldc : Lapack_int,
+) -> Lapack_int = "LAPACKE_zunmqr"
 
 ///|
 ///
@@ -2405,7 +5061,19 @@ pub extern "C" fn lapacke_zunmqr(matrix_layout: Int, side: Byte, trans: Byte, m:
 ///     const lapack_complex_float* tau, lapack_complex_float* c, lapack_int ldc
 /// );
 /// ```
-pub extern "C" fn lapacke_cunmrq(matrix_layout: Int, side: Byte, trans: Byte, m: Lapack_int, n: Lapack_int, k: Lapack_int, a: FixedArray[Float], lda: Lapack_int, tau: FixedArray[Float], c: FixedArray[Float], ldc: Lapack_int) -> Lapack_int = "LAPACKE_cunmrq"
+pub extern "C" fn lapacke_cunmrq(
+  matrix_layout : Int,
+  side : Byte,
+  trans : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  tau : FixedArray[Float],
+  c : FixedArray[Float],
+  ldc : Lapack_int,
+) -> Lapack_int = "LAPACKE_cunmrq"
 
 ///|
 ///
@@ -2416,7 +5084,19 @@ pub extern "C" fn lapacke_cunmrq(matrix_layout: Int, side: Byte, trans: Byte, m:
 ///     const lapack_complex_double* tau, lapack_complex_double* c, lapack_int ldc
 /// );
 /// ```
-pub extern "C" fn lapacke_zunmrq(matrix_layout: Int, side: Byte, trans: Byte, m: Lapack_int, n: Lapack_int, k: Lapack_int, a: FixedArray[Double], lda: Lapack_int, tau: FixedArray[Double], c: FixedArray[Double], ldc: Lapack_int) -> Lapack_int = "LAPACKE_zunmrq"
+pub extern "C" fn lapacke_zunmrq(
+  matrix_layout : Int,
+  side : Byte,
+  trans : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  tau : FixedArray[Double],
+  c : FixedArray[Double],
+  ldc : Lapack_int,
+) -> Lapack_int = "LAPACKE_zunmrq"
 
 ///|
 ///
@@ -2427,7 +5107,20 @@ pub extern "C" fn lapacke_zunmrq(matrix_layout: Int, side: Byte, trans: Byte, m:
 ///     lapack_int lda, const lapack_complex_float* tau, lapack_complex_float* c, lapack_int ldc
 /// );
 /// ```
-pub extern "C" fn lapacke_cunmrz(matrix_layout: Int, side: Byte, trans: Byte, m: Lapack_int, n: Lapack_int, k: Lapack_int, l: Lapack_int, a: FixedArray[Float], lda: Lapack_int, tau: FixedArray[Float], c: FixedArray[Float], ldc: Lapack_int) -> Lapack_int = "LAPACKE_cunmrz"
+pub extern "C" fn lapacke_cunmrz(
+  matrix_layout : Int,
+  side : Byte,
+  trans : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  l : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  tau : FixedArray[Float],
+  c : FixedArray[Float],
+  ldc : Lapack_int,
+) -> Lapack_int = "LAPACKE_cunmrz"
 
 ///|
 ///
@@ -2438,7 +5131,20 @@ pub extern "C" fn lapacke_cunmrz(matrix_layout: Int, side: Byte, trans: Byte, m:
 ///     lapack_int lda, const lapack_complex_double* tau, lapack_complex_double* c, lapack_int ldc
 /// );
 /// ```
-pub extern "C" fn lapacke_zunmrz(matrix_layout: Int, side: Byte, trans: Byte, m: Lapack_int, n: Lapack_int, k: Lapack_int, l: Lapack_int, a: FixedArray[Double], lda: Lapack_int, tau: FixedArray[Double], c: FixedArray[Double], ldc: Lapack_int) -> Lapack_int = "LAPACKE_zunmrz"
+pub extern "C" fn lapacke_zunmrz(
+  matrix_layout : Int,
+  side : Byte,
+  trans : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  k : Lapack_int,
+  l : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  tau : FixedArray[Double],
+  c : FixedArray[Double],
+  ldc : Lapack_int,
+) -> Lapack_int = "LAPACKE_zunmrz"
 
 ///|
 ///
@@ -2449,7 +5155,19 @@ pub extern "C" fn lapacke_zunmrz(matrix_layout: Int, side: Byte, trans: Byte, m:
 ///     const lapack_complex_float* tau, lapack_complex_float* c, lapack_int ldc
 /// );
 /// ```
-pub extern "C" fn lapacke_cunmtr(matrix_layout: Int, side: Byte, uplo: Byte, trans: Byte, m: Lapack_int, n: Lapack_int, a: FixedArray[Float], lda: Lapack_int, tau: FixedArray[Float], c: FixedArray[Float], ldc: Lapack_int) -> Lapack_int = "LAPACKE_cunmtr"
+pub extern "C" fn lapacke_cunmtr(
+  matrix_layout : Int,
+  side : Byte,
+  uplo : Byte,
+  trans : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  a : FixedArray[Float],
+  lda : Lapack_int,
+  tau : FixedArray[Float],
+  c : FixedArray[Float],
+  ldc : Lapack_int,
+) -> Lapack_int = "LAPACKE_cunmtr"
 
 ///|
 ///
@@ -2460,7 +5178,19 @@ pub extern "C" fn lapacke_cunmtr(matrix_layout: Int, side: Byte, uplo: Byte, tra
 ///     const lapack_complex_double* tau, lapack_complex_double* c, lapack_int ldc
 /// );
 /// ```
-pub extern "C" fn lapacke_zunmtr(matrix_layout: Int, side: Byte, uplo: Byte, trans: Byte, m: Lapack_int, n: Lapack_int, a: FixedArray[Double], lda: Lapack_int, tau: FixedArray[Double], c: FixedArray[Double], ldc: Lapack_int) -> Lapack_int = "LAPACKE_zunmtr"
+pub extern "C" fn lapacke_zunmtr(
+  matrix_layout : Int,
+  side : Byte,
+  uplo : Byte,
+  trans : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  a : FixedArray[Double],
+  lda : Lapack_int,
+  tau : FixedArray[Double],
+  c : FixedArray[Double],
+  ldc : Lapack_int,
+) -> Lapack_int = "LAPACKE_zunmtr"
 
 ///|
 ///
@@ -2470,7 +5200,15 @@ pub extern "C" fn lapacke_zunmtr(matrix_layout: Int, side: Byte, uplo: Byte, tra
 ///     const lapack_complex_float* tau, lapack_complex_float* q, lapack_int ldq
 /// );
 /// ```
-pub extern "C" fn lapacke_cupgtr(matrix_layout: Int, uplo: Byte, n: Lapack_int, ap: FixedArray[Float], tau: FixedArray[Float], q: FixedArray[Float], ldq: Lapack_int) -> Lapack_int = "LAPACKE_cupgtr"
+pub extern "C" fn lapacke_cupgtr(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  ap : FixedArray[Float],
+  tau : FixedArray[Float],
+  q : FixedArray[Float],
+  ldq : Lapack_int,
+) -> Lapack_int = "LAPACKE_cupgtr"
 
 ///|
 ///
@@ -2480,7 +5218,15 @@ pub extern "C" fn lapacke_cupgtr(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     const lapack_complex_double* tau, lapack_complex_double* q, lapack_int ldq
 /// );
 /// ```
-pub extern "C" fn lapacke_zupgtr(matrix_layout: Int, uplo: Byte, n: Lapack_int, ap: FixedArray[Double], tau: FixedArray[Double], q: FixedArray[Double], ldq: Lapack_int) -> Lapack_int = "LAPACKE_zupgtr"
+pub extern "C" fn lapacke_zupgtr(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  ap : FixedArray[Double],
+  tau : FixedArray[Double],
+  q : FixedArray[Double],
+  ldq : Lapack_int,
+) -> Lapack_int = "LAPACKE_zupgtr"
 
 ///|
 ///
@@ -2491,7 +5237,18 @@ pub extern "C" fn lapacke_zupgtr(matrix_layout: Int, uplo: Byte, n: Lapack_int, 
 ///     lapack_complex_float* c, lapack_int ldc
 /// );
 /// ```
-pub extern "C" fn lapacke_cupmtr(matrix_layout: Int, side: Byte, uplo: Byte, trans: Byte, m: Lapack_int, n: Lapack_int, ap: FixedArray[Float], tau: FixedArray[Float], c: FixedArray[Float], ldc: Lapack_int) -> Lapack_int = "LAPACKE_cupmtr"
+pub extern "C" fn lapacke_cupmtr(
+  matrix_layout : Int,
+  side : Byte,
+  uplo : Byte,
+  trans : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  ap : FixedArray[Float],
+  tau : FixedArray[Float],
+  c : FixedArray[Float],
+  ldc : Lapack_int,
+) -> Lapack_int = "LAPACKE_cupmtr"
 
 ///|
 ///
@@ -2502,7 +5259,18 @@ pub extern "C" fn lapacke_cupmtr(matrix_layout: Int, side: Byte, uplo: Byte, tra
 ///     lapack_complex_double* c, lapack_int ldc
 /// );
 /// ```
-pub extern "C" fn lapacke_zupmtr(matrix_layout: Int, side: Byte, uplo: Byte, trans: Byte, m: Lapack_int, n: Lapack_int, ap: FixedArray[Double], tau: FixedArray[Double], c: FixedArray[Double], ldc: Lapack_int) -> Lapack_int = "LAPACKE_zupmtr"
+pub extern "C" fn lapacke_zupmtr(
+  matrix_layout : Int,
+  side : Byte,
+  uplo : Byte,
+  trans : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  ap : FixedArray[Double],
+  tau : FixedArray[Double],
+  c : FixedArray[Double],
+  ldc : Lapack_int,
+) -> Lapack_int = "LAPACKE_zupmtr"
 
 ///|
 ///
@@ -2514,7 +5282,22 @@ pub extern "C" fn lapacke_zupmtr(matrix_layout: Int, side: Byte, uplo: Byte, tra
 ///     float* work, lapack_int* iwork
 /// );
 /// ```
-pub extern "C" fn lapacke_sbdsdc_work(matrix_layout: Int, uplo: Byte, compq: Byte, n: Lapack_int, d: FixedArray[Float], e: FixedArray[Float], u: FixedArray[Float], ldu: Lapack_int, vt: FixedArray[Float], ldvt: Lapack_int, q: FixedArray[Float], iq: FixedArray[Int], work: FixedArray[Float], iwork: FixedArray[Int]) -> Lapack_int = "LAPACKE_sbdsdc_work"
+pub extern "C" fn lapacke_sbdsdc_work(
+  matrix_layout : Int,
+  uplo : Byte,
+  compq : Byte,
+  n : Lapack_int,
+  d : FixedArray[Float],
+  e : FixedArray[Float],
+  u : FixedArray[Float],
+  ldu : Lapack_int,
+  vt : FixedArray[Float],
+  ldvt : Lapack_int,
+  q : FixedArray[Float],
+  iq : FixedArray[Int],
+  work : FixedArray[Float],
+  iwork : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_sbdsdc_work"
 
 ///|
 ///
@@ -2526,7 +5309,22 @@ pub extern "C" fn lapacke_sbdsdc_work(matrix_layout: Int, uplo: Byte, compq: Byt
 ///     double* work, lapack_int* iwork
 /// );
 /// ```
-pub extern "C" fn lapacke_dbdsdc_work(matrix_layout: Int, uplo: Byte, compq: Byte, n: Lapack_int, d: FixedArray[Double], e: FixedArray[Double], u: FixedArray[Double], ldu: Lapack_int, vt: FixedArray[Double], ldvt: Lapack_int, q: FixedArray[Double], iq: FixedArray[Int], work: FixedArray[Double], iwork: FixedArray[Int]) -> Lapack_int = "LAPACKE_dbdsdc_work"
+pub extern "C" fn lapacke_dbdsdc_work(
+  matrix_layout : Int,
+  uplo : Byte,
+  compq : Byte,
+  n : Lapack_int,
+  d : FixedArray[Double],
+  e : FixedArray[Double],
+  u : FixedArray[Double],
+  ldu : Lapack_int,
+  vt : FixedArray[Double],
+  ldvt : Lapack_int,
+  q : FixedArray[Double],
+  iq : FixedArray[Int],
+  work : FixedArray[Double],
+  iwork : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_dbdsdc_work"
 
 ///|
 ///
@@ -2538,7 +5336,25 @@ pub extern "C" fn lapacke_dbdsdc_work(matrix_layout: Int, uplo: Byte, compq: Byt
 ///     float* s, float* z, lapack_int ldz, float* work, lapack_int* iwork
 /// );
 /// ```
-pub extern "C" fn lapacke_sbdsvdx_work(matrix_layout: Int, uplo: Byte, jobz: Byte, range: Byte, n: Lapack_int, d: FixedArray[Float], e: FixedArray[Float], vl: Float, vu: Float, il: Lapack_int, iu: Lapack_int, ns: FixedArray[Int], s: FixedArray[Float], z: FixedArray[Float], ldz: Lapack_int, work: FixedArray[Float], iwork: FixedArray[Int]) -> Lapack_int = "LAPACKE_sbdsvdx_work"
+pub extern "C" fn lapacke_sbdsvdx_work(
+  matrix_layout : Int,
+  uplo : Byte,
+  jobz : Byte,
+  range : Byte,
+  n : Lapack_int,
+  d : FixedArray[Float],
+  e : FixedArray[Float],
+  vl : Float,
+  vu : Float,
+  il : Lapack_int,
+  iu : Lapack_int,
+  ns : FixedArray[Int],
+  s : FixedArray[Float],
+  z : FixedArray[Float],
+  ldz : Lapack_int,
+  work : FixedArray[Float],
+  iwork : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_sbdsvdx_work"
 
 ///|
 ///
@@ -2550,7 +5366,25 @@ pub extern "C" fn lapacke_sbdsvdx_work(matrix_layout: Int, uplo: Byte, jobz: Byt
 ///     double* s, double* z, lapack_int ldz, double* work, lapack_int* iwork
 /// );
 /// ```
-pub extern "C" fn lapacke_dbdsvdx_work(matrix_layout: Int, uplo: Byte, jobz: Byte, range: Byte, n: Lapack_int, d: FixedArray[Double], e: FixedArray[Double], vl: Double, vu: Double, il: Lapack_int, iu: Lapack_int, ns: FixedArray[Int], s: FixedArray[Double], z: FixedArray[Double], ldz: Lapack_int, work: FixedArray[Double], iwork: FixedArray[Int]) -> Lapack_int = "LAPACKE_dbdsvdx_work"
+pub extern "C" fn lapacke_dbdsvdx_work(
+  matrix_layout : Int,
+  uplo : Byte,
+  jobz : Byte,
+  range : Byte,
+  n : Lapack_int,
+  d : FixedArray[Double],
+  e : FixedArray[Double],
+  vl : Double,
+  vu : Double,
+  il : Lapack_int,
+  iu : Lapack_int,
+  ns : FixedArray[Int],
+  s : FixedArray[Double],
+  z : FixedArray[Double],
+  ldz : Lapack_int,
+  work : FixedArray[Double],
+  iwork : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_dbdsvdx_work"
 
 ///|
 ///
@@ -2562,7 +5396,23 @@ pub extern "C" fn lapacke_dbdsvdx_work(matrix_layout: Int, uplo: Byte, jobz: Byt
 ///     float* c, lapack_int ldc, float* work
 /// );
 /// ```
-pub extern "C" fn lapacke_sbdsqr_work(matrix_layout: Int, uplo: Byte, n: Lapack_int, ncvt: Lapack_int, nru: Lapack_int, ncc: Lapack_int, d: FixedArray[Float], e: FixedArray[Float], vt: FixedArray[Float], ldvt: Lapack_int, u: FixedArray[Float], ldu: Lapack_int, c: FixedArray[Float], ldc: Lapack_int, work: FixedArray[Float]) -> Lapack_int = "LAPACKE_sbdsqr_work"
+pub extern "C" fn lapacke_sbdsqr_work(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  ncvt : Lapack_int,
+  nru : Lapack_int,
+  ncc : Lapack_int,
+  d : FixedArray[Float],
+  e : FixedArray[Float],
+  vt : FixedArray[Float],
+  ldvt : Lapack_int,
+  u : FixedArray[Float],
+  ldu : Lapack_int,
+  c : FixedArray[Float],
+  ldc : Lapack_int,
+  work : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_sbdsqr_work"
 
 ///|
 ///
@@ -2574,7 +5424,23 @@ pub extern "C" fn lapacke_sbdsqr_work(matrix_layout: Int, uplo: Byte, n: Lapack_
 ///     double* c, lapack_int ldc, double* work
 /// );
 /// ```
-pub extern "C" fn lapacke_dbdsqr_work(matrix_layout: Int, uplo: Byte, n: Lapack_int, ncvt: Lapack_int, nru: Lapack_int, ncc: Lapack_int, d: FixedArray[Double], e: FixedArray[Double], vt: FixedArray[Double], ldvt: Lapack_int, u: FixedArray[Double], ldu: Lapack_int, c: FixedArray[Double], ldc: Lapack_int, work: FixedArray[Double]) -> Lapack_int = "LAPACKE_dbdsqr_work"
+pub extern "C" fn lapacke_dbdsqr_work(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  ncvt : Lapack_int,
+  nru : Lapack_int,
+  ncc : Lapack_int,
+  d : FixedArray[Double],
+  e : FixedArray[Double],
+  vt : FixedArray[Double],
+  ldvt : Lapack_int,
+  u : FixedArray[Double],
+  ldu : Lapack_int,
+  c : FixedArray[Double],
+  ldc : Lapack_int,
+  work : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dbdsqr_work"
 
 ///|
 ///
@@ -2586,7 +5452,23 @@ pub extern "C" fn lapacke_dbdsqr_work(matrix_layout: Int, uplo: Byte, n: Lapack_
 ///     lapack_complex_float* c, lapack_int ldc, float* work
 /// );
 /// ```
-pub extern "C" fn lapacke_cbdsqr_work(matrix_layout: Int, uplo: Byte, n: Lapack_int, ncvt: Lapack_int, nru: Lapack_int, ncc: Lapack_int, d: FixedArray[Float], e: FixedArray[Float], vt: FixedArray[Float], ldvt: Lapack_int, u: FixedArray[Float], ldu: Lapack_int, c: FixedArray[Float], ldc: Lapack_int, work: FixedArray[Float]) -> Lapack_int = "LAPACKE_cbdsqr_work"
+pub extern "C" fn lapacke_cbdsqr_work(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  ncvt : Lapack_int,
+  nru : Lapack_int,
+  ncc : Lapack_int,
+  d : FixedArray[Float],
+  e : FixedArray[Float],
+  vt : FixedArray[Float],
+  ldvt : Lapack_int,
+  u : FixedArray[Float],
+  ldu : Lapack_int,
+  c : FixedArray[Float],
+  ldc : Lapack_int,
+  work : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_cbdsqr_work"
 
 ///|
 ///
@@ -2598,7 +5480,23 @@ pub extern "C" fn lapacke_cbdsqr_work(matrix_layout: Int, uplo: Byte, n: Lapack_
 ///     lapack_complex_double* c, lapack_int ldc, double* work
 /// );
 /// ```
-pub extern "C" fn lapacke_zbdsqr_work(matrix_layout: Int, uplo: Byte, n: Lapack_int, ncvt: Lapack_int, nru: Lapack_int, ncc: Lapack_int, d: FixedArray[Double], e: FixedArray[Double], vt: FixedArray[Double], ldvt: Lapack_int, u: FixedArray[Double], ldu: Lapack_int, c: FixedArray[Double], ldc: Lapack_int, work: FixedArray[Double]) -> Lapack_int = "LAPACKE_zbdsqr_work"
+pub extern "C" fn lapacke_zbdsqr_work(
+  matrix_layout : Int,
+  uplo : Byte,
+  n : Lapack_int,
+  ncvt : Lapack_int,
+  nru : Lapack_int,
+  ncc : Lapack_int,
+  d : FixedArray[Double],
+  e : FixedArray[Double],
+  vt : FixedArray[Double],
+  ldvt : Lapack_int,
+  u : FixedArray[Double],
+  ldu : Lapack_int,
+  c : FixedArray[Double],
+  ldc : Lapack_int,
+  work : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_zbdsqr_work"
 
 ///|
 ///
@@ -2607,7 +5505,13 @@ pub extern "C" fn lapacke_zbdsqr_work(matrix_layout: Int, uplo: Byte, n: Lapack_
 ///     char job, lapack_int m, lapack_int n, const float* d, float* sep
 /// );
 /// ```
-pub extern "C" fn lapacke_sdisna_work(job: Byte, m: Lapack_int, n: Lapack_int, d: FixedArray[Float], sep: FixedArray[Float]) -> Lapack_int = "LAPACKE_sdisna_work"
+pub extern "C" fn lapacke_sdisna_work(
+  job : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  d : FixedArray[Float],
+  sep : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_sdisna_work"
 
 ///|
 ///
@@ -2616,7 +5520,13 @@ pub extern "C" fn lapacke_sdisna_work(job: Byte, m: Lapack_int, n: Lapack_int, d
 ///     char job, lapack_int m, lapack_int n, const double* d, double* sep
 /// );
 /// ```
-pub extern "C" fn lapacke_ddisna_work(job: Byte, m: Lapack_int, n: Lapack_int, d: FixedArray[Double], sep: FixedArray[Double]) -> Lapack_int = "LAPACKE_ddisna_work"
+pub extern "C" fn lapacke_ddisna_work(
+  job : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  d : FixedArray[Double],
+  sep : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_ddisna_work"
 
 ///|
 ///
@@ -2629,7 +5539,26 @@ pub extern "C" fn lapacke_ddisna_work(job: Byte, m: Lapack_int, n: Lapack_int, d
 ///     lapack_int ldc, float* work
 /// );
 /// ```
-pub extern "C" fn lapacke_sgbbrd_work(matrix_layout: Int, vect: Byte, m: Lapack_int, n: Lapack_int, ncc: Lapack_int, kl: Lapack_int, ku: Lapack_int, ab: FixedArray[Float], ldab: Lapack_int, d: FixedArray[Float], e: FixedArray[Float], q: FixedArray[Float], ldq: Lapack_int, pt: FixedArray[Float], ldpt: Lapack_int, c: FixedArray[Float], ldc: Lapack_int, work: FixedArray[Float]) -> Lapack_int = "LAPACKE_sgbbrd_work"
+pub extern "C" fn lapacke_sgbbrd_work(
+  matrix_layout : Int,
+  vect : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  ncc : Lapack_int,
+  kl : Lapack_int,
+  ku : Lapack_int,
+  ab : FixedArray[Float],
+  ldab : Lapack_int,
+  d : FixedArray[Float],
+  e : FixedArray[Float],
+  q : FixedArray[Float],
+  ldq : Lapack_int,
+  pt : FixedArray[Float],
+  ldpt : Lapack_int,
+  c : FixedArray[Float],
+  ldc : Lapack_int,
+  work : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_sgbbrd_work"
 
 ///|
 ///
@@ -2642,7 +5571,26 @@ pub extern "C" fn lapacke_sgbbrd_work(matrix_layout: Int, vect: Byte, m: Lapack_
 ///     lapack_int ldc, double* work
 /// );
 /// ```
-pub extern "C" fn lapacke_dgbbrd_work(matrix_layout: Int, vect: Byte, m: Lapack_int, n: Lapack_int, ncc: Lapack_int, kl: Lapack_int, ku: Lapack_int, ab: FixedArray[Double], ldab: Lapack_int, d: FixedArray[Double], e: FixedArray[Double], q: FixedArray[Double], ldq: Lapack_int, pt: FixedArray[Double], ldpt: Lapack_int, c: FixedArray[Double], ldc: Lapack_int, work: FixedArray[Double]) -> Lapack_int = "LAPACKE_dgbbrd_work"
+pub extern "C" fn lapacke_dgbbrd_work(
+  matrix_layout : Int,
+  vect : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  ncc : Lapack_int,
+  kl : Lapack_int,
+  ku : Lapack_int,
+  ab : FixedArray[Double],
+  ldab : Lapack_int,
+  d : FixedArray[Double],
+  e : FixedArray[Double],
+  q : FixedArray[Double],
+  ldq : Lapack_int,
+  pt : FixedArray[Double],
+  ldpt : Lapack_int,
+  c : FixedArray[Double],
+  ldc : Lapack_int,
+  work : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dgbbrd_work"
 
 ///|
 ///
@@ -2655,7 +5603,27 @@ pub extern "C" fn lapacke_dgbbrd_work(matrix_layout: Int, vect: Byte, m: Lapack_
 ///     lapack_int ldc, lapack_complex_float* work, float* rwork
 /// );
 /// ```
-pub extern "C" fn lapacke_cgbbrd_work(matrix_layout: Int, vect: Byte, m: Lapack_int, n: Lapack_int, ncc: Lapack_int, kl: Lapack_int, ku: Lapack_int, ab: FixedArray[Float], ldab: Lapack_int, d: FixedArray[Float], e: FixedArray[Float], q: FixedArray[Float], ldq: Lapack_int, pt: FixedArray[Float], ldpt: Lapack_int, c: FixedArray[Float], ldc: Lapack_int, work: FixedArray[Float], rwork: FixedArray[Float]) -> Lapack_int = "LAPACKE_cgbbrd_work"
+pub extern "C" fn lapacke_cgbbrd_work(
+  matrix_layout : Int,
+  vect : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  ncc : Lapack_int,
+  kl : Lapack_int,
+  ku : Lapack_int,
+  ab : FixedArray[Float],
+  ldab : Lapack_int,
+  d : FixedArray[Float],
+  e : FixedArray[Float],
+  q : FixedArray[Float],
+  ldq : Lapack_int,
+  pt : FixedArray[Float],
+  ldpt : Lapack_int,
+  c : FixedArray[Float],
+  ldc : Lapack_int,
+  work : FixedArray[Float],
+  rwork : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_cgbbrd_work"
 
 ///|
 ///
@@ -2668,7 +5636,27 @@ pub extern "C" fn lapacke_cgbbrd_work(matrix_layout: Int, vect: Byte, m: Lapack_
 ///     lapack_int ldc, lapack_complex_double* work, double* rwork
 /// );
 /// ```
-pub extern "C" fn lapacke_zgbbrd_work(matrix_layout: Int, vect: Byte, m: Lapack_int, n: Lapack_int, ncc: Lapack_int, kl: Lapack_int, ku: Lapack_int, ab: FixedArray[Double], ldab: Lapack_int, d: FixedArray[Double], e: FixedArray[Double], q: FixedArray[Double], ldq: Lapack_int, pt: FixedArray[Double], ldpt: Lapack_int, c: FixedArray[Double], ldc: Lapack_int, work: FixedArray[Double], rwork: FixedArray[Double]) -> Lapack_int = "LAPACKE_zgbbrd_work"
+pub extern "C" fn lapacke_zgbbrd_work(
+  matrix_layout : Int,
+  vect : Byte,
+  m : Lapack_int,
+  n : Lapack_int,
+  ncc : Lapack_int,
+  kl : Lapack_int,
+  ku : Lapack_int,
+  ab : FixedArray[Double],
+  ldab : Lapack_int,
+  d : FixedArray[Double],
+  e : FixedArray[Double],
+  q : FixedArray[Double],
+  ldq : Lapack_int,
+  pt : FixedArray[Double],
+  ldpt : Lapack_int,
+  c : FixedArray[Double],
+  ldc : Lapack_int,
+  work : FixedArray[Double],
+  rwork : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_zgbbrd_work"
 
 ///|
 ///
@@ -2679,7 +5667,20 @@ pub extern "C" fn lapacke_zgbbrd_work(matrix_layout: Int, vect: Byte, m: Lapack_
 ///     float anorm, float* rcond, float* work, lapack_int* iwork
 /// );
 /// ```
-pub extern "C" fn lapacke_sgbcon_work(matrix_layout: Int, norm: Byte, n: Lapack_int, kl: Lapack_int, ku: Lapack_int, ab: FixedArray[Float], ldab: Lapack_int, ipiv: FixedArray[Int], anorm: Float, rcond: FixedArray[Float], work: FixedArray[Float], iwork: FixedArray[Int]) -> Lapack_int = "LAPACKE_sgbcon_work"
+pub extern "C" fn lapacke_sgbcon_work(
+  matrix_layout : Int,
+  norm : Byte,
+  n : Lapack_int,
+  kl : Lapack_int,
+  ku : Lapack_int,
+  ab : FixedArray[Float],
+  ldab : Lapack_int,
+  ipiv : FixedArray[Int],
+  anorm : Float,
+  rcond : FixedArray[Float],
+  work : FixedArray[Float],
+  iwork : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_sgbcon_work"
 
 ///|
 ///
@@ -2690,7 +5691,20 @@ pub extern "C" fn lapacke_sgbcon_work(matrix_layout: Int, norm: Byte, n: Lapack_
 ///     double anorm, double* rcond, double* work, lapack_int* iwork
 /// );
 /// ```
-pub extern "C" fn lapacke_dgbcon_work(matrix_layout: Int, norm: Byte, n: Lapack_int, kl: Lapack_int, ku: Lapack_int, ab: FixedArray[Double], ldab: Lapack_int, ipiv: FixedArray[Int], anorm: Double, rcond: FixedArray[Double], work: FixedArray[Double], iwork: FixedArray[Int]) -> Lapack_int = "LAPACKE_dgbcon_work"
+pub extern "C" fn lapacke_dgbcon_work(
+  matrix_layout : Int,
+  norm : Byte,
+  n : Lapack_int,
+  kl : Lapack_int,
+  ku : Lapack_int,
+  ab : FixedArray[Double],
+  ldab : Lapack_int,
+  ipiv : FixedArray[Int],
+  anorm : Double,
+  rcond : FixedArray[Double],
+  work : FixedArray[Double],
+  iwork : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_dgbcon_work"
 
 ///|
 ///
@@ -2701,7 +5715,20 @@ pub extern "C" fn lapacke_dgbcon_work(matrix_layout: Int, norm: Byte, n: Lapack_
 ///     float anorm, float* rcond, lapack_complex_float* work, float* rwork
 /// );
 /// ```
-pub extern "C" fn lapacke_cgbcon_work(matrix_layout: Int, norm: Byte, n: Lapack_int, kl: Lapack_int, ku: Lapack_int, ab: FixedArray[Float], ldab: Lapack_int, ipiv: FixedArray[Int], anorm: Float, rcond: FixedArray[Float], work: FixedArray[Float], rwork: FixedArray[Float]) -> Lapack_int = "LAPACKE_cgbcon_work"
+pub extern "C" fn lapacke_cgbcon_work(
+  matrix_layout : Int,
+  norm : Byte,
+  n : Lapack_int,
+  kl : Lapack_int,
+  ku : Lapack_int,
+  ab : FixedArray[Float],
+  ldab : Lapack_int,
+  ipiv : FixedArray[Int],
+  anorm : Float,
+  rcond : FixedArray[Float],
+  work : FixedArray[Float],
+  rwork : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_cgbcon_work"
 
 ///|
 ///
@@ -2712,7 +5739,20 @@ pub extern "C" fn lapacke_cgbcon_work(matrix_layout: Int, norm: Byte, n: Lapack_
 ///     double anorm, double* rcond, lapack_complex_double* work, double* rwork
 /// );
 /// ```
-pub extern "C" fn lapacke_zgbcon_work(matrix_layout: Int, norm: Byte, n: Lapack_int, kl: Lapack_int, ku: Lapack_int, ab: FixedArray[Double], ldab: Lapack_int, ipiv: FixedArray[Int], anorm: Double, rcond: FixedArray[Double], work: FixedArray[Double], rwork: FixedArray[Double]) -> Lapack_int = "LAPACKE_zgbcon_work"
+pub extern "C" fn lapacke_zgbcon_work(
+  matrix_layout : Int,
+  norm : Byte,
+  n : Lapack_int,
+  kl : Lapack_int,
+  ku : Lapack_int,
+  ab : FixedArray[Double],
+  ldab : Lapack_int,
+  ipiv : FixedArray[Int],
+  anorm : Double,
+  rcond : FixedArray[Double],
+  work : FixedArray[Double],
+  rwork : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_zgbcon_work"
 
 ///|
 ///
@@ -2723,7 +5763,20 @@ pub extern "C" fn lapacke_zgbcon_work(matrix_layout: Int, norm: Byte, n: Lapack_
 ///     float* c, float* rowcnd, float* colcnd, float* amax
 /// );
 /// ```
-pub extern "C" fn lapacke_sgbequ_work(matrix_layout: Int, m: Lapack_int, n: Lapack_int, kl: Lapack_int, ku: Lapack_int, ab: FixedArray[Float], ldab: Lapack_int, r: FixedArray[Float], c: FixedArray[Float], rowcnd: FixedArray[Float], colcnd: FixedArray[Float], amax: FixedArray[Float]) -> Lapack_int = "LAPACKE_sgbequ_work"
+pub extern "C" fn lapacke_sgbequ_work(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  kl : Lapack_int,
+  ku : Lapack_int,
+  ab : FixedArray[Float],
+  ldab : Lapack_int,
+  r : FixedArray[Float],
+  c : FixedArray[Float],
+  rowcnd : FixedArray[Float],
+  colcnd : FixedArray[Float],
+  amax : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_sgbequ_work"
 
 ///|
 ///
@@ -2734,7 +5787,20 @@ pub extern "C" fn lapacke_sgbequ_work(matrix_layout: Int, m: Lapack_int, n: Lapa
 ///     double* c, double* rowcnd, double* colcnd, double* amax
 /// );
 /// ```
-pub extern "C" fn lapacke_dgbequ_work(matrix_layout: Int, m: Lapack_int, n: Lapack_int, kl: Lapack_int, ku: Lapack_int, ab: FixedArray[Double], ldab: Lapack_int, r: FixedArray[Double], c: FixedArray[Double], rowcnd: FixedArray[Double], colcnd: FixedArray[Double], amax: FixedArray[Double]) -> Lapack_int = "LAPACKE_dgbequ_work"
+pub extern "C" fn lapacke_dgbequ_work(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  kl : Lapack_int,
+  ku : Lapack_int,
+  ab : FixedArray[Double],
+  ldab : Lapack_int,
+  r : FixedArray[Double],
+  c : FixedArray[Double],
+  rowcnd : FixedArray[Double],
+  colcnd : FixedArray[Double],
+  amax : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dgbequ_work"
 
 ///|
 ///
@@ -2745,7 +5811,20 @@ pub extern "C" fn lapacke_dgbequ_work(matrix_layout: Int, m: Lapack_int, n: Lapa
 ///     float* c, float* rowcnd, float* colcnd, float* amax
 /// );
 /// ```
-pub extern "C" fn lapacke_cgbequ_work(matrix_layout: Int, m: Lapack_int, n: Lapack_int, kl: Lapack_int, ku: Lapack_int, ab: FixedArray[Float], ldab: Lapack_int, r: FixedArray[Float], c: FixedArray[Float], rowcnd: FixedArray[Float], colcnd: FixedArray[Float], amax: FixedArray[Float]) -> Lapack_int = "LAPACKE_cgbequ_work"
+pub extern "C" fn lapacke_cgbequ_work(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  kl : Lapack_int,
+  ku : Lapack_int,
+  ab : FixedArray[Float],
+  ldab : Lapack_int,
+  r : FixedArray[Float],
+  c : FixedArray[Float],
+  rowcnd : FixedArray[Float],
+  colcnd : FixedArray[Float],
+  amax : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_cgbequ_work"
 
 ///|
 ///
@@ -2756,7 +5835,20 @@ pub extern "C" fn lapacke_cgbequ_work(matrix_layout: Int, m: Lapack_int, n: Lapa
 ///     double* c, double* rowcnd, double* colcnd, double* amax
 /// );
 /// ```
-pub extern "C" fn lapacke_zgbequ_work(matrix_layout: Int, m: Lapack_int, n: Lapack_int, kl: Lapack_int, ku: Lapack_int, ab: FixedArray[Double], ldab: Lapack_int, r: FixedArray[Double], c: FixedArray[Double], rowcnd: FixedArray[Double], colcnd: FixedArray[Double], amax: FixedArray[Double]) -> Lapack_int = "LAPACKE_zgbequ_work"
+pub extern "C" fn lapacke_zgbequ_work(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  kl : Lapack_int,
+  ku : Lapack_int,
+  ab : FixedArray[Double],
+  ldab : Lapack_int,
+  r : FixedArray[Double],
+  c : FixedArray[Double],
+  rowcnd : FixedArray[Double],
+  colcnd : FixedArray[Double],
+  amax : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_zgbequ_work"
 
 ///|
 ///
@@ -2767,7 +5859,20 @@ pub extern "C" fn lapacke_zgbequ_work(matrix_layout: Int, m: Lapack_int, n: Lapa
 ///     float* c, float* rowcnd, float* colcnd, float* amax
 /// );
 /// ```
-pub extern "C" fn lapacke_sgbequb_work(matrix_layout: Int, m: Lapack_int, n: Lapack_int, kl: Lapack_int, ku: Lapack_int, ab: FixedArray[Float], ldab: Lapack_int, r: FixedArray[Float], c: FixedArray[Float], rowcnd: FixedArray[Float], colcnd: FixedArray[Float], amax: FixedArray[Float]) -> Lapack_int = "LAPACKE_sgbequb_work"
+pub extern "C" fn lapacke_sgbequb_work(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  kl : Lapack_int,
+  ku : Lapack_int,
+  ab : FixedArray[Float],
+  ldab : Lapack_int,
+  r : FixedArray[Float],
+  c : FixedArray[Float],
+  rowcnd : FixedArray[Float],
+  colcnd : FixedArray[Float],
+  amax : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_sgbequb_work"
 
 ///|
 ///
@@ -2778,7 +5883,20 @@ pub extern "C" fn lapacke_sgbequb_work(matrix_layout: Int, m: Lapack_int, n: Lap
 ///     double* c, double* rowcnd, double* colcnd, double* amax
 /// );
 /// ```
-pub extern "C" fn lapacke_dgbequb_work(matrix_layout: Int, m: Lapack_int, n: Lapack_int, kl: Lapack_int, ku: Lapack_int, ab: FixedArray[Double], ldab: Lapack_int, r: FixedArray[Double], c: FixedArray[Double], rowcnd: FixedArray[Double], colcnd: FixedArray[Double], amax: FixedArray[Double]) -> Lapack_int = "LAPACKE_dgbequb_work"
+pub extern "C" fn lapacke_dgbequb_work(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  kl : Lapack_int,
+  ku : Lapack_int,
+  ab : FixedArray[Double],
+  ldab : Lapack_int,
+  r : FixedArray[Double],
+  c : FixedArray[Double],
+  rowcnd : FixedArray[Double],
+  colcnd : FixedArray[Double],
+  amax : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_dgbequb_work"
 
 ///|
 ///
@@ -2789,7 +5907,20 @@ pub extern "C" fn lapacke_dgbequb_work(matrix_layout: Int, m: Lapack_int, n: Lap
 ///     float* c, float* rowcnd, float* colcnd, float* amax
 /// );
 /// ```
-pub extern "C" fn lapacke_cgbequb_work(matrix_layout: Int, m: Lapack_int, n: Lapack_int, kl: Lapack_int, ku: Lapack_int, ab: FixedArray[Float], ldab: Lapack_int, r: FixedArray[Float], c: FixedArray[Float], rowcnd: FixedArray[Float], colcnd: FixedArray[Float], amax: FixedArray[Float]) -> Lapack_int = "LAPACKE_cgbequb_work"
+pub extern "C" fn lapacke_cgbequb_work(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  kl : Lapack_int,
+  ku : Lapack_int,
+  ab : FixedArray[Float],
+  ldab : Lapack_int,
+  r : FixedArray[Float],
+  c : FixedArray[Float],
+  rowcnd : FixedArray[Float],
+  colcnd : FixedArray[Float],
+  amax : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_cgbequb_work"
 
 ///|
 ///
@@ -2800,7 +5931,20 @@ pub extern "C" fn lapacke_cgbequb_work(matrix_layout: Int, m: Lapack_int, n: Lap
 ///     double* c, double* rowcnd, double* colcnd, double* amax
 /// );
 /// ```
-pub extern "C" fn lapacke_zgbequb_work(matrix_layout: Int, m: Lapack_int, n: Lapack_int, kl: Lapack_int, ku: Lapack_int, ab: FixedArray[Double], ldab: Lapack_int, r: FixedArray[Double], c: FixedArray[Double], rowcnd: FixedArray[Double], colcnd: FixedArray[Double], amax: FixedArray[Double]) -> Lapack_int = "LAPACKE_zgbequb_work"
+pub extern "C" fn lapacke_zgbequb_work(
+  matrix_layout : Int,
+  m : Lapack_int,
+  n : Lapack_int,
+  kl : Lapack_int,
+  ku : Lapack_int,
+  ab : FixedArray[Double],
+  ldab : Lapack_int,
+  r : FixedArray[Double],
+  c : FixedArray[Double],
+  rowcnd : FixedArray[Double],
+  colcnd : FixedArray[Double],
+  amax : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_zgbequb_work"
 
 ///|
 ///
@@ -2813,7 +5957,27 @@ pub extern "C" fn lapacke_zgbequb_work(matrix_layout: Int, m: Lapack_int, n: Lap
 ///     float* berr, float* work, lapack_int* iwork
 /// );
 /// ```
-pub extern "C" fn lapacke_sgbrfs_work(matrix_layout: Int, trans: Byte, n: Lapack_int, kl: Lapack_int, ku: Lapack_int, nrhs: Lapack_int, ab: FixedArray[Float], ldab: Lapack_int, afb: FixedArray[Float], ldafb: Lapack_int, ipiv: FixedArray[Int], b: FixedArray[Float], ldb: Lapack_int, x: FixedArray[Float], ldx: Lapack_int, ferr: FixedArray[Float], berr: FixedArray[Float], work: FixedArray[Float], iwork: FixedArray[Int]) -> Lapack_int = "LAPACKE_sgbrfs_work"
+pub extern "C" fn lapacke_sgbrfs_work(
+  matrix_layout : Int,
+  trans : Byte,
+  n : Lapack_int,
+  kl : Lapack_int,
+  ku : Lapack_int,
+  nrhs : Lapack_int,
+  ab : FixedArray[Float],
+  ldab : Lapack_int,
+  afb : FixedArray[Float],
+  ldafb : Lapack_int,
+  ipiv : FixedArray[Int],
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  x : FixedArray[Float],
+  ldx : Lapack_int,
+  ferr : FixedArray[Float],
+  berr : FixedArray[Float],
+  work : FixedArray[Float],
+  iwork : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_sgbrfs_work"
 
 ///|
 ///
@@ -2826,7 +5990,27 @@ pub extern "C" fn lapacke_sgbrfs_work(matrix_layout: Int, trans: Byte, n: Lapack
 ///     double* berr, double* work, lapack_int* iwork
 /// );
 /// ```
-pub extern "C" fn lapacke_dgbrfs_work(matrix_layout: Int, trans: Byte, n: Lapack_int, kl: Lapack_int, ku: Lapack_int, nrhs: Lapack_int, ab: FixedArray[Double], ldab: Lapack_int, afb: FixedArray[Double], ldafb: Lapack_int, ipiv: FixedArray[Int], b: FixedArray[Double], ldb: Lapack_int, x: FixedArray[Double], ldx: Lapack_int, ferr: FixedArray[Double], berr: FixedArray[Double], work: FixedArray[Double], iwork: FixedArray[Int]) -> Lapack_int = "LAPACKE_dgbrfs_work"
+pub extern "C" fn lapacke_dgbrfs_work(
+  matrix_layout : Int,
+  trans : Byte,
+  n : Lapack_int,
+  kl : Lapack_int,
+  ku : Lapack_int,
+  nrhs : Lapack_int,
+  ab : FixedArray[Double],
+  ldab : Lapack_int,
+  afb : FixedArray[Double],
+  ldafb : Lapack_int,
+  ipiv : FixedArray[Int],
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  x : FixedArray[Double],
+  ldx : Lapack_int,
+  ferr : FixedArray[Double],
+  berr : FixedArray[Double],
+  work : FixedArray[Double],
+  iwork : FixedArray[Int],
+) -> Lapack_int = "LAPACKE_dgbrfs_work"
 
 ///|
 ///
@@ -2839,7 +6023,27 @@ pub extern "C" fn lapacke_dgbrfs_work(matrix_layout: Int, trans: Byte, n: Lapack
 ///     float* berr, lapack_complex_float* work, float* rwork
 /// );
 /// ```
-pub extern "C" fn lapacke_cgbrfs_work(matrix_layout: Int, trans: Byte, n: Lapack_int, kl: Lapack_int, ku: Lapack_int, nrhs: Lapack_int, ab: FixedArray[Float], ldab: Lapack_int, afb: FixedArray[Float], ldafb: Lapack_int, ipiv: FixedArray[Int], b: FixedArray[Float], ldb: Lapack_int, x: FixedArray[Float], ldx: Lapack_int, ferr: FixedArray[Float], berr: FixedArray[Float], work: FixedArray[Float], rwork: FixedArray[Float]) -> Lapack_int = "LAPACKE_cgbrfs_work"
+pub extern "C" fn lapacke_cgbrfs_work(
+  matrix_layout : Int,
+  trans : Byte,
+  n : Lapack_int,
+  kl : Lapack_int,
+  ku : Lapack_int,
+  nrhs : Lapack_int,
+  ab : FixedArray[Float],
+  ldab : Lapack_int,
+  afb : FixedArray[Float],
+  ldafb : Lapack_int,
+  ipiv : FixedArray[Int],
+  b : FixedArray[Float],
+  ldb : Lapack_int,
+  x : FixedArray[Float],
+  ldx : Lapack_int,
+  ferr : FixedArray[Float],
+  berr : FixedArray[Float],
+  work : FixedArray[Float],
+  rwork : FixedArray[Float],
+) -> Lapack_int = "LAPACKE_cgbrfs_work"
 
 ///|
 ///
@@ -2852,5 +6056,24 @@ pub extern "C" fn lapacke_cgbrfs_work(matrix_layout: Int, trans: Byte, n: Lapack
 ///     double* berr, lapack_complex_double* work, double* rwork
 /// );
 /// ```
-pub extern "C" fn lapacke_zgbrfs_work(matrix_layout: Int, trans: Byte, n: Lapack_int, kl: Lapack_int, ku: Lapack_int, nrhs: Lapack_int, ab: FixedArray[Double], ldab: Lapack_int, afb: FixedArray[Double], ldafb: Lapack_int, ipiv: FixedArray[Int], b: FixedArray[Double], ldb: Lapack_int, x: FixedArray[Double], ldx: Lapack_int, ferr: FixedArray[Double], berr: FixedArray[Double], work: FixedArray[Double], rwork: FixedArray[Double]) -> Lapack_int = "LAPACKE_zgbrfs_work"
-
+pub extern "C" fn lapacke_zgbrfs_work(
+  matrix_layout : Int,
+  trans : Byte,
+  n : Lapack_int,
+  kl : Lapack_int,
+  ku : Lapack_int,
+  nrhs : Lapack_int,
+  ab : FixedArray[Double],
+  ldab : Lapack_int,
+  afb : FixedArray[Double],
+  ldafb : Lapack_int,
+  ipiv : FixedArray[Int],
+  b : FixedArray[Double],
+  ldb : Lapack_int,
+  x : FixedArray[Double],
+  ldx : Lapack_int,
+  ferr : FixedArray[Double],
+  berr : FixedArray[Double],
+  work : FixedArray[Double],
+  rwork : FixedArray[Double],
+) -> Lapack_int = "LAPACKE_zgbrfs_work"
