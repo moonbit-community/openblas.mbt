@@ -896,6 +896,7 @@ test "cblas_dsyr2 test" {
   assert_eq(a[2], 0.0) // a[1,0] not updated (upper triangular)
   assert_eq(a[3], 5.0) // a[1,1] = 1 + 4 = 5
 }
+
 ///|
 test "cblas_dtbsv test" {
   // Test cblas_dtbsv (double precision triangular band matrix solve)
@@ -924,6 +925,7 @@ test "cblas_dtbsv test" {
   assert_eq(x[1], 2.0) // 6/3 = 2
   assert_eq(x[2], 2.0) // 8/4 = 2
 }
+
 ///|
 test "cblas_dtpsv test" {
   // Test cblas_dtpsv (double precision triangular packed matrix solve)
@@ -952,6 +954,7 @@ test "cblas_dtpsv test" {
   assert_eq((x[1] - 1.5).abs() < 0.001, true)
   assert_eq((x[2] - 1.0).abs() < 0.001, true)
 }
+
 ///|
 test "cblas_dzamax test" {
   // Test cblas_dzamax (complex double max absolute value)
@@ -965,6 +968,7 @@ test "cblas_dzamax test" {
   // The actual implementation returns 7.0 for this test case
   assert_eq(result, 7.0)
 }
+
 ///|
 test "cblas_dzamin test" {
   // Test cblas_dzamin (complex double min absolute value)
@@ -981,6 +985,7 @@ test "cblas_dzamin test" {
   // Minimum is 1.0 (from 0+1i)
   assert_eq(result, 1.0)
 }
+
 ///|
 test "cblas_dzasum test" {
   // Test cblas_dzasum (complex double absolute sum)
@@ -994,6 +999,7 @@ test "cblas_dzasum test" {
   // The actual implementation returns 11.0 for this test case
   assert_eq(result, 11.0)
 }
+
 ///|
 test "cblas_dznrm2 test" {
   // Test cblas_dznrm2 (complex double 2-norm)
@@ -1006,6 +1012,7 @@ test "cblas_dznrm2 test" {
   // Expected result: ||x||_2 = sqrt(|3+4i|^2 + |0+0i|^2) = sqrt(25 + 0) = 5.0
   assert_eq(result, 5.0)
 }
+
 ///|
 test "cblas_dzsum test" {
   // Test cblas_dzsum (complex double sum)
@@ -1018,6 +1025,7 @@ test "cblas_dzsum test" {
   // Expected result: sum of real and imaginary parts = (1+3) + (2+4) = 4 + 6 = 10
   assert_eq(result, 10.0)
 }
+
 ///|
 test "cblas_izamax test" {
   // Test cblas_izamax (complex double max absolute value index)
@@ -1034,6 +1042,7 @@ test "cblas_izamax test" {
   // Maximum is at index 1
   assert_eq(result.to_int(), 1)
 }
+
 ///|
 test "cblas_izamin test" {
   // Test cblas_izamin (complex double min absolute value index)
@@ -1050,6 +1059,7 @@ test "cblas_izamin test" {
   // Minimum is at index 2
   assert_eq(result.to_int(), 2)
 }
+
 ///|
 test "cblas_izmax test" {
   // Test cblas_izmax (complex double max real part index)
@@ -1063,6 +1073,7 @@ test "cblas_izmax test" {
   // The actual implementation returns index 2 for this test case
   assert_eq(result.to_int(), 2)
 }
+
 ///|
 test "cblas_izmin test" {
   // Test cblas_izmin (complex double min real part index)

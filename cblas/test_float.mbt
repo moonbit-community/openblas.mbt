@@ -935,6 +935,7 @@ test "cblas_ssyr2 test" {
   assert_eq(a[2], 0.0) // a[1,0] not updated (upper triangular)
   assert_eq(a[3], 5.0) // a[1,1] = 1 + 4 = 5
 }
+
 ///|
 test "cblas_stbsv test" {
   // Test cblas_stbsv (single precision triangular band matrix solve)
@@ -963,6 +964,7 @@ test "cblas_stbsv test" {
   assert_eq(x[1], 2.0) // 6/3 = 2
   assert_eq(x[2], 2.0) // 8/4 = 2
 }
+
 ///|
 test "cblas_stpsv test" {
   // Test cblas_stpsv (single precision triangular packed matrix solve)
@@ -991,6 +993,7 @@ test "cblas_stpsv test" {
   assert_eq((x[1] - 1.5).abs() < 0.001, true)
   assert_eq((x[2] - 1.0).abs() < 0.001, true)
 }
+
 ///|
 test "cblas_scsum test" {
   // Test cblas_scsum (single precision complex sum)

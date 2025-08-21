@@ -1,3 +1,4 @@
+///|
 test "cblas_zdotu test" {
   // Test cblas_zdotu with a simple case
   let n = 3
@@ -194,9 +195,8 @@ test "cblas_zgemv test" {
   let a : FixedArray[Double] = [1.0, 0.0, 2.0, 0.0, 3.0, 0.0, 4.0, 0.0]
   let x : FixedArray[Double] = [1.0, 1.0, 2.0, 2.0] // [1+i, 2+2i]
   let y : FixedArray[Double] = [0.0, 0.0, 0.0, 0.0] // Result vector
-  
   cblas_zgemv(CblasRowMajor, CblasNoTrans, m, n, alpha, a, n, x, 1, beta, y, 1)
-  
+
   // Expected result: y = A*x = [[1, 2], [3, 4]] * [1+i, 2+2i] = [5+5i, 11+11i]
   assert_eq(y[0], 5.0) // Real part of first element
   assert_eq(y[1], 5.0) // Imaginary part of first element  
@@ -213,9 +213,8 @@ test "cblas_zgeru test" {
   let x : FixedArray[Double] = [1.0, 1.0, 2.0, 0.0] // [1+i, 2+0i]
   let y : FixedArray[Double] = [3.0, 0.0, 1.0, 1.0] // [3+0i, 1+i]
   let a : FixedArray[Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] // 2x2 matrix initialized to zero
-  
   cblas_zgeru(CblasRowMajor, m, n, alpha, x, 1, y, 1, a, n)
-  
+
   // Expected result: A = alpha * x * y^T
   // x * y^T = [[1+i], [2+0i]] * [3+0i, 1+i] = [[(1+i)*(3+0i), (1+i)*(1+i)], [(2+0i)*(3+0i), (2+0i)*(1+i)]]
   // = [[3+3i, 1+2i-1], [6+0i, 2+2i]] = [[3+3i, 0+2i], [6+0i, 2+2i]]
@@ -238,9 +237,8 @@ test "cblas_zgerc test" {
   let x : FixedArray[Double] = [1.0, 1.0, 2.0, 0.0] // [1+i, 2+0i]
   let y : FixedArray[Double] = [3.0, 1.0, 1.0, 1.0] // [3+i, 1+i]
   let a : FixedArray[Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] // 2x2 matrix initialized to zero
-  
   cblas_zgerc(CblasRowMajor, m, n, alpha, x, 1, y, 1, a, n)
-  
+
   // Expected result: A = alpha * x * conj(y)^T  
   // x * conj(y)^T = [[1+i], [2+0i]] * [3-i, 1-i] = [[(1+i)*(3-i), (1+i)*(1-i)], [(2+0i)*(3-i), (2+0i)*(1-i)]]
   // = [[3-i+3i+1, 1-i+i+1], [6-2i, 2-2i]] = [[4+2i, 2+0i], [6-2i, 2-2i]]
