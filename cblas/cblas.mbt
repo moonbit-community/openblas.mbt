@@ -3258,11 +3258,11 @@ pub extern "C" fn cblas_caxpby(
 /// ```
 pub extern "C" fn cblas_zaxpby(
   n : Int,
-  alpha : FixedArray[Float],
-  x : FixedArray[Float],
+  alpha : FixedArray[Double],
+  x : FixedArray[Double],
   incx : Int,
-  beta : FixedArray[Float],
-  y : FixedArray[Float],
+  beta : FixedArray[Double],
+  y : FixedArray[Double],
   incy : Int,
 ) = "cblas_zaxpby"
 //

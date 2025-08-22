@@ -367,3 +367,81 @@ test "cblas_cgerc test" {
   assert_eq(a[6], 2.0) // A[1,1] real
   assert_eq(a[7], -2.0) // A[1,1] imag
 }
+
+///|
+test "cblas_csrot test" {
+  // Test cblas_csrot (complex single precision real Givens rotation)
+  let n = 3
+  let x : FixedArray[Float] = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0] // [1+2i, 3+4i, 5+6i]
+  let y : FixedArray[Float] = [7.0, 8.0, 9.0, 10.0, 11.0, 12.0] // [7+8i, 9+10i, 11+12i]
+  let c : Float = 0.6 // cos(theta)
+  let s : Float = 0.8 // sin(theta)
+  cblas_csrot(n, x, 1, y, 1, c, s)
+
+  // Expected result: [x'; y'] = [[c, s], [-s, c]] * [x; y] (applied to both real and imaginary parts)
+  // For first element: x'[0] = c*x[0] + s*y[0] = 0.6*(1+2i) + 0.8*(7+8i) = 0.6+1.2i + 5.6+6.4i = 6.2+7.6i
+  // y'[0] = -s*x[0] + c*y[0] = -0.8*(1+2i) + 0.6*(7+8i) = -0.8-1.6i + 4.2+4.8i = 3.4+3.2i
+  assert_eq((x[0] - 6.2).abs() < 0.001, true) // x'[0] real
+  assert_eq((x[1] - 7.6).abs() < 0.001, true) // x'[0] imag
+  assert_eq((y[0] - 3.4).abs() < 0.001, true) // y'[0] real
+  assert_eq((y[1] - 3.2).abs() < 0.001, true) // y'[0] imag
+}
+///|
+test "cblas_ctrsv test" {
+  // Test cblas_ctrsv (complex single precision triangular solve)
+  let n = 3
+  // Upper triangular matrix: [[2+0i, 1+0i, 1+0i], [0+0i, 2+0i, 1+0i], [0+0i, 0+0i, 2+0i]]
+  let a : FixedArray[Float] = [2.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 2.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 0.0]
+  let x : FixedArray[Float] = [6.0, 0.0, 4.0, 0.0, 2.0, 0.0] // right-hand side [6+0i, 4+0i, 2+0i]
+  cblas_ctrsv(CblasRowMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, a, n, x, 1)
+
+  // Solve A * x = b where A = [[2, 1, 1], [0, 2, 1], [0, 0, 2]], b = [6, 4, 2]
+  // Back substitution: x[2] = 1, x[1] = 1.5, x[0] = 1.75
+  assert_eq((x[0] - 1.75).abs() < 0.001, true) // x[0] real
+  assert_eq(x[1].abs() < 0.001, true) // x[0] imag (should be 0)
+  assert_eq((x[2] - 1.5).abs() < 0.001, true) // x[1] real
+  assert_eq(x[3].abs() < 0.001, true) // x[1] imag (should be 0)
+  assert_eq((x[4] - 1.0).abs() < 0.001, true) // x[2] real
+  assert_eq(x[5].abs() < 0.001, true) // x[2] imag (should be 0)
+}
+
+///|
+test "cblas_ctrmv test" {
+  // Test cblas_ctrmv (complex single precision triangular matrix vector multiplication)
+  let n = 3
+  // Upper triangular matrix: [[1+0i, 2+0i, 3+0i], [0+0i, 4+0i, 5+0i], [0+0i, 0+0i, 6+0i]]
+  let a : FixedArray[Float] = [1.0, 0.0, 2.0, 0.0, 3.0, 0.0, 0.0, 0.0, 4.0, 0.0, 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 6.0, 0.0]
+  let x : FixedArray[Float] = [1.0, 0.0, 2.0, 0.0, 3.0, 0.0] // [1+0i, 2+0i, 3+0i]
+  cblas_ctrmv(CblasRowMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, a, n, x, 1)
+
+  // Expected result: x = A * x
+  // x[0] = 1*1 + 2*2 + 3*3 = 14, x[1] = 0*1 + 4*2 + 5*3 = 23, x[2] = 0*1 + 0*2 + 6*3 = 18
+  assert_eq(x[0], 14.0) // x[0] real
+  assert_eq(x[1], 0.0) // x[0] imag
+  assert_eq(x[2], 23.0) // x[1] real
+  assert_eq(x[3], 0.0) // x[1] imag
+  assert_eq(x[4], 18.0) // x[2] real
+  assert_eq(x[5], 0.0) // x[2] imag
+}
+
+///|
+test "cblas_cher test" {
+  // Test cblas_cher (complex single precision Hermitian rank-1 update)
+  let n = 2
+  let alpha : Float = 2.0 // real scalar
+  let x : FixedArray[Float] = [1.0, 1.0, 2.0, 0.0] // [1+i, 2+0i]
+  let a : FixedArray[Float] = [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0] // 2x2 identity matrix
+  cblas_cher(CblasRowMajor, CblasUpper, n, alpha, x, 1, a, n)
+
+  // Expected result: A = A + alpha * x * conj(x)^H
+  // x * conj(x)^H = [[1+i], [2+0i]] * [1-i, 2-0i] = [[(1+i)*(1-i), (1+i)*2], [(2)*(1-i), (2)*2]]
+  // = [[1+1, 2+2i], [2-2i, 4]] = [[2, 2+2i], [2-2i, 4]]
+  // A = [[1, 0], [0, 1]] + 2 * [[2, 2+2i], [2-2i, 4]] = [[5, 4+4i], [4-4i, 9]]
+  // But only upper triangle is updated in Hermitian matrix
+  assert_eq(a[0], 5.0) // a[0,0] real
+  assert_eq(a[1], 0.0) // a[0,0] imag (should be 0 for Hermitian)
+  assert_eq(a[2], 4.0) // a[0,1] real
+  assert_eq(a[3], 4.0) // a[0,1] imag
+  assert_eq(a[6], 9.0) // a[1,1] real
+  assert_eq(a[7], 0.0) // a[1,1] imag (should be 0 for Hermitian)
+}

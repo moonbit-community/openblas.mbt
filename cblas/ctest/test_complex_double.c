@@ -238,3 +238,154 @@ int test_cblas_zgerc() {
     result &= assert_eq(a[7], -2.0, "cblas_zgerc a[1,1] imag");
     return result;
 }
+int test_cblas_zdotu_sub() {
+    int n = 2;
+    double x[] = {1.0, 2.0, 3.0, 4.0}; // [1+2i, 3+4i]
+    double y[] = {5.0, 6.0, 7.0, 8.0}; // [5+6i, 7+8i]
+    double result[] = {0.0, 0.0}; // result as flattened complex number
+    
+    cblas_zdotu_sub(n, x, 1, y, 1, result);
+    
+    // Expected result: (-18+68i)
+    int failed = 0;
+    failed += assert_eq(result[0], -18.0, "cblas_zdotu_sub real");
+    failed += assert_eq(result[1], 68.0, "cblas_zdotu_sub imag");
+    return failed;
+}
+
+int test_cblas_zdotc_sub() {
+    int n = 2;
+    double x[] = {1.0, 2.0, 3.0, 4.0}; // [1+2i, 3+4i]
+    double y[] = {5.0, 6.0, 7.0, 8.0}; // [5+6i, 7+8i]
+    double result[] = {0.0, 0.0}; // result as flattened complex number
+    
+    cblas_zdotc_sub(n, x, 1, y, 1, result);
+    
+    // Expected result: (70-8i)
+    int failed = 0;
+    failed += assert_eq(result[0], 70.0, "cblas_zdotc_sub real");
+    failed += assert_eq(result[1], -8.0, "cblas_zdotc_sub imag");
+    return failed;
+}
+
+int test_cblas_zdrot() {
+    int n = 3;
+    double x[] = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0}; // [1+2i, 3+4i, 5+6i]
+    double y[] = {7.0, 8.0, 9.0, 10.0, 11.0, 12.0}; // [7+8i, 9+10i, 11+12i]
+    double c = 0.6, s = 0.8;
+    
+    cblas_zdrot(n, x, 1, y, 1, c, s);
+    
+    // Expected result for first element: x'[0] = 6.2+7.6i, y'[0] = 3.4+3.2i
+    int failed = 0;
+    if (fabs(x[0] - 6.2) > 0.001) {
+        printf("cblas_zdrot x[0] real Test Failed: actual: %f, expect: %f\n", x[0], 6.2);
+        failed++;
+    }
+    if (fabs(x[1] - 7.6) > 0.001) {
+        printf("cblas_zdrot x[0] imag Test Failed: actual: %f, expect: %f\n", x[1], 7.6);
+        failed++;
+    }
+    if (fabs(y[0] - 3.4) > 0.001) {
+        printf("cblas_zdrot y[0] real Test Failed: actual: %f, expect: %f\n", y[0], 3.4);
+        failed++;
+    }
+    if (fabs(y[1] - 3.2) > 0.001) {
+        printf("cblas_zdrot y[0] imag Test Failed: actual: %f, expect: %f\n", y[1], 3.2);
+        failed++;
+    }
+    return failed;
+}
+
+int test_cblas_zaxpby() {
+    int n = 2;
+    float alpha[] = {2.0, 1.0}; // 2+1i (using Float as per interface)
+    float beta[] = {1.0, 1.0}; // 1+1i
+    float x[] = {1.0, 2.0, 3.0, 4.0}; // [1+2i, 3+4i] (using Float)
+    float y[] = {5.0, 6.0, 7.0, 8.0}; // [5+6i, 7+8i] (using Float)
+    
+    cblas_zaxpby(n, alpha, x, 1, beta, y, 1);
+    
+    // Expected result: y = alpha*x + beta*y = [-1+16i, 1+26i]
+    int failed = 0;
+    failed += assert_eq(y[0], -1.0, "cblas_zaxpby y[0] real");
+    failed += assert_eq(y[1], 16.0, "cblas_zaxpby y[0] imag");
+    failed += assert_eq(y[2], 1.0, "cblas_zaxpby y[1] real");
+    failed += assert_eq(y[3], 26.0, "cblas_zaxpby y[1] imag");
+    return failed;
+}
+
+int test_cblas_ztrsv() {
+    int n = 3;
+    // Upper triangular matrix: [[2+0i, 1+0i, 1+0i], [0+0i, 2+0i, 1+0i], [0+0i, 0+0i, 2+0i]]
+    double a[] = {2.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 2.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 0.0};
+    double x[] = {6.0, 0.0, 4.0, 0.0, 2.0, 0.0}; // right-hand side [6+0i, 4+0i, 2+0i]
+    
+    cblas_ztrsv(CblasRowMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, a, n, x, 1);
+    
+    // Expected solution: [1.75+0i, 1.5+0i, 1.0+0i]
+    int failed = 0;
+    if (fabs(x[0] - 1.75) > 0.001) {
+        printf("cblas_ztrsv x[0] real Test Failed: actual: %f, expect: %f\n", x[0], 1.75);
+        failed++;
+    }
+    if (fabs(x[1]) > 0.001) {
+        printf("cblas_ztrsv x[0] imag Test Failed: actual: %f, expect: %f\n", x[1], 0.0);
+        failed++;
+    }
+    if (fabs(x[2] - 1.5) > 0.001) {
+        printf("cblas_ztrsv x[1] real Test Failed: actual: %f, expect: %f\n", x[2], 1.5);
+        failed++;
+    }
+    if (fabs(x[3]) > 0.001) {
+        printf("cblas_ztrsv x[1] imag Test Failed: actual: %f, expect: %f\n", x[3], 0.0);
+        failed++;
+    }
+    if (fabs(x[4] - 1.0) > 0.001) {
+        printf("cblas_ztrsv x[2] real Test Failed: actual: %f, expect: %f\n", x[4], 1.0);
+        failed++;
+    }
+    if (fabs(x[5]) > 0.001) {
+        printf("cblas_ztrsv x[2] imag Test Failed: actual: %f, expect: %f\n", x[5], 0.0);
+        failed++;
+    }
+    return failed;
+}
+
+int test_cblas_ztrmv() {
+    int n = 3;
+    // Upper triangular matrix: [[1+0i, 2+0i, 3+0i], [0+0i, 4+0i, 5+0i], [0+0i, 0+0i, 6+0i]]
+    double a[] = {1.0, 0.0, 2.0, 0.0, 3.0, 0.0, 0.0, 0.0, 4.0, 0.0, 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 6.0, 0.0};
+    double x[] = {1.0, 0.0, 2.0, 0.0, 3.0, 0.0}; // [1+0i, 2+0i, 3+0i]
+    
+    cblas_ztrmv(CblasRowMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, a, n, x, 1);
+    
+    // Expected result: [14+0i, 23+0i, 18+0i]
+    int failed = 0;
+    failed += assert_eq(x[0], 14.0, "cblas_ztrmv x[0] real");
+    failed += assert_eq(x[1], 0.0, "cblas_ztrmv x[0] imag");
+    failed += assert_eq(x[2], 23.0, "cblas_ztrmv x[1] real");
+    failed += assert_eq(x[3], 0.0, "cblas_ztrmv x[1] imag");
+    failed += assert_eq(x[4], 18.0, "cblas_ztrmv x[2] real");
+    failed += assert_eq(x[5], 0.0, "cblas_ztrmv x[2] imag");
+    return failed;
+}
+
+int test_cblas_zher() {
+    int n = 2;
+    double alpha = 2.0; // real scalar
+    double x[] = {1.0, 1.0, 2.0, 0.0}; // [1+i, 2+0i]
+    double a[] = {1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0}; // 2x2 identity matrix
+    
+    cblas_zher(CblasRowMajor, CblasUpper, n, alpha, x, 1, a, n);
+    
+    // Expected result: A = [[5+0i, 4+4i], [4-4i, 9+0i]] (only upper triangle updated)
+    int failed = 0;
+    failed += assert_eq(a[0], 5.0, "cblas_zher a[0,0] real");
+    failed += assert_eq(a[1], 0.0, "cblas_zher a[0,0] imag");
+    failed += assert_eq(a[2], 4.0, "cblas_zher a[0,1] real");
+    failed += assert_eq(a[3], 4.0, "cblas_zher a[0,1] imag");
+    failed += assert_eq(a[6], 9.0, "cblas_zher a[1,1] real");
+    failed += assert_eq(a[7], 0.0, "cblas_zher a[1,1] imag");
+    return failed;
+}

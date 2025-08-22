@@ -343,3 +343,106 @@ int test_cblas_cgerc() {
     result &= assert_eq(a[7], -2.0f, "cblas_cgerc a[1,1] imag");
     return result;
 }
+int test_cblas_csrot() {
+    int n = 3;
+    float x[] = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f}; // [1+2i, 3+4i, 5+6i]
+    float y[] = {7.0f, 8.0f, 9.0f, 10.0f, 11.0f, 12.0f}; // [7+8i, 9+10i, 11+12i]
+    float c = 0.6f, s = 0.8f;
+    
+    cblas_csrot(n, x, 1, y, 1, c, s);
+    
+    // Expected result for first element: x'[0] = 6.2+7.6i, y'[0] = 3.4+3.2i
+    int failed = 0;
+    if (fabsf(x[0] - 6.2f) > 0.001f) {
+        printf("cblas_csrot x[0] real Test Failed: actual: %f, expect: %f\n", x[0], 6.2f);
+        failed++;
+    }
+    if (fabsf(x[1] - 7.6f) > 0.001f) {
+        printf("cblas_csrot x[0] imag Test Failed: actual: %f, expect: %f\n", x[1], 7.6f);
+        failed++;
+    }
+    if (fabsf(y[0] - 3.4f) > 0.001f) {
+        printf("cblas_csrot y[0] real Test Failed: actual: %f, expect: %f\n", y[0], 3.4f);
+        failed++;
+    }
+    if (fabsf(y[1] - 3.2f) > 0.001f) {
+        printf("cblas_csrot y[0] imag Test Failed: actual: %f, expect: %f\n", y[1], 3.2f);
+        failed++;
+    }
+    return failed;
+}
+
+int test_cblas_ctrsv() {
+    int n = 3;
+    // Upper triangular matrix: [[2+0i, 1+0i, 1+0i], [0+0i, 2+0i, 1+0i], [0+0i, 0+0i, 2+0i]]
+    float a[] = {2.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 2.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 2.0f, 0.0f};
+    float x[] = {6.0f, 0.0f, 4.0f, 0.0f, 2.0f, 0.0f}; // right-hand side [6+0i, 4+0i, 2+0i]
+    
+    cblas_ctrsv(CblasRowMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, a, n, x, 1);
+    
+    // Expected solution: [1.75+0i, 1.5+0i, 1.0+0i]
+    int failed = 0;
+    if (fabsf(x[0] - 1.75f) > 0.001f) {
+        printf("cblas_ctrsv x[0] real Test Failed: actual: %f, expect: %f\n", x[0], 1.75f);
+        failed++;
+    }
+    if (fabsf(x[1]) > 0.001f) {
+        printf("cblas_ctrsv x[0] imag Test Failed: actual: %f, expect: %f\n", x[1], 0.0f);
+        failed++;
+    }
+    if (fabsf(x[2] - 1.5f) > 0.001f) {
+        printf("cblas_ctrsv x[1] real Test Failed: actual: %f, expect: %f\n", x[2], 1.5f);
+        failed++;
+    }
+    if (fabsf(x[3]) > 0.001f) {
+        printf("cblas_ctrsv x[1] imag Test Failed: actual: %f, expect: %f\n", x[3], 0.0f);
+        failed++;
+    }
+    if (fabsf(x[4] - 1.0f) > 0.001f) {
+        printf("cblas_ctrsv x[2] real Test Failed: actual: %f, expect: %f\n", x[4], 1.0f);
+        failed++;
+    }
+    if (fabsf(x[5]) > 0.001f) {
+        printf("cblas_ctrsv x[2] imag Test Failed: actual: %f, expect: %f\n", x[5], 0.0f);
+        failed++;
+    }
+    return failed;
+}
+
+int test_cblas_ctrmv() {
+    int n = 3;
+    // Upper triangular matrix: [[1+0i, 2+0i, 3+0i], [0+0i, 4+0i, 5+0i], [0+0i, 0+0i, 6+0i]]
+    float a[] = {1.0f, 0.0f, 2.0f, 0.0f, 3.0f, 0.0f, 0.0f, 0.0f, 4.0f, 0.0f, 5.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 6.0f, 0.0f};
+    float x[] = {1.0f, 0.0f, 2.0f, 0.0f, 3.0f, 0.0f}; // [1+0i, 2+0i, 3+0i]
+    
+    cblas_ctrmv(CblasRowMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, a, n, x, 1);
+    
+    // Expected result: [14+0i, 23+0i, 18+0i]
+    int failed = 0;
+    failed += assert_eq(x[0], 14.0f, "cblas_ctrmv x[0] real");
+    failed += assert_eq(x[1], 0.0f, "cblas_ctrmv x[0] imag");
+    failed += assert_eq(x[2], 23.0f, "cblas_ctrmv x[1] real");
+    failed += assert_eq(x[3], 0.0f, "cblas_ctrmv x[1] imag");
+    failed += assert_eq(x[4], 18.0f, "cblas_ctrmv x[2] real");
+    failed += assert_eq(x[5], 0.0f, "cblas_ctrmv x[2] imag");
+    return failed;
+}
+
+int test_cblas_cher() {
+    int n = 2;
+    float alpha = 2.0f; // real scalar
+    float x[] = {1.0f, 1.0f, 2.0f, 0.0f}; // [1+i, 2+0i]
+    float a[] = {1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f}; // 2x2 identity matrix
+    
+    cblas_cher(CblasRowMajor, CblasUpper, n, alpha, x, 1, a, n);
+    
+    // Expected result: A = [[5+0i, 4+4i], [4-4i, 9+0i]] (only upper triangle updated)
+    int failed = 0;
+    failed += assert_eq(a[0], 5.0f, "cblas_cher a[0,0] real");
+    failed += assert_eq(a[1], 0.0f, "cblas_cher a[0,0] imag");
+    failed += assert_eq(a[2], 4.0f, "cblas_cher a[0,1] real");
+    failed += assert_eq(a[3], 4.0f, "cblas_cher a[0,1] imag");
+    failed += assert_eq(a[6], 9.0f, "cblas_cher a[1,1] real");
+    failed += assert_eq(a[7], 0.0f, "cblas_cher a[1,1] imag");
+    return failed;
+}
