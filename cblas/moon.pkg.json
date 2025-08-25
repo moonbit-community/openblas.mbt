@@ -1,5 +1,6 @@
 {
   "supported-targets": ["native"],
+  "native-stub": ["wrap.c"],
   "link" : {
     "native" : {
       "cc" : "$CC",
