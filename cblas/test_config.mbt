@@ -1,5 +1,4 @@
-
-
+///|
 test "Output Config" {
   //let num_threads = openblas_get_num_threads()
   //let num_procs = openblas_get_num_procs()
@@ -12,7 +11,6 @@ test "Output Config" {
   //println("OpenBLAS Configuration:\{config}")
   //println("Core Name: \{corename}")
   //println("Parallel Support: \{parallel}")
-
 
   ignore(openblas_get_num_threads)
   ignore(openblas_get_num_procs)

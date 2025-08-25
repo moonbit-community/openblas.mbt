@@ -386,14 +386,28 @@ test "cblas_csrot test" {
   assert_eq((y[0] - 3.4).abs() < 0.001, true) // y'[0] real
   assert_eq((y[1] - 3.2).abs() < 0.001, true) // y'[0] imag
 }
+
 ///|
 test "cblas_ctrsv test" {
   // Test cblas_ctrsv (complex single precision triangular solve)
   let n = 3
   // Upper triangular matrix: [[2+0i, 1+0i, 1+0i], [0+0i, 2+0i, 1+0i], [0+0i, 0+0i, 2+0i]]
-  let a : FixedArray[Float] = [2.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 2.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 0.0]
+  let a : FixedArray[Float] = [
+    2.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 2.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    2.0, 0.0,
+  ]
   let x : FixedArray[Float] = [6.0, 0.0, 4.0, 0.0, 2.0, 0.0] // right-hand side [6+0i, 4+0i, 2+0i]
-  cblas_ctrsv(CblasRowMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, a, n, x, 1)
+  cblas_ctrsv(
+    CblasRowMajor,
+    CblasUpper,
+    CblasNoTrans,
+    CblasNonUnit,
+    n,
+    a,
+    n,
+    x,
+    1,
+  )
 
   // Solve A * x = b where A = [[2, 1, 1], [0, 2, 1], [0, 0, 2]], b = [6, 4, 2]
   // Back substitution: x[2] = 1, x[1] = 1.5, x[0] = 1.75
@@ -410,9 +424,22 @@ test "cblas_ctrmv test" {
   // Test cblas_ctrmv (complex single precision triangular matrix vector multiplication)
   let n = 3
   // Upper triangular matrix: [[1+0i, 2+0i, 3+0i], [0+0i, 4+0i, 5+0i], [0+0i, 0+0i, 6+0i]]
-  let a : FixedArray[Float] = [1.0, 0.0, 2.0, 0.0, 3.0, 0.0, 0.0, 0.0, 4.0, 0.0, 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 6.0, 0.0]
+  let a : FixedArray[Float] = [
+    1.0, 0.0, 2.0, 0.0, 3.0, 0.0, 0.0, 0.0, 4.0, 0.0, 5.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    6.0, 0.0,
+  ]
   let x : FixedArray[Float] = [1.0, 0.0, 2.0, 0.0, 3.0, 0.0] // [1+0i, 2+0i, 3+0i]
-  cblas_ctrmv(CblasRowMajor, CblasUpper, CblasNoTrans, CblasNonUnit, n, a, n, x, 1)
+  cblas_ctrmv(
+    CblasRowMajor,
+    CblasUpper,
+    CblasNoTrans,
+    CblasNonUnit,
+    n,
+    a,
+    n,
+    x,
+    1,
+  )
 
   // Expected result: x = A * x
   // x[0] = 1*1 + 2*2 + 3*3 = 14, x[1] = 0*1 + 4*2 + 5*3 = 23, x[2] = 0*1 + 0*2 + 6*3 = 18

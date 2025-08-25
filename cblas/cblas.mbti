@@ -322,7 +322,7 @@ fn cblas_strsm(CBLAS_ORDER, CBLAS_SIDE, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG,
 
 fn cblas_strsv(CBLAS_ORDER, CBLAS_UPLO, CBLAS_TRANSPOSE, CBLAS_DIAG, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Unit
 
-fn cblas_zaxpby(Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Unit
+fn cblas_zaxpby(Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Unit
 
 fn cblas_zaxpy(Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Unit
 
@@ -425,10 +425,6 @@ fn openblas_get_num_threads() -> Int
 fn openblas_get_parallel() -> Int
 
 fn openblas_set_num_threads(Int) -> Unit
-
-fn openblas_set_num_threads_local(Int) -> Int
-
-fn openblas_set_threads_callback_function(FuncRef[(Int, FuncRef[(Int, VoidPtr, Int) -> Unit], Int, Int, VoidPtr, Int) -> Unit]) -> Unit
 
 // Errors
 
