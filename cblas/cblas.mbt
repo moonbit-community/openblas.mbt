@@ -2137,7 +2137,7 @@ extern "C" fn cblas_chemv(
 ///|
 ///
 /// ```c
-/// void cblas_zhemv(const enum CBLAS_ORDER order, const enum CBLAS_UPLO Uplo, const blasint N, const void *alpha, const void *A,
+/// void cblas_emv(const enum CBLAS_ORDER order, const enum CBLAS_UPLO Uplo, const blasint N, const void *alpha, const void *A,
 ///                 const blasint lda, const void *X, const blasint incX, const void *beta, void *Y, const blasint incY);
 /// ```
 extern "C" fn cblas_zhemv(
@@ -2714,13 +2714,13 @@ extern "C" fn cblas_zsymm(
   uplo : CBLAS_UPLO,
   m : Int,
   n : Int,
-  alpha : FixedArray[Float],
-  a : FixedArray[Float],
+  alpha : FixedArray[Double],
+  a : FixedArray[Double],
   lda : Int,
-  b : FixedArray[Float],
+  b : FixedArray[Double],
   ldb : Int,
-  beta : FixedArray[Float],
-  c : FixedArray[Float],
+  beta : FixedArray[Double],
+  c : FixedArray[Double],
   ldc : Int,
 ) = "cblas_zsymm"
 
@@ -2796,11 +2796,11 @@ extern "C" fn cblas_zsyrk(
   trans : CBLAS_TRANSPOSE,
   n : Int,
   k : Int,
-  alpha : FixedArray[Float],
-  a : FixedArray[Float],
+  alpha : FixedArray[Double],
+  a : FixedArray[Double],
   lda : Int,
-  beta : FixedArray[Float],
-  c : FixedArray[Float],
+  beta : FixedArray[Double],
+  c : FixedArray[Double],
   ldc : Int,
 ) = "cblas_zsyrk"
 
@@ -2882,13 +2882,13 @@ extern "C" fn cblas_zsyr2k(
   trans : CBLAS_TRANSPOSE,
   n : Int,
   k : Int,
-  alpha : FixedArray[Float],
-  a : FixedArray[Float],
+  alpha : FixedArray[Double],
+  a : FixedArray[Double],
   lda : Int,
-  b : FixedArray[Float],
+  b : FixedArray[Double],
   ldb : Int,
-  beta : FixedArray[Float],
-  c : FixedArray[Float],
+  beta : FixedArray[Double],
+  c : FixedArray[Double],
   ldc : Int,
 ) = "cblas_zsyr2k"
 //
@@ -2970,10 +2970,10 @@ extern "C" fn cblas_ztrmm(
   diag : CBLAS_DIAG,
   m : Int,
   n : Int,
-  alpha : FixedArray[Float],
-  a : FixedArray[Float],
+  alpha : FixedArray[Double],
+  a : FixedArray[Double],
   lda : Int,
-  b : FixedArray[Float],
+  b : FixedArray[Double],
   ldb : Int,
 ) = "cblas_ztrmm"
 
@@ -3054,10 +3054,10 @@ extern "C" fn cblas_ztrsm(
   diag : CBLAS_DIAG,
   m : Int,
   n : Int,
-  alpha : FixedArray[Float],
-  a : FixedArray[Float],
+  alpha : FixedArray[Double],
+  a : FixedArray[Double],
   lda : Int,
-  b : FixedArray[Float],
+  b : FixedArray[Double],
   ldb : Int,
 ) = "cblas_ztrsm"
 //

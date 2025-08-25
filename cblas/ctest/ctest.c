@@ -167,6 +167,13 @@ int main() {
     failed += test_cblas_zgeru();
     failed += test_cblas_zgerc();
     
+    // New Level 3 BLAS complex double tests
+    failed += test_cblas_zgemm();
+    
+    // New Level 2 BLAS complex double tests
+    failed += test_cblas_zher2();
+    failed += test_cblas_zgbmv();
+    
     if (failed > 0) {
         printf("%d tests failed.\n", failed);
         return 1;

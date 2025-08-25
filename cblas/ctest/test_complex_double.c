@@ -389,3 +389,80 @@ int test_cblas_zher() {
     failed += assert_eq(a[7], 0.0, "cblas_zher a[1,1] imag");
     return failed;
 }
+int test_cblas_zgemm() {
+    int m = 2, n = 2, k = 2;
+    double alpha[] = {1.0, 0.0}; // 1+0i
+    double beta[] = {0.0, 0.0}; // 0+0i
+    
+    // Matrix A: 2x2 = [[1+i, 2+0i], [0+i, 1+0i]]
+    double a[] = {1.0, 1.0, 2.0, 0.0, 0.0, 1.0, 1.0, 0.0};
+    
+    // Matrix B: 2x2 = [[2+0i, 1+i], [1+0i, 2+i]]
+    double b[] = {2.0, 0.0, 1.0, 1.0, 1.0, 0.0, 2.0, 1.0};
+    
+    // Matrix C: 2x2 initialized to zero
+    double c[] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+    
+    cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, m, n, k, alpha, a, k, b, n, beta, c, n);
+    
+    // Expected result: C = A * B = [[4+2i, 4+4i], [1+2i, 1+2i]]
+    int failed = 0;
+    failed += assert_eq(c[0], 4.0, "cblas_zgemm c[0,0] real");
+    failed += assert_eq(c[1], 2.0, "cblas_zgemm c[0,0] imag");
+    failed += assert_eq(c[2], 4.0, "cblas_zgemm c[0,1] real");
+    failed += assert_eq(c[3], 4.0, "cblas_zgemm c[0,1] imag");
+    failed += assert_eq(c[4], 1.0, "cblas_zgemm c[1,0] real");
+    failed += assert_eq(c[5], 2.0, "cblas_zgemm c[1,0] imag");
+    failed += assert_eq(c[6], 1.0, "cblas_zgemm c[1,1] real");
+    failed += assert_eq(c[7], 2.0, "cblas_zgemm c[1,1] imag");
+    return failed;
+}
+
+int test_cblas_zher2() {
+    int n = 2;
+    double alpha[] = {1.0, 0.0}; // 1+0i
+    double x[] = {1.0, 1.0, 2.0, 0.0}; // [1+i, 2+0i]
+    double y[] = {2.0, 0.0, 1.0, 1.0}; // [2+0i, 1+i]
+    double a[] = {1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0}; // 2x2 identity matrix
+    
+    cblas_zher2(CblasRowMajor, CblasUpper, n, alpha, x, 1, y, 1, a, n);
+    
+    // Expected result: A = A + alpha*x*conj(y)^H + conj(alpha)*y*conj(x)^H
+    // For Hermitian matrices, diagonal elements should be real
+    int failed = 0;
+    if (fabs(a[1]) > 0.001) {
+        printf("cblas_zher2 a[0,0] imag Test Failed: should be 0 for Hermitian\n");
+        failed++;
+    }
+    if (fabs(a[7]) > 0.001) {
+        printf("cblas_zher2 a[1,1] imag Test Failed: should be 0 for Hermitian\n");
+        failed++;
+    }
+    return failed;
+}
+
+int test_cblas_zgbmv() {
+    int m = 3, n = 3, kl = 1, ku = 1;
+    double alpha[] = {1.0, 0.0}; // 1+0i
+    double beta[] = {0.0, 0.0}; // 0+0i
+    
+    // Band matrix A stored in band format
+    double a[] = {
+        0.0, 0.0, 1.0, 1.0, 1.0, 1.0, // row 0
+        2.0, 0.0, 2.0, 0.0, 2.0, 0.0, // row 1
+        1.0, 0.0, 1.0, 0.0, 0.0, 0.0, // row 2
+    };
+    
+    double x[] = {1.0, 0.0, 2.0, 0.0, 3.0, 0.0}; // [1+0i, 2+0i, 3+0i]
+    double y[] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0}; // Result vector
+    
+    cblas_zgbmv(CblasRowMajor, CblasNoTrans, m, n, kl, ku, alpha, a, kl + ku + 1, x, 1, beta, y, 1);
+    
+    // Just check that function executes and produces some result
+    int failed = 0;
+    if (y[0] == 0.0 && y[1] == 0.0 && y[2] == 0.0 && y[3] == 0.0) {
+        printf("cblas_zgbmv Test Failed: result vector is all zeros\n");
+        failed++;
+    }
+    return failed;
+}

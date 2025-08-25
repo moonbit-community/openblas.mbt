@@ -152,6 +152,9 @@ int test_cblas_zrotg();
 int test_cblas_zgemv();
 int test_cblas_zgeru();
 int test_cblas_zgerc();
+int test_cblas_zgemm();
+int test_cblas_zher2();
+int test_cblas_zgbmv();
 // Note: Some complex double functions may have binding issues
 
 #endif // CBLAS_TEST_H
