@@ -6,6 +6,7 @@
 ///     const lapack_complex_float* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_chetrs2(
   matrix_layout : Int,
   uplo : Byte,
@@ -27,6 +28,7 @@ pub extern "C" fn lapacke_chetrs2(
 ///     lapack_int ldb, lapack_complex_float* work
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_chetrs2_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -48,6 +50,7 @@ pub extern "C" fn lapacke_chetrs2_work(
 ///     lapack_complex_float* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_float* e
 /// );
 /// ```
+#borrow(a, ipiv, e)
 pub extern "C" fn lapacke_csyconv(
   matrix_layout : Int,
   uplo : Byte,
@@ -67,6 +70,7 @@ pub extern "C" fn lapacke_csyconv(
 ///     lapack_complex_float* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_float* e
 /// );
 /// ```
+#borrow(a, ipiv, e)
 pub extern "C" fn lapacke_csyconv_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -86,6 +90,7 @@ pub extern "C" fn lapacke_csyconv_work(
 ///     lapack_int lda, lapack_int i1, lapack_int i2
 /// );
 /// ```
+#borrow(a)
 pub extern "C" fn lapacke_csyswapr(
   matrix_layout : Int,
   uplo : Byte,
@@ -104,6 +109,7 @@ pub extern "C" fn lapacke_csyswapr(
 ///     lapack_int lda, lapack_int i1, lapack_int i2
 /// );
 /// ```
+#borrow(a)
 pub extern "C" fn lapacke_csyswapr_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -122,6 +128,7 @@ pub extern "C" fn lapacke_csyswapr_work(
 ///     lapack_int lda, const lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_csytri2(
   matrix_layout : Int,
   uplo : Byte,
@@ -139,6 +146,7 @@ pub extern "C" fn lapacke_csytri2(
 ///     lapack_int lda, const lapack_int* ipiv, lapack_complex_float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_csytri2_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -158,6 +166,7 @@ pub extern "C" fn lapacke_csytri2_work(
 ///     lapack_int lda, const lapack_int* ipiv, lapack_int nb
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_csytri2x(
   matrix_layout : Int,
   uplo : Byte,
@@ -176,6 +185,7 @@ pub extern "C" fn lapacke_csytri2x(
 ///     lapack_int lda, const lapack_int* ipiv, lapack_complex_float* work, lapack_int nb
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_csytri2x_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -195,6 +205,7 @@ pub extern "C" fn lapacke_csytri2x_work(
 ///     const lapack_complex_float* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_csytrs2(
   matrix_layout : Int,
   uplo : Byte,
@@ -216,6 +227,7 @@ pub extern "C" fn lapacke_csytrs2(
 ///     lapack_int ldb, lapack_complex_float* work
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_csytrs2_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -240,6 +252,7 @@ pub extern "C" fn lapacke_csytrs2_work(
 ///     lapack_complex_float* taup1, lapack_complex_float* taup2, lapack_complex_float* tauq1, lapack_complex_float* tauq2
 /// );
 /// ```
+#borrow(x11, x12, x21, x22, theta, phi, taup1, taup2, tauq1, tauq2)
 pub extern "C" fn lapacke_cunbdb(
   matrix_layout : Int,
   trans : Byte,
@@ -275,6 +288,7 @@ pub extern "C" fn lapacke_cunbdb(
 ///     lapack_complex_float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(x11, x12, x21, x22, theta, phi, taup1, taup2, tauq1, tauq2, work)
 pub extern "C" fn lapacke_cunbdb_work(
   matrix_layout : Int,
   trans : Byte,
@@ -313,6 +327,7 @@ pub extern "C" fn lapacke_cunbdb_work(
 ///     lapack_int ldv1t, lapack_complex_float* v2t, lapack_int ldv2t
 /// );
 /// ```
+#borrow(x11, x12, x21, x22, theta, u1, u2, v1t, v2t)
 pub extern "C" fn lapacke_cuncsd(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -357,6 +372,7 @@ pub extern "C" fn lapacke_cuncsd(
 ///     lapack_int lwork, float* rwork, lapack_int lrwork, lapack_int* iwork
 /// );
 /// ```
+#borrow(x11, x12, x21, x22, theta, u1, u2, v1t, v2t, work, rwork, iwork)
 pub extern "C" fn lapacke_cuncsd_work(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -403,6 +419,7 @@ pub extern "C" fn lapacke_cuncsd_work(
 ///     lapack_complex_float* v1t, lapack_int ldv1t
 /// );
 /// ```
+#borrow(x11, x21, theta, u1, u2, v1t)
 pub extern "C" fn lapacke_cuncsd2by1(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -436,6 +453,7 @@ pub extern "C" fn lapacke_cuncsd2by1(
 ///     float* rwork, lapack_int lrwork, lapack_int* iwork
 /// );
 /// ```
+#borrow(x11, x21, theta, u1, u2, v1t, work, rwork, iwork)
 pub extern "C" fn lapacke_cuncsd2by1_work(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -475,6 +493,7 @@ pub extern "C" fn lapacke_cuncsd2by1_work(
 ///     double* b21e, double* b22d, double* b22e
 /// );
 /// ```
+#borrow(theta, phi, u1, u2, v1t, v2t, b11d, b11e, b12d, b12e, b21d, b21e, b22d, b22e)
 pub extern "C" fn lapacke_dbbcsd(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -518,6 +537,7 @@ pub extern "C" fn lapacke_dbbcsd(
 ///     double* b21e, double* b22d, double* b22e, double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(theta, phi, u1, u2, v1t, v2t, b11d, b11e, b12d, b12e, b21d, b21e, b22d, b22e, work)
 pub extern "C" fn lapacke_dbbcsd_work(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -561,6 +581,7 @@ pub extern "C" fn lapacke_dbbcsd_work(
 ///     double* taup1, double* taup2, double* tauq1, double* tauq2
 /// );
 /// ```
+#borrow(x11, x12, x21, x22, theta, phi, taup1, taup2, tauq1, tauq2)
 pub extern "C" fn lapacke_dorbdb(
   matrix_layout : Int,
   trans : Byte,
@@ -596,6 +617,7 @@ pub extern "C" fn lapacke_dorbdb(
 ///     double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(x11, x12, x21, x22, theta, phi, taup1, taup2, tauq1, tauq2, work)
 pub extern "C" fn lapacke_dorbdb_work(
   matrix_layout : Int,
   trans : Byte,
@@ -634,6 +656,7 @@ pub extern "C" fn lapacke_dorbdb_work(
 ///     lapack_int ldv1t, double* v2t, lapack_int ldv2t
 /// );
 /// ```
+#borrow(x11, x12, x21, x22, theta, u1, u2, v1t, v2t)
 pub extern "C" fn lapacke_dorcsd(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -678,6 +701,7 @@ pub extern "C" fn lapacke_dorcsd(
 ///     lapack_int lwork, lapack_int* iwork
 /// );
 /// ```
+#borrow(x11, x12, x21, x22, theta, u1, u2, v1t, v2t, work, iwork)
 pub extern "C" fn lapacke_dorcsd_work(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -722,6 +746,7 @@ pub extern "C" fn lapacke_dorcsd_work(
 ///     double* v1t, lapack_int ldv1t
 /// );
 /// ```
+#borrow(x11, x21, theta, u1, u2, v1t)
 pub extern "C" fn lapacke_dorcsd2by1(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -754,6 +779,7 @@ pub extern "C" fn lapacke_dorcsd2by1(
 ///     double* v1t, lapack_int ldv1t, double* work, lapack_int lwork, lapack_int* iwork
 /// );
 /// ```
+#borrow(x11, x21, theta, u1, u2, v1t, work, iwork)
 pub extern "C" fn lapacke_dorcsd2by1_work(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -786,6 +812,7 @@ pub extern "C" fn lapacke_dorcsd2by1_work(
 ///     double* a, lapack_int lda, const lapack_int* ipiv, double* e
 /// );
 /// ```
+#borrow(a, ipiv, e)
 pub extern "C" fn lapacke_dsyconv(
   matrix_layout : Int,
   uplo : Byte,
@@ -805,6 +832,7 @@ pub extern "C" fn lapacke_dsyconv(
 ///     double* a, lapack_int lda, const lapack_int* ipiv, double* e
 /// );
 /// ```
+#borrow(a, ipiv, e)
 pub extern "C" fn lapacke_dsyconv_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -824,6 +852,7 @@ pub extern "C" fn lapacke_dsyconv_work(
 ///     lapack_int lda, lapack_int i1, lapack_int i2
 /// );
 /// ```
+#borrow(a)
 pub extern "C" fn lapacke_dsyswapr(
   matrix_layout : Int,
   uplo : Byte,
@@ -842,6 +871,7 @@ pub extern "C" fn lapacke_dsyswapr(
 ///     lapack_int lda, lapack_int i1, lapack_int i2
 /// );
 /// ```
+#borrow(a)
 pub extern "C" fn lapacke_dsyswapr_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -860,6 +890,7 @@ pub extern "C" fn lapacke_dsyswapr_work(
 ///     lapack_int lda, const lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_dsytri2(
   matrix_layout : Int,
   uplo : Byte,
@@ -877,6 +908,7 @@ pub extern "C" fn lapacke_dsytri2(
 ///     lapack_int lda, const lapack_int* ipiv, double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_dsytri2_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -896,6 +928,7 @@ pub extern "C" fn lapacke_dsytri2_work(
 ///     lapack_int lda, const lapack_int* ipiv, lapack_int nb
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_dsytri2x(
   matrix_layout : Int,
   uplo : Byte,
@@ -914,6 +947,7 @@ pub extern "C" fn lapacke_dsytri2x(
 ///     lapack_int lda, const lapack_int* ipiv, double* work, lapack_int nb
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_dsytri2x_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -933,6 +967,7 @@ pub extern "C" fn lapacke_dsytri2x_work(
 ///     const double* a, lapack_int lda, const lapack_int* ipiv, double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_dsytrs2(
   matrix_layout : Int,
   uplo : Byte,
@@ -954,6 +989,7 @@ pub extern "C" fn lapacke_dsytrs2(
 ///     lapack_int ldb, double* work
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_dsytrs2_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -980,6 +1016,7 @@ pub extern "C" fn lapacke_dsytrs2_work(
 ///     float* b21e, float* b22d, float* b22e
 /// );
 /// ```
+#borrow(theta, phi, u1, u2, v1t, v2t, b11d, b11e, b12d, b12e, b21d, b21e, b22d, b22e)
 pub extern "C" fn lapacke_sbbcsd(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -1023,6 +1060,7 @@ pub extern "C" fn lapacke_sbbcsd(
 ///     float* b21e, float* b22d, float* b22e, float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(theta, phi, u1, u2, v1t, v2t, b11d, b11e, b12d, b12e, b21d, b21e, b22d, b22e, work)
 pub extern "C" fn lapacke_sbbcsd_work(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -1066,6 +1104,7 @@ pub extern "C" fn lapacke_sbbcsd_work(
 ///     float* taup1, float* taup2, float* tauq1, float* tauq2
 /// );
 /// ```
+#borrow(x11, x12, x21, x22, theta, phi, taup1, taup2, tauq1, tauq2)
 pub extern "C" fn lapacke_sorbdb(
   matrix_layout : Int,
   trans : Byte,
@@ -1101,6 +1140,7 @@ pub extern "C" fn lapacke_sorbdb(
 ///     float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(x11, x12, x21, x22, theta, phi, taup1, taup2, tauq1, tauq2, work)
 pub extern "C" fn lapacke_sorbdb_work(
   matrix_layout : Int,
   trans : Byte,
@@ -1139,6 +1179,7 @@ pub extern "C" fn lapacke_sorbdb_work(
 ///     lapack_int ldv1t, float* v2t, lapack_int ldv2t
 /// );
 /// ```
+#borrow(x11, x12, x21, x22, theta, u1, u2, v1t, v2t)
 pub extern "C" fn lapacke_sorcsd(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -1183,6 +1224,7 @@ pub extern "C" fn lapacke_sorcsd(
 ///     lapack_int lwork, lapack_int* iwork
 /// );
 /// ```
+#borrow(x11, x12, x21, x22, theta, u1, u2, v1t, v2t, work, iwork)
 pub extern "C" fn lapacke_sorcsd_work(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -1227,6 +1269,7 @@ pub extern "C" fn lapacke_sorcsd_work(
 ///     float* v1t, lapack_int ldv1t
 /// );
 /// ```
+#borrow(x11, x21, theta, u1, u2, v1t)
 pub extern "C" fn lapacke_sorcsd2by1(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -1259,6 +1302,7 @@ pub extern "C" fn lapacke_sorcsd2by1(
 ///     float* v1t, lapack_int ldv1t, float* work, lapack_int lwork, lapack_int* iwork
 /// );
 /// ```
+#borrow(x11, x21, theta, u1, u2, v1t, work, iwork)
 pub extern "C" fn lapacke_sorcsd2by1_work(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -1291,6 +1335,7 @@ pub extern "C" fn lapacke_sorcsd2by1_work(
 ///     float* a, lapack_int lda, const lapack_int* ipiv, float* e
 /// );
 /// ```
+#borrow(a, ipiv, e)
 pub extern "C" fn lapacke_ssyconv(
   matrix_layout : Int,
   uplo : Byte,
@@ -1310,6 +1355,7 @@ pub extern "C" fn lapacke_ssyconv(
 ///     float* a, lapack_int lda, const lapack_int* ipiv, float* e
 /// );
 /// ```
+#borrow(a, ipiv, e)
 pub extern "C" fn lapacke_ssyconv_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -1329,6 +1375,7 @@ pub extern "C" fn lapacke_ssyconv_work(
 ///     lapack_int lda, lapack_int i1, lapack_int i2
 /// );
 /// ```
+#borrow(a)
 pub extern "C" fn lapacke_ssyswapr(
   matrix_layout : Int,
   uplo : Byte,
@@ -1347,6 +1394,7 @@ pub extern "C" fn lapacke_ssyswapr(
 ///     lapack_int lda, lapack_int i1, lapack_int i2
 /// );
 /// ```
+#borrow(a)
 pub extern "C" fn lapacke_ssyswapr_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -1365,6 +1413,7 @@ pub extern "C" fn lapacke_ssyswapr_work(
 ///     lapack_int lda, const lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_ssytri2(
   matrix_layout : Int,
   uplo : Byte,
@@ -1382,6 +1431,7 @@ pub extern "C" fn lapacke_ssytri2(
 ///     lapack_int lda, const lapack_int* ipiv, float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_ssytri2_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -1401,6 +1451,7 @@ pub extern "C" fn lapacke_ssytri2_work(
 ///     lapack_int lda, const lapack_int* ipiv, lapack_int nb
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_ssytri2x(
   matrix_layout : Int,
   uplo : Byte,
@@ -1419,6 +1470,7 @@ pub extern "C" fn lapacke_ssytri2x(
 ///     lapack_int lda, const lapack_int* ipiv, float* work, lapack_int nb
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_ssytri2x_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -1438,6 +1490,7 @@ pub extern "C" fn lapacke_ssytri2x_work(
 ///     const float* a, lapack_int lda, const lapack_int* ipiv, float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_ssytrs2(
   matrix_layout : Int,
   uplo : Byte,
@@ -1459,6 +1512,7 @@ pub extern "C" fn lapacke_ssytrs2(
 ///     lapack_int ldb, float* work
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_ssytrs2_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -1485,6 +1539,7 @@ pub extern "C" fn lapacke_ssytrs2_work(
 ///     double* b21e, double* b22d, double* b22e
 /// );
 /// ```
+#borrow(theta, phi, u1, u2, v1t, v2t, b11d, b11e, b12d, b12e, b21d, b21e, b22d, b22e)
 pub extern "C" fn lapacke_zbbcsd(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -1528,6 +1583,7 @@ pub extern "C" fn lapacke_zbbcsd(
 ///     double* b21e, double* b22d, double* b22e, double* rwork, lapack_int lrwork
 /// );
 /// ```
+#borrow(theta, phi, u1, u2, v1t, v2t, b11d, b11e, b12d, b12e, b21d, b21e, b22d, b22e, rwork)
 pub extern "C" fn lapacke_zbbcsd_work(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -1568,6 +1624,7 @@ pub extern "C" fn lapacke_zbbcsd_work(
 ///     lapack_int lda, lapack_int i1, lapack_int i2
 /// );
 /// ```
+#borrow(a)
 pub extern "C" fn lapacke_zheswapr(
   matrix_layout : Int,
   uplo : Byte,
@@ -1586,6 +1643,7 @@ pub extern "C" fn lapacke_zheswapr(
 ///     lapack_int lda, lapack_int i1, lapack_int i2
 /// );
 /// ```
+#borrow(a)
 pub extern "C" fn lapacke_zheswapr_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -1604,6 +1662,7 @@ pub extern "C" fn lapacke_zheswapr_work(
 ///     lapack_int lda, const lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_zhetri2(
   matrix_layout : Int,
   uplo : Byte,
@@ -1621,6 +1680,7 @@ pub extern "C" fn lapacke_zhetri2(
 ///     lapack_int lda, const lapack_int* ipiv, lapack_complex_double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_zhetri2_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -1640,6 +1700,7 @@ pub extern "C" fn lapacke_zhetri2_work(
 ///     lapack_int lda, const lapack_int* ipiv, lapack_int nb
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_zhetri2x(
   matrix_layout : Int,
   uplo : Byte,
@@ -1658,6 +1719,7 @@ pub extern "C" fn lapacke_zhetri2x(
 ///     lapack_int lda, const lapack_int* ipiv, lapack_complex_double* work, lapack_int nb
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_zhetri2x_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -1677,6 +1739,7 @@ pub extern "C" fn lapacke_zhetri2x_work(
 ///     const lapack_complex_double* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_zhetrs2(
   matrix_layout : Int,
   uplo : Byte,
@@ -1698,6 +1761,7 @@ pub extern "C" fn lapacke_zhetrs2(
 ///     lapack_int ldb, lapack_complex_double* work
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_zhetrs2_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -1719,6 +1783,7 @@ pub extern "C" fn lapacke_zhetrs2_work(
 ///     lapack_complex_double* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_double* e
 /// );
 /// ```
+#borrow(a, ipiv, e)
 pub extern "C" fn lapacke_zsyconv(
   matrix_layout : Int,
   uplo : Byte,
@@ -1738,6 +1803,7 @@ pub extern "C" fn lapacke_zsyconv(
 ///     lapack_complex_double* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_double* e
 /// );
 /// ```
+#borrow(a, ipiv, e)
 pub extern "C" fn lapacke_zsyconv_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -1757,6 +1823,7 @@ pub extern "C" fn lapacke_zsyconv_work(
 ///     lapack_int lda, lapack_int i1, lapack_int i2
 /// );
 /// ```
+#borrow(a)
 pub extern "C" fn lapacke_zsyswapr(
   matrix_layout : Int,
   uplo : Byte,
@@ -1775,6 +1842,7 @@ pub extern "C" fn lapacke_zsyswapr(
 ///     lapack_int lda, lapack_int i1, lapack_int i2
 /// );
 /// ```
+#borrow(a)
 pub extern "C" fn lapacke_zsyswapr_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -1793,6 +1861,7 @@ pub extern "C" fn lapacke_zsyswapr_work(
 ///     lapack_int lda, const lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_zsytri2(
   matrix_layout : Int,
   uplo : Byte,
@@ -1810,6 +1879,7 @@ pub extern "C" fn lapacke_zsytri2(
 ///     lapack_int lda, const lapack_int* ipiv, lapack_complex_double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_zsytri2_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -1829,6 +1899,7 @@ pub extern "C" fn lapacke_zsytri2_work(
 ///     lapack_int lda, const lapack_int* ipiv, lapack_int nb
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_zsytri2x(
   matrix_layout : Int,
   uplo : Byte,
@@ -1847,6 +1918,7 @@ pub extern "C" fn lapacke_zsytri2x(
 ///     lapack_int lda, const lapack_int* ipiv, lapack_complex_double* work, lapack_int nb
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_zsytri2x_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -1866,6 +1938,7 @@ pub extern "C" fn lapacke_zsytri2x_work(
 ///     const lapack_complex_double* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_zsytrs2(
   matrix_layout : Int,
   uplo : Byte,
@@ -1887,6 +1960,7 @@ pub extern "C" fn lapacke_zsytrs2(
 ///     lapack_int ldb, lapack_complex_double* work
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_zsytrs2_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -1911,6 +1985,7 @@ pub extern "C" fn lapacke_zsytrs2_work(
 ///     lapack_complex_double* taup1, lapack_complex_double* taup2, lapack_complex_double* tauq1, lapack_complex_double* tauq2
 /// );
 /// ```
+#borrow(x11, x12, x21, x22, theta, phi, taup1, taup2, tauq1, tauq2)
 pub extern "C" fn lapacke_zunbdb(
   matrix_layout : Int,
   trans : Byte,
@@ -1946,6 +2021,7 @@ pub extern "C" fn lapacke_zunbdb(
 ///     lapack_complex_double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(x11, x12, x21, x22, theta, phi, taup1, taup2, tauq1, tauq2, work)
 pub extern "C" fn lapacke_zunbdb_work(
   matrix_layout : Int,
   trans : Byte,
@@ -1984,6 +2060,7 @@ pub extern "C" fn lapacke_zunbdb_work(
 ///     lapack_int ldv1t, lapack_complex_double* v2t, lapack_int ldv2t
 /// );
 /// ```
+#borrow(x11, x12, x21, x22, theta, u1, u2, v1t, v2t)
 pub extern "C" fn lapacke_zuncsd(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -2028,6 +2105,7 @@ pub extern "C" fn lapacke_zuncsd(
 ///     lapack_int lwork, double* rwork, lapack_int lrwork, lapack_int* iwork
 /// );
 /// ```
+#borrow(x11, x12, x21, x22, theta, u1, u2, v1t, v2t, work, rwork, iwork)
 pub extern "C" fn lapacke_zuncsd_work(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -2074,6 +2152,7 @@ pub extern "C" fn lapacke_zuncsd_work(
 ///     lapack_complex_double* v1t, lapack_int ldv1t
 /// );
 /// ```
+#borrow(x11, x21, theta, u1, u2, v1t)
 pub extern "C" fn lapacke_zuncsd2by1(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -2107,6 +2186,7 @@ pub extern "C" fn lapacke_zuncsd2by1(
 ///     double* rwork, lapack_int lrwork, lapack_int* iwork
 /// );
 /// ```
+#borrow(x11, x21, theta, u1, u2, v1t, work, rwork, iwork)
 pub extern "C" fn lapacke_zuncsd2by1_work(
   matrix_layout : Int,
   jobu1 : Byte,
@@ -2142,6 +2222,7 @@ pub extern "C" fn lapacke_zuncsd2by1_work(
 ///     lapack_int ldv, const float* t, lapack_int ldt, float* c, lapack_int ldc
 /// );
 /// ```
+#borrow(v, t, c)
 pub extern "C" fn lapacke_sgemqrt(
   matrix_layout : Int,
   side : Byte,
@@ -2167,6 +2248,7 @@ pub extern "C" fn lapacke_sgemqrt(
 ///     lapack_int ldv, const double* t, lapack_int ldt, double* c, lapack_int ldc
 /// );
 /// ```
+#borrow(v, t, c)
 pub extern "C" fn lapacke_dgemqrt(
   matrix_layout : Int,
   side : Byte,
@@ -2192,6 +2274,7 @@ pub extern "C" fn lapacke_dgemqrt(
 ///     lapack_int ldv, const lapack_complex_float* t, lapack_int ldt, lapack_complex_float* c, lapack_int ldc
 /// );
 /// ```
+#borrow(v, t, c)
 pub extern "C" fn lapacke_cgemqrt(
   matrix_layout : Int,
   side : Byte,
@@ -2217,6 +2300,7 @@ pub extern "C" fn lapacke_cgemqrt(
 ///     lapack_int ldv, const lapack_complex_double* t, lapack_int ldt, lapack_complex_double* c, lapack_int ldc
 /// );
 /// ```
+#borrow(v, t, c)
 pub extern "C" fn lapacke_zgemqrt(
   matrix_layout : Int,
   side : Byte,
@@ -2241,6 +2325,7 @@ pub extern "C" fn lapacke_zgemqrt(
 ///     float* a, lapack_int lda, float* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, t)
 pub extern "C" fn lapacke_sgeqrt(
   matrix_layout : Int,
   m : Lapack_int,
@@ -2260,6 +2345,7 @@ pub extern "C" fn lapacke_sgeqrt(
 ///     double* a, lapack_int lda, double* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, t)
 pub extern "C" fn lapacke_dgeqrt(
   matrix_layout : Int,
   m : Lapack_int,
@@ -2279,6 +2365,7 @@ pub extern "C" fn lapacke_dgeqrt(
 ///     lapack_complex_float* a, lapack_int lda, lapack_complex_float* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, t)
 pub extern "C" fn lapacke_cgeqrt(
   matrix_layout : Int,
   m : Lapack_int,
@@ -2298,6 +2385,7 @@ pub extern "C" fn lapacke_cgeqrt(
 ///     lapack_complex_double* a, lapack_int lda, lapack_complex_double* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, t)
 pub extern "C" fn lapacke_zgeqrt(
   matrix_layout : Int,
   m : Lapack_int,
@@ -2317,6 +2405,7 @@ pub extern "C" fn lapacke_zgeqrt(
 ///     lapack_int lda, float* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, t)
 pub extern "C" fn lapacke_sgeqrt2(
   matrix_layout : Int,
   m : Lapack_int,
@@ -2335,6 +2424,7 @@ pub extern "C" fn lapacke_sgeqrt2(
 ///     lapack_int lda, double* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, t)
 pub extern "C" fn lapacke_dgeqrt2(
   matrix_layout : Int,
   m : Lapack_int,
@@ -2353,6 +2443,7 @@ pub extern "C" fn lapacke_dgeqrt2(
 ///     lapack_int lda, lapack_complex_float* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, t)
 pub extern "C" fn lapacke_cgeqrt2(
   matrix_layout : Int,
   m : Lapack_int,
@@ -2371,6 +2462,7 @@ pub extern "C" fn lapacke_cgeqrt2(
 ///     lapack_int lda, lapack_complex_double* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, t)
 pub extern "C" fn lapacke_zgeqrt2(
   matrix_layout : Int,
   m : Lapack_int,
@@ -2389,6 +2481,7 @@ pub extern "C" fn lapacke_zgeqrt2(
 ///     lapack_int lda, float* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, t)
 pub extern "C" fn lapacke_sgeqrt3(
   matrix_layout : Int,
   m : Lapack_int,
@@ -2407,6 +2500,7 @@ pub extern "C" fn lapacke_sgeqrt3(
 ///     lapack_int lda, double* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, t)
 pub extern "C" fn lapacke_dgeqrt3(
   matrix_layout : Int,
   m : Lapack_int,
@@ -2425,6 +2519,7 @@ pub extern "C" fn lapacke_dgeqrt3(
 ///     lapack_int lda, lapack_complex_float* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, t)
 pub extern "C" fn lapacke_cgeqrt3(
   matrix_layout : Int,
   m : Lapack_int,
@@ -2443,6 +2538,7 @@ pub extern "C" fn lapacke_cgeqrt3(
 ///     lapack_int lda, lapack_complex_double* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, t)
 pub extern "C" fn lapacke_zgeqrt3(
   matrix_layout : Int,
   m : Lapack_int,
@@ -2463,6 +2559,7 @@ pub extern "C" fn lapacke_zgeqrt3(
 ///     float* a, lapack_int lda, float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(v, t, a, b)
 pub extern "C" fn lapacke_stpmqrt(
   matrix_layout : Int,
   side : Byte,
@@ -2492,6 +2589,7 @@ pub extern "C" fn lapacke_stpmqrt(
 ///     double* a, lapack_int lda, double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(v, t, a, b)
 pub extern "C" fn lapacke_dtpmqrt(
   matrix_layout : Int,
   side : Byte,
@@ -2521,6 +2619,7 @@ pub extern "C" fn lapacke_dtpmqrt(
 ///     lapack_complex_float* a, lapack_int lda, lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(v, t, a, b)
 pub extern "C" fn lapacke_ctpmqrt(
   matrix_layout : Int,
   side : Byte,
@@ -2550,6 +2649,7 @@ pub extern "C" fn lapacke_ctpmqrt(
 ///     lapack_complex_double* a, lapack_int lda, lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(v, t, a, b)
 pub extern "C" fn lapacke_ztpmqrt(
   matrix_layout : Int,
   side : Byte,
@@ -2578,6 +2678,7 @@ pub extern "C" fn lapacke_ztpmqrt(
 ///     lapack_int ldb, float* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, b, t)
 pub extern "C" fn lapacke_stpqrt(
   matrix_layout : Int,
   m : Lapack_int,
@@ -2601,6 +2702,7 @@ pub extern "C" fn lapacke_stpqrt(
 ///     lapack_int ldb, double* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, b, t)
 pub extern "C" fn lapacke_dtpqrt(
   matrix_layout : Int,
   m : Lapack_int,
@@ -2624,6 +2726,7 @@ pub extern "C" fn lapacke_dtpqrt(
 ///     lapack_int ldb, lapack_complex_float* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, b, t)
 pub extern "C" fn lapacke_ctpqrt(
   matrix_layout : Int,
   m : Lapack_int,
@@ -2647,6 +2750,7 @@ pub extern "C" fn lapacke_ctpqrt(
 ///     lapack_int ldb, lapack_complex_double* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, b, t)
 pub extern "C" fn lapacke_ztpqrt(
   matrix_layout : Int,
   m : Lapack_int,
@@ -2670,6 +2774,7 @@ pub extern "C" fn lapacke_ztpqrt(
 ///     float* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, b, t)
 pub extern "C" fn lapacke_stpqrt2(
   matrix_layout : Int,
   m : Lapack_int,
@@ -2692,6 +2797,7 @@ pub extern "C" fn lapacke_stpqrt2(
 ///     double* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, b, t)
 pub extern "C" fn lapacke_dtpqrt2(
   matrix_layout : Int,
   m : Lapack_int,
@@ -2714,6 +2820,7 @@ pub extern "C" fn lapacke_dtpqrt2(
 ///     lapack_complex_float* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, b, t)
 pub extern "C" fn lapacke_ctpqrt2(
   matrix_layout : Int,
   m : Lapack_int,
@@ -2736,6 +2843,7 @@ pub extern "C" fn lapacke_ctpqrt2(
 ///     lapack_complex_double* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, b, t)
 pub extern "C" fn lapacke_ztpqrt2(
   matrix_layout : Int,
   m : Lapack_int,
@@ -2759,6 +2867,7 @@ pub extern "C" fn lapacke_ztpqrt2(
 ///     lapack_int ldt, float* a, lapack_int lda, float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(v, t, a, b)
 pub extern "C" fn lapacke_stprfb(
   matrix_layout : Int,
   side : Byte,
@@ -2789,6 +2898,7 @@ pub extern "C" fn lapacke_stprfb(
 ///     lapack_int ldt, double* a, lapack_int lda, double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(v, t, a, b)
 pub extern "C" fn lapacke_dtprfb(
   matrix_layout : Int,
   side : Byte,
@@ -2819,6 +2929,7 @@ pub extern "C" fn lapacke_dtprfb(
 ///     lapack_int ldt, lapack_complex_float* a, lapack_int lda, lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(v, t, a, b)
 pub extern "C" fn lapacke_ctprfb(
   matrix_layout : Int,
   side : Byte,
@@ -2849,6 +2960,7 @@ pub extern "C" fn lapacke_ctprfb(
 ///     lapack_int ldt, lapack_complex_double* a, lapack_int lda, lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(v, t, a, b)
 pub extern "C" fn lapacke_ztprfb(
   matrix_layout : Int,
   side : Byte,
@@ -2879,6 +2991,7 @@ pub extern "C" fn lapacke_ztprfb(
 ///     lapack_int ldc, float* work
 /// );
 /// ```
+#borrow(v, t, c, work)
 pub extern "C" fn lapacke_sgemqrt_work(
   matrix_layout : Int,
   side : Byte,
@@ -2906,6 +3019,7 @@ pub extern "C" fn lapacke_sgemqrt_work(
 ///     lapack_int ldc, double* work
 /// );
 /// ```
+#borrow(v, t, c, work)
 pub extern "C" fn lapacke_dgemqrt_work(
   matrix_layout : Int,
   side : Byte,
@@ -2933,6 +3047,7 @@ pub extern "C" fn lapacke_dgemqrt_work(
 ///     lapack_int ldc, lapack_complex_float* work
 /// );
 /// ```
+#borrow(v, t, c, work)
 pub extern "C" fn lapacke_cgemqrt_work(
   matrix_layout : Int,
   side : Byte,
@@ -2960,6 +3075,7 @@ pub extern "C" fn lapacke_cgemqrt_work(
 ///     lapack_int ldc, lapack_complex_double* work
 /// );
 /// ```
+#borrow(v, t, c, work)
 pub extern "C" fn lapacke_zgemqrt_work(
   matrix_layout : Int,
   side : Byte,
@@ -2985,6 +3101,7 @@ pub extern "C" fn lapacke_zgemqrt_work(
 ///     float* a, lapack_int lda, float* t, lapack_int ldt, float* work
 /// );
 /// ```
+#borrow(a, t, work)
 pub extern "C" fn lapacke_sgeqrt_work(
   matrix_layout : Int,
   m : Lapack_int,
@@ -3005,6 +3122,7 @@ pub extern "C" fn lapacke_sgeqrt_work(
 ///     double* a, lapack_int lda, double* t, lapack_int ldt, double* work
 /// );
 /// ```
+#borrow(a, t, work)
 pub extern "C" fn lapacke_dgeqrt_work(
   matrix_layout : Int,
   m : Lapack_int,
@@ -3025,6 +3143,7 @@ pub extern "C" fn lapacke_dgeqrt_work(
 ///     lapack_complex_float* a, lapack_int lda, lapack_complex_float* t, lapack_int ldt, lapack_complex_float* work
 /// );
 /// ```
+#borrow(a, t, work)
 pub extern "C" fn lapacke_cgeqrt_work(
   matrix_layout : Int,
   m : Lapack_int,
@@ -3045,6 +3164,7 @@ pub extern "C" fn lapacke_cgeqrt_work(
 ///     lapack_complex_double* a, lapack_int lda, lapack_complex_double* t, lapack_int ldt, lapack_complex_double* work
 /// );
 /// ```
+#borrow(a, t, work)
 pub extern "C" fn lapacke_zgeqrt_work(
   matrix_layout : Int,
   m : Lapack_int,
@@ -3065,6 +3185,7 @@ pub extern "C" fn lapacke_zgeqrt_work(
 ///     lapack_int lda, float* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, t)
 pub extern "C" fn lapacke_sgeqrt2_work(
   matrix_layout : Int,
   m : Lapack_int,
@@ -3083,6 +3204,7 @@ pub extern "C" fn lapacke_sgeqrt2_work(
 ///     lapack_int lda, double* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, t)
 pub extern "C" fn lapacke_dgeqrt2_work(
   matrix_layout : Int,
   m : Lapack_int,
@@ -3101,6 +3223,7 @@ pub extern "C" fn lapacke_dgeqrt2_work(
 ///     lapack_int lda, lapack_complex_float* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, t)
 pub extern "C" fn lapacke_cgeqrt2_work(
   matrix_layout : Int,
   m : Lapack_int,
@@ -3119,6 +3242,7 @@ pub extern "C" fn lapacke_cgeqrt2_work(
 ///     lapack_int lda, lapack_complex_double* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, t)
 pub extern "C" fn lapacke_zgeqrt2_work(
   matrix_layout : Int,
   m : Lapack_int,
@@ -3137,6 +3261,7 @@ pub extern "C" fn lapacke_zgeqrt2_work(
 ///     lapack_int lda, float* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, t)
 pub extern "C" fn lapacke_sgeqrt3_work(
   matrix_layout : Int,
   m : Lapack_int,
@@ -3155,6 +3280,7 @@ pub extern "C" fn lapacke_sgeqrt3_work(
 ///     lapack_int lda, double* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, t)
 pub extern "C" fn lapacke_dgeqrt3_work(
   matrix_layout : Int,
   m : Lapack_int,
@@ -3173,6 +3299,7 @@ pub extern "C" fn lapacke_dgeqrt3_work(
 ///     lapack_int lda, lapack_complex_float* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, t)
 pub extern "C" fn lapacke_cgeqrt3_work(
   matrix_layout : Int,
   m : Lapack_int,
@@ -3191,6 +3318,7 @@ pub extern "C" fn lapacke_cgeqrt3_work(
 ///     lapack_int lda, lapack_complex_double* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, t)
 pub extern "C" fn lapacke_zgeqrt3_work(
   matrix_layout : Int,
   m : Lapack_int,
@@ -3211,6 +3339,7 @@ pub extern "C" fn lapacke_zgeqrt3_work(
 ///     float* a, lapack_int lda, float* b, lapack_int ldb, float* work
 /// );
 /// ```
+#borrow(v, t, a, b, work)
 pub extern "C" fn lapacke_stpmqrt_work(
   matrix_layout : Int,
   side : Byte,
@@ -3241,6 +3370,7 @@ pub extern "C" fn lapacke_stpmqrt_work(
 ///     double* a, lapack_int lda, double* b, lapack_int ldb, double* work
 /// );
 /// ```
+#borrow(v, t, a, b, work)
 pub extern "C" fn lapacke_dtpmqrt_work(
   matrix_layout : Int,
   side : Byte,
@@ -3271,6 +3401,7 @@ pub extern "C" fn lapacke_dtpmqrt_work(
 ///     lapack_complex_float* a, lapack_int lda, lapack_complex_float* b, lapack_int ldb, lapack_complex_float* work
 /// );
 /// ```
+#borrow(v, t, a, b, work)
 pub extern "C" fn lapacke_ctpmqrt_work(
   matrix_layout : Int,
   side : Byte,
@@ -3301,6 +3432,7 @@ pub extern "C" fn lapacke_ctpmqrt_work(
 ///     lapack_complex_double* a, lapack_int lda, lapack_complex_double* b, lapack_int ldb, lapack_complex_double* work
 /// );
 /// ```
+#borrow(v, t, a, b, work)
 pub extern "C" fn lapacke_ztpmqrt_work(
   matrix_layout : Int,
   side : Byte,
@@ -3330,6 +3462,7 @@ pub extern "C" fn lapacke_ztpmqrt_work(
 ///     lapack_int ldb, float* t, lapack_int ldt, float* work
 /// );
 /// ```
+#borrow(a, b, t, work)
 pub extern "C" fn lapacke_stpqrt_work(
   matrix_layout : Int,
   m : Lapack_int,
@@ -3354,6 +3487,7 @@ pub extern "C" fn lapacke_stpqrt_work(
 ///     lapack_int ldb, double* t, lapack_int ldt, double* work
 /// );
 /// ```
+#borrow(a, b, t, work)
 pub extern "C" fn lapacke_dtpqrt_work(
   matrix_layout : Int,
   m : Lapack_int,
@@ -3378,6 +3512,7 @@ pub extern "C" fn lapacke_dtpqrt_work(
 ///     lapack_int ldb, lapack_complex_float* t, lapack_int ldt, lapack_complex_float* work
 /// );
 /// ```
+#borrow(a, b, t, work)
 pub extern "C" fn lapacke_ctpqrt_work(
   matrix_layout : Int,
   m : Lapack_int,
@@ -3402,6 +3537,7 @@ pub extern "C" fn lapacke_ctpqrt_work(
 ///     lapack_int ldb, lapack_complex_double* t, lapack_int ldt, lapack_complex_double* work
 /// );
 /// ```
+#borrow(a, b, t, work)
 pub extern "C" fn lapacke_ztpqrt_work(
   matrix_layout : Int,
   m : Lapack_int,
@@ -3426,6 +3562,7 @@ pub extern "C" fn lapacke_ztpqrt_work(
 ///     float* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, b, t)
 pub extern "C" fn lapacke_stpqrt2_work(
   matrix_layout : Int,
   m : Lapack_int,
@@ -3448,6 +3585,7 @@ pub extern "C" fn lapacke_stpqrt2_work(
 ///     double* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, b, t)
 pub extern "C" fn lapacke_dtpqrt2_work(
   matrix_layout : Int,
   m : Lapack_int,
@@ -3470,6 +3608,7 @@ pub extern "C" fn lapacke_dtpqrt2_work(
 ///     lapack_complex_float* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, b, t)
 pub extern "C" fn lapacke_ctpqrt2_work(
   matrix_layout : Int,
   m : Lapack_int,
@@ -3492,6 +3631,7 @@ pub extern "C" fn lapacke_ctpqrt2_work(
 ///     lapack_complex_double* t, lapack_int ldt
 /// );
 /// ```
+#borrow(a, b, t)
 pub extern "C" fn lapacke_ztpqrt2_work(
   matrix_layout : Int,
   m : Lapack_int,
@@ -3516,6 +3656,7 @@ pub extern "C" fn lapacke_ztpqrt2_work(
 ///     lapack_int ldb, float* work, lapack_int ldwork
 /// );
 /// ```
+#borrow(v, t, a, b, work)
 pub extern "C" fn lapacke_stprfb_work(
   matrix_layout : Int,
   side : Byte,
@@ -3549,6 +3690,7 @@ pub extern "C" fn lapacke_stprfb_work(
 ///     lapack_int ldb, double* work, lapack_int ldwork
 /// );
 /// ```
+#borrow(v, t, a, b, work)
 pub extern "C" fn lapacke_dtprfb_work(
   matrix_layout : Int,
   side : Byte,
@@ -3582,6 +3724,7 @@ pub extern "C" fn lapacke_dtprfb_work(
 ///     lapack_int ldb, lapack_complex_float* work, lapack_int ldwork
 /// );
 /// ```
+#borrow(v, t, a, b, work)
 pub extern "C" fn lapacke_ctprfb_work(
   matrix_layout : Int,
   side : Byte,
@@ -3615,6 +3758,7 @@ pub extern "C" fn lapacke_ctprfb_work(
 ///     lapack_int ldb, lapack_complex_double* work, lapack_int ldwork
 /// );
 /// ```
+#borrow(v, t, a, b, work)
 pub extern "C" fn lapacke_ztprfb_work(
   matrix_layout : Int,
   side : Byte,
@@ -3645,6 +3789,7 @@ pub extern "C" fn lapacke_ztprfb_work(
 ///     float* a, lapack_int lda, lapack_int* ipiv, float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_ssysv_rook(
   matrix_layout : Int,
   uplo : Byte,
@@ -3665,6 +3810,7 @@ pub extern "C" fn lapacke_ssysv_rook(
 ///     double* a, lapack_int lda, lapack_int* ipiv, double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_dsysv_rook(
   matrix_layout : Int,
   uplo : Byte,
@@ -3685,6 +3831,7 @@ pub extern "C" fn lapacke_dsysv_rook(
 ///     lapack_complex_float* a, lapack_int lda, lapack_int* ipiv, lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_csysv_rook(
   matrix_layout : Int,
   uplo : Byte,
@@ -3705,6 +3852,7 @@ pub extern "C" fn lapacke_csysv_rook(
 ///     lapack_complex_double* a, lapack_int lda, lapack_int* ipiv, lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_zsysv_rook(
   matrix_layout : Int,
   uplo : Byte,
@@ -3725,6 +3873,7 @@ pub extern "C" fn lapacke_zsysv_rook(
 ///     lapack_int lda, lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_ssytrf_rook(
   matrix_layout : Int,
   uplo : Byte,
@@ -3742,6 +3891,7 @@ pub extern "C" fn lapacke_ssytrf_rook(
 ///     lapack_int lda, lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_dsytrf_rook(
   matrix_layout : Int,
   uplo : Byte,
@@ -3759,6 +3909,7 @@ pub extern "C" fn lapacke_dsytrf_rook(
 ///     lapack_int lda, lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_csytrf_rook(
   matrix_layout : Int,
   uplo : Byte,
@@ -3776,6 +3927,7 @@ pub extern "C" fn lapacke_csytrf_rook(
 ///     lapack_int lda, lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_zsytrf_rook(
   matrix_layout : Int,
   uplo : Byte,
@@ -3793,6 +3945,7 @@ pub extern "C" fn lapacke_zsytrf_rook(
 ///     const float* a, lapack_int lda, const lapack_int* ipiv, float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_ssytrs_rook(
   matrix_layout : Int,
   uplo : Byte,
@@ -3813,6 +3966,7 @@ pub extern "C" fn lapacke_ssytrs_rook(
 ///     const double* a, lapack_int lda, const lapack_int* ipiv, double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_dsytrs_rook(
   matrix_layout : Int,
   uplo : Byte,
@@ -3833,6 +3987,7 @@ pub extern "C" fn lapacke_dsytrs_rook(
 ///     const lapack_complex_float* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_csytrs_rook(
   matrix_layout : Int,
   uplo : Byte,
@@ -3853,6 +4008,7 @@ pub extern "C" fn lapacke_csytrs_rook(
 ///     const lapack_complex_double* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_zsytrs_rook(
   matrix_layout : Int,
   uplo : Byte,
@@ -3873,6 +4029,7 @@ pub extern "C" fn lapacke_zsytrs_rook(
 ///     lapack_int lda, lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_chetrf_rook(
   matrix_layout : Int,
   uplo : Byte,
@@ -3890,6 +4047,7 @@ pub extern "C" fn lapacke_chetrf_rook(
 ///     lapack_int lda, lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_zhetrf_rook(
   matrix_layout : Int,
   uplo : Byte,
@@ -3907,6 +4065,7 @@ pub extern "C" fn lapacke_zhetrf_rook(
 ///     const lapack_complex_float* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_chetrs_rook(
   matrix_layout : Int,
   uplo : Byte,
@@ -3927,6 +4086,7 @@ pub extern "C" fn lapacke_chetrs_rook(
 ///     const lapack_complex_double* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_zhetrs_rook(
   matrix_layout : Int,
   uplo : Byte,
@@ -3947,6 +4107,7 @@ pub extern "C" fn lapacke_zhetrs_rook(
 ///     const lapack_complex_float* x, lapack_int incx, lapack_complex_float* a, lapack_int lda
 /// );
 /// ```
+#borrow(x, a)
 pub extern "C" fn lapacke_csyr(
   matrix_layout : Int,
   uplo : Byte,
@@ -3966,6 +4127,7 @@ pub extern "C" fn lapacke_csyr(
 ///     const lapack_complex_double* x, lapack_int incx, lapack_complex_double* a, lapack_int lda
 /// );
 /// ```
+#borrow(x, a)
 pub extern "C" fn lapacke_zsyr(
   matrix_layout : Int,
   uplo : Byte,
@@ -3986,6 +4148,7 @@ pub extern "C" fn lapacke_zsyr(
 ///     lapack_int ldb, float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_ssysv_rook_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4009,6 +4172,7 @@ pub extern "C" fn lapacke_ssysv_rook_work(
 ///     lapack_int ldb, double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_dsysv_rook_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4032,6 +4196,7 @@ pub extern "C" fn lapacke_dsysv_rook_work(
 ///     lapack_int ldb, lapack_complex_float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_csysv_rook_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4055,6 +4220,7 @@ pub extern "C" fn lapacke_csysv_rook_work(
 ///     lapack_int ldb, lapack_complex_double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_zsysv_rook_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4077,6 +4243,7 @@ pub extern "C" fn lapacke_zsysv_rook_work(
 ///     lapack_int lda, lapack_int* ipiv, float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_ssytrf_rook_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4096,6 +4263,7 @@ pub extern "C" fn lapacke_ssytrf_rook_work(
 ///     lapack_int lda, lapack_int* ipiv, double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_dsytrf_rook_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4115,6 +4283,7 @@ pub extern "C" fn lapacke_dsytrf_rook_work(
 ///     lapack_int lda, lapack_int* ipiv, lapack_complex_float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_csytrf_rook_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4134,6 +4303,7 @@ pub extern "C" fn lapacke_csytrf_rook_work(
 ///     lapack_int lda, lapack_int* ipiv, lapack_complex_double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_zsytrf_rook_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4153,6 +4323,7 @@ pub extern "C" fn lapacke_zsytrf_rook_work(
 ///     const float* a, lapack_int lda, const lapack_int* ipiv, float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_ssytrs_rook_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4173,6 +4344,7 @@ pub extern "C" fn lapacke_ssytrs_rook_work(
 ///     const double* a, lapack_int lda, const lapack_int* ipiv, double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_dsytrs_rook_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4193,6 +4365,7 @@ pub extern "C" fn lapacke_dsytrs_rook_work(
 ///     const lapack_complex_float* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_csytrs_rook_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4213,6 +4386,7 @@ pub extern "C" fn lapacke_csytrs_rook_work(
 ///     const lapack_complex_double* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_zsytrs_rook_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4233,6 +4407,7 @@ pub extern "C" fn lapacke_zsytrs_rook_work(
 ///     lapack_int lda, lapack_int* ipiv, lapack_complex_float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_chetrf_rook_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4252,6 +4427,7 @@ pub extern "C" fn lapacke_chetrf_rook_work(
 ///     lapack_int lda, lapack_int* ipiv, lapack_complex_double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_zhetrf_rook_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4271,6 +4447,7 @@ pub extern "C" fn lapacke_zhetrf_rook_work(
 ///     const lapack_complex_float* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_chetrs_rook_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4291,6 +4468,7 @@ pub extern "C" fn lapacke_chetrs_rook_work(
 ///     const lapack_complex_double* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_zhetrs_rook_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4311,6 +4489,7 @@ pub extern "C" fn lapacke_zhetrs_rook_work(
 ///     const lapack_complex_float* x, lapack_int incx, lapack_complex_float* a, lapack_int lda
 /// );
 /// ```
+#borrow(x, a)
 pub extern "C" fn lapacke_csyr_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4330,6 +4509,7 @@ pub extern "C" fn lapacke_csyr_work(
 ///     const lapack_complex_double* x, lapack_int incx, lapack_complex_double* a, lapack_int lda
 /// );
 /// ```
+#borrow(x, a)
 pub extern "C" fn lapacke_zsyr_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4346,6 +4526,7 @@ pub extern "C" fn lapacke_zsyr_work(
 /// ```c
 /// void LAPACKE_ilaver(lapack_int* vers_major, lapack_int* vers_minor, lapack_int* vers_patch);
 /// ```
+#borrow(vers_major, vers_minor, vers_patch)
 pub extern "C" fn lapacke_ilaver(
   vers_major : FixedArray[Int],
   vers_minor : FixedArray[Int],
@@ -4360,6 +4541,7 @@ pub extern "C" fn lapacke_ilaver(
 ///     float* a, lapack_int lda, lapack_int* ipiv, float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_ssysv_aa(
   matrix_layout : Int,
   uplo : Byte,
@@ -4381,6 +4563,7 @@ pub extern "C" fn lapacke_ssysv_aa(
 ///     lapack_int ldb, float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_ssysv_aa_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4403,6 +4586,7 @@ pub extern "C" fn lapacke_ssysv_aa_work(
 ///     double* a, lapack_int lda, lapack_int* ipiv, double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_dsysv_aa(
   matrix_layout : Int,
   uplo : Byte,
@@ -4424,6 +4608,7 @@ pub extern "C" fn lapacke_dsysv_aa(
 ///     lapack_int ldb, double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_dsysv_aa_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4446,6 +4631,7 @@ pub extern "C" fn lapacke_dsysv_aa_work(
 ///     lapack_complex_float* a, lapack_int lda, lapack_int* ipiv, lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_csysv_aa(
   matrix_layout : Int,
   uplo : Byte,
@@ -4467,6 +4653,7 @@ pub extern "C" fn lapacke_csysv_aa(
 ///     lapack_int ldb, lapack_complex_float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_csysv_aa_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4489,6 +4676,7 @@ pub extern "C" fn lapacke_csysv_aa_work(
 ///     lapack_complex_double* a, lapack_int lda, lapack_int* ipiv, lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_zsysv_aa(
   matrix_layout : Int,
   uplo : Byte,
@@ -4510,6 +4698,7 @@ pub extern "C" fn lapacke_zsysv_aa(
 ///     lapack_int ldb, lapack_complex_double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_zsysv_aa_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4532,6 +4721,7 @@ pub extern "C" fn lapacke_zsysv_aa_work(
 ///     lapack_complex_float* a, lapack_int lda, lapack_int* ipiv, lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_chesv_aa(
   matrix_layout : Int,
   uplo : Byte,
@@ -4553,6 +4743,7 @@ pub extern "C" fn lapacke_chesv_aa(
 ///     lapack_int ldb, lapack_complex_float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_chesv_aa_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4575,6 +4766,7 @@ pub extern "C" fn lapacke_chesv_aa_work(
 ///     lapack_complex_double* a, lapack_int lda, lapack_int* ipiv, lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_zhesv_aa(
   matrix_layout : Int,
   uplo : Byte,
@@ -4596,6 +4788,7 @@ pub extern "C" fn lapacke_zhesv_aa(
 ///     lapack_int ldb, lapack_complex_double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_zhesv_aa_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4618,6 +4811,7 @@ pub extern "C" fn lapacke_zhesv_aa_work(
 ///     lapack_int lda, lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_ssytrf_aa(
   matrix_layout : Int,
   uplo : Byte,
@@ -4635,6 +4829,7 @@ pub extern "C" fn lapacke_ssytrf_aa(
 ///     lapack_int lda, lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_dsytrf_aa(
   matrix_layout : Int,
   uplo : Byte,
@@ -4652,6 +4847,7 @@ pub extern "C" fn lapacke_dsytrf_aa(
 ///     lapack_int lda, lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_csytrf_aa(
   matrix_layout : Int,
   uplo : Byte,
@@ -4669,6 +4865,7 @@ pub extern "C" fn lapacke_csytrf_aa(
 ///     lapack_int lda, lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_zsytrf_aa(
   matrix_layout : Int,
   uplo : Byte,
@@ -4686,6 +4883,7 @@ pub extern "C" fn lapacke_zsytrf_aa(
 ///     lapack_int lda, lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_chetrf_aa(
   matrix_layout : Int,
   uplo : Byte,
@@ -4703,6 +4901,7 @@ pub extern "C" fn lapacke_chetrf_aa(
 ///     lapack_int lda, lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, ipiv)
 pub extern "C" fn lapacke_zhetrf_aa(
   matrix_layout : Int,
   uplo : Byte,
@@ -4720,6 +4919,7 @@ pub extern "C" fn lapacke_zhetrf_aa(
 ///     lapack_int lda, lapack_int* ipiv, float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_ssytrf_aa_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4739,6 +4939,7 @@ pub extern "C" fn lapacke_ssytrf_aa_work(
 ///     lapack_int lda, lapack_int* ipiv, double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_dsytrf_aa_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4758,6 +4959,7 @@ pub extern "C" fn lapacke_dsytrf_aa_work(
 ///     lapack_int lda, lapack_int* ipiv, lapack_complex_float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_csytrf_aa_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4777,6 +4979,7 @@ pub extern "C" fn lapacke_csytrf_aa_work(
 ///     lapack_int lda, lapack_int* ipiv, lapack_complex_double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_zsytrf_aa_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4796,6 +4999,7 @@ pub extern "C" fn lapacke_zsytrf_aa_work(
 ///     lapack_int lda, lapack_int* ipiv, lapack_complex_float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_chetrf_aa_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4815,6 +5019,7 @@ pub extern "C" fn lapacke_chetrf_aa_work(
 ///     lapack_int lda, lapack_int* ipiv, lapack_complex_double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, work)
 pub extern "C" fn lapacke_zhetrf_aa_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4834,6 +5039,7 @@ pub extern "C" fn lapacke_zhetrf_aa_work(
 ///     const lapack_complex_float* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_csytrs_aa(
   matrix_layout : Int,
   uplo : Byte,
@@ -4855,6 +5061,7 @@ pub extern "C" fn lapacke_csytrs_aa(
 ///     lapack_int ldb, lapack_complex_float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_csytrs_aa_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4877,6 +5084,7 @@ pub extern "C" fn lapacke_csytrs_aa_work(
 ///     const lapack_complex_float* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_chetrs_aa(
   matrix_layout : Int,
   uplo : Byte,
@@ -4898,6 +5106,7 @@ pub extern "C" fn lapacke_chetrs_aa(
 ///     lapack_int ldb, lapack_complex_float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_chetrs_aa_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4920,6 +5129,7 @@ pub extern "C" fn lapacke_chetrs_aa_work(
 ///     const double* a, lapack_int lda, const lapack_int* ipiv, double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_dsytrs_aa(
   matrix_layout : Int,
   uplo : Byte,
@@ -4941,6 +5151,7 @@ pub extern "C" fn lapacke_dsytrs_aa(
 ///     lapack_int ldb, double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_dsytrs_aa_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4963,6 +5174,7 @@ pub extern "C" fn lapacke_dsytrs_aa_work(
 ///     const float* a, lapack_int lda, const lapack_int* ipiv, float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_ssytrs_aa(
   matrix_layout : Int,
   uplo : Byte,
@@ -4984,6 +5196,7 @@ pub extern "C" fn lapacke_ssytrs_aa(
 ///     lapack_int ldb, float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_ssytrs_aa_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5006,6 +5219,7 @@ pub extern "C" fn lapacke_ssytrs_aa_work(
 ///     const lapack_complex_double* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_zsytrs_aa(
   matrix_layout : Int,
   uplo : Byte,
@@ -5027,6 +5241,7 @@ pub extern "C" fn lapacke_zsytrs_aa(
 ///     lapack_int ldb, lapack_complex_double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_zsytrs_aa_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5049,6 +5264,7 @@ pub extern "C" fn lapacke_zsytrs_aa_work(
 ///     const lapack_complex_double* a, lapack_int lda, const lapack_int* ipiv, lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, ipiv, b)
 pub extern "C" fn lapacke_zhetrs_aa(
   matrix_layout : Int,
   uplo : Byte,
@@ -5070,6 +5286,7 @@ pub extern "C" fn lapacke_zhetrs_aa(
 ///     lapack_int ldb, lapack_complex_double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_zhetrs_aa_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5093,6 +5310,7 @@ pub extern "C" fn lapacke_zhetrs_aa_work(
 ///     float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, e, ipiv, b)
 pub extern "C" fn lapacke_ssysv_rk(
   matrix_layout : Int,
   uplo : Byte,
@@ -5115,6 +5333,7 @@ pub extern "C" fn lapacke_ssysv_rk(
 ///     float* b, lapack_int ldb, float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, e, ipiv, b, work)
 pub extern "C" fn lapacke_ssysv_rk_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5139,6 +5358,7 @@ pub extern "C" fn lapacke_ssysv_rk_work(
 ///     double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, e, ipiv, b)
 pub extern "C" fn lapacke_dsysv_rk(
   matrix_layout : Int,
   uplo : Byte,
@@ -5161,6 +5381,7 @@ pub extern "C" fn lapacke_dsysv_rk(
 ///     double* b, lapack_int ldb, double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, e, ipiv, b, work)
 pub extern "C" fn lapacke_dsysv_rk_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5185,6 +5406,7 @@ pub extern "C" fn lapacke_dsysv_rk_work(
 ///     lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, e, ipiv, b)
 pub extern "C" fn lapacke_csysv_rk(
   matrix_layout : Int,
   uplo : Byte,
@@ -5207,6 +5429,7 @@ pub extern "C" fn lapacke_csysv_rk(
 ///     lapack_complex_float* b, lapack_int ldb, lapack_complex_float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, e, ipiv, b, work)
 pub extern "C" fn lapacke_csysv_rk_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5231,6 +5454,7 @@ pub extern "C" fn lapacke_csysv_rk_work(
 ///     lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, e, ipiv, b)
 pub extern "C" fn lapacke_zsysv_rk(
   matrix_layout : Int,
   uplo : Byte,
@@ -5253,6 +5477,7 @@ pub extern "C" fn lapacke_zsysv_rk(
 ///     lapack_complex_double* b, lapack_int ldb, lapack_complex_double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, e, ipiv, b, work)
 pub extern "C" fn lapacke_zsysv_rk_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5277,6 +5502,7 @@ pub extern "C" fn lapacke_zsysv_rk_work(
 ///     lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, e, ipiv, b)
 pub extern "C" fn lapacke_chesv_rk(
   matrix_layout : Int,
   uplo : Byte,
@@ -5299,6 +5525,7 @@ pub extern "C" fn lapacke_chesv_rk(
 ///     lapack_complex_float* b, lapack_int ldb, lapack_complex_float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, e, ipiv, b, work)
 pub extern "C" fn lapacke_chesv_rk_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5323,6 +5550,7 @@ pub extern "C" fn lapacke_chesv_rk_work(
 ///     lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, e, ipiv, b)
 pub extern "C" fn lapacke_zhesv_rk(
   matrix_layout : Int,
   uplo : Byte,
@@ -5345,6 +5573,7 @@ pub extern "C" fn lapacke_zhesv_rk(
 ///     lapack_complex_double* b, lapack_int ldb, lapack_complex_double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, e, ipiv, b, work)
 pub extern "C" fn lapacke_zhesv_rk_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5368,6 +5597,7 @@ pub extern "C" fn lapacke_zhesv_rk_work(
 ///     lapack_int lda, float* e, lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, e, ipiv)
 pub extern "C" fn lapacke_ssytrf_rk(
   matrix_layout : Int,
   uplo : Byte,
@@ -5386,6 +5616,7 @@ pub extern "C" fn lapacke_ssytrf_rk(
 ///     lapack_int lda, double* e, lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, e, ipiv)
 pub extern "C" fn lapacke_dsytrf_rk(
   matrix_layout : Int,
   uplo : Byte,
@@ -5404,6 +5635,7 @@ pub extern "C" fn lapacke_dsytrf_rk(
 ///     lapack_int lda, lapack_complex_float* e, lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, e, ipiv)
 pub extern "C" fn lapacke_csytrf_rk(
   matrix_layout : Int,
   uplo : Byte,
@@ -5422,6 +5654,7 @@ pub extern "C" fn lapacke_csytrf_rk(
 ///     lapack_int lda, lapack_complex_double* e, lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, e, ipiv)
 pub extern "C" fn lapacke_zsytrf_rk(
   matrix_layout : Int,
   uplo : Byte,
@@ -5440,6 +5673,7 @@ pub extern "C" fn lapacke_zsytrf_rk(
 ///     lapack_int lda, lapack_complex_float* e, lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, e, ipiv)
 pub extern "C" fn lapacke_chetrf_rk(
   matrix_layout : Int,
   uplo : Byte,
@@ -5458,6 +5692,7 @@ pub extern "C" fn lapacke_chetrf_rk(
 ///     lapack_int lda, lapack_complex_double* e, lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, e, ipiv)
 pub extern "C" fn lapacke_zhetrf_rk(
   matrix_layout : Int,
   uplo : Byte,
@@ -5476,6 +5711,7 @@ pub extern "C" fn lapacke_zhetrf_rk(
 ///     lapack_int lda, float* e, lapack_int* ipiv, float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, e, ipiv, work)
 pub extern "C" fn lapacke_ssytrf_rk_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5496,6 +5732,7 @@ pub extern "C" fn lapacke_ssytrf_rk_work(
 ///     lapack_int lda, double* e, lapack_int* ipiv, double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, e, ipiv, work)
 pub extern "C" fn lapacke_dsytrf_rk_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5516,6 +5753,7 @@ pub extern "C" fn lapacke_dsytrf_rk_work(
 ///     lapack_int lda, lapack_complex_float* e, lapack_int* ipiv, lapack_complex_float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, e, ipiv, work)
 pub extern "C" fn lapacke_csytrf_rk_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5536,6 +5774,7 @@ pub extern "C" fn lapacke_csytrf_rk_work(
 ///     lapack_int lda, lapack_complex_double* e, lapack_int* ipiv, lapack_complex_double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, e, ipiv, work)
 pub extern "C" fn lapacke_zsytrf_rk_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5556,6 +5795,7 @@ pub extern "C" fn lapacke_zsytrf_rk_work(
 ///     lapack_int lda, lapack_complex_float* e, lapack_int* ipiv, lapack_complex_float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, e, ipiv, work)
 pub extern "C" fn lapacke_chetrf_rk_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5576,6 +5816,7 @@ pub extern "C" fn lapacke_chetrf_rk_work(
 ///     lapack_int lda, lapack_complex_double* e, lapack_int* ipiv, lapack_complex_double* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, e, ipiv, work)
 pub extern "C" fn lapacke_zhetrf_rk_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5597,6 +5838,7 @@ pub extern "C" fn lapacke_zhetrf_rk_work(
 ///     lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, e, ipiv, b)
 pub extern "C" fn lapacke_csytrs_3(
   matrix_layout : Int,
   uplo : Byte,
@@ -5619,6 +5861,7 @@ pub extern "C" fn lapacke_csytrs_3(
 ///     lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, e, ipiv, b)
 pub extern "C" fn lapacke_csytrs_3_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5641,6 +5884,7 @@ pub extern "C" fn lapacke_csytrs_3_work(
 ///     lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, e, ipiv, b)
 pub extern "C" fn lapacke_chetrs_3(
   matrix_layout : Int,
   uplo : Byte,
@@ -5663,6 +5907,7 @@ pub extern "C" fn lapacke_chetrs_3(
 ///     lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, e, ipiv, b)
 pub extern "C" fn lapacke_chetrs_3_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5685,6 +5930,7 @@ pub extern "C" fn lapacke_chetrs_3_work(
 ///     double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, e, ipiv, b)
 pub extern "C" fn lapacke_dsytrs_3(
   matrix_layout : Int,
   uplo : Byte,
@@ -5707,6 +5953,7 @@ pub extern "C" fn lapacke_dsytrs_3(
 ///     double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, e, ipiv, b)
 pub extern "C" fn lapacke_dsytrs_3_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5729,6 +5976,7 @@ pub extern "C" fn lapacke_dsytrs_3_work(
 ///     float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, e, ipiv, b)
 pub extern "C" fn lapacke_ssytrs_3(
   matrix_layout : Int,
   uplo : Byte,
@@ -5751,6 +5999,7 @@ pub extern "C" fn lapacke_ssytrs_3(
 ///     float* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, e, ipiv, b)
 pub extern "C" fn lapacke_ssytrs_3_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5773,6 +6022,7 @@ pub extern "C" fn lapacke_ssytrs_3_work(
 ///     lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, e, ipiv, b)
 pub extern "C" fn lapacke_zsytrs_3(
   matrix_layout : Int,
   uplo : Byte,
@@ -5795,6 +6045,7 @@ pub extern "C" fn lapacke_zsytrs_3(
 ///     lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, e, ipiv, b)
 pub extern "C" fn lapacke_zsytrs_3_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5817,6 +6068,7 @@ pub extern "C" fn lapacke_zsytrs_3_work(
 ///     lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, e, ipiv, b)
 pub extern "C" fn lapacke_zhetrs_3(
   matrix_layout : Int,
   uplo : Byte,
@@ -5839,6 +6091,7 @@ pub extern "C" fn lapacke_zhetrs_3(
 ///     lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
+#borrow(a, e, ipiv, b)
 pub extern "C" fn lapacke_zhetrs_3_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5860,6 +6113,7 @@ pub extern "C" fn lapacke_zhetrs_3_work(
 ///     lapack_int lda, const float* e, const lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, e, ipiv)
 pub extern "C" fn lapacke_ssytri_3(
   matrix_layout : Int,
   uplo : Byte,
@@ -5878,6 +6132,7 @@ pub extern "C" fn lapacke_ssytri_3(
 ///     lapack_int lda, const double* e, const lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, e, ipiv)
 pub extern "C" fn lapacke_dsytri_3(
   matrix_layout : Int,
   uplo : Byte,
@@ -5896,6 +6151,7 @@ pub extern "C" fn lapacke_dsytri_3(
 ///     lapack_int lda, const lapack_complex_float* e, const lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, e, ipiv)
 pub extern "C" fn lapacke_csytri_3(
   matrix_layout : Int,
   uplo : Byte,
@@ -5914,6 +6170,7 @@ pub extern "C" fn lapacke_csytri_3(
 ///     lapack_int lda, const lapack_complex_double* e, const lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, e, ipiv)
 pub extern "C" fn lapacke_zsytri_3(
   matrix_layout : Int,
   uplo : Byte,
@@ -5932,6 +6189,7 @@ pub extern "C" fn lapacke_zsytri_3(
 ///     lapack_int lda, const lapack_complex_float* e, const lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, e, ipiv)
 pub extern "C" fn lapacke_chetri_3(
   matrix_layout : Int,
   uplo : Byte,
@@ -5950,6 +6208,7 @@ pub extern "C" fn lapacke_chetri_3(
 ///     lapack_int lda, const lapack_complex_double* e, const lapack_int* ipiv
 /// );
 /// ```
+#borrow(a, e, ipiv)
 pub extern "C" fn lapacke_zhetri_3(
   matrix_layout : Int,
   uplo : Byte,
@@ -5968,6 +6227,7 @@ pub extern "C" fn lapacke_zhetri_3(
 ///     lapack_int lda, const float* e, const lapack_int* ipiv, float* work, lapack_int lwork
 /// );
 /// ```
+#borrow(a, e, ipiv, work)
 pub extern "C" fn lapacke_ssytri_3_work(
   matrix_layout : Int,
   uplo : Byte,
