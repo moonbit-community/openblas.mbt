@@ -160,6 +160,11 @@ int main() {
     failed += test_cblas_chemm();
     failed += test_cblas_cherk();
     failed += test_cblas_cher2();
+    failed += test_cblas_csymm();
+    failed += test_cblas_chemv();
+    failed += test_cblas_chbmv();
+    // test_cblas_cgemm3m - function not available
+    failed += test_cblas_chpr();
     
     // Complex double tests
     failed += test_cblas_zdotc();
@@ -180,6 +185,11 @@ int main() {
     // New Level 2 BLAS complex double tests
     failed += test_cblas_zher2();
     failed += test_cblas_zgbmv();
+    failed += test_cblas_zsymm();
+    failed += test_cblas_zhemv();
+    failed += test_cblas_zhbmv();
+    // test_cblas_zgemm3m - function not available
+    failed += test_cblas_zhpr();
     
     if (failed > 0) {
         printf("%d tests failed.\n", failed);

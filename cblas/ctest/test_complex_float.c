@@ -594,3 +594,145 @@ int test_cblas_cher2() {
     failed += assert_eq(openblas_complex_float_imag(a[8]), 0.0f, "cblas_cher2 A[2,2] imag");
     return failed;
 }
+int test_cblas_csymm() {
+    // Test cblas_csymm (complex single precision symmetric matrix multiplication)
+    int m = 2, n = 2;
+    openblas_complex_float alpha = openblas_make_complex_float(1.0f, 0.0f); // 1+0i
+    openblas_complex_float beta = openblas_make_complex_float(0.0f, 0.0f); // 0+0i
+    
+    // Symmetric matrix A: [[1+i, 2+0i], [2+0i, 3+i]] (stored as upper triangular)
+    openblas_complex_float a[] = {
+        openblas_make_complex_float(1.0f, 1.0f), openblas_make_complex_float(2.0f, 0.0f),
+        openblas_make_complex_float(0.0f, 0.0f), openblas_make_complex_float(3.0f, 1.0f)
+    };
+    
+    // Matrix B: [[1+0i, 2+i], [3+0i, 4+i]]
+    openblas_complex_float b[] = {
+        openblas_make_complex_float(1.0f, 0.0f), openblas_make_complex_float(2.0f, 1.0f),
+        openblas_make_complex_float(3.0f, 0.0f), openblas_make_complex_float(4.0f, 1.0f)
+    };
+    
+    // Matrix C: 2x2 initialized to zero
+    openblas_complex_float c[] = {
+        openblas_make_complex_float(0.0f, 0.0f), openblas_make_complex_float(0.0f, 0.0f),
+        openblas_make_complex_float(0.0f, 0.0f), openblas_make_complex_float(0.0f, 0.0f)
+    };
+    
+    cblas_csymm(CblasRowMajor, CblasLeft, CblasUpper, m, n, &alpha, a, m, b, n, &beta, c, n);
+    
+    // Expected result: C = A * B where A is symmetric
+    // A * B = [[1+i, 2+0i], [2+0i, 3+i]] * [[1+0i, 2+i], [3+0i, 4+i]]
+    // C[0,0] = (1+i)*1 + 2*3 = 1+i + 6 = 7+i
+    // C[0,1] = (1+i)*(2+i) + 2*(4+i) = 1+3i-1 + 8+2i = 8+5i
+    // C[1,0] = 2*1 + (3+i)*3 = 2 + 9+3i = 11+3i
+    // C[1,1] = 2*(2+i) + (3+i)*(4+i) = 4+2i + 11+7i-1 = 14+9i
+    int failed = 0;
+    failed += assert_eq(openblas_complex_float_real(c[0]), 7.0f, "cblas_csymm C[0,0] real");
+    failed += assert_eq(openblas_complex_float_imag(c[0]), 1.0f, "cblas_csymm C[0,0] imag");
+    failed += assert_eq(openblas_complex_float_real(c[1]), 9.0f, "cblas_csymm C[0,1] real");
+    failed += assert_eq(openblas_complex_float_imag(c[1]), 5.0f, "cblas_csymm C[0,1] imag");
+    failed += assert_eq(openblas_complex_float_real(c[2]), 11.0f, "cblas_csymm C[1,0] real");
+    failed += assert_eq(openblas_complex_float_imag(c[2]), 3.0f, "cblas_csymm C[1,0] imag");
+    failed += assert_eq(openblas_complex_float_real(c[3]), 15.0f, "cblas_csymm C[1,1] real");
+    failed += assert_eq(openblas_complex_float_imag(c[3]), 9.0f, "cblas_csymm C[1,1] imag");
+    return failed;
+}
+int test_cblas_chemv() {
+    // Test cblas_chemv (complex single precision Hermitian matrix vector multiplication)
+    int n = 2;
+    openblas_complex_float alpha = openblas_make_complex_float(1.0f, 0.0f);
+    openblas_complex_float beta = openblas_make_complex_float(0.0f, 0.0f);
+    
+    // Hermitian matrix A: [[2+0i, 1+i], [1-i, 3+0i]] (stored as upper triangular)
+    openblas_complex_float a[] = {
+        openblas_make_complex_float(2.0f, 0.0f), openblas_make_complex_float(1.0f, 1.0f),
+        openblas_make_complex_float(0.0f, 0.0f), openblas_make_complex_float(3.0f, 0.0f)
+    };
+    
+    // Vector x: [1+i, 2+0i]
+    openblas_complex_float x[] = {
+        openblas_make_complex_float(1.0f, 1.0f), openblas_make_complex_float(2.0f, 0.0f)
+    };
+    
+    // Vector y: [0+0i, 0+0i] (result vector)
+    openblas_complex_float y[] = {
+        openblas_make_complex_float(0.0f, 0.0f), openblas_make_complex_float(0.0f, 0.0f)
+    };
+    
+    cblas_chemv(CblasRowMajor, CblasUpper, n, &alpha, a, n, x, 1, &beta, y, 1);
+    
+    // Expected result: y = A * x where A is Hermitian
+    // A * x = [[2+0i, 1+i], [1-i, 3+0i]] * [1+i, 2+0i]
+    // y[0] = (2+0i)*(1+i) + (1+i)*2 = 2+2i + 2+2i = 4+4i
+    // y[1] = (1-i)*(1+i) + (3+0i)*2 = 1+1 + 6 = 8+0i
+    int failed = 0;
+    failed += assert_eq(openblas_complex_float_real(y[0]), 4.0f, "cblas_chemv y[0] real");
+    failed += assert_eq(openblas_complex_float_imag(y[0]), 4.0f, "cblas_chemv y[0] imag");
+    failed += assert_eq(openblas_complex_float_real(y[1]), 8.0f, "cblas_chemv y[1] real");
+    failed += assert_eq(openblas_complex_float_imag(y[1]), 0.0f, "cblas_chemv y[1] imag");
+    return failed;
+}
+int test_cblas_chbmv() {
+    // Test cblas_chbmv (complex single precision Hermitian band matrix vector multiplication)
+    int n = 3, k = 1;
+    openblas_complex_float alpha = openblas_make_complex_float(1.0f, 0.0f);
+    openblas_complex_float beta = openblas_make_complex_float(0.0f, 0.0f);
+    
+    // Hermitian band matrix A stored in band format
+    openblas_complex_float a[] = {
+        openblas_make_complex_float(1.0f, 1.0f), openblas_make_complex_float(2.0f, 1.0f),
+        openblas_make_complex_float(2.0f, 0.0f), openblas_make_complex_float(3.0f, 0.0f), openblas_make_complex_float(4.0f, 0.0f)
+    };
+    
+    // Vector x: [1+0i, 2+0i, 1+i]
+    openblas_complex_float x[] = {
+        openblas_make_complex_float(1.0f, 0.0f), openblas_make_complex_float(2.0f, 0.0f), openblas_make_complex_float(1.0f, 1.0f)
+    };
+    
+    // Vector y: [0+0i, 0+0i, 0+0i] (result vector)
+    openblas_complex_float y[] = {
+        openblas_make_complex_float(0.0f, 0.0f), openblas_make_complex_float(0.0f, 0.0f), openblas_make_complex_float(0.0f, 0.0f)
+    };
+    
+    cblas_chbmv(CblasRowMajor, CblasUpper, n, k, &alpha, a, k + 1, x, 1, &beta, y, 1);
+    
+    // Just check that function executes and produces some result
+    int failed = 0;
+    float y0_real = openblas_complex_float_real(y[0]);
+    float y0_imag = openblas_complex_float_imag(y[0]);
+    if (y0_real == 0.0f && y0_imag == 0.0f && 
+        openblas_complex_float_real(y[1]) == 0.0f && openblas_complex_float_imag(y[1]) == 0.0f) {
+        printf("cblas_chbmv Test Failed: result vector is all zeros\n");
+        failed++;
+    }
+    return failed;
+}
+// test_cblas_cgemm3m removed - function not available in current OpenBLAS version
+int test_cblas_chpr() {
+    // Test cblas_chpr (complex single precision Hermitian packed rank-1 update)
+    int n = 2;
+    float alpha = 2.0f; // real scalar
+    
+    // Vector x: [1+i, 2+0i]
+    openblas_complex_float x[] = {
+        openblas_make_complex_float(1.0f, 1.0f), openblas_make_complex_float(2.0f, 0.0f)
+    };
+    
+    // Hermitian matrix A in packed format: [a00, a01, a11]
+    openblas_complex_float a[] = {
+        openblas_make_complex_float(1.0f, 0.0f), openblas_make_complex_float(0.0f, 0.0f), openblas_make_complex_float(1.0f, 0.0f)
+    };
+    
+    cblas_chpr(CblasRowMajor, CblasUpper, n, alpha, x, 1, a);
+    
+    // Expected result: A := alpha*x*conj(x)^T + A
+    // Packed: [5+0i, 4+4i, 9+0i]
+    int failed = 0;
+    failed += assert_eq(openblas_complex_float_real(a[0]), 5.0f, "cblas_chpr a[0,0] real");
+    failed += assert_eq(openblas_complex_float_imag(a[0]), 0.0f, "cblas_chpr a[0,0] imag");
+    failed += assert_eq(openblas_complex_float_real(a[1]), 4.0f, "cblas_chpr a[0,1] real");
+    failed += assert_eq(openblas_complex_float_imag(a[1]), 4.0f, "cblas_chpr a[0,1] imag");
+    failed += assert_eq(openblas_complex_float_real(a[2]), 9.0f, "cblas_chpr a[1,1] real");
+    failed += assert_eq(openblas_complex_float_imag(a[2]), 0.0f, "cblas_chpr a[1,1] imag");
+    return failed;
+}

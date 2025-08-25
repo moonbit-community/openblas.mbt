@@ -155,10 +155,9 @@ int test_cblas_zgerc();
 int test_cblas_zgemm();
 int test_cblas_zher2();
 int test_cblas_zgbmv();
-// Note: Some complex double functions may have binding issues
+int test_cblas_zsymm();
 
-#endif // CBLAS_TEST_H
-
+// Complex float test functions (additional - Level 2/3 BLAS)
 int test_cblas_ctrsv();
 int test_cblas_ctrmv();
 int test_cblas_cher();
@@ -166,3 +165,16 @@ int test_cblas_cgemm();
 int test_cblas_chemm();
 int test_cblas_cherk();
 int test_cblas_cher2();
+int test_cblas_csymm();
+int test_cblas_chemv();
+int test_cblas_chbmv();
+// int test_cblas_cgemm3m(); - function not available
+int test_cblas_chpr();
+int test_cblas_zhemv();
+int test_cblas_zhbmv();
+// int test_cblas_zgemm3m(); - function not available
+int test_cblas_zhpr();
+
+// Note: Some complex double functions may have binding issues
+
+#endif // CBLAS_TEST_H
