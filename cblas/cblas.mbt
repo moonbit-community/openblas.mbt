@@ -2417,6 +2417,8 @@ pub extern "C" fn cblas_zhpmv(
 
 ///|
 ///
+/// Note: beta cannot be zero, it will cause bug in some architectures.
+///
 /// ```c
 /// void cblas_sgemm(const enum CBLAS_ORDER Order, const enum CBLAS_TRANSPOSE TransA, const enum CBLAS_TRANSPOSE TransB, const blasint M, const blasint N, const blasint K,
 ///	 const float alpha, const float *A, const blasint lda, const float *B, const blasint ldb, const float beta, float *C, const blasint ldc);

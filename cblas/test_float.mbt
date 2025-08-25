@@ -217,7 +217,7 @@ test "cblas_sgemm test" {
   let n = 2
   let k = 2
   let alpha : Float = 1.0
-  let beta : Float = 0.0
+  let beta : Float = 1.0
   let a : FixedArray[Float] = [1.0, 2.0, 3.0, 4.0] // 2x2 matrix
   let b : FixedArray[Float] = [5.0, 6.0, 7.0, 8.0] // 2x2 matrix
   let c : FixedArray[Float] = [0.0, 0.0, 0.0, 0.0] // 2x2 result matrix

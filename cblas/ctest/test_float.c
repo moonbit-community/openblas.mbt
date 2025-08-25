@@ -176,7 +176,7 @@ int test_cblas_sgemv() {
 
 int test_cblas_sgemm() {
     int m = 2, n = 2, k = 2;
-    float alpha = 1.0f, beta = 0.0f;
+    float alpha = 1.0f, beta = 1.0f;
     float a[] = {1.0f, 2.0f, 3.0f, 4.0f}; // 2x2 matrix
     float b[] = {5.0f, 6.0f, 7.0f, 8.0f}; // 2x2 matrix
     float c[] = {0.0f, 0.0f, 0.0f, 0.0f}; // 2x2 result matrix
