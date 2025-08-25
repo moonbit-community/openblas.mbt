@@ -153,6 +153,13 @@ int main() {
     failed += test_cblas_cgemv();
     failed += test_cblas_cgeru();
     failed += test_cblas_cgerc();
+    failed += test_cblas_ctrsv();
+    failed += test_cblas_ctrmv();
+    failed += test_cblas_cher();
+    failed += test_cblas_cgemm();
+    failed += test_cblas_chemm();
+    failed += test_cblas_cherk();
+    failed += test_cblas_cher2();
     
     // Complex double tests
     failed += test_cblas_zdotc();

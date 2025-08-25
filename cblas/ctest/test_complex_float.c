@@ -446,3 +446,151 @@ int test_cblas_cher() {
     failed += assert_eq(a[7], 0.0f, "cblas_cher a[1,1] imag");
     return failed;
 }
+int test_cblas_cgemm() {
+    // Test cblas_cgemm with a simple 2x2 matrix multiplication
+    int m = 2, n = 2, k = 2;
+    
+    // Matrix A (2x2)
+    openblas_complex_float a[] = {
+        openblas_make_complex_float(1.0f, 2.0f), openblas_make_complex_float(3.0f, 4.0f),
+        openblas_make_complex_float(2.0f, 1.0f), openblas_make_complex_float(4.0f, 3.0f)
+    };
+    
+    // Matrix B (2x2)
+    openblas_complex_float b[] = {
+        openblas_make_complex_float(5.0f, 6.0f), openblas_make_complex_float(7.0f, 8.0f),
+        openblas_make_complex_float(1.0f, 2.0f), openblas_make_complex_float(3.0f, 4.0f)
+    };
+    
+    // Matrix C (2x2) initialized to zero
+    openblas_complex_float c[4];
+    for (int i = 0; i < 4; i++) {
+        c[i] = openblas_make_complex_float(0.0f, 0.0f);
+    }
+    
+    openblas_complex_float alpha = openblas_make_complex_float(1.0f, 0.0f);
+    openblas_complex_float beta = openblas_make_complex_float(0.0f, 0.0f);
+    
+    cblas_cgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
+                m, n, k, &alpha, a, k, b, n, &beta, c, n);
+    
+    int failed = 0;
+    failed += assert_eq(openblas_complex_float_real(c[0]), -12.0f, "cblas_cgemm C[0,0] real");
+    failed += assert_eq(openblas_complex_float_imag(c[0]), 26.0f, "cblas_cgemm C[0,0] imag");
+    failed += assert_eq(openblas_complex_float_real(c[1]), -16.0f, "cblas_cgemm C[0,1] real");
+    failed += assert_eq(openblas_complex_float_imag(c[1]), 46.0f, "cblas_cgemm C[0,1] imag");
+    failed += assert_eq(openblas_complex_float_real(c[2]), 2.0f, "cblas_cgemm C[1,0] real");
+    failed += assert_eq(openblas_complex_float_imag(c[2]), 28.0f, "cblas_cgemm C[1,0] imag");
+    failed += assert_eq(openblas_complex_float_real(c[3]), 6.0f, "cblas_cgemm C[1,1] real");
+    failed += assert_eq(openblas_complex_float_imag(c[3]), 48.0f, "cblas_cgemm C[1,1] imag");
+    return failed;
+}
+
+int test_cblas_chemm() {
+    // Test cblas_chemm with a simple Hermitian matrix multiplication
+    int m = 2, n = 2;
+    
+    // Hermitian matrix A (2x2)
+    openblas_complex_float a[] = {
+        openblas_make_complex_float(2.0f, 0.0f), openblas_make_complex_float(1.0f, 2.0f),
+        openblas_make_complex_float(0.0f, 0.0f), openblas_make_complex_float(3.0f, 0.0f)
+    };
+    
+    // Matrix B (2x2)
+    openblas_complex_float b[] = {
+        openblas_make_complex_float(1.0f, 1.0f), openblas_make_complex_float(2.0f, 0.0f),
+        openblas_make_complex_float(3.0f, 0.0f), openblas_make_complex_float(1.0f, -1.0f)
+    };
+    
+    // Matrix C (2x2) initialized to zero
+    openblas_complex_float c[4];
+    for (int i = 0; i < 4; i++) {
+        c[i] = openblas_make_complex_float(0.0f, 0.0f);
+    }
+    
+    openblas_complex_float alpha = openblas_make_complex_float(1.0f, 0.0f);
+    openblas_complex_float beta = openblas_make_complex_float(0.0f, 0.0f);
+    
+    cblas_chemm(CblasRowMajor, CblasLeft, CblasUpper,
+                m, n, &alpha, a, m, b, n, &beta, c, n);
+    
+    int failed = 0;
+    failed += assert_eq(openblas_complex_float_real(c[0]), 5.0f, "cblas_chemm C[0,0] real");
+    failed += assert_eq(openblas_complex_float_imag(c[0]), 8.0f, "cblas_chemm C[0,0] imag");
+    failed += assert_eq(openblas_complex_float_real(c[1]), 7.0f, "cblas_chemm C[0,1] real");
+    failed += assert_eq(openblas_complex_float_imag(c[1]), 1.0f, "cblas_chemm C[0,1] imag");
+    failed += assert_eq(openblas_complex_float_real(c[2]), 12.0f, "cblas_chemm C[1,0] real");
+    failed += assert_eq(openblas_complex_float_imag(c[2]), -1.0f, "cblas_chemm C[1,0] imag");
+    failed += assert_eq(openblas_complex_float_real(c[3]), 5.0f, "cblas_chemm C[1,1] real");
+    failed += assert_eq(openblas_complex_float_imag(c[3]), -7.0f, "cblas_chemm C[1,1] imag");
+    return failed;
+}
+
+int test_cblas_cherk() {
+    // Test cblas_cherk with Hermitian rank-k update
+    int n = 2, k = 2;
+    
+    // Matrix A (2x2)
+    openblas_complex_float a[] = {
+        openblas_make_complex_float(1.0f, 1.0f), openblas_make_complex_float(2.0f, 0.0f),
+        openblas_make_complex_float(0.0f, 1.0f), openblas_make_complex_float(1.0f, 1.0f)
+    };
+    
+    // Initial Hermitian matrix C
+    openblas_complex_float c[] = {
+        openblas_make_complex_float(1.0f, 0.0f), openblas_make_complex_float(1.0f, 1.0f),
+        openblas_make_complex_float(0.0f, 0.0f), openblas_make_complex_float(2.0f, 0.0f)
+    };
+    
+    float alpha = 1.0f;
+    float beta = 1.0f;
+    
+    cblas_cherk(CblasRowMajor, CblasUpper, CblasNoTrans,
+                n, k, alpha, a, k, beta, c, n);
+    
+    int failed = 0;
+    failed += assert_eq(openblas_complex_float_real(c[0]), 7.0f, "cblas_cherk C[0,0] real");
+    failed += assert_eq(openblas_complex_float_imag(c[0]), 0.0f, "cblas_cherk C[0,0] imag");
+    failed += assert_eq(openblas_complex_float_real(c[1]), 4.0f, "cblas_cherk C[0,1] real");
+    failed += assert_eq(openblas_complex_float_imag(c[1]), -2.0f, "cblas_cherk C[0,1] imag");
+    failed += assert_eq(openblas_complex_float_real(c[3]), 5.0f, "cblas_cherk C[1,1] real");
+    failed += assert_eq(openblas_complex_float_imag(c[3]), 0.0f, "cblas_cherk C[1,1] imag");
+    return failed;
+}
+
+int test_cblas_cher2() {
+    // Test cblas_cher2 with Hermitian rank-2 update
+    int n = 3;
+    
+    // Vector x
+    openblas_complex_float x[] = {
+        openblas_make_complex_float(1.0f, 1.0f),
+        openblas_make_complex_float(2.0f, 0.0f),
+        openblas_make_complex_float(0.0f, 1.0f)
+    };
+    
+    // Vector y
+    openblas_complex_float y[] = {
+        openblas_make_complex_float(1.0f, 0.0f),
+        openblas_make_complex_float(1.0f, 1.0f),
+        openblas_make_complex_float(2.0f, 0.0f)
+    };
+    
+    // Initial Hermitian matrix A
+    openblas_complex_float a[] = {
+        openblas_make_complex_float(1.0f, 0.0f), openblas_make_complex_float(1.0f, 1.0f), openblas_make_complex_float(2.0f, 1.0f),
+        openblas_make_complex_float(0.0f, 0.0f), openblas_make_complex_float(2.0f, 0.0f), openblas_make_complex_float(3.0f, 0.0f),
+        openblas_make_complex_float(0.0f, 0.0f), openblas_make_complex_float(0.0f, 0.0f), openblas_make_complex_float(4.0f, 0.0f)
+    };
+    
+    openblas_complex_float alpha = openblas_make_complex_float(0.5f, 0.5f);
+    
+    cblas_cher2(CblasRowMajor, CblasUpper, n, &alpha, x, 1, y, 1, a, n);
+    
+    int failed = 0;
+    // Check that diagonal elements remain real
+    failed += assert_eq(openblas_complex_float_imag(a[0]), 0.0f, "cblas_cher2 A[0,0] imag");
+    failed += assert_eq(openblas_complex_float_imag(a[4]), 0.0f, "cblas_cher2 A[1,1] imag");
+    failed += assert_eq(openblas_complex_float_imag(a[8]), 0.0f, "cblas_cher2 A[2,2] imag");
+    return failed;
+}

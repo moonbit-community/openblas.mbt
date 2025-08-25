@@ -158,3 +158,11 @@ int test_cblas_zgbmv();
 // Note: Some complex double functions may have binding issues
 
 #endif // CBLAS_TEST_H
+
+int test_cblas_ctrsv();
+int test_cblas_ctrmv();
+int test_cblas_cher();
+int test_cblas_cgemm();
+int test_cblas_chemm();
+int test_cblas_cherk();
+int test_cblas_cher2();
