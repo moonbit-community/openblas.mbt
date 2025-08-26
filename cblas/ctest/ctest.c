@@ -166,6 +166,17 @@ int main() {
     // test_cblas_cgemm3m - function not available
     failed += test_cblas_chpr();
     
+    // New Level 3 BLAS complex single precision tests
+    failed += test_cblas_ctrmm();
+    failed += test_cblas_ctrsm();
+    failed += test_cblas_cgemmt();
+    failed += test_cblas_csyrk();
+    
+    // New Level 2 BLAS complex single precision tests
+    failed += test_cblas_cgbmv();
+    failed += test_cblas_ctbmv();
+    failed += test_cblas_chpmv();
+    
     // Complex double tests
     failed += test_cblas_zdotc();
     failed += test_cblas_zaxpy();
@@ -190,6 +201,18 @@ int main() {
     failed += test_cblas_zhbmv();
     // test_cblas_zgemm3m - function not available
     failed += test_cblas_zhpr();
+    
+    // New Level 3 BLAS complex double precision tests
+    failed += test_cblas_zhemm();
+    failed += test_cblas_zherk();
+    failed += test_cblas_zsyrk();
+    failed += test_cblas_ztrmm();
+    failed += test_cblas_ztrsm();
+    failed += test_cblas_zgemmt();
+    
+    // New Level 2 BLAS complex double precision tests
+    failed += test_cblas_ztbmv();
+    failed += test_cblas_zhpmv();
     
     if (failed > 0) {
         printf("%d tests failed.\n", failed);

@@ -170,10 +170,34 @@ int test_cblas_chemv();
 int test_cblas_chbmv();
 // int test_cblas_cgemm3m(); - function not available
 int test_cblas_chpr();
+
+// New Level 3 BLAS complex single precision functions
+int test_cblas_ctrmm();
+int test_cblas_ctrsm();
+int test_cblas_cgemmt();
+int test_cblas_csyrk();
+
+// New Level 2 BLAS complex single precision functions
+int test_cblas_cgbmv();
+int test_cblas_ctbmv();
+int test_cblas_chpmv();
+
 int test_cblas_zhemv();
 int test_cblas_zhbmv();
 // int test_cblas_zgemm3m(); - function not available
 int test_cblas_zhpr();
+
+// New Level 3 BLAS complex double precision functions
+int test_cblas_zhemm();
+int test_cblas_zherk();
+int test_cblas_zsyrk();
+int test_cblas_ztrmm();
+int test_cblas_ztrsm();
+int test_cblas_zgemmt();
+
+// New Level 2 BLAS complex double precision functions
+int test_cblas_ztbmv();
+int test_cblas_zhpmv();
 
 // Note: Some complex double functions may have binding issues
 

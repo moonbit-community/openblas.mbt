@@ -805,3 +805,172 @@ test "cblas_chpr test" {
   assert_eq(a[4], 9.0) // a[1,1] real
   assert_eq(a[5], 0.0) // a[1,1] imag (should be 0 for Hermitian)
 }
+///|
+test "cblas_ctrmm test" {
+  // Test cblas_ctrmm (complex single precision triangular matrix multiplication)
+  let order = CblasRowMajor
+  let side = CblasLeft
+  let uplo = CblasUpper
+  let transa = CblasNoTrans
+  let diag = CblasNonUnit
+  let m = 2
+  let n = 2
+  let alpha : FixedArray[Float] = [1.0, 0.0] // 1+0i
+  
+  // Triangular matrix A: 2x2 upper triangular
+  // [[1+i, 2+0i], [0+0i, 1+0i]]
+  let a : FixedArray[Float] = [1.0, 1.0, 2.0, 0.0, 0.0, 0.0, 1.0, 0.0]
+  
+  // Matrix B: 2x2 = [[1+0i, 0+i], [2+0i, 1+0i]]
+  let b : FixedArray[Float] = [1.0, 0.0, 0.0, 1.0, 2.0, 0.0, 1.0, 0.0]
+  
+  cblas_ctrmm(order, side, uplo, transa, diag, m, n, alpha, a, m, b, n)
+  
+  // Expected result: B = alpha * A * B (triangular matrix multiplication)
+  // Check that computation occurred
+  inspect(b[0] != 1.0, content="true") // B[0,0] real should have changed
+}
+
+///|
+test "cblas_ctrsm test" {
+  // Test cblas_ctrsm (complex single precision triangular system solve)
+  let order = CblasRowMajor
+  let side = CblasLeft
+  let uplo = CblasUpper
+  let transa = CblasNoTrans
+  let diag = CblasNonUnit
+  let m = 2
+  let n = 2
+  let alpha : FixedArray[Float] = [1.0, 0.0] // 1+0i
+  
+  // Triangular matrix A: 2x2 upper triangular
+  // [[2+0i, 1+0i], [0+0i, 2+0i]]
+  let a : FixedArray[Float] = [2.0, 0.0, 1.0, 0.0, 0.0, 0.0, 2.0, 0.0]
+  
+  // Matrix B: 2x2 = [[4+0i, 2+0i], [2+0i, 4+0i]]
+  let b : FixedArray[Float] = [4.0, 0.0, 2.0, 0.0, 2.0, 0.0, 4.0, 0.0]
+  
+  cblas_ctrsm(order, side, uplo, transa, diag, m, n, alpha, a, m, b, n)
+  
+  // Expected result: solve A * X = alpha * B for X, result stored in B
+  // Should solve the triangular system
+  // Check that solution is reasonable - just verify computation occurred
+  inspect(b[0] > 0.0, content="true") // Should be positive  
+  inspect(b[1] >= 0.0, content="true") // Should be non-negative
+}
+
+///|
+test "cblas_cgemmt test" {
+  // Test cblas_cgemmt (complex single precision general matrix multiplication, triangular result)
+  let order = CblasRowMajor
+  let uplo = CblasUpper
+  let transa = CblasNoTrans
+  let transb = CblasNoTrans
+  let n = 2
+  let k = 2
+  let alpha : FixedArray[Float] = [1.0, 0.0] // 1+0i
+  let beta : FixedArray[Float] = [0.0, 0.0] // 0+0i
+  
+  // Matrix A: 2x2 = [[1+i, 2+0i], [0+i, 1+0i]]
+  let a : FixedArray[Float] = [1.0, 1.0, 2.0, 0.0, 0.0, 1.0, 1.0, 0.0]
+  
+  // Matrix B: 2x2 = [[2+0i, 1+i], [1+0i, 2+i]]
+  let b : FixedArray[Float] = [2.0, 0.0, 1.0, 1.0, 1.0, 0.0, 2.0, 1.0]
+  
+  // Matrix C: 2x2 initialized to zero
+  let c : FixedArray[Float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  
+  cblas_cgemmt(order, uplo, transa, transb, n, k, alpha, a, k, b, k, beta, c, n)
+  
+  // Expected result: C = alpha * A * B + beta * C, but only triangular part computed
+  // Check that computation occurred
+  inspect(c[0] != 0.0, content="true") // C[0,0] real should be non-zero
+}
+///|
+test "cblas_cgbmv test" {
+  // Test cblas_cgbmv (complex single precision general band matrix vector multiplication)
+  let order = CblasRowMajor
+  let trans = CblasNoTrans
+  let m = 3
+  let n = 3
+  let kl = 1 // number of sub-diagonals
+  let ku = 1 // number of super-diagonals
+  let alpha : FixedArray[Float] = [1.0, 0.0] // 1+0i
+  let beta : FixedArray[Float] = [0.0, 0.0] // 0+0i
+  
+  // Band matrix A in band storage format (3x3 with bandwidth 3)
+  // Band storage format stores kl + ku + 1 diagonals
+  let a : FixedArray[Float] = [
+    0.0, 0.0, 1.0, 1.0, 2.0, 0.0, // row 0: padding, a01, a00
+    3.0, 1.0, 4.0, 0.0, 1.0, 0.0, // row 1: a12, a11, a10  
+    2.0, 0.0, 5.0, 0.0, 0.0, 0.0  // row 2: a22, a21, padding
+  ]
+  
+  // Vector x: 3 elements = [1+i, 2+0i, 1+i]
+  let x : FixedArray[Float] = [1.0, 1.0, 2.0, 0.0, 1.0, 1.0]
+  
+  // Vector y: 3 elements initialized to zero
+  let y : FixedArray[Float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  
+  cblas_cgbmv(order, trans, m, n, kl, ku, alpha, a, kl + ku + 1, x, 1, beta, y, 1)
+  
+  // Just verify function executes without error and produces reasonable results
+  inspect(y[0] != 0.0 || y[1] != 0.0, content="true") // Should have changed from zero
+}
+
+///|
+test "cblas_ctbmv test" {
+  // Test cblas_ctbmv (complex single precision triangular band matrix vector multiplication)
+  let order = CblasRowMajor
+  let uplo = CblasUpper
+  let trans = CblasNoTrans
+  let diag = CblasNonUnit
+  let n = 3
+  let k = 1 // number of super-diagonals in upper triangular band matrix
+  
+  // Triangular band matrix A: 3x3 upper triangular with 1 super-diagonal
+  // Band storage: [a01, a00], [a12, a11], [0, a22]
+  let a : FixedArray[Float] = [
+    1.0, 0.0, 2.0, 0.0, // a01, a00
+    2.0, 0.0, 3.0, 0.0, // a12, a11
+    0.0, 0.0, 1.0, 0.0  // padding, a22
+  ]
+  
+  // Vector x: 3 elements = [1+0i, 1+i, 2+0i]
+  let x : FixedArray[Float] = [1.0, 0.0, 1.0, 1.0, 2.0, 0.0]
+  
+  cblas_ctbmv(order, uplo, trans, diag, n, k, a, k + 1, x, 1)
+  
+  // x should be modified by triangular matrix multiplication
+  // Just verify function executes without error
+  inspect(x[0] != 1.0 || x[1] != 0.0, content="true") // Should have changed from original
+}
+
+///|
+test "cblas_chpmv test" {
+  // Test cblas_chpmv (complex single precision Hermitian packed matrix vector multiplication)
+  let order = CblasRowMajor
+  let uplo = CblasUpper
+  let n = 2
+  let alpha : FixedArray[Float] = [1.0, 0.0] // 1+0i
+  let beta : FixedArray[Float] = [0.0, 0.0] // 0+0i
+  
+  // Hermitian matrix A in packed format: upper triangle only
+  // For 2x2: [a00, a01, a11] where a10 = conj(a01)
+  let ap : FixedArray[Float] = [
+    2.0, 0.0, // a00 = 2+0i (must be real for Hermitian)
+    1.0, 1.0, // a01 = 1+i
+    3.0, 0.0  // a11 = 3+0i (must be real for Hermitian)
+  ]
+  
+  // Vector x: 2 elements = [1+0i, 1+i]
+  let x : FixedArray[Float] = [1.0, 0.0, 1.0, 1.0]
+  
+  // Vector y: 2 elements initialized to zero
+  let y : FixedArray[Float] = [0.0, 0.0, 0.0, 0.0]
+  
+  cblas_chpmv(order, uplo, n, alpha, ap, x, 1, beta, y, 1)
+  
+  // Just verify function executes without error and produces reasonable results
+  inspect(y[0] != 0.0 || y[1] != 0.0, content="true") // Should have changed from zero
+}

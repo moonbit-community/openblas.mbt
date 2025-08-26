@@ -45,9 +45,150 @@ int test_cblas_zdotu() {
 // int test_cblas_ztrmm()
 // int test_cblas_ztrsm()
 
-// int test_cblas_zhemm()
-// int test_cblas_zherk()
-// int test_cblas_zher2k()
+int test_cblas_zhemm() {
+    int order = CblasRowMajor;
+    int side = CblasLeft;
+    int uplo = CblasUpper;
+    int m = 2, n = 2;
+    openblas_complex_double alpha = openblas_make_complex_double(1.0, 0.0);
+    openblas_complex_double beta = openblas_make_complex_double(0.0, 0.0);
+    
+    // Hermitian matrix A: 2x2 upper triangular stored
+    openblas_complex_double a[] = {openblas_make_complex_double(2.0, 0.0), openblas_make_complex_double(1.0, 1.0),
+                                  openblas_make_complex_double(0.0, 0.0), openblas_make_complex_double(3.0, 0.0)};
+    
+    // Matrix B: 2x2
+    openblas_complex_double b[] = {openblas_make_complex_double(1.0, 0.0), openblas_make_complex_double(0.0, 1.0),
+                                  openblas_make_complex_double(2.0, 0.0), openblas_make_complex_double(1.0, 0.0)};
+    
+    // Matrix C: 2x2 initialized to zero
+    openblas_complex_double c[] = {openblas_make_complex_double(0.0, 0.0), openblas_make_complex_double(0.0, 0.0),
+                                  openblas_make_complex_double(0.0, 0.0), openblas_make_complex_double(0.0, 0.0)};
+    
+    cblas_zhemm(order, side, uplo, m, n, &alpha, a, m, b, n, &beta, c, n);
+    
+    // Just verify function executes without error
+    return 0; // No specific checks, just ensure no crash
+}
+
+int test_cblas_zherk() {
+    int order = CblasRowMajor;
+    int uplo = CblasUpper;
+    int trans = CblasNoTrans;
+    int n = 2, k = 2;
+    double alpha = 1.0, beta = 0.0;
+    
+    // Matrix A: 2x2
+    openblas_complex_double a[] = {openblas_make_complex_double(1.0, 1.0), openblas_make_complex_double(2.0, 0.0),
+                                  openblas_make_complex_double(0.0, 1.0), openblas_make_complex_double(1.0, 0.0)};
+    
+    // Matrix C: 2x2 initialized to zero
+    openblas_complex_double c[] = {openblas_make_complex_double(0.0, 0.0), openblas_make_complex_double(0.0, 0.0),
+                                  openblas_make_complex_double(0.0, 0.0), openblas_make_complex_double(0.0, 0.0)};
+    
+    cblas_zherk(order, uplo, trans, n, k, alpha, a, k, beta, c, n);
+    
+    // For Hermitian result, diagonal should be real
+    int failed = 0;
+    failed += assert_eq(openblas_complex_double_imag(c[0]), 0.0, "zherk C[0,0] imag should be 0");
+    failed += assert_eq(openblas_complex_double_imag(c[3]), 0.0, "zherk C[1,1] imag should be 0");
+    return failed;
+}
+
+int test_cblas_zsyrk() {
+    int order = CblasRowMajor;
+    int uplo = CblasUpper;
+    int trans = CblasNoTrans;
+    int n = 2, k = 2;
+    openblas_complex_double alpha = openblas_make_complex_double(1.0, 0.0);
+    openblas_complex_double beta = openblas_make_complex_double(0.0, 0.0);
+    
+    // Matrix A: 2x2
+    openblas_complex_double a[] = {openblas_make_complex_double(1.0, 1.0), openblas_make_complex_double(2.0, 0.0),
+                                  openblas_make_complex_double(0.0, 1.0), openblas_make_complex_double(1.0, 0.0)};
+    
+    // Matrix C: 2x2 initialized to zero
+    openblas_complex_double c[] = {openblas_make_complex_double(0.0, 0.0), openblas_make_complex_double(0.0, 0.0),
+                                  openblas_make_complex_double(0.0, 0.0), openblas_make_complex_double(0.0, 0.0)};
+    
+    cblas_zsyrk(order, uplo, trans, n, k, &alpha, a, k, &beta, c, n);
+    
+    // Just verify function executes without error
+    return 0;
+}
+
+int test_cblas_ztrmm() {
+    int order = CblasRowMajor;
+    int side = CblasLeft;
+    int uplo = CblasUpper;
+    int transa = CblasNoTrans;
+    int diag = CblasNonUnit;
+    int m = 2, n = 2;
+    openblas_complex_double alpha = openblas_make_complex_double(1.0, 0.0);
+    
+    // Triangular matrix A: 2x2 upper triangular
+    openblas_complex_double a[] = {openblas_make_complex_double(1.0, 1.0), openblas_make_complex_double(2.0, 0.0),
+                                  openblas_make_complex_double(0.0, 0.0), openblas_make_complex_double(1.0, 0.0)};
+    
+    // Matrix B: 2x2
+    openblas_complex_double b[] = {openblas_make_complex_double(1.0, 0.0), openblas_make_complex_double(0.0, 1.0),
+                                  openblas_make_complex_double(2.0, 0.0), openblas_make_complex_double(1.0, 0.0)};
+    
+    cblas_ztrmm(order, side, uplo, transa, diag, m, n, &alpha, a, m, b, n);
+    
+    // Just verify function executes without error
+    return 0;
+}
+
+int test_cblas_ztrsm() {
+    int order = CblasRowMajor;
+    int side = CblasLeft;
+    int uplo = CblasUpper;
+    int transa = CblasNoTrans;
+    int diag = CblasNonUnit;
+    int m = 2, n = 2;
+    openblas_complex_double alpha = openblas_make_complex_double(1.0, 0.0);
+    
+    // Triangular matrix A: 2x2 upper triangular
+    openblas_complex_double a[] = {openblas_make_complex_double(2.0, 0.0), openblas_make_complex_double(1.0, 0.0),
+                                  openblas_make_complex_double(0.0, 0.0), openblas_make_complex_double(2.0, 0.0)};
+    
+    // Matrix B: 2x2
+    openblas_complex_double b[] = {openblas_make_complex_double(4.0, 0.0), openblas_make_complex_double(2.0, 0.0),
+                                  openblas_make_complex_double(2.0, 0.0), openblas_make_complex_double(4.0, 0.0)};
+    
+    cblas_ztrsm(order, side, uplo, transa, diag, m, n, &alpha, a, m, b, n);
+    
+    // Just verify function executes without error
+    return 0;
+}
+
+int test_cblas_zgemmt() {
+    int order = CblasRowMajor;
+    int uplo = CblasUpper;
+    int transa = CblasNoTrans;
+    int transb = CblasNoTrans;
+    int n = 2, k = 2;
+    openblas_complex_double alpha = openblas_make_complex_double(1.0, 0.0);
+    openblas_complex_double beta = openblas_make_complex_double(0.0, 0.0);
+    
+    // Matrix A: 2x2
+    openblas_complex_double a[] = {openblas_make_complex_double(1.0, 1.0), openblas_make_complex_double(2.0, 0.0),
+                                  openblas_make_complex_double(0.0, 1.0), openblas_make_complex_double(1.0, 0.0)};
+    
+    // Matrix B: 2x2
+    openblas_complex_double b[] = {openblas_make_complex_double(2.0, 0.0), openblas_make_complex_double(1.0, 1.0),
+                                  openblas_make_complex_double(1.0, 0.0), openblas_make_complex_double(2.0, 1.0)};
+    
+    // Matrix C: 2x2 initialized to zero
+    openblas_complex_double c[] = {openblas_make_complex_double(0.0, 0.0), openblas_make_complex_double(0.0, 0.0),
+                                  openblas_make_complex_double(0.0, 0.0), openblas_make_complex_double(0.0, 0.0)};
+    
+    cblas_zgemmt(order, uplo, transa, transb, n, k, &alpha, a, k, b, k, &beta, c, n);
+    
+    // Just verify function executes without error
+    return 0;
+}
 
 // int test_cblas_zaxpby()
 
@@ -607,4 +748,62 @@ int test_cblas_zhpr() {
     failed += assert_eq(openblas_complex_double_real(a[2]), 9.0, "cblas_zhpr a[1,1] real");
     failed += assert_eq(openblas_complex_double_imag(a[2]), 0.0, "cblas_zhpr a[1,1] imag");
     return failed;
+}
+int test_cblas_ztbmv() {
+    int order = CblasRowMajor;
+    int uplo = CblasUpper;
+    int trans = CblasNoTrans;
+    int diag = CblasNonUnit;
+    int n = 3, k = 1;
+    
+    // Triangular band matrix A
+    openblas_complex_double a[] = {
+        openblas_make_complex_double(1.0, 0.0), openblas_make_complex_double(2.0, 0.0),
+        openblas_make_complex_double(2.0, 0.0), openblas_make_complex_double(3.0, 0.0),
+        openblas_make_complex_double(0.0, 0.0), openblas_make_complex_double(1.0, 0.0)
+    };
+    
+    // Vector x
+    openblas_complex_double x[] = {
+        openblas_make_complex_double(1.0, 0.0),
+        openblas_make_complex_double(1.0, 1.0),
+        openblas_make_complex_double(2.0, 0.0)
+    };
+    
+    cblas_ztbmv(order, uplo, trans, diag, n, k, a, k + 1, x, 1);
+    
+    // Just verify function executes without error
+    return 0;
+}
+
+int test_cblas_zhpmv() {
+    int order = CblasRowMajor;
+    int uplo = CblasUpper;
+    int n = 2;
+    openblas_complex_double alpha = openblas_make_complex_double(1.0, 0.0);
+    openblas_complex_double beta = openblas_make_complex_double(0.0, 0.0);
+    
+    // Hermitian matrix A in packed format
+    openblas_complex_double ap[] = {
+        openblas_make_complex_double(2.0, 0.0), // a00 - must be real
+        openblas_make_complex_double(1.0, 1.0), // a01
+        openblas_make_complex_double(3.0, 0.0)  // a11 - must be real
+    };
+    
+    // Vector x
+    openblas_complex_double x[] = {
+        openblas_make_complex_double(1.0, 0.0),
+        openblas_make_complex_double(1.0, 1.0)
+    };
+    
+    // Vector y initialized to zero
+    openblas_complex_double y[] = {
+        openblas_make_complex_double(0.0, 0.0),
+        openblas_make_complex_double(0.0, 0.0)
+    };
+    
+    cblas_zhpmv(order, uplo, n, &alpha, ap, x, 1, &beta, y, 1);
+    
+    // Just verify function executes without error
+    return 0;
 }
