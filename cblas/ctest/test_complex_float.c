@@ -923,3 +923,212 @@ int test_cblas_chpmv() {
     // Just verify function executes without error
     return 0;
 }
+int test_cblas_csyr2k() {
+    int order = CblasRowMajor;
+    int uplo = CblasUpper;
+    int trans = CblasNoTrans;
+    int n = 2, k = 2;
+    openblas_complex_float alpha = openblas_make_complex_float(1.0, 0.0);
+    openblas_complex_float beta = openblas_make_complex_float(0.0, 0.0);
+    
+    // Matrix A: 2x2
+    openblas_complex_float a[] = {
+        openblas_make_complex_float(1.0, 1.0), openblas_make_complex_float(2.0, 0.0),
+        openblas_make_complex_float(0.0, 1.0), openblas_make_complex_float(1.0, 0.0)
+    };
+    
+    // Matrix B: 2x2
+    openblas_complex_float b[] = {
+        openblas_make_complex_float(2.0, 0.0), openblas_make_complex_float(1.0, 1.0),
+        openblas_make_complex_float(1.0, 0.0), openblas_make_complex_float(2.0, 1.0)
+    };
+    
+    // Matrix C: 2x2 initialized to zero
+    openblas_complex_float c[] = {
+        openblas_make_complex_float(0.0, 0.0), openblas_make_complex_float(0.0, 0.0),
+        openblas_make_complex_float(0.0, 0.0), openblas_make_complex_float(0.0, 0.0)
+    };
+    
+    cblas_csyr2k(order, uplo, trans, n, k, &alpha, a, k, b, k, &beta, c, n);
+    
+    // Just verify function executes without error
+    return 0;
+}
+int test_cblas_cher2k() {
+    int order = CblasRowMajor;
+    int uplo = CblasUpper;
+    int trans = CblasNoTrans;
+    int n = 2, k = 2;
+    openblas_complex_float alpha = openblas_make_complex_float(1.0, 0.0);
+    float beta = 0.0; // real scalar for Hermitian matrices
+    
+    // Matrix A: 2x2
+    openblas_complex_float a[] = {
+        openblas_make_complex_float(1.0, 1.0), openblas_make_complex_float(2.0, 0.0),
+        openblas_make_complex_float(0.0, 1.0), openblas_make_complex_float(1.0, 0.0)
+    };
+    
+    // Matrix B: 2x2
+    openblas_complex_float b[] = {
+        openblas_make_complex_float(2.0, 0.0), openblas_make_complex_float(1.0, 1.0),
+        openblas_make_complex_float(1.0, 0.0), openblas_make_complex_float(2.0, 1.0)
+    };
+    
+    // Matrix C: 2x2 initialized to zero (Hermitian)
+    openblas_complex_float c[] = {
+        openblas_make_complex_float(0.0, 0.0), openblas_make_complex_float(0.0, 0.0),
+        openblas_make_complex_float(0.0, 0.0), openblas_make_complex_float(0.0, 0.0)
+    };
+    
+    cblas_cher2k(order, uplo, trans, n, k, &alpha, a, k, b, k, beta, c, n);
+    
+    // For Hermitian matrices, diagonal elements should be real
+    int failed = 0;
+    failed += assert_eq(openblas_complex_float_imag(c[0]), 0.0, "cher2k C[0,0] imag should be 0");
+    failed += assert_eq(openblas_complex_float_imag(c[3]), 0.0, "cher2k C[1,1] imag should be 0");
+    return failed;
+}
+int test_cblas_ctbsv() {
+    int order = CblasRowMajor;
+    int uplo = CblasUpper;
+    int trans = CblasNoTrans;
+    int diag = CblasNonUnit;
+    int n = 3, k = 1;
+    
+    // Triangular band matrix A: represents [[2, 1, 0], [0, 2, 1], [0, 0, 2]]
+    openblas_complex_float a[] = {
+        openblas_make_complex_float(1.0, 0.0), openblas_make_complex_float(2.0, 0.0), // [a01, a00]
+        openblas_make_complex_float(1.0, 0.0), openblas_make_complex_float(2.0, 0.0), // [a12, a11]
+        openblas_make_complex_float(0.0, 0.0), openblas_make_complex_float(2.0, 0.0)  // [0, a22]
+    };
+    
+    // Right-hand side: [6, 4, 2]
+    openblas_complex_float x[] = {
+        openblas_make_complex_float(6.0, 0.0),
+        openblas_make_complex_float(4.0, 0.0),
+        openblas_make_complex_float(2.0, 0.0)
+    };
+    
+    cblas_ctbsv(order, uplo, trans, diag, n, k, a, k + 1, x, 1);
+    
+    // Just verify function executes without error and modifies the vector
+    int failed = 0;
+    if (openblas_complex_float_real(x[0]) == 6.0 && 
+        openblas_complex_float_real(x[1]) == 4.0 && 
+        openblas_complex_float_real(x[2]) == 2.0) {
+        printf("cblas_ctbsv Test Failed: vector was not modified\n");
+        failed++;
+    }
+    return failed;
+}
+int test_cblas_ctpmv() {
+    int order = CblasRowMajor;
+    int uplo = CblasUpper;
+    int trans = CblasNoTrans;
+    int diag = CblasNonUnit;
+    int n = 3;
+    
+    // Triangular matrix A in packed format (upper triangular)
+    // For n=3: [a00, a01, a02, a11, a12, a22]
+    openblas_complex_float ap[] = {
+        openblas_make_complex_float(2.0, 0.0), // a00
+        openblas_make_complex_float(1.0, 0.0), // a01
+        openblas_make_complex_float(3.0, 0.0), // a02
+        openblas_make_complex_float(4.0, 0.0), // a11
+        openblas_make_complex_float(2.0, 0.0), // a12
+        openblas_make_complex_float(1.0, 0.0)  // a22
+    };
+    
+    // Vector x: [1+0i, 2+0i, 1+i]
+    openblas_complex_float x[] = {
+        openblas_make_complex_float(1.0, 0.0),
+        openblas_make_complex_float(2.0, 0.0),
+        openblas_make_complex_float(1.0, 1.0)
+    };
+    
+    cblas_ctpmv(order, uplo, trans, diag, n, ap, x, 1);
+    
+    // Just verify function executes without error and modifies the vector
+    int failed = 0;
+    if (openblas_complex_float_real(x[0]) == 1.0 && 
+        openblas_complex_float_real(x[1]) == 2.0) {
+        printf("cblas_ctpmv Test Failed: vector was not modified\n");
+        failed++;
+    }
+    return failed;
+}
+int test_cblas_ctpsv() {
+    int order = CblasRowMajor;
+    int uplo = CblasUpper;
+    int trans = CblasNoTrans;
+    int diag = CblasNonUnit;
+    int n = 3;
+    
+    // Triangular matrix A in packed format (upper triangular)
+    // For n=3: [a00, a01, a02, a11, a12, a22]
+    // Represents the matrix: [[2, 1, 0], [0, 2, 1], [0, 0, 2]]
+    openblas_complex_float ap[] = {
+        openblas_make_complex_float(2.0, 0.0), // a00
+        openblas_make_complex_float(1.0, 0.0), // a01
+        openblas_make_complex_float(0.0, 0.0), // a02
+        openblas_make_complex_float(2.0, 0.0), // a11
+        openblas_make_complex_float(1.0, 0.0), // a12
+        openblas_make_complex_float(2.0, 0.0)  // a22
+    };
+    
+    // Right-hand side: [6, 4, 2]
+    openblas_complex_float x[] = {
+        openblas_make_complex_float(6.0, 0.0),
+        openblas_make_complex_float(4.0, 0.0),
+        openblas_make_complex_float(2.0, 0.0)
+    };
+    
+    cblas_ctpsv(order, uplo, trans, diag, n, ap, x, 1);
+    
+    // Just verify function executes without error and modifies the vector
+    int failed = 0;
+    if (openblas_complex_float_real(x[0]) == 6.0 && 
+        openblas_complex_float_real(x[1]) == 4.0 && 
+        openblas_complex_float_real(x[2]) == 2.0) {
+        printf("cblas_ctpsv Test Failed: vector was not modified\n");
+        failed++;
+    }
+    return failed;
+}
+int test_cblas_chpr2() {
+    int uplo = CblasUpper;
+    int n = 2;
+    openblas_complex_float alpha = openblas_make_complex_float(1.0, 0.0);
+    
+    // Vector x: [1+i, 2+0i]
+    openblas_complex_float x[] = {
+        openblas_make_complex_float(1.0, 1.0),
+        openblas_make_complex_float(2.0, 0.0)
+    };
+    
+    // Vector y: [2+0i, 1+i]
+    openblas_complex_float y[] = {
+        openblas_make_complex_float(2.0, 0.0),
+        openblas_make_complex_float(1.0, 1.0)
+    };
+    
+    // Hermitian matrix A in packed format: [a00, a01, a11]
+    openblas_complex_float a[] = {
+        openblas_make_complex_float(1.0, 0.0), // a00 - must be real
+        openblas_make_complex_float(0.0, 0.0), // a01
+        openblas_make_complex_float(1.0, 0.0)  // a11 - must be real
+    };
+    
+    cblas_chpr2(CblasRowMajor, uplo, n, &alpha, x, 1, y, 1, a);
+    
+    // For Hermitian matrices, diagonal elements should be real
+    int failed = 0;
+    failed += assert_eq(openblas_complex_float_imag(a[0]), 0.0, "chpr2 a[0,0] imag should be 0");
+    failed += assert_eq(openblas_complex_float_imag(a[2]), 0.0, "chpr2 a[1,1] imag should be 0");
+    // Check that the diagonal elements changed
+    if (openblas_complex_float_real(a[0]) == 1.0) {
+        printf("cblas_chpr2 Test Failed: diagonal element not modified\n");
+        failed++;
+    }
+    return failed;
+}

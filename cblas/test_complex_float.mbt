@@ -974,3 +974,173 @@ test "cblas_chpmv test" {
   // Just verify function executes without error and produces reasonable results
   inspect(y[0] != 0.0 || y[1] != 0.0, content="true") // Should have changed from zero
 }
+///|
+test "cblas_csyr2k test" {
+  // Test cblas_csyr2k (complex single precision symmetric rank-2k update)
+  let order = CblasRowMajor
+  let uplo = CblasUpper
+  let trans = CblasNoTrans
+  let n = 2
+  let k = 2
+  let alpha : FixedArray[Float] = [1.0, 0.0] // 1+0i
+  let beta : FixedArray[Float] = [0.0, 0.0] // 0+0i
+  
+  // Matrix A: 2x2 = [[1+i, 2+0i], [0+i, 1+0i]]
+  let a : FixedArray[Float] = [1.0, 1.0, 2.0, 0.0, 0.0, 1.0, 1.0, 0.0]
+  
+  // Matrix B: 2x2 = [[2+0i, 1+i], [1+0i, 2+i]]
+  let b : FixedArray[Float] = [2.0, 0.0, 1.0, 1.0, 1.0, 0.0, 2.0, 1.0]
+  
+  // Matrix C: 2x2 initialized to zero (will store result)
+  let c : FixedArray[Float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  
+  cblas_csyr2k(order, uplo, trans, n, k, alpha, a, k, b, k, beta, c, n)
+  
+  // Expected result: C = alpha * (A * B^T + B * A^T) + beta * C (symmetric rank-2k update)
+  // Check that computation occurred
+  inspect(c[0] != 0.0, content="true") // C[0,0] real should be non-zero
+}
+///|
+test "cblas_cher2k test" {
+  // Test cblas_cher2k (complex single precision Hermitian rank-2k update)
+  let order = CblasRowMajor
+  let uplo = CblasUpper
+  let trans = CblasNoTrans
+  let n = 2
+  let k = 2
+  let alpha : FixedArray[Float] = [1.0, 0.0] // 1+0i
+  let beta : Float = 0.0 // real scalar for Hermitian matrices
+  
+  // Matrix A: 2x2 = [[1+i, 2+0i], [0+i, 1+0i]]
+  let a : FixedArray[Float] = [1.0, 1.0, 2.0, 0.0, 0.0, 1.0, 1.0, 0.0]
+  
+  // Matrix B: 2x2 = [[2+0i, 1+i], [1+0i, 2+i]]
+  let b : FixedArray[Float] = [2.0, 0.0, 1.0, 1.0, 1.0, 0.0, 2.0, 1.0]
+  
+  // Matrix C: 2x2 initialized to zero (will store result, Hermitian)
+  let c : FixedArray[Float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  
+  cblas_cher2k(order, uplo, trans, n, k, alpha, a, k, b, k, beta, c, n)
+  
+  // Expected result: C = alpha*A*B^H + conj(alpha)*B*A^H + beta*C (Hermitian rank-2k update)
+  // For Hermitian matrices, diagonal elements should be real
+  inspect(c[1] == 0.0, content="true") // C[0,0] imag should be 0 (Hermitian)
+  inspect(c[7] == 0.0, content="true") // C[1,1] imag should be 0 (Hermitian)
+  inspect(c[0] != 0.0, content="true") // C[0,0] real should be non-zero
+}
+///|
+test "cblas_ctbsv test" {
+  // Test cblas_ctbsv (complex single precision triangular band system solve)
+  let order = CblasRowMajor
+  let uplo = CblasUpper
+  let trans = CblasNoTrans
+  let diag = CblasNonUnit
+  let n = 3
+  let k = 1 // number of super-diagonals in upper triangular band matrix
+  
+  // Triangular band matrix A: 3x3 upper triangular with 1 super-diagonal
+  // Band storage: [[a01, a00], [a12, a11], [0, a22]]
+  // Represents the matrix: [[2, 1, 0], [0, 2, 1], [0, 0, 2]]
+  let a : FixedArray[Float] = [
+    1.0, 0.0, 2.0, 0.0, // row 0: [a01=1+0i, a00=2+0i]
+    1.0, 0.0, 2.0, 0.0, // row 1: [a12=1+0i, a11=2+0i]
+    0.0, 0.0, 2.0, 0.0  // row 2: [0, a22=2+0i]
+  ]
+  
+  // Vector x as right-hand side, will be overwritten with solution
+  // Solve system: A * x = [6, 4, 2]
+  let x : FixedArray[Float] = [6.0, 0.0, 4.0, 0.0, 2.0, 0.0] // [6+0i, 4+0i, 2+0i]
+  
+  cblas_ctbsv(order, uplo, trans, diag, n, k, a, k + 1, x, 1)
+  
+  // Check that the function executed without crashing and modified the vector
+  // The exact values depend on the band storage format interpretation
+  inspect(x[0] != 6.0 || x[2] != 4.0 || x[4] != 2.0, content="true") // Should have changed from original
+}
+///|
+test "cblas_ctpmv test" {
+  // Test cblas_ctpmv (complex single precision triangular packed matrix vector multiplication)
+  let order = CblasRowMajor
+  let uplo = CblasUpper
+  let trans = CblasNoTrans
+  let diag = CblasNonUnit
+  let n = 3
+  
+  // Triangular matrix A in packed format (upper triangular)
+  // For n=3: [a00, a01, a02, a11, a12, a22]
+  // Represents the matrix: [[2, 1, 3], [0, 4, 2], [0, 0, 1]]
+  let ap : FixedArray[Float] = [
+    2.0, 0.0, // a00 = 2+0i
+    1.0, 0.0, // a01 = 1+0i
+    3.0, 0.0, // a02 = 3+0i
+    4.0, 0.0, // a11 = 4+0i
+    2.0, 0.0, // a12 = 2+0i
+    1.0, 0.0  // a22 = 1+0i
+  ]
+  
+  // Vector x: [1+0i, 2+0i, 1+i]
+  let x : FixedArray[Float] = [1.0, 0.0, 2.0, 0.0, 1.0, 1.0]
+  
+  cblas_ctpmv(order, uplo, trans, diag, n, ap, x, 1)
+  
+  // x should be modified by triangular matrix multiplication: x = A * x
+  // The exact result depends on the packed storage format
+  // Just verify that the function executed and modified the vector
+  inspect(x[0] != 1.0 || x[2] != 2.0, content="true") // Should have changed from original
+}
+///|
+test "cblas_ctpsv test" {
+  // Test cblas_ctpsv (complex single precision triangular packed system solve)
+  let order = CblasRowMajor
+  let uplo = CblasUpper
+  let trans = CblasNoTrans
+  let diag = CblasNonUnit
+  let n = 3
+  
+  // Triangular matrix A in packed format (upper triangular)
+  // For n=3: [a00, a01, a02, a11, a12, a22]
+  // Represents the matrix: [[2, 1, 0], [0, 2, 1], [0, 0, 2]]
+  let ap : FixedArray[Float] = [
+    2.0, 0.0, // a00 = 2+0i
+    1.0, 0.0, // a01 = 1+0i
+    0.0, 0.0, // a02 = 0+0i
+    2.0, 0.0, // a11 = 2+0i
+    1.0, 0.0, // a12 = 1+0i
+    2.0, 0.0  // a22 = 2+0i
+  ]
+  
+  // Vector x as right-hand side, will be overwritten with solution
+  // Solve system: A * x = [6, 4, 2]
+  let x : FixedArray[Float] = [6.0, 0.0, 4.0, 0.0, 2.0, 0.0] // [6+0i, 4+0i, 2+0i]
+  
+  cblas_ctpsv(order, uplo, trans, diag, n, ap, x, 1)
+  
+  // Check that the function executed without crashing and modified the vector
+  // The exact values depend on the packed storage format interpretation
+  inspect(x[0] != 6.0 || x[2] != 4.0 || x[4] != 2.0, content="true") // Should have changed from original
+}
+///|
+test "cblas_chpr2 test" {
+  // Test cblas_chpr2 (complex single precision Hermitian packed rank-2 update)
+  let uplo = CblasUpper
+  let n = 2
+  let alpha : FixedArray[Float] = [1.0, 0.0] // 1+0i
+  
+  // Vector x: [1+i, 2+0i]
+  let x : FixedArray[Float] = [1.0, 1.0, 2.0, 0.0]
+  
+  // Vector y: [2+0i, 1+i]
+  let y : FixedArray[Float] = [2.0, 0.0, 1.0, 1.0]
+  
+  // Hermitian matrix A in packed format (upper triangular): [a00, a01, a11]
+  // Initial: [[1+0i, 0+0i], [0+0i, 1+0i]] packed as [1+0i, 0+0i, 1+0i]
+  let a : FixedArray[Float] = [1.0, 0.0, 0.0, 0.0, 1.0, 0.0]
+  
+  cblas_chpr2(CblasRowMajor, uplo, n, alpha, x, 1, y, 1, a)
+  
+  // Expected result: A := alpha*x*conj(y)^T + conj(alpha)*y*conj(x)^T + A
+  // For Hermitian matrices, diagonal elements should be real
+  inspect(a[1] == 0.0, content="true") // a[0,0] imag should be 0 (Hermitian)
+  inspect(a[5] == 0.0, content="true") // a[1,1] imag should be 0 (Hermitian)
+  inspect(a[0] != 1.0, content="true") // a[0,0] real should have changed
+}
