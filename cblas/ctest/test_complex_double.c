@@ -190,8 +190,6 @@ int test_cblas_zgemmt() {
     return 0;
 }
 
-// int test_cblas_zaxpby()
-
 int test_cblas_zdotc() {
     int n = 3;
     double x[] = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0}; // Complex numbers as real,imag pairs

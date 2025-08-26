@@ -301,31 +301,30 @@ test "cblas_zdrot test" {
   assert_eq((y[1] - 3.2).abs() < 0.001, true) // y'[0] imag
 }
 
-// TEMPORARILY COMMENTED OUT - interface has wrong type (should be FixedArray[Double])
-// ///|
-// test "cblas_zaxpby test" {
-//   // Test cblas_zaxpby with a simple case
-//   // Note: There might be an issue in the interface - zaxpby should use Double arrays but shows Float
-//   // Let's test with the current interface signature
-//   let n = 2
-//   let alpha : FixedArray[Float] = [2.0, 1.0] // 2+1i (using Float as per interface)
-//   let beta : FixedArray[Float] = [1.0, 1.0] // 1+1i
-//   let x : FixedArray[Float] = [1.0, 2.0, 3.0, 4.0] // [1+2i, 3+4i] (using Float)
-//   let y : FixedArray[Float] = [5.0, 6.0, 7.0, 8.0] // [5+6i, 7+8i] (using Float)
-//   cblas_zaxpby(n, alpha, x, 1, beta, y, 1)
+///|
+test "cblas_zaxpby test" {
+  // Test cblas_zaxpby with a simple case
+  // Note: There might be an issue in the interface - zaxpby should use Double arrays but shows Float
+  // Let's test with the current interface signature
+  let n = 2
+  let alpha : FixedArray[Double] = [2.0, 1.0] // 2+1i (using Float as per interface)
+  let beta : FixedArray[Double] = [1.0, 1.0] // 1+1i
+  let x : FixedArray[Double] = [1.0, 2.0, 3.0, 4.0] // [1+2i, 3+4i] (using Float)
+  let y : FixedArray[Double] = [5.0, 6.0, 7.0, 8.0] // [5+6i, 7+8i] (using Float)
+  cblas_zaxpby(n, alpha, x, 1, beta, y, 1)
 
-//   // Expected result: y = alpha*x + beta*y
-//   // alpha*x[0] = (2+i)*(1+2i) = 2+4i+i-2 = 0+5i
-//   // beta*y[0] = (1+i)*(5+6i) = 5+6i+5i-6 = -1+11i
-//   // y[0] = 0+5i + (-1+11i) = -1+16i
-//   // alpha*x[1] = (2+i)*(3+4i) = 6+8i+3i-4 = 2+11i
-//   // beta*y[1] = (1+i)*(7+8i) = 7+8i+7i-8 = -1+15i
-//   // y[1] = 2+11i + (-1+15i) = 1+26i
-//   assert_eq(y[0], -1.0)
-//   assert_eq(y[1], 16.0)
-//   assert_eq(y[2], 1.0)
-//   assert_eq(y[3], 26.0)
-// }
+  // Expected result: y = alpha*x + beta*y
+  // alpha*x[0] = (2+i)*(1+2i) = 2+4i+i-2 = 0+5i
+  // beta*y[0] = (1+i)*(5+6i) = 5+6i+5i-6 = -1+11i
+  // y[0] = 0+5i + (-1+11i) = -1+16i
+  // alpha*x[1] = (2+i)*(3+4i) = 6+8i+3i-4 = 2+11i
+  // beta*y[1] = (1+i)*(7+8i) = 7+8i+7i-8 = -1+15i
+  // y[1] = 2+11i + (-1+15i) = 1+26i
+  assert_eq(y[0], -1.0)
+  assert_eq(y[1], 16.0)
+  assert_eq(y[2], 1.0)
+  assert_eq(y[3], 26.0)
+}
 
 ///|
 test "cblas_ztrsv test" {
