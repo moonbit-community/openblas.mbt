@@ -426,6 +426,8 @@ fn openblas_get_parallel() -> Int
 
 fn openblas_set_num_threads(Int) -> Unit
 
+fn openblas_set_threads_callback_function(FuncRef[(Int, FuncRef[(Int, VoidPtr, Int) -> Unit], Int, Int, VoidPtr, Int) -> Unit]) -> Unit
+
 // Errors
 
 // Types and methods

@@ -421,18 +421,32 @@ test "cblas_zgemm test" {
   let k = 2
   let alpha : FixedArray[Double] = [1.0, 0.0] // 1+0i
   let beta : FixedArray[Double] = [0.0, 0.0] // 0+0i
-  
+
   // Matrix A: 2x2 = [[1+i, 2+0i], [0+i, 1+0i]] flattened as real,imag pairs
   let a : FixedArray[Double] = [1.0, 1.0, 2.0, 0.0, 0.0, 1.0, 1.0, 0.0]
-  
+
   // Matrix B: 2x2 = [[2+0i, 1+i], [1+0i, 2+i]] flattened as real,imag pairs  
   let b : FixedArray[Double] = [2.0, 0.0, 1.0, 1.0, 1.0, 0.0, 2.0, 1.0]
-  
+
   // Matrix C: 2x2 initialized to zero
   let c : FixedArray[Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-  
-  cblas_zgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, m, n, k, alpha, a, k, b, n, beta, c, n)
-  
+  cblas_zgemm(
+    CblasRowMajor,
+    CblasNoTrans,
+    CblasNoTrans,
+    m,
+    n,
+    k,
+    alpha,
+    a,
+    k,
+    b,
+    n,
+    beta,
+    c,
+    n,
+  )
+
   // Expected result: C = A * B
   // A * B = [[1+i, 2+0i], [0+i, 1+0i]] * [[2+0i, 1+i], [1+0i, 2+i]]
   // C[0,0] = (1+i)*2 + 2*1 = 2+2i + 2 = 4+2i
@@ -459,9 +473,8 @@ test "cblas_zher2 test" {
   let x : FixedArray[Double] = [1.0, 1.0, 2.0, 0.0] // [1+i, 2+0i]
   let y : FixedArray[Double] = [2.0, 0.0, 1.0, 1.0] // [2+0i, 1+i]
   let a : FixedArray[Double] = [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0] // 2x2 identity matrix
-  
   cblas_zher2(order, uplo, n, alpha, x, 1, y, 1, a, n)
-  
+
   // Expected result: A = A + alpha*x*conj(y)^H + conj(alpha)*y*conj(x)^H
   // For Hermitian matrices, only upper triangle is updated
   // This is a rank-2 update: A += x*y' + y*x' (with conjugates)
@@ -483,28 +496,42 @@ test "cblas_zgbmv test" {
   let ku = 1 // number of super-diagonals
   let alpha : FixedArray[Double] = [1.0, 0.0] // 1+0i
   let beta : FixedArray[Double] = [0.0, 0.0] // 0+0i
-  
+
   // Band matrix A stored in band format (3 rows, with kl+ku+1 = 3 columns)
   // For a 3x3 band matrix with kl=1, ku=1:
   // Original matrix: [[2+0i, 1+i, 0  ], [1+0i, 2+0i, 1+i], [0  , 1+0i, 2+0i]]
   // Band storage format (ku+1+kl rows): [*, 1+i, 1+i], [2+0i, 2+0i, 2+0i], [1+0i, 1+0i, *]
   let a : FixedArray[Double] = [
     0.0, 0.0, 1.0, 1.0, 1.0, 1.0, // row 0: [*, 1+i, 1+i]
-    2.0, 0.0, 2.0, 0.0, 2.0, 0.0, // row 1: [2+0i, 2+0i, 2+0i]  
-    1.0, 0.0, 1.0, 0.0, 0.0, 0.0, // row 2: [1+0i, 1+0i, *]
+     2.0, 0.0, 2.0, 0.0, 2.0, 0.0, // row 1: [2+0i, 2+0i, 2+0i]  
+     1.0, 0.0, 1.0, 0.0, 0.0, 0.0, // row 2: [1+0i, 1+0i, *]
   ]
-  
   let x : FixedArray[Double] = [1.0, 0.0, 2.0, 0.0, 3.0, 0.0] // [1+0i, 2+0i, 3+0i]
   let y : FixedArray[Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0] // Result vector
-  
-  cblas_zgbmv(order, trans, m, n, kl, ku, alpha, a, kl + ku + 1, x, 1, beta, y, 1)
-  
+  cblas_zgbmv(
+    order,
+    trans,
+    m,
+    n,
+    kl,
+    ku,
+    alpha,
+    a,
+    kl + ku + 1,
+    x,
+    1,
+    beta,
+    y,
+    1,
+  )
+
   // Expected result: y = A * x
   // This is a basic test - just ensure function executes without error
   // The exact values depend on correct band storage interpretation
   // For now, just check that result is non-zero (some computation happened)
   assert_eq(y[0] != 0.0 || y[1] != 0.0, true) // At least one component should be non-zero
 }
+
 ///|
 test "cblas_zsymm test" {
   // Test cblas_zsymm (complex double precision symmetric matrix multiplication)
@@ -515,18 +542,17 @@ test "cblas_zsymm test" {
   let n = 2
   let alpha : FixedArray[Double] = [1.0, 0.0] // 1+0i
   let beta : FixedArray[Double] = [0.0, 0.0] // 0+0i
-  
+
   // Symmetric matrix A: [[1+i, 2+0i], [2+0i, 3+i]] (stored as upper triangular)
   let a : FixedArray[Double] = [1.0, 1.0, 2.0, 0.0, 0.0, 0.0, 3.0, 1.0]
-  
+
   // Matrix B: [[1+0i, 2+i], [3+0i, 4+i]]
   let b : FixedArray[Double] = [1.0, 0.0, 2.0, 1.0, 3.0, 0.0, 4.0, 1.0]
-  
+
   // Matrix C: 2x2 initialized to zero
   let c : FixedArray[Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-  
   cblas_zsymm(CblasRowMajor, side, uplo, m, n, alpha, a, m, b, n, beta, c, n)
-  
+
   // Expected result: C = A * B where A is symmetric
   // A * B = [[1+i, 2+0i], [2+0i, 3+i]] * [[1+0i, 2+i], [3+0i, 4+i]]
   // C[0,0] = (1+i)*1 + 2*3 = 1+i + 6 = 7+i
@@ -542,6 +568,7 @@ test "cblas_zsymm test" {
   assert_eq(c[6], 15.0) // C[1,1] real
   assert_eq(c[7], 9.0) // C[1,1] imag
 }
+
 ///|
 test "cblas_zhemv test" {
   // Test cblas_zhemv (complex double precision Hermitian matrix vector multiplication)
@@ -551,18 +578,17 @@ test "cblas_zhemv test" {
   let n = 2
   let alpha : FixedArray[Double] = [1.0, 0.0] // 1+0i
   let beta : FixedArray[Double] = [0.0, 0.0] // 0+0i
-  
+
   // Hermitian matrix A: [[2+0i, 1+i], [1-i, 3+0i]] (stored as upper triangular)
   let a : FixedArray[Double] = [2.0, 0.0, 1.0, 1.0, 0.0, 0.0, 3.0, 0.0]
-  
+
   // Vector x: [1+i, 2+0i]
   let x : FixedArray[Double] = [1.0, 1.0, 2.0, 0.0]
-  
+
   // Vector y: [0+0i, 0+0i] (result vector)
   let y : FixedArray[Double] = [0.0, 0.0, 0.0, 0.0]
-  
   cblas_zhemv(order, uplo, n, alpha, a, n, x, 1, beta, y, 1)
-  
+
   // Expected result: y = A * x where A is Hermitian
   // A * x = [[2+0i, 1+i], [1-i, 3+0i]] * [1+i, 2+0i]
   // y[0] = (2+0i)*(1+i) + (1+i)*2 = 2+2i + 2+2i = 4+4i
@@ -572,6 +598,7 @@ test "cblas_zhemv test" {
   assert_eq(y[2], 8.0) // y[1] real
   assert_eq(y[3], 0.0) // y[1] imag
 }
+
 ///|
 test "cblas_zhbmv test" {
   // Test cblas_zhbmv (complex double precision Hermitian band matrix vector multiplication)
@@ -582,23 +609,22 @@ test "cblas_zhbmv test" {
   let k = 1 // number of super-diagonals
   let alpha : FixedArray[Double] = [1.0, 0.0] // 1+0i
   let beta : FixedArray[Double] = [0.0, 0.0] // 0+0i
-  
+
   // Hermitian band matrix A stored in band format (k+1 rows)
   // Original matrix: [[2+0i, 1+i, 0  ], [1-i, 3+0i, 2+i], [0  , 2-i, 4+0i]]
   // Band storage format (k+1=2 rows): [[1+i, 2+i], [2+0i, 3+0i, 4+0i]]
   let a : FixedArray[Double] = [
-    1.0, 1.0, 2.0, 1.0,     // row 0: [1+i, 2+i]
-    2.0, 0.0, 3.0, 0.0, 4.0, 0.0  // row 1: [2+0i, 3+0i, 4+0i]
+    1.0, 1.0, 2.0, 1.0, // row 0: [1+i, 2+i]
+     2.0, 0.0, 3.0, 0.0, 4.0, 0.0, // row 1: [2+0i, 3+0i, 4+0i]
   ]
-  
+
   // Vector x: [1+0i, 2+0i, 1+i]
   let x : FixedArray[Double] = [1.0, 0.0, 2.0, 0.0, 1.0, 1.0]
-  
+
   // Vector y: [0+0i, 0+0i, 0+0i] (result vector)
   let y : FixedArray[Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-  
   cblas_zhbmv(order, uplo, n, k, alpha, a, k + 1, x, 1, beta, y, 1)
-  
+
   // Expected result: y = A * x where A is Hermitian band matrix
   // This is a basic test - just ensure function executes without error
   // The exact values depend on correct band storage interpretation
@@ -606,6 +632,7 @@ test "cblas_zhbmv test" {
   assert_eq(y[0] != 0.0 || y[1] != 0.0, true) // At least one component should be non-zero
 }
 // cblas_zgemm3m test removed - function not available in current OpenBLAS version
+
 ///|
 test "cblas_zhpr test" {
   // Test cblas_zhpr (complex double precision Hermitian packed rank-1 update)
@@ -613,16 +640,15 @@ test "cblas_zhpr test" {
   let uplo = CblasUpper
   let n = 2
   let alpha : Double = 2.0 // real scalar
-  
+
   // Vector x: [1+i, 2+0i]
   let x : FixedArray[Double] = [1.0, 1.0, 2.0, 0.0]
-  
+
   // Hermitian matrix A in packed format (upper triangular): [a00, a01, a11]
   // Initial: [[1+0i, 0+0i], [0+0i, 1+0i]] packed as [1+0i, 0+0i, 1+0i]
   let a : FixedArray[Double] = [1.0, 0.0, 0.0, 0.0, 1.0, 0.0]
-  
   cblas_zhpr(CblasRowMajor, uplo, n, alpha, x, 1, a)
-  
+
   // Expected result: A := alpha*x*conj(x)^T + A
   // x*conj(x)^T = [[1+i], [2+0i]] * [1-i, 2+0i] = [[(1+i)*(1-i), (1+i)*2], [(2)*(1-i), (2)*2]]
   // = [[2, 2+2i], [2-2i, 4]]
@@ -635,30 +661,30 @@ test "cblas_zhpr test" {
   assert_eq(a[4], 9.0) // a[1,1] real
   assert_eq(a[5], 0.0) // a[1,1] imag (should be 0 for Hermitian)
 }
+
 ///|
 test "cblas_zhemm test" {
   // Test cblas_zhemm (complex double precision Hermitian matrix multiplication)
   // C = alpha * A * B + beta * C or C = alpha * B * A + beta * C
   let order = CblasRowMajor
   let side = CblasLeft
-  let uplo = CblasUpper  
+  let uplo = CblasUpper
   let m = 2
   let n = 2
   let alpha : FixedArray[Double] = [1.0, 0.0] // 1+0i
   let beta : FixedArray[Double] = [0.0, 0.0] // 0+0i
-  
+
   // Hermitian matrix A: 2x2 upper triangular stored
   // [[2+0i, 1+i], [1-i, 3+0i]] - only upper triangle stored
   let a : FixedArray[Double] = [2.0, 0.0, 1.0, 1.0, 0.0, 0.0, 3.0, 0.0]
-  
+
   // Matrix B: 2x2 = [[1+0i, 0+i], [2+0i, 1+0i]]
   let b : FixedArray[Double] = [1.0, 0.0, 0.0, 1.0, 2.0, 0.0, 1.0, 0.0]
-  
+
   // Matrix C: 2x2 initialized to zero
   let c : FixedArray[Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-  
   cblas_zhemm(order, side, uplo, m, n, alpha, a, m, b, n, beta, c, n)
-  
+
   // Expected result: C = A * B where A is Hermitian
   // Just verify function executes without error and produces reasonable results
   // The exact computation depends on how OpenBLAS interprets the Hermitian storage
@@ -676,15 +702,14 @@ test "cblas_zherk test" {
   let k = 2
   let alpha = 1.0
   let beta = 0.0
-  
+
   // Matrix A: 2x2 = [[1+i, 2+0i], [0+i, 1+0i]]
   let a : FixedArray[Double] = [1.0, 1.0, 2.0, 0.0, 0.0, 1.0, 1.0, 0.0]
-  
+
   // Matrix C: 2x2 initialized to zero (will store result)
   let c : FixedArray[Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-  
   cblas_zherk(order, uplo, trans, n, k, alpha, a, k, beta, c, n)
-  
+
   // Expected result: C = alpha * A * A^H + beta * C
   // For Hermitian result, diagonal should be real
   assert_eq(c[1], 0.0) // C[0,0] imag should be 0 (Hermitian)
@@ -704,15 +729,14 @@ test "cblas_csyrk test" {
   let k = 2
   let alpha : FixedArray[Float] = [1.0, 0.0] // 1+0i
   let beta : FixedArray[Float] = [0.0, 0.0] // 0+0i
-  
+
   // Matrix A: 2x2 = [[1+i, 2+0i], [0+i, 1+0i]]
   let a : FixedArray[Float] = [1.0, 1.0, 2.0, 0.0, 0.0, 1.0, 1.0, 0.0]
-  
+
   // Matrix C: 2x2 initialized to zero (will store result)
   let c : FixedArray[Float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-  
   cblas_csyrk(order, uplo, trans, n, k, alpha, a, k, beta, c, n)
-  
+
   // Expected result: C = alpha * A * A^T + beta * C (symmetric operation)
   // Check that computation occurred
   inspect(c[0] != 0.0, content="true") // C[0,0] real should be non-zero
@@ -728,15 +752,14 @@ test "cblas_zsyrk test" {
   let k = 2
   let alpha : FixedArray[Double] = [1.0, 0.0] // 1+0i
   let beta : FixedArray[Double] = [0.0, 0.0] // 0+0i
-  
+
   // Matrix A: 2x2 = [[1+i, 2+0i], [0+i, 1+0i]]
   let a : FixedArray[Double] = [1.0, 1.0, 2.0, 0.0, 0.0, 1.0, 1.0, 0.0]
-  
+
   // Matrix C: 2x2 initialized to zero (will store result)
   let c : FixedArray[Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-  
   cblas_zsyrk(order, uplo, trans, n, k, alpha, a, k, beta, c, n)
-  
+
   // Expected result: C = alpha * A * A^T + beta * C (symmetric operation)
   // Check that computation occurred
   inspect(c[0] != 0.0, content="true") // C[0,0] real should be non-zero
@@ -753,16 +776,15 @@ test "cblas_ctrmm test" {
   let m = 2
   let n = 2
   let alpha : FixedArray[Float] = [1.0, 0.0] // 1+0i
-  
+
   // Triangular matrix A: 2x2 upper triangular
   // [[1+i, 2+0i], [0+0i, 1+0i]]
   let a : FixedArray[Float] = [1.0, 1.0, 2.0, 0.0, 0.0, 0.0, 1.0, 0.0]
-  
+
   // Matrix B: 2x2 = [[1+0i, 0+i], [2+0i, 1+0i]]
   let b : FixedArray[Float] = [1.0, 0.0, 0.0, 1.0, 2.0, 0.0, 1.0, 0.0]
-  
   cblas_ctrmm(order, side, uplo, transa, diag, m, n, alpha, a, m, b, n)
-  
+
   // Expected result: B = alpha * A * B (triangular matrix multiplication)
   // Check that computation occurred
   inspect(b[0] != 1.0, content="true") // B[0,0] real should have changed
@@ -779,16 +801,15 @@ test "cblas_ztrmm test" {
   let m = 2
   let n = 2
   let alpha : FixedArray[Double] = [1.0, 0.0] // 1+0i
-  
+
   // Triangular matrix A: 2x2 upper triangular
   // [[1+i, 2+0i], [0+0i, 1+0i]]
   let a : FixedArray[Double] = [1.0, 1.0, 2.0, 0.0, 0.0, 0.0, 1.0, 0.0]
-  
+
   // Matrix B: 2x2 = [[1+0i, 0+i], [2+0i, 1+0i]]
   let b : FixedArray[Double] = [1.0, 0.0, 0.0, 1.0, 2.0, 0.0, 1.0, 0.0]
-  
   cblas_ztrmm(order, side, uplo, transa, diag, m, n, alpha, a, m, b, n)
-  
+
   // Expected result: B = alpha * A * B (triangular matrix multiplication)
   // Check that computation occurred
   inspect(b[0] != 1.0, content="true") // B[0,0] real should have changed
@@ -805,16 +826,15 @@ test "cblas_ctrsm test" {
   let m = 2
   let n = 2
   let alpha : FixedArray[Float] = [1.0, 0.0] // 1+0i
-  
+
   // Triangular matrix A: 2x2 upper triangular
   // [[2+0i, 1+0i], [0+0i, 2+0i]]
   let a : FixedArray[Float] = [2.0, 0.0, 1.0, 0.0, 0.0, 0.0, 2.0, 0.0]
-  
+
   // Matrix B: 2x2 = [[4+0i, 2+0i], [2+0i, 4+0i]]
   let b : FixedArray[Float] = [4.0, 0.0, 2.0, 0.0, 2.0, 0.0, 4.0, 0.0]
-  
   cblas_ctrsm(order, side, uplo, transa, diag, m, n, alpha, a, m, b, n)
-  
+
   // Expected result: solve A * X = alpha * B for X, result stored in B
   // Should solve the triangular system
   // Check that solution is reasonable - just verify computation occurred
@@ -833,16 +853,15 @@ test "cblas_ztrsm test" {
   let m = 2
   let n = 2
   let alpha : FixedArray[Double] = [1.0, 0.0] // 1+0i
-  
+
   // Triangular matrix A: 2x2 upper triangular
   // [[2+0i, 1+0i], [0+0i, 2+0i]]
   let a : FixedArray[Double] = [2.0, 0.0, 1.0, 0.0, 0.0, 0.0, 2.0, 0.0]
-  
+
   // Matrix B: 2x2 = [[4+0i, 2+0i], [2+0i, 4+0i]]
   let b : FixedArray[Double] = [4.0, 0.0, 2.0, 0.0, 2.0, 0.0, 4.0, 0.0]
-  
   cblas_ztrsm(order, side, uplo, transa, diag, m, n, alpha, a, m, b, n)
-  
+
   // Expected result: solve A * X = alpha * B for X, result stored in B
   // Should solve the triangular system
   // Check that solution is reasonable - just verify computation occurred
@@ -861,18 +880,17 @@ test "cblas_cgemmt test" {
   let k = 2
   let alpha : FixedArray[Float] = [1.0, 0.0] // 1+0i
   let beta : FixedArray[Float] = [0.0, 0.0] // 0+0i
-  
+
   // Matrix A: 2x2 = [[1+i, 2+0i], [0+i, 1+0i]]
   let a : FixedArray[Float] = [1.0, 1.0, 2.0, 0.0, 0.0, 1.0, 1.0, 0.0]
-  
+
   // Matrix B: 2x2 = [[2+0i, 1+i], [1+0i, 2+i]]
   let b : FixedArray[Float] = [2.0, 0.0, 1.0, 1.0, 1.0, 0.0, 2.0, 1.0]
-  
+
   // Matrix C: 2x2 initialized to zero
   let c : FixedArray[Float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-  
   cblas_cgemmt(order, uplo, transa, transb, n, k, alpha, a, k, b, k, beta, c, n)
-  
+
   // Expected result: C = alpha * A * B + beta * C, but only triangular part computed
   // Check that computation occurred
   inspect(c[0] != 0.0, content="true") // C[0,0] real should be non-zero
@@ -889,22 +907,22 @@ test "cblas_zgemmt test" {
   let k = 2
   let alpha : FixedArray[Double] = [1.0, 0.0] // 1+0i
   let beta : FixedArray[Double] = [0.0, 0.0] // 0+0i
-  
+
   // Matrix A: 2x2 = [[1+i, 2+0i], [0+i, 1+0i]]
   let a : FixedArray[Double] = [1.0, 1.0, 2.0, 0.0, 0.0, 1.0, 1.0, 0.0]
-  
+
   // Matrix B: 2x2 = [[2+0i, 1+i], [1+0i, 2+i]]
   let b : FixedArray[Double] = [2.0, 0.0, 1.0, 1.0, 1.0, 0.0, 2.0, 1.0]
-  
+
   // Matrix C: 2x2 initialized to zero
   let c : FixedArray[Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-  
   cblas_zgemmt(order, uplo, transa, transb, n, k, alpha, a, k, b, k, beta, c, n)
-  
+
   // Expected result: C = alpha * A * B + beta * C, but only triangular part computed
   // Check that computation occurred
   inspect(c[0] != 0.0, content="true") // C[0,0] real should be non-zero
 }
+
 ///|
 test "cblas_ztbmv test" {
   // Test cblas_ztbmv (complex double precision triangular band matrix vector multiplication)
@@ -914,20 +932,19 @@ test "cblas_ztbmv test" {
   let diag = CblasNonUnit
   let n = 3
   let k = 1 // number of super-diagonals in upper triangular band matrix
-  
+
   // Triangular band matrix A: 3x3 upper triangular with 1 super-diagonal
   // Band storage: [a01, a00], [a12, a11], [0, a22]
   let a : FixedArray[Double] = [
     1.0, 0.0, 2.0, 0.0, // a01, a00
-    2.0, 0.0, 3.0, 0.0, // a12, a11
-    0.0, 0.0, 1.0, 0.0  // padding, a22
+     2.0, 0.0, 3.0, 0.0, // a12, a11
+     0.0, 0.0, 1.0, 0.0, // padding, a22
   ]
-  
+
   // Vector x: 3 elements = [1+0i, 1+i, 2+0i]
   let x : FixedArray[Double] = [1.0, 0.0, 1.0, 1.0, 2.0, 0.0]
-  
   cblas_ztbmv(order, uplo, trans, diag, n, k, a, k + 1, x, 1)
-  
+
   // x should be modified by triangular matrix multiplication
   // Just verify function executes without error
   inspect(x[0] != 1.0 || x[1] != 0.0, content="true") // Should have changed from original
@@ -941,23 +958,22 @@ test "cblas_zhpmv test" {
   let n = 2
   let alpha : FixedArray[Double] = [1.0, 0.0] // 1+0i
   let beta : FixedArray[Double] = [0.0, 0.0] // 0+0i
-  
+
   // Hermitian matrix A in packed format: upper triangle only
   // For 2x2: [a00, a01, a11] where a10 = conj(a01)
   let ap : FixedArray[Double] = [
     2.0, 0.0, // a00 = 2+0i (must be real for Hermitian)
-    1.0, 1.0, // a01 = 1+i
-    3.0, 0.0  // a11 = 3+0i (must be real for Hermitian)
+     1.0, 1.0, // a01 = 1+i
+     3.0, 0.0, // a11 = 3+0i (must be real for Hermitian)
   ]
-  
+
   // Vector x: 2 elements = [1+0i, 1+i]
   let x : FixedArray[Double] = [1.0, 0.0, 1.0, 1.0]
-  
+
   // Vector y: 2 elements initialized to zero
   let y : FixedArray[Double] = [0.0, 0.0, 0.0, 0.0]
-  
   cblas_zhpmv(order, uplo, n, alpha, ap, x, 1, beta, y, 1)
-  
+
   // Just verify function executes without error and produces reasonable results
   inspect(y[0] != 0.0 || y[1] != 0.0, content="true") // Should have changed from zero
 }
@@ -972,22 +988,22 @@ test "cblas_zsyr2k test" {
   let k = 2
   let alpha : FixedArray[Double] = [1.0, 0.0] // 1+0i
   let beta : FixedArray[Double] = [0.0, 0.0] // 0+0i
-  
+
   // Matrix A: 2x2 = [[1+i, 2+0i], [0+i, 1+0i]]
   let a : FixedArray[Double] = [1.0, 1.0, 2.0, 0.0, 0.0, 1.0, 1.0, 0.0]
-  
+
   // Matrix B: 2x2 = [[2+0i, 1+i], [1+0i, 2+i]]
   let b : FixedArray[Double] = [2.0, 0.0, 1.0, 1.0, 1.0, 0.0, 2.0, 1.0]
-  
+
   // Matrix C: 2x2 initialized to zero (will store result)
   let c : FixedArray[Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-  
   cblas_zsyr2k(order, uplo, trans, n, k, alpha, a, k, b, k, beta, c, n)
-  
+
   // Expected result: C = alpha * (A * B^T + B * A^T) + beta * C (symmetric rank-2k update)
   // Check that computation occurred
   inspect(c[0] != 0.0, content="true") // C[0,0] real should be non-zero
 }
+
 ///|
 test "cblas_zher2k test" {
   // Test cblas_zher2k (complex double precision Hermitian rank-2k update)
@@ -998,24 +1014,24 @@ test "cblas_zher2k test" {
   let k = 2
   let alpha : FixedArray[Double] = [1.0, 0.0] // 1+0i
   let beta : Double = 0.0 // real scalar for Hermitian matrices
-  
+
   // Matrix A: 2x2 = [[1+i, 2+0i], [0+i, 1+0i]]
   let a : FixedArray[Double] = [1.0, 1.0, 2.0, 0.0, 0.0, 1.0, 1.0, 0.0]
-  
+
   // Matrix B: 2x2 = [[2+0i, 1+i], [1+0i, 2+i]]
   let b : FixedArray[Double] = [2.0, 0.0, 1.0, 1.0, 1.0, 0.0, 2.0, 1.0]
-  
+
   // Matrix C: 2x2 initialized to zero (will store result, Hermitian)
   let c : FixedArray[Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-  
   cblas_zher2k(order, uplo, trans, n, k, alpha, a, k, b, k, beta, c, n)
-  
+
   // Expected result: C = alpha*A*B^H + conj(alpha)*B*A^H + beta*C (Hermitian rank-2k update)
   // For Hermitian matrices, diagonal elements should be real
   inspect(c[1] == 0.0, content="true") // C[0,0] imag should be 0 (Hermitian)
   inspect(c[7] == 0.0, content="true") // C[1,1] imag should be 0 (Hermitian)
   inspect(c[0] != 0.0, content="true") // C[0,0] real should be non-zero
 }
+
 ///|
 test "cblas_ztbsv test" {
   // Test cblas_ztbsv (complex double precision triangular band system solve)
@@ -1025,26 +1041,26 @@ test "cblas_ztbsv test" {
   let diag = CblasNonUnit
   let n = 3
   let k = 1 // number of super-diagonals in upper triangular band matrix
-  
+
   // Triangular band matrix A: 3x3 upper triangular with 1 super-diagonal
   // Band storage: [[a01, a00], [a12, a11], [0, a22]]
   // Represents the matrix: [[2, 1, 0], [0, 2, 1], [0, 0, 2]]
   let a : FixedArray[Double] = [
     1.0, 0.0, 2.0, 0.0, // row 0: [a01=1+0i, a00=2+0i]
-    1.0, 0.0, 2.0, 0.0, // row 1: [a12=1+0i, a11=2+0i]
-    0.0, 0.0, 2.0, 0.0  // row 2: [0, a22=2+0i]
+     1.0, 0.0, 2.0, 0.0, // row 1: [a12=1+0i, a11=2+0i]
+     0.0, 0.0, 2.0, 0.0, // row 2: [0, a22=2+0i]
   ]
-  
+
   // Vector x as right-hand side, will be overwritten with solution
   // Solve system: A * x = [6, 4, 2]
   let x : FixedArray[Double] = [6.0, 0.0, 4.0, 0.0, 2.0, 0.0] // [6+0i, 4+0i, 2+0i]
-  
   cblas_ztbsv(order, uplo, trans, diag, n, k, a, k + 1, x, 1)
-  
+
   // Check that the function executed without crashing and modified the vector
   // The exact values depend on the band storage format interpretation
   inspect(x[0] != 6.0 || x[2] != 4.0 || x[4] != 2.0, content="true") // Should have changed from original
 }
+
 ///|
 test "cblas_ztpmv test" {
   // Test cblas_ztpmv (complex double precision triangular packed matrix vector multiplication)
@@ -1053,29 +1069,29 @@ test "cblas_ztpmv test" {
   let trans = CblasNoTrans
   let diag = CblasNonUnit
   let n = 3
-  
+
   // Triangular matrix A in packed format (upper triangular)
   // For n=3: [a00, a01, a02, a11, a12, a22]
   // Represents the matrix: [[2, 1, 3], [0, 4, 2], [0, 0, 1]]
   let ap : FixedArray[Double] = [
     2.0, 0.0, // a00 = 2+0i
-    1.0, 0.0, // a01 = 1+0i
-    3.0, 0.0, // a02 = 3+0i
-    4.0, 0.0, // a11 = 4+0i
-    2.0, 0.0, // a12 = 2+0i
-    1.0, 0.0  // a22 = 1+0i
+     1.0, 0.0, // a01 = 1+0i
+     3.0, 0.0, // a02 = 3+0i
+     4.0, 0.0, // a11 = 4+0i
+     2.0, 0.0, // a12 = 2+0i
+     1.0, 0.0, // a22 = 1+0i
   ]
-  
+
   // Vector x: [1+0i, 2+0i, 1+i]
   let x : FixedArray[Double] = [1.0, 0.0, 2.0, 0.0, 1.0, 1.0]
-  
   cblas_ztpmv(order, uplo, trans, diag, n, ap, x, 1)
-  
+
   // x should be modified by triangular matrix multiplication: x = A * x
   // The exact result depends on the packed storage format
   // Just verify that the function executed and modified the vector
   inspect(x[0] != 1.0 || x[2] != 2.0, content="true") // Should have changed from original
 }
+
 ///|
 test "cblas_ztpsv test" {
   // Test cblas_ztpsv (complex double precision triangular packed system solve)
@@ -1084,48 +1100,47 @@ test "cblas_ztpsv test" {
   let trans = CblasNoTrans
   let diag = CblasNonUnit
   let n = 3
-  
+
   // Triangular matrix A in packed format (upper triangular)
   // For n=3: [a00, a01, a02, a11, a12, a22]
   // Represents the matrix: [[2, 1, 0], [0, 2, 1], [0, 0, 2]]
   let ap : FixedArray[Double] = [
     2.0, 0.0, // a00 = 2+0i
-    1.0, 0.0, // a01 = 1+0i
-    0.0, 0.0, // a02 = 0+0i
-    2.0, 0.0, // a11 = 2+0i
-    1.0, 0.0, // a12 = 1+0i
-    2.0, 0.0  // a22 = 2+0i
+     1.0, 0.0, // a01 = 1+0i
+     0.0, 0.0, // a02 = 0+0i
+     2.0, 0.0, // a11 = 2+0i
+     1.0, 0.0, // a12 = 1+0i
+     2.0, 0.0, // a22 = 2+0i
   ]
-  
+
   // Vector x as right-hand side, will be overwritten with solution
   // Solve system: A * x = [6, 4, 2]
   let x : FixedArray[Double] = [6.0, 0.0, 4.0, 0.0, 2.0, 0.0] // [6+0i, 4+0i, 2+0i]
-  
   cblas_ztpsv(order, uplo, trans, diag, n, ap, x, 1)
-  
+
   // Check that the function executed without crashing and modified the vector
   // The exact values depend on the packed storage format interpretation
   inspect(x[0] != 6.0 || x[2] != 4.0 || x[4] != 2.0, content="true") // Should have changed from original
 }
+
 ///|
 test "cblas_zhpr2 test" {
   // Test cblas_zhpr2 (complex double precision Hermitian packed rank-2 update)
   let uplo = CblasUpper
   let n = 2
   let alpha : FixedArray[Double] = [1.0, 0.0] // 1+0i
-  
+
   // Vector x: [1+i, 2+0i]
   let x : FixedArray[Double] = [1.0, 1.0, 2.0, 0.0]
-  
+
   // Vector y: [2+0i, 1+i]
   let y : FixedArray[Double] = [2.0, 0.0, 1.0, 1.0]
-  
+
   // Hermitian matrix A in packed format (upper triangular): [a00, a01, a11]
   // Initial: [[1+0i, 0+0i], [0+0i, 1+0i]] packed as [1+0i, 0+0i, 1+0i]
   let a : FixedArray[Double] = [1.0, 0.0, 0.0, 0.0, 1.0, 0.0]
-  
   cblas_zhpr2(CblasRowMajor, uplo, n, alpha, x, 1, y, 1, a)
-  
+
   // Expected result: A := alpha*x*conj(y)^T + conj(alpha)*y*conj(x)^T + A
   // For Hermitian matrices, diagonal elements should be real
   inspect(a[1] == 0.0, content="true") // a[0,0] imag should be 0 (Hermitian)
