@@ -1,5 +1,332 @@
 # OpenBLAS.mbt
 
+[中文](#chinese-version)
+
+This is an OpenBLAS binding library for the [MoonBit Programming Language](https://www.moonbitlang.com/). OpenBLAS is a high-performance implementation of BLAS (Basic Linear Algebra Subprograms) and parts of LAPACK (Linear Algebra PACKage), widely used in scientific computing and machine learning.
+
+## ⚠️ Development Warning
+
+**Important**: The OpenBLAS bindings in this library are complete, but many APIs have not been thoroughly tested. Please test the relevant functions carefully before using them in a production environment. We welcome community contributions for test cases and bug reports.
+
+## System Requirements & Installation
+
+### macOS
+
+Install OpenBLAS using Homebrew:
+
+```bash
+brew install openblas
+```
+
+### Linux (Ubuntu/Debian)
+
+```bash
+sudo apt-get update
+sudo apt-get install libopenblas-dev
+```
+
+### Linux (CentOS/RHEL/Fedora)
+
+```bash
+# CentOS/RHEL
+sudo yum install openblas-devel
+
+# Fedora
+sudo dnf install openblas-devel
+```
+
+### Windows
+
+**Note**: Windows is theoretically supported but has not been tested. You can try the following methods:
+
+1.  Use [vcpkg](https://vcpkg.io/en/) to install OpenBLAS.
+2.  Download a pre-compiled version from the [OpenBLAS official website](https://www.openblas.net/).
+3.  Adjust the environment configuration files accordingly.
+
+## Package Management & Installation
+
+### Update Package Index
+
+```bash
+moon update
+```
+
+### Install Package
+
+```bash
+moon add Kaida-Amethyst/openblas
+```
+
+## Project Configuration
+
+### 1. Package Configuration
+
+In the package where you intend to use OpenBLAS, configure `moon.pkg.json`:
+
+```json
+{
+  "import": [
+    "Kaida-Amethyst/openblas/cblas",
+    "Kaida-Amethyst/openblas/lapack"
+  ],
+  "link": {
+    "native": {
+      "cc": "$CC",
+      "cc-flags": "$CC_FLAGS -w",
+      "cc-link-flags": "$CC_LINK_FLAGS"
+    }
+  }
+}
+```
+
+### 2. Environment Configuration
+
+The `$CC`, `$CC_FLAGS`, and `$CC_LINK_FLAGS` are environment variables. It is recommended to configure them in an `env.sh` file.
+
+```bash
+# env.sh
+OPENBLAS_PATH=$(brew --prefix openblas)  # macOS example
+
+export CC=gcc
+export CC_FLAGS="-I$OPENBLAS_PATH/include"
+export CC_LINK_FLAGS="-L$OPENBLAS_PATH/lib -lopenblas"
+export C_INCLUDE_PATH="$C_INCLUDE_PATH:/opt/homebrew/include:$OPENBLAS_PATH/include"
+```
+
+**Linux users should adjust the paths accordingly**:
+```bash
+# Linux example (paths may vary by distribution)
+export CC=gcc
+export CC_FLAGS="-I/usr/include/openblas"
+export CC_LINK_FLAGS="-lopenblas"
+```
+
+Remember to load the environment variables before use:
+```bash
+source env.sh
+```
+
+## Usage Examples
+
+### CBLAS Example - Vector Dot Product and Matrix Multiplication
+
+Here is an example of using CBLAS for basic linear algebra operations:
+
+```moonbit
+fn cblas_example() -> Unit {
+  // Example 1: Vector Dot Product
+  println("=== CBLAS Vector Dot Product Example ===")
+  let n = 4
+  let x : FixedArray[Float] = [1.0, 2.0, 3.0, 4.0]
+  let y : FixedArray[Float] = [2.0, 1.0, 4.0, 3.0]
+  
+  // Calculate x · y = 1*2 + 2*1 + 3*4 + 4*3 = 28
+  let dot_result = @cblas.cblas_sdot(n, x, 1, y, 1)
+  println("Vector dot product result: \{dot_result}")
+  
+  // Example 2: Vector Normalization
+  println("\n=== Vector Normalization Example ===")
+  let vec : FixedArray[Float] = [3.0, 4.0, 0.0]
+  let norm = @cblas.cblas_snrm2(3, vec, 1)
+  println("Euclidean norm of vector [3, 4, 0]: \{norm}")
+  
+  // Normalize the vector (divide by its norm)
+  @cblas.cblas_sscal(3, 1.0 / norm, vec, 1)
+  println("Normalized vector: [\{vec[0]}, \{vec[1]}, \{vec[2]}]")
+  
+  // Example 3: Matrix-Vector Multiplication (GEMV)
+  println("\n=== Matrix-Vector Multiplication Example ===")
+  let m = 3  // Matrix rows
+  let n = 3  // Matrix columns
+  let alpha : Float = 1.0
+  let beta : Float = 0.0
+  
+  // 3x3 Matrix A (row-major order)
+  let a : FixedArray[Float] = [
+    1.0, 2.0, 3.0,  // Row 1
+    4.0, 5.0, 6.0,  // Row 2
+    7.0, 8.0, 9.0   // Row 3
+  ]
+  let input_vec : FixedArray[Float] = [1.0, 1.0, 1.0]
+  let result_vec : FixedArray[Float] = [0.0, 0.0, 0.0]
+  
+  // Calculate result_vec = A * input_vec
+  @cblas.cblas_sgemv(
+    @cblas.CblasRowMajor, @cblas.CblasNoTrans,
+    m, n, alpha, a, n, input_vec, 1, beta, result_vec, 1
+  )
+  
+  println("Matrix A * vector [1,1,1] = [\{result_vec[0]}, \{result_vec[1]}, \{result_vec[2]}]")
+  
+  // Example 4: Vector Addition (AXPY: y = a*x + y)
+  println("\n=== Vector Addition Example (AXPY) ===")
+  let alpha2 : Float = 2.5
+  let x2 : FixedArray[Float] = [1.0, 2.0, 3.0]
+  let y2 : FixedArray[Float] = [4.0, 5.0, 6.0]
+  
+  println("Before: x = [\{x2[0]}, \{x2[1]}, \{x2[2]}], y = [\{y2[0]}, \{y2[1]}, \{y2[2]}]")
+  
+  // Calculate y = 2.5 * x + y
+  @cblas.cblas_saxpy(3, alpha2, x2, 1, y2, 1)
+  
+  println("y = 2.5 * x + y = [\{y2[0]}, \{y2[1]}, \{y2[2]}]")
+}
+
+fn main {
+  cblas_example()
+}
+```
+
+### LAPACK Example - Solving Linear Equations and Eigenvalue Decomposition
+
+Here is an example of using LAPACK for advanced linear algebra operations:
+
+```moonbit
+fn lapack_example() -> Unit {
+  // Example 1: Solve linear system Ax = b (using LU decomposition)
+  println("=== LAPACK Linear System Solver Example ===")
+  
+  let n = 3      // Matrix dimension
+  let nrhs = 1   // Number of right-hand side vectors
+  
+  // 3x3 coefficient matrix A (column-major order, as required by LAPACK)
+  let a : FixedArray[Double] = [
+    2.0, 1.0, 1.0,  // Column 1
+    1.0, 3.0, 2.0,  // Column 2
+    1.0, 2.0, 4.0   // Column 3
+  ]
+  
+  // Right-hand side vector b
+  let b : FixedArray[Double] = [8.0, 13.0, 18.0]
+  
+  // Row permutation array for LU decomposition
+  let ipiv : FixedArray[Int] = [0, 0, 0]
+  
+  println("Solving system:")
+  println("2x + y + z = 8")
+  println("x + 3y + 2z = 13")  
+  println("x + 2y + 4z = 18")
+  
+  // Call LAPACK's DGESV function to solve
+  let info = @lapack.lapacke_dgesv(
+    @lapack.LAPACK_COL_MAJOR, n, nrhs, a, n, ipiv, b, n
+  )
+  
+  if info == 0 {
+    println("Solution: x = \{b[0]}, y = \{b[1]}, z = \{b[2]}")
+  } else {
+    println("Failed to solve, error code: \{info}")
+  }
+  
+  // Example 2: QR Decomposition of a matrix
+  println("\n=== QR Decomposition Example ===")
+  
+  let m2 = 3
+  let n2 = 3
+  
+  // Matrix to be decomposed (column-major)
+  let a2 : FixedArray[Double] = [
+    1.0, 1.0, 1.0,  // Column 1
+    2.0, 1.0, 0.0,  // Column 2
+    3.0, 2.0, 1.0   // Column 3
+  ]
+  
+  // Array to store Householder reflector vectors
+  let tau : FixedArray[Double] = [0.0, 0.0, 0.0]
+  
+  println("Performing QR decomposition on matrix:")
+  println("A = [[1, 2, 3], [1, 1, 2], [1, 0, 1]]")
+  
+  // Call DGEQRF for QR decomposition
+  let info2 = @lapack.lapacke_dgeqrf(
+    @lapack.LAPACK_COL_MAJOR, m2, n2, a2, m2, tau
+  )
+  
+  if info2 == 0 {
+    println("QR decomposition completed successfully")
+    println("Diagonal elements of R matrix: [\{a2[0]}, \{a2[4]}, \{a2[8]}]")
+  } else {
+    println("QR decomposition failed, error code: \{info2}")
+  }
+  
+  // Example 3: Singular Value Decomposition (SVD)
+  println("\n=== Singular Value Decomposition Example ===")
+  
+  let m3 = 2
+  let n3 = 3
+  
+  // 2x3 matrix
+  let a3 : FixedArray[Double] = [
+    1.0, 3.0,     // Column 1
+    2.0, 4.0,     // Column 2
+    3.0, 5.0      // Column 3
+  ]
+  
+  // Array for singular values
+  let s : FixedArray[Double] = [0.0, 0.0]
+  
+  // U and VT matrices (simplified here, not extracted)
+  let u : FixedArray[Double] = []
+  let vt : FixedArray[Double] = []
+  
+  println("Calculating singular values of matrix [[1, 2, 3], [3, 4, 5]]")
+  
+  // Call DGESVD to compute singular values
+  let info3 = @lapack.lapacke_dgesvd(
+    @lapack.LAPACK_COL_MAJOR, 'N'.to_int().to_byte(), 'N'.to_int().to_byte(),
+    m3, n3, a3, m3, s, u, m3, vt, n3
+  )
+  
+  if info3 == 0 {
+    println("Singular values: [\{s[0]}, \{s[1]}]")
+  } else {
+    println("SVD computation failed, error code: \{info3}")
+  }
+}
+
+fn main {
+  lapack_example()
+}
+```
+
+## API Reference
+
+### CBLAS Module
+
+This library provides the complete CBLAS Level 1, Level 2, and Level 3 functions, including:
+
+-   **Level 1**: Vector operations (dot product, norm, rotation, etc.)
+-   **Level 2**: Matrix-vector operations (GEMV, SYR, etc.)
+-   **Level 3**: Matrix-matrix operations (GEMM, SYRK, etc.)
+
+It supports single-precision (`s` prefix) and double-precision (`d` prefix) floating-point operations, as well as complex numbers (`c` prefix for single-precision complex, `z` for double-precision complex).
+
+### LAPACK Module
+
+This library provides core LAPACK functionalities, including:
+
+-   **Linear System Solvers**: GESV, POSV, SYSV, etc.
+-   **Matrix Decompositions**: LU, QR, Cholesky, SVD, etc.
+-   **Eigenvalue Problems**: SYEV, GEEV, etc.
+-   **Least Squares Problems**: GELS, etc.
+
+## License
+
+This project is licensed under the Apache-2.0 License. See the [LICENSE](LICENSE) file for details.
+
+## Related Links
+
+-   [OpenBLAS Official Website](https://www.openblas.net/)
+-   [MoonBit Language](https://www.moonbitlang.com/)
+-   [Project Repository](https://github.com/moonbit-community/openblas.mbt)
+-   [Issue Tracker](https://github.com/moonbit-community/openblas.mbt/issues)
+
+---
+
+## <a name="chinese-version"></a>中文
+
+# OpenBLAS.mbt
+
 这是一个为 [MoonBit 编程语言](https://www.moonbitlang.com/) 提供的 OpenBLAS 绑定库。OpenBLAS 是一个高性能的 BLAS (Basic Linear Algebra Subprograms) 和部分 LAPACK (Linear Algebra PACKage) 实现，广泛用于科学计算和机器学习领域。
 
 ## ⚠️ 开发中警告
@@ -37,9 +364,9 @@ sudo dnf install openblas-devel
 
 **注意**: Windows 理论上可用，但尚未经过测试。你可以尝试以下方法：
 
-1. 使用 [vcpkg](https://vcpkg.io/en/) 安装 OpenBLAS
-2. 或者从 [OpenBLAS 官网](https://www.openblas.net/) 下载预编译版本
-3. 相应地调整环境配置文件
+1.  使用 [vcpkg](https://vcpkg.io/en/) 安装 OpenBLAS
+2.  或者从 [OpenBLAS 官网](https://www.openblas.net/) 下载预编译版本
+3.  相应地调整环境配置文件
 
 ## 包管理与安装
 
@@ -100,10 +427,10 @@ export CC_LINK_FLAGS="-lopenblas"
 ```
 
 在使用前记得加载环境变量：
+
 ```bash
 source env.sh
 ```
-
 
 ## 使用示例
 
@@ -287,35 +614,3 @@ fn main {
   lapack_example()
 }
 ```
-
-## API 参考
-
-### CBLAS 模块
-
-本库提供了完整的 CBLAS Level 1、Level 2 和 Level 3 函数，包括：
-
-- **Level 1**: 向量运算 (点积、范数、旋转等)
-- **Level 2**: 矩阵-向量运算 (GEMV、SYR 等)  
-- **Level 3**: 矩阵-矩阵运算 (GEMM、SYRK 等)
-
-支持单精度 (`s`前缀) 和双精度 (`d`前缀) 浮点运算，以及复数运算 (`c`前缀单精度复数，`z`前缀双精度复数)。
-
-### LAPACK 模块
-
-本库提供了 LAPACK 的核心功能，包括：
-
-- **线性系统求解**: GESV、POSV、SYSV 等
-- **矩阵分解**: LU、QR、Cholesky、奇异值分解等
-- **特征值问题**: SYEV、GEEV 等
-- **最小二乘问题**: GELS 等
-
-## 许可证
-
-本项目采用 Apache-2.0 许可证。详见 [LICENSE](LICENSE) 文件。
-
-## 相关链接
-
-- [OpenBLAS 官网](https://www.openblas.net/)
-- [MoonBit 语言](https://www.moonbitlang.com/)
-- [项目仓库](https://github.com/moonbit-community/openblas.mbt)
-- [问题反馈](https://github.com/moonbit-community/openblas.mbt/issues)
