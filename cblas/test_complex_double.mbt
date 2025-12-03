@@ -964,8 +964,8 @@ test "cblas_zhpmv test" {
   let ap : FixedArray[Double] = [
     2.0, 0.0, // a00 = 2+0i (must be real for Hermitian)
      1.0, 1.0, // a01 = 1+i
-     3.0, 0.0, // a11 = 3+0i (must be real for Hermitian)
-  ]
+     3.0, 0.0,
+  ] // a11 = 3+0i (must be real for Hermitian)
 
   // Vector x: 2 elements = [1+0i, 1+i]
   let x : FixedArray[Double] = [1.0, 0.0, 1.0, 1.0]

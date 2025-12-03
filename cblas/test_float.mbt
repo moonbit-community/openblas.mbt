@@ -444,9 +444,9 @@ test "cblas_strsm test" {
   assert_eq(b[0], 7.0) // X[0,0] = 7
   assert_eq(b[1], 10.0) // X[0,1] = 10 
   // Use approximation for floating point
-  let expected_val = (-5.0 / 3.0).to_float()
+  let expected_val = Float::from_double(-5.0 / 3.0)
   assert_eq((b[2] - expected_val).abs() < 0.001, true) // X[1,0] = -5/3
-  let expected_val2 = (-8.0 / 3.0).to_float()
+  let expected_val2 = Float::from_double(-8.0 / 3.0)
   assert_eq((b[3] - expected_val2).abs() < 0.001, true) // X[1,1] = -8/3
 }
 
