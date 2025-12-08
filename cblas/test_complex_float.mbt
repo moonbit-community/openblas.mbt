@@ -487,14 +487,14 @@ test "cblas_cgemm test" {
   // Matrix A (2x2) in row-major order
   let a : FixedArray[Float] = [
     1.0, 2.0, 3.0, 4.0, // [1+2i, 3+4i]
-     2.0, 1.0, 4.0, 3.0, // [2+1i, 4+3i]
-  ]
+     2.0, 1.0, 4.0, 3.0,
+  ] // [2+1i, 4+3i]
 
   // Matrix B (2x2) in row-major order
   let b : FixedArray[Float] = [
     5.0, 6.0, 7.0, 8.0, // [5+6i, 7+8i]
-     1.0, 2.0, 3.0, 4.0, // [1+2i, 3+4i]
-  ]
+     1.0, 2.0, 3.0, 4.0,
+  ] // [1+2i, 3+4i]
 
   // Matrix C (2x2) initialized to zero
   let c : FixedArray[Float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
@@ -549,14 +549,14 @@ test "cblas_chemm test" {
   // Hermitian matrix A (only upper triangle stored)
   let a : FixedArray[Float] = [
     2.0, 0.0, 1.0, 2.0, // [2+0i, 1+2i]
-     0.0, 0.0, 3.0, 0.0, // [unused, 3+0i] (lower triangle not used)
-  ]
+     0.0, 0.0, 3.0, 0.0,
+  ] // [unused, 3+0i] (lower triangle not used)
 
   // Matrix B
   let b : FixedArray[Float] = [
     1.0, 1.0, 2.0, 0.0, // [1+1i, 2+0i]
-     3.0, 0.0, 1.0, -1.0, // [3+0i, 1-1i]
-  ]
+     3.0, 0.0, 1.0, -1.0,
+  ] // [3+0i, 1-1i]
 
   // Matrix C initialized to zero
   let c : FixedArray[Float] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
@@ -608,14 +608,14 @@ test "cblas_cherk test" {
   // Matrix A (2x2)
   let a : FixedArray[Float] = [
     1.0, 1.0, 2.0, 0.0, // [1+1i, 2+0i]
-     0.0, 1.0, 1.0, 1.0, // [0+1i, 1+1i]
-  ]
+     0.0, 1.0, 1.0, 1.0,
+  ] // [0+1i, 1+1i]
 
   // Initial Hermitian matrix C (only upper triangle used)
   let c : FixedArray[Float] = [
     1.0, 0.0, 1.0, 1.0, // [1+0i, 1+1i]
-     0.0, 0.0, 2.0, 0.0, // [unused, 2+0i]
-  ]
+     0.0, 0.0, 2.0, 0.0,
+  ] // [unused, 2+0i]
   let alpha : Float = 1.0
   let beta : Float = 1.0
   cblas_cherk(
@@ -774,8 +774,8 @@ test "cblas_chbmv test" {
   // Band storage format (k+1=2 rows): [[1+i, 2+i], [2+0i, 3+0i, 4+0i]]
   let a : FixedArray[Float] = [
     1.0, 1.0, 2.0, 1.0, // row 0: [1+i, 2+i]
-     2.0, 0.0, 3.0, 0.0, 4.0, 0.0, // row 1: [2+0i, 3+0i, 4+0i]
-  ]
+     2.0, 0.0, 3.0, 0.0, 4.0, 0.0,
+  ] // row 1: [2+0i, 3+0i, 4+0i]
 
   // Vector x: [1+0i, 2+0i, 1+i]
   let x : FixedArray[Float] = [1.0, 0.0, 2.0, 0.0, 1.0, 1.0]
@@ -987,8 +987,8 @@ test "cblas_chpmv test" {
   let ap : FixedArray[Float] = [
     2.0, 0.0, // a00 = 2+0i (must be real for Hermitian)
      1.0, 1.0, // a01 = 1+i
-     3.0, 0.0, // a11 = 3+0i (must be real for Hermitian)
-  ]
+     3.0, 0.0,
+  ] // a11 = 3+0i (must be real for Hermitian)
 
   // Vector x: 2 elements = [1+0i, 1+i]
   let x : FixedArray[Float] = [1.0, 0.0, 1.0, 1.0]

@@ -15,7 +15,8 @@ priv type CStr
 ///|
 extern "C" fn CStr::to_string(self : Self) -> String = "cstr_to_moonbit_string"
 
-///| Set the number of threads on runtime.*/
+///|
+/// Set the number of threads on runtime.*/
 /// 
 /// ```c
 /// void openblas_set_num_threads(int num_threads);
@@ -36,21 +37,24 @@ pub extern "C" fn goto_set_num_threads(num_threads : Int) = "goto_set_num_thread
 /// ```
 /// pub extern "C" fn openblas_set_num_threads_local(num_threads : Int) -> Int = "openblas_set_num_threads_local"
 
-///| Get the number of threads on runtime.*/
+///|
+/// Get the number of threads on runtime.*/
 ///
 /// ```c
 /// int openblas_get_num_threads(void);
 /// ```
 pub extern "C" fn openblas_get_num_threads() -> Int = "openblas_get_num_threads"
 
-///| Get the number of physical processors (cores).*/
+///|
+/// Get the number of physical processors (cores).*/
 ///
 /// ```c
 /// int openblas_get_num_procs(void);
 /// ```
 pub extern "C" fn openblas_get_num_procs() -> Int = "openblas_get_num_procs"
 
-///| Get the build configure on runtime.*/
+///|
+/// Get the build configure on runtime.*/
 ///
 /// ```c
 /// char* openblas_get_config(void);
@@ -64,7 +68,8 @@ pub fn openblas_get_config() -> String {
   str
 }
 
-///| Get the CPU corename on runtime.*/
+///|
+/// Get the CPU corename on runtime.*/
 ///
 /// ```c
 /// char* openblas_get_corename(void);
@@ -78,12 +83,13 @@ pub fn openblas_get_corename() -> String {
   str
 }
 
-///| Set the threading backend to a custom callback.*/
+///|
+/// Set the threading backend to a custom callback.*/
 ///
 /// ```c
 /// typedef void (*openblas_dojob_callback)(int thread_num, void *jobdata, int dojob_data);
 /// ```
-pub typealias FuncRef[(Int, VoidPtr, Int) -> Unit] as Openblas_dojob_callback
+pub type Openblas_dojob_callback = FuncRef[(Int, VoidPtr, Int) -> Unit]
 
 ///|
 ///
@@ -94,9 +100,9 @@ pub typealias FuncRef[(Int, VoidPtr, Int) -> Unit] as Openblas_dojob_callback
 ///   void *jobdata, int dojob_data
 /// );
 /// ``` 
-pub typealias FuncRef[
+pub type Openblas_threads_callback = FuncRef[
   (Int, Openblas_dojob_callback, Int, Int, VoidPtr, Int) -> Unit,
-] as Openblas_threads_callback
+]
 
 ///|
 ///
@@ -115,28 +121,31 @@ pub extern "C" fn openblas_set_threads_callback_function(
 //int openblas_getaffinity(int thread_idx, size_t cpusetsize, cpu_set_t* cpu_set);
 //#endif
 
-///| Get the parallelization type which is used by OpenBLAS */
+///|
+/// Get the parallelization type which is used by OpenBLAS */
 ///
 /// ```c
 /// int openblas_get_parallel(void);
 /// ```
 pub extern "C" fn openblas_get_parallel() -> Int = "openblas_get_parallel"
 
-///| 
+///|
 ///
 /// ```c
 /// #define OPENBLAS_SEQUENTIAL  0
 /// ```
 pub const OPENBLAS_SEQUENTIAL : Int = 0
 
-///| OpenBLAS is compiled using normal threading model
+///|
+/// OpenBLAS is compiled using normal threading model
 ///
 /// ```c
 /// #define OPENBLAS_THREAD  1
 /// ```
 pub const OPENBLAS_THREAD : Int = 1
 
-///| OpenBLAS is compiled using OpenMP threading model
+///|
+/// OpenBLAS is compiled using OpenMP threading model
 ///
 /// ```c
 /// #define OPENBLAS_OPENMP 2
@@ -151,6 +160,7 @@ pub const OPENBLAS_OPENMP : Int = 2
 ///   CblasColMajor=102
 /// } CBLAS_ORDER;
 /// ```
+#alias(CBLAS_LAYOUT)
 pub(all) enum CBLAS_ORDER {
   CblasRowMajor = 101
   CblasColMajor = 102
@@ -217,7 +227,6 @@ pub(all) enum CBLAS_SIDE {
 /// ```c
 /// typedef CBLAS_ORDER CBLAS_LAYOUT;
 /// ```
-pub typealias CBLAS_ORDER as CBLAS_LAYOUT
 
 ///|
 ///
@@ -577,6 +586,7 @@ pub extern "C" fn cblas_icamax(
 /// ```c
 /// UInt64 cblas_izamax(const blasint n, const void *x, const blasint incx);
 /// ```
+#borrow(x)
 pub extern "C" fn cblas_izamax(
   n : Int,
   x : FixedArray[Double],
@@ -1335,7 +1345,7 @@ pub extern "C" fn cblas_dgemv(
 /// void cblas_cgemv(const enum CBLAS_ORDER order,  const enum CBLAS_TRANSPOSE trans,  const blasint m, const blasint n,
 ///	 const void *alpha, const void  *a, const blasint lda,  const void  *x, const blasint incx,  const void *beta,  void  *y, const blasint incy);
 /// ```
-#borrow(alpha, a, x, y)
+#borrow(alpha, a, x, beta, y)
 pub extern "C" fn cblas_cgemv(
   order : CBLAS_ORDER,
   trans : CBLAS_TRANSPOSE,
@@ -1357,7 +1367,7 @@ pub extern "C" fn cblas_cgemv(
 /// void cblas_zgemv(const enum CBLAS_ORDER order,  const enum CBLAS_TRANSPOSE trans,  const blasint m, const blasint n,
 ///	 const void *alpha, const void  *a, const blasint lda,  const void  *x, const blasint incx,  const void *beta,  void  *y, const blasint incy);
 /// ```
-#borrow(alpha, a, x, y)
+#borrow(alpha, a, x, beta, y)
 pub extern "C" fn cblas_zgemv(
   order : CBLAS_ORDER,
   trans : CBLAS_TRANSPOSE,
@@ -3532,7 +3542,7 @@ pub extern "C" fn cblas_domatcopy(
 /// void cblas_comatcopy(const enum CBLAS_ORDER CORDER, const enum CBLAS_TRANSPOSE CTRANS, const blasint crows, const blasint ccols, const float* calpha, const float* a, 
 ///	     const blasint clda, float*b, const blasint cldb);
 /// ```
-#borrow(a, b)
+#borrow(calpha, a, b)
 pub extern "C" fn cblas_comatcopy(
   corder : CBLAS_ORDER,
   ctrans : CBLAS_TRANSPOSE,
@@ -3551,7 +3561,7 @@ pub extern "C" fn cblas_comatcopy(
 /// void cblas_zomatcopy(const enum CBLAS_ORDER CORDER, const enum CBLAS_TRANSPOSE CTRANS, const blasint crows, const blasint ccols, const double* calpha, const double* a, 
 ///	     const blasint clda,  double *b, const blasint cldb);
 /// ```
-#borrow(a, b)
+#borrow(calpha, a, b)
 pub extern "C" fn cblas_zomatcopy(
   corder : CBLAS_ORDER,
   ctrans : CBLAS_TRANSPOSE,
@@ -3607,7 +3617,7 @@ pub extern "C" fn cblas_dimatcopy(
 /// void cblas_cimatcopy(const enum CBLAS_ORDER CORDER, const enum CBLAS_TRANSPOSE CTRANS, const blasint crows, const blasint ccols, const float* calpha, float* a, 
 ///	     const blasint clda, const blasint cldb);
 /// ```
-#borrow(a)
+#borrow(calpha, a)
 pub extern "C" fn cblas_cimatcopy(
   corder : CBLAS_ORDER,
   ctrans : CBLAS_TRANSPOSE,
@@ -3625,7 +3635,7 @@ pub extern "C" fn cblas_cimatcopy(
 /// void cblas_zimatcopy(const enum CBLAS_ORDER CORDER, const enum CBLAS_TRANSPOSE CTRANS, const blasint crows, const blasint ccols, const double* calpha, double* a, 
 ///	     const blasint clda, const blasint cldb);
 /// ```
-#borrow(a)
+#borrow(calpha, a)
 pub extern "C" fn cblas_zimatcopy(
   corder : CBLAS_ORDER,
   ctrans : CBLAS_TRANSPOSE,

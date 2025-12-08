@@ -1,43 +1,47 @@
 ///|
-pub typealias Int as Lapack_int
+pub type Lapack_int = Int
 
 ///|
-pub typealias (Float, Float) as Lapack_complex_float
+pub type Lapack_complex_float = (Float, Float)
 
 ///|
-pub typealias (Double, Double) as Lapack_complex_double
+pub type Lapack_complex_double = (Double, Double)
 
 ///|
-pub typealias Lapack_int as Lapack_logical
+pub type Lapack_logical = Lapack_int
 
 ///|
-pub typealias FuncRef[(FixedArray[Float], FixedArray[Float]) -> Lapack_logical] as Lapack_s_select2
+pub type Lapack_s_select2 = FuncRef[
+  (FixedArray[Float], FixedArray[Float]) -> Lapack_logical,
+]
 
 ///|
-pub typealias FuncRef[
+pub type Lapack_s_select3 = FuncRef[
   (FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Lapack_logical,
-] as Lapack_s_select3
+]
 
 ///|
-pub typealias FuncRef[
+pub type Lapack_d_select2 = FuncRef[
   (FixedArray[Double], FixedArray[Double]) -> Lapack_logical,
-] as Lapack_d_select2
+]
 
 ///|
-pub typealias FuncRef[
+pub type Lapack_d_select3 = FuncRef[
   (FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Lapack_logical,
-] as Lapack_d_select3
+]
 
 ///|
-pub typealias FuncRef[(FixedArray[Float]) -> Lapack_logical] as Lapack_c_select1
+pub type Lapack_c_select1 = FuncRef[(FixedArray[Float]) -> Lapack_logical]
 
 ///|
-pub typealias FuncRef[(FixedArray[Float], FixedArray[Float]) -> Lapack_logical] as Lapack_c_select2
+pub type Lapack_c_select2 = FuncRef[
+  (FixedArray[Float], FixedArray[Float]) -> Lapack_logical,
+]
 
 ///|
-pub typealias FuncRef[(FixedArray[Double]) -> Lapack_logical] as Lapack_z_select1
+pub type Lapack_z_select1 = FuncRef[(FixedArray[Double]) -> Lapack_logical]
 
 ///|
-pub typealias FuncRef[
+pub type Lapack_z_select2 = FuncRef[
   (FixedArray[Double], FixedArray[Double]) -> Lapack_logical,
-] as Lapack_z_select2
+]
