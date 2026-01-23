@@ -1104,6 +1104,32 @@ test "test_lapacke_zgeequb" {
 }
 
 ///|
+test "test_lapacke_sgees" {
+  let select : Lapack_s_select2 = (wr, wi) => {
+    let v = wr[0] + wi[0]
+    if v < 0.0 {
+      return 1
+    }
+    0
+  }
+  let info = lapacke_sgees(
+    lapack_col_major,
+    'N'.to_int().to_byte(),
+    'S'.to_int().to_byte(),
+    select,
+    1,
+    float_buf,
+    1,
+    int_buf,
+    float_buf,
+    float_buf,
+    float_buf,
+    1,
+  )
+  assert_eq(info, 0)
+}
+
+///|
 test "test_lapacke_sgeev" {
   let info = lapacke_sgeev(
     lapack_col_major,

@@ -9,6 +9,12 @@ static lapack_int int_buf[1] = {0};
 static lapack_int int_stat_buf[3] = {0, 0, 0};
 static char byte_buf[1] = {0};
 
+static lapack_logical select_sgees(const float *wr, const float *wi) {
+    (void)wr;
+    (void)wi;
+    return 0;
+}
+
 int test_lapack_make_complex_float() {
     lapack_complex_float v = lapack_make_complex_float(1.0f, 2.0f);
     int failed = 0;
@@ -373,6 +379,11 @@ int test_lapacke_cgeequb() {
 int test_lapacke_zgeequb() {
     lapack_int info = LAPACKE_zgeequb(LAPACK_COL_MAJOR, 0, 0, (void*)complex_double_buf, 1, (void*)complex_double_buf, (void*)complex_double_buf, (void*)complex_double_buf, (void*)complex_double_buf, (void*)complex_double_buf);
     return assert_eq_int((int)info, 0, "lapacke_zgeequb");
+}
+
+int test_lapacke_sgees() {
+    lapack_int info = LAPACKE_sgees(LAPACK_COL_MAJOR, 'N', 'S', select_sgees, 1, (void*)float_buf, 1, (void*)int_buf, (void*)float_buf, (void*)float_buf, (void*)float_buf, 1);
+    return assert_eq_int((int)info, 0, "lapacke_sgees");
 }
 
 int test_lapacke_sgeev() {

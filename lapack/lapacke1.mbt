@@ -825,6 +825,7 @@ extern "C" fn lapacke_zgbrfs(
 /// );
 /// ```
 #borrow(ab, afb, ipiv, r, c, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_sgbrfsx(
   matrix_layout : Int,
   trans : Byte,
@@ -866,6 +867,7 @@ extern "C" fn lapacke_sgbrfsx(
 /// );
 /// ```
 #borrow(ab, afb, ipiv, r, c, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_dgbrfsx(
   matrix_layout : Int,
   trans : Byte,
@@ -907,6 +909,7 @@ extern "C" fn lapacke_dgbrfsx(
 /// );
 /// ```
 #borrow(ab, afb, ipiv, r, c, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_cgbrfsx(
   matrix_layout : Int,
   trans : Byte,
@@ -948,6 +951,7 @@ extern "C" fn lapacke_cgbrfsx(
 /// );
 /// ```
 #borrow(ab, afb, ipiv, r, c, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_zgbrfsx(
   matrix_layout : Int,
   trans : Byte,
@@ -1238,6 +1242,7 @@ extern "C" fn lapacke_zgbsvx(
 /// );
 /// ```
 #borrow(ab, afb, ipiv, equed, r, c, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_sgbsvxx(
   matrix_layout : Int,
   fact : Byte,
@@ -1282,6 +1287,7 @@ extern "C" fn lapacke_sgbsvxx(
 /// );
 /// ```
 #borrow(ab, afb, ipiv, equed, r, c, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_dgbsvxx(
   matrix_layout : Int,
   fact : Byte,
@@ -1326,6 +1332,7 @@ extern "C" fn lapacke_dgbsvxx(
 /// );
 /// ```
 #borrow(ab, afb, ipiv, equed, r, c, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_cgbsvxx(
   matrix_layout : Int,
   fact : Byte,
@@ -1370,6 +1377,7 @@ extern "C" fn lapacke_cgbsvxx(
 /// );
 /// ```
 #borrow(ab, afb, ipiv, equed, r, c, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_zgbsvxx(
   matrix_layout : Int,
   fact : Byte,
@@ -2127,6 +2135,7 @@ extern "C" fn lapacke_sgees(
 /// );
 /// ```
 #borrow(a, sdim, wr, wi, vs)
+/// Note: Requires select callback; test not implemented yet.
 extern "C" fn lapacke_dgees(
   matrix_layout : Int,
   jobvs : Byte,
@@ -2152,6 +2161,7 @@ extern "C" fn lapacke_dgees(
 /// );
 /// ```
 #borrow(a, sdim, w, vs)
+/// Note: Requires select callback; test not implemented yet.
 extern "C" fn lapacke_cgees(
   matrix_layout : Int,
   jobvs : Byte,
@@ -2176,6 +2186,7 @@ extern "C" fn lapacke_cgees(
 /// );
 /// ```
 #borrow(a, sdim, w, vs)
+/// Note: Requires select callback; test not implemented yet.
 extern "C" fn lapacke_zgees(
   matrix_layout : Int,
   jobvs : Byte,
@@ -2201,6 +2212,7 @@ extern "C" fn lapacke_zgees(
 /// );
 /// ```
 #borrow(a, sdim, wr, wi, vs, rconde, rcondv)
+/// Note: Requires select callback; test not implemented yet.
 extern "C" fn lapacke_sgeesx(
   matrix_layout : Int,
   jobvs : Byte,
@@ -2230,6 +2242,7 @@ extern "C" fn lapacke_sgeesx(
 /// );
 /// ```
 #borrow(a, sdim, wr, wi, vs, rconde, rcondv)
+/// Note: Requires select callback; test not implemented yet.
 extern "C" fn lapacke_dgeesx(
   matrix_layout : Int,
   jobvs : Byte,
@@ -2259,6 +2272,7 @@ extern "C" fn lapacke_dgeesx(
 /// );
 /// ```
 #borrow(a, sdim, w, vs, rconde, rcondv)
+/// Note: Requires select callback; test not implemented yet.
 extern "C" fn lapacke_cgeesx(
   matrix_layout : Int,
   jobvs : Byte,
@@ -2287,6 +2301,7 @@ extern "C" fn lapacke_cgeesx(
 /// );
 /// ```
 #borrow(a, sdim, w, vs, rconde, rcondv)
+/// Note: Requires select callback; test not implemented yet.
 extern "C" fn lapacke_zgeesx(
   matrix_layout : Int,
   jobvs : Byte,
@@ -3833,6 +3848,7 @@ extern "C" fn lapacke_zgerfs(
 /// );
 /// ```
 #borrow(a, af, ipiv, r, c, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_sgerfsx(
   matrix_layout : Int,
   trans : Byte,
@@ -3872,6 +3888,7 @@ extern "C" fn lapacke_sgerfsx(
 /// );
 /// ```
 #borrow(a, af, ipiv, r, c, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_dgerfsx(
   matrix_layout : Int,
   trans : Byte,
@@ -3911,6 +3928,7 @@ extern "C" fn lapacke_dgerfsx(
 /// );
 /// ```
 #borrow(a, af, ipiv, r, c, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_cgerfsx(
   matrix_layout : Int,
   trans : Byte,
@@ -3950,6 +3968,7 @@ extern "C" fn lapacke_cgerfsx(
 /// );
 /// ```
 #borrow(a, af, ipiv, r, c, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_zgerfsx(
   matrix_layout : Int,
   trans : Byte,
@@ -4893,6 +4912,7 @@ extern "C" fn lapacke_zgesvx(
 /// );
 /// ```
 #borrow(a, af, ipiv, equed, r, c, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_sgesvxx(
   matrix_layout : Int,
   fact : Byte,
@@ -4934,6 +4954,7 @@ extern "C" fn lapacke_sgesvxx(
 /// );
 /// ```
 #borrow(a, af, ipiv, equed, r, c, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_dgesvxx(
   matrix_layout : Int,
   fact : Byte,
@@ -4975,6 +4996,7 @@ extern "C" fn lapacke_dgesvxx(
 /// );
 /// ```
 #borrow(a, af, ipiv, equed, r, c, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_cgesvxx(
   matrix_layout : Int,
   fact : Byte,
@@ -5016,6 +5038,7 @@ extern "C" fn lapacke_cgesvxx(
 /// );
 /// ```
 #borrow(a, af, ipiv, equed, r, c, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_zgesvxx(
   matrix_layout : Int,
   fact : Byte,
@@ -5612,6 +5635,7 @@ extern "C" fn lapacke_zggbal(
 /// );
 /// ```
 #borrow(a, b, sdim, alphar, alphai, beta, vsl, vsr)
+/// Note: Requires select callback; test not implemented yet.
 extern "C" fn lapacke_sgges(
   matrix_layout : Int,
   jobvsl : Byte,
@@ -5645,6 +5669,7 @@ extern "C" fn lapacke_sgges(
 /// );
 /// ```
 #borrow(a, b, sdim, alphar, alphai, beta, vsl, vsr)
+/// Note: Requires select callback; test not implemented yet.
 extern "C" fn lapacke_dgges(
   matrix_layout : Int,
   jobvsl : Byte,
@@ -5677,6 +5702,7 @@ extern "C" fn lapacke_dgges(
 /// );
 /// ```
 #borrow(a, b, sdim, alpha, beta, vsl, vsr)
+/// Note: Requires select callback; test not implemented yet.
 extern "C" fn lapacke_cgges(
   matrix_layout : Int,
   jobvsl : Byte,
@@ -5708,6 +5734,7 @@ extern "C" fn lapacke_cgges(
 /// );
 /// ```
 #borrow(a, b, sdim, alpha, beta, vsl, vsr)
+/// Note: Requires select callback; test not implemented yet.
 extern "C" fn lapacke_zgges(
   matrix_layout : Int,
   jobvsl : Byte,
@@ -5740,6 +5767,7 @@ extern "C" fn lapacke_zgges(
 /// );
 /// ```
 #borrow(a, b, sdim, alphar, alphai, beta, vsl, vsr)
+/// Note: Requires select callback; test not implemented yet.
 extern "C" fn lapacke_sgges3(
   matrix_layout : Int,
   jobvsl : Byte,
@@ -5773,6 +5801,7 @@ extern "C" fn lapacke_sgges3(
 /// );
 /// ```
 #borrow(a, b, sdim, alphar, alphai, beta, vsl, vsr)
+/// Note: Requires select callback; test not implemented yet.
 extern "C" fn lapacke_dgges3(
   matrix_layout : Int,
   jobvsl : Byte,
@@ -5805,6 +5834,7 @@ extern "C" fn lapacke_dgges3(
 /// );
 /// ```
 #borrow(a, b, sdim, alpha, beta, vsl, vsr)
+/// Note: Requires select callback; test not implemented yet.
 extern "C" fn lapacke_cgges3(
   matrix_layout : Int,
   jobvsl : Byte,
@@ -5836,6 +5866,7 @@ extern "C" fn lapacke_cgges3(
 /// );
 /// ```
 #borrow(a, b, sdim, alpha, beta, vsl, vsr)
+/// Note: Requires select callback; test not implemented yet.
 extern "C" fn lapacke_zgges3(
   matrix_layout : Int,
   jobvsl : Byte,
@@ -5868,6 +5899,7 @@ extern "C" fn lapacke_zgges3(
 /// );
 /// ```
 #borrow(a, b, sdim, alphar, alphai, beta, vsl, vsr, rconde, rcondv)
+/// Note: Requires select callback; test not implemented yet.
 extern "C" fn lapacke_sggesx(
   matrix_layout : Int,
   jobvsl : Byte,
@@ -5904,6 +5936,7 @@ extern "C" fn lapacke_sggesx(
 /// );
 /// ```
 #borrow(a, b, sdim, alphar, alphai, beta, vsl, vsr, rconde, rcondv)
+/// Note: Requires select callback; test not implemented yet.
 extern "C" fn lapacke_dggesx(
   matrix_layout : Int,
   jobvsl : Byte,
@@ -5940,6 +5973,7 @@ extern "C" fn lapacke_dggesx(
 /// );
 /// ```
 #borrow(a, b, sdim, alpha, beta, vsl, vsr, rconde, rcondv)
+/// Note: Requires select callback; test not implemented yet.
 extern "C" fn lapacke_cggesx(
   matrix_layout : Int,
   jobvsl : Byte,
@@ -5975,6 +6009,7 @@ extern "C" fn lapacke_cggesx(
 /// );
 /// ```
 #borrow(a, b, sdim, alpha, beta, vsl, vsr, rconde, rcondv)
+/// Note: Requires select callback; test not implemented yet.
 extern "C" fn lapacke_zggesx(
   matrix_layout : Int,
   jobvsl : Byte,

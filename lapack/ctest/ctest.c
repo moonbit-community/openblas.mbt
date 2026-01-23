@@ -91,6 +91,7 @@ int main() {
     failed += test_lapacke_dgeequb();
     failed += test_lapacke_cgeequb();
     failed += test_lapacke_zgeequb();
+    failed += test_lapacke_sgees();
     failed += test_lapacke_sgeev();
     failed += test_lapacke_dgeev();
     failed += test_lapacke_cgeev();

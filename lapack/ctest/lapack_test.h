@@ -80,6 +80,7 @@ int test_lapacke_sgeequb();
 int test_lapacke_dgeequb();
 int test_lapacke_cgeequb();
 int test_lapacke_zgeequb();
+int test_lapacke_sgees();
 int test_lapacke_sgeev();
 int test_lapacke_dgeev();
 int test_lapacke_cgeev();
