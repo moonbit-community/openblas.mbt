@@ -1,7 +1,9 @@
 target/
+target
 .mooncakes/
 .DS_Store
 cblas/*.h
 .moonagent/
-_build/
 target
+_build
+_build/
