@@ -2,10 +2,22 @@
 pub type Lapack_int = Int
 
 ///|
-pub type Lapack_complex_float = (Float, Float)
 
 ///|
-pub type Lapack_complex_double = (Double, Double)
+#valtype
+pub(all) struct Lapack_complex_float {
+  re : Float
+  im : Float
+}
+
+///|
+
+///|
+#valtype
+pub(all) struct Lapack_complex_double {
+  re : Double
+  im : Double
+}
 
 ///|
 pub type Lapack_logical = Lapack_int

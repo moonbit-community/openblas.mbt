@@ -5170,7 +5170,7 @@ pub extern "C" fn lapacke_dlarfx_work(
 ///     const lapack_complex_float* v, lapack_complex_float tau, lapack_complex_float* c, lapack_int ldc, lapack_complex_float* work
 /// );
 /// ```
-#borrow(v, c, work)
+#borrow(v, c, work, tau)
 pub extern "C" fn lapacke_clarfx_work(
   matrix_layout : Int,
   side : Byte,
@@ -5191,7 +5191,7 @@ pub extern "C" fn lapacke_clarfx_work(
 ///     const lapack_complex_double* v, lapack_complex_double tau, lapack_complex_double* c, lapack_int ldc, lapack_complex_double* work
 /// );
 /// ```
-#borrow(v, c, work)
+#borrow(v, c, work, tau)
 pub extern "C" fn lapacke_zlarfx_work(
   matrix_layout : Int,
   side : Byte,
@@ -5404,7 +5404,7 @@ pub extern "C" fn lapacke_dlaset_work(
 ///     lapack_complex_float alpha, lapack_complex_float beta, lapack_complex_float* a, lapack_int lda
 /// );
 /// ```
-#borrow(a)
+#borrow(a, alpha, beta)
 pub extern "C" fn lapacke_claset_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -5424,7 +5424,7 @@ pub extern "C" fn lapacke_claset_work(
 ///     lapack_complex_double alpha, lapack_complex_double beta, lapack_complex_double* a, lapack_int lda
 /// );
 /// ```
-#borrow(a)
+#borrow(a, alpha, beta)
 pub extern "C" fn lapacke_zlaset_work(
   matrix_layout : Int,
   uplo : Byte,

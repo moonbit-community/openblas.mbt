@@ -2203,7 +2203,7 @@ pub extern "C" fn lapacke_dtfsm_work(
 ///     lapack_complex_float alpha, const lapack_complex_float* a, lapack_complex_float* b, lapack_int ldb
 /// );
 /// ```
-#borrow(a, b)
+#borrow(a, b, alpha)
 pub extern "C" fn lapacke_ctfsm_work(
   matrix_layout : Int,
   transr : Byte,
@@ -2228,7 +2228,7 @@ pub extern "C" fn lapacke_ctfsm_work(
 ///     lapack_complex_double alpha, const lapack_complex_double* a, lapack_complex_double* b, lapack_int ldb
 /// );
 /// ```
-#borrow(a, b)
+#borrow(a, b, alpha)
 pub extern "C" fn lapacke_ztfsm_work(
   matrix_layout : Int,
   transr : Byte,

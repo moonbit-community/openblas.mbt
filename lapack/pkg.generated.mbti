@@ -2,75 +2,39 @@
 package "Kaida-Amethyst/openblas/lapack"
 
 // Values
-pub fn lapack_make_complex_double(Double, Double) -> (Double, Double)
-
-pub fn lapack_make_complex_float(Float, Float) -> (Float, Float)
-
 pub fn lapacke_cbbcsd(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_cbbcsd_work(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
 
-pub fn lapacke_cbdsqr(Int, Byte, Int, Int, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
 pub fn lapacke_cbdsqr_work(Int, Byte, Int, Int, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
-
-pub fn lapacke_cgbbrd(Int, Byte, Int, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_cgbbrd_work(Int, Byte, Int, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
 
-pub fn lapacke_cgbcon(Int, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], Float, FixedArray[Float]) -> Int
-
 pub fn lapacke_cgbcon_work(Int, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], Float, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
-
-pub fn lapacke_cgbequ(Int, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_cgbequ_work(Int, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
-pub fn lapacke_cgbequb(Int, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
-
 pub fn lapacke_cgbequb_work(Int, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
-
-pub fn lapacke_cgbrfs(Int, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_cgbrfs_work(Int, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
-pub fn lapacke_cgbrfsx(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
-
 pub fn lapacke_cgbrfsx_work(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
-
-pub fn lapacke_cgbsv(Int, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_cgbsv_work(Int, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int) -> Int
 
-pub fn lapacke_cgbsvx(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
-
 pub fn lapacke_cgbsvx_work(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
-
-pub fn lapacke_cgbsvxx(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
 
 pub fn lapacke_cgbsvxx_work(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
-pub fn lapacke_cgbtrf(Int, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
-
 pub fn lapacke_cgbtrf_work(Int, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
-
-pub fn lapacke_cgbtrs(Int, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_cgbtrs_work(Int, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int) -> Int
 
-pub fn lapacke_cgebak(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
 pub fn lapacke_cgebak_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
-pub fn lapacke_cgebal(Int, Byte, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], FixedArray[Float]) -> Int
 
 pub fn lapacke_cgebal_work(Int, Byte, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], FixedArray[Float]) -> Int
 
-pub fn lapacke_cgebrd(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
-
 pub fn lapacke_cgebrd_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
-
-pub fn lapacke_cgecon(Int, Byte, Int, FixedArray[Float], Int, Float, FixedArray[Float]) -> Int
 
 pub fn lapacke_cgecon_work(Int, Byte, Int, FixedArray[Float], Int, Float, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
@@ -78,59 +42,31 @@ pub fn lapacke_cgedmd_work(Int, Byte, Byte, Byte, Byte, Int, Int, Int, FixedArra
 
 pub fn lapacke_cgedmdq_work(Int, Byte, Byte, Byte, Byte, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], Int) -> Int
 
-pub fn lapacke_cgeequ(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
-
 pub fn lapacke_cgeequ_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
-
-pub fn lapacke_cgeequb(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_cgeequb_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
-pub fn lapacke_cgees(Int, Byte, Byte, FuncRef[(FixedArray[Float]) -> Int], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int) -> Int
-
 pub fn lapacke_cgees_work(Int, Byte, Byte, FuncRef[(FixedArray[Float]) -> Int], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
-pub fn lapacke_cgeesx(Int, Byte, Byte, FuncRef[(FixedArray[Float]) -> Int], Byte, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_cgeesx_work(Int, Byte, Byte, FuncRef[(FixedArray[Float]) -> Int], Byte, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
-pub fn lapacke_cgeev(Int, Byte, Byte, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
 pub fn lapacke_cgeev_work(Int, Byte, Byte, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
-
-pub fn lapacke_cgeevx(Int, Byte, Byte, Byte, Byte, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_cgeevx_work(Int, Byte, Byte, Byte, Byte, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
 
-pub fn lapacke_cgehrd(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
-
 pub fn lapacke_cgehrd_work(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
-
-pub fn lapacke_cgejsv(Int, Byte, Byte, Byte, Byte, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Int]) -> Int
 
 pub fn lapacke_cgejsv_work(Int, Byte, Byte, Byte, Byte, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
 
-pub fn lapacke_cgelq2(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
-
 pub fn lapacke_cgelq2_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
-
-pub fn lapacke_cgelqf(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
 
 pub fn lapacke_cgelqf_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
 
-pub fn lapacke_cgels(Int, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
 pub fn lapacke_cgels_work(Int, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
-pub fn lapacke_cgelsd(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Float, FixedArray[Int]) -> Int
 
 pub fn lapacke_cgelsd_work(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Float, FixedArray[Int], FixedArray[Float], Int, FixedArray[Float], FixedArray[Int]) -> Int
 
-pub fn lapacke_cgelss(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Float, FixedArray[Int]) -> Int
-
 pub fn lapacke_cgelss_work(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Float, FixedArray[Int], FixedArray[Float], Int, FixedArray[Float]) -> Int
-
-pub fn lapacke_cgelsy(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], Float, FixedArray[Int]) -> Int
 
 pub fn lapacke_cgelsy_work(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], Float, FixedArray[Int], FixedArray[Float], Int, FixedArray[Float]) -> Int
 
@@ -138,27 +74,15 @@ pub fn lapacke_cgemqrt(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Float], I
 
 pub fn lapacke_cgemqrt_work(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
 
-pub fn lapacke_cgeqlf(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
-
 pub fn lapacke_cgeqlf_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
-
-pub fn lapacke_cgeqp3(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float]) -> Int
 
 pub fn lapacke_cgeqp3_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
 
-pub fn lapacke_cgeqpf(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float]) -> Int
-
 pub fn lapacke_cgeqpf_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
-
-pub fn lapacke_cgeqr2(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
 
 pub fn lapacke_cgeqr2_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
 
-pub fn lapacke_cgeqrf(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
-
 pub fn lapacke_cgeqrf_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
-
-pub fn lapacke_cgeqrfp(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
 
 pub fn lapacke_cgeqrfp_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
 
@@ -174,111 +98,57 @@ pub fn lapacke_cgeqrt3_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Fl
 
 pub fn lapacke_cgeqrt_work(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
 
-pub fn lapacke_cgerfs(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
-
 pub fn lapacke_cgerfs_work(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
-
-pub fn lapacke_cgerfsx(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
 
 pub fn lapacke_cgerfsx_work(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
-pub fn lapacke_cgerqf(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
-
 pub fn lapacke_cgerqf_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
-
-pub fn lapacke_cgesdd(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_cgesdd_work(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Int]) -> Int
 
-pub fn lapacke_cgesv(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int) -> Int
-
 pub fn lapacke_cgesv_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int) -> Int
-
-pub fn lapacke_cgesvd(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
 
 pub fn lapacke_cgesvd_work(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
 
-pub fn lapacke_cgesvdq(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
-
 pub fn lapacke_cgesvdq_work(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
-pub fn lapacke_cgesvdx(Int, Byte, Byte, Byte, Int, Int, FixedArray[Float], Int, Float, Float, Int, Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_cgesvdx_work(Int, Byte, Byte, Byte, Int, Int, FixedArray[Float], Int, Float, Float, Int, Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Int]) -> Int
 
-pub fn lapacke_cgesvj(Int, Byte, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
-
 pub fn lapacke_cgesvj_work(Int, Byte, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
-pub fn lapacke_cgesvx(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_cgesvx_work(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
-pub fn lapacke_cgesvxx(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
-
 pub fn lapacke_cgesvxx_work(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
-pub fn lapacke_cgetf2(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
-
 pub fn lapacke_cgetf2_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
-
-pub fn lapacke_cgetrf(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
-
-pub fn lapacke_cgetrf2(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_cgetrf2_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_cgetrf_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
 
-pub fn lapacke_cgetri(Int, Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
-
 pub fn lapacke_cgetri_work(Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int) -> Int
-
-pub fn lapacke_cgetrs(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_cgetrs_work(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int) -> Int
 
-pub fn lapacke_cggbak(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
 pub fn lapacke_cggbak_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
-pub fn lapacke_cggbal(Int, Byte, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], FixedArray[Float], FixedArray[Float]) -> Int
-
 pub fn lapacke_cggbal_work(Int, Byte, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
-
-pub fn lapacke_cgges(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Float], FixedArray[Float]) -> Int], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
-pub fn lapacke_cgges3(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Float], FixedArray[Float]) -> Int], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_cgges3_work(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Float], FixedArray[Float]) -> Int], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_cgges_work(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Float], FixedArray[Float]) -> Int], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
-pub fn lapacke_cggesx(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Float], FixedArray[Float]) -> Int], Byte, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
-
 pub fn lapacke_cggesx_work(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Float], FixedArray[Float]) -> Int], Byte, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Int], Int, Int) -> Int
-
-pub fn lapacke_cggev(Int, Byte, Byte, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
-pub fn lapacke_cggev3(Int, Byte, Byte, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_cggev3_work(Int, Byte, Byte, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
 
 pub fn lapacke_cggev_work(Int, Byte, Byte, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
 
-pub fn lapacke_cggevx(Int, Byte, Byte, Byte, Byte, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
-
 pub fn lapacke_cggevx_work(Int, Byte, Byte, Byte, Byte, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Int], Int) -> Int
-
-pub fn lapacke_cggglm(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_cggglm_work(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
 
-pub fn lapacke_cgghd3(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
 pub fn lapacke_cgghd3_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
-pub fn lapacke_cgghrd(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_cgghrd_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
@@ -648,9 +518,9 @@ pub fn lapacke_clarft(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedAr
 
 pub fn lapacke_clarft_work(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
 
-pub fn lapacke_clarfx(Int, Byte, Int, Int, FixedArray[Float], (Float, Float), FixedArray[Float], Int, FixedArray[Float]) -> Int
+pub fn lapacke_clarfx(Int, Byte, Int, Int, FixedArray[Float], Lapack_complex_float, FixedArray[Float], Int, FixedArray[Float]) -> Int
 
-pub fn lapacke_clarfx_work(Int, Byte, Int, Int, FixedArray[Float], (Float, Float), FixedArray[Float], Int, FixedArray[Float]) -> Int
+pub fn lapacke_clarfx_work(Int, Byte, Int, Int, FixedArray[Float], Lapack_complex_float, FixedArray[Float], Int, FixedArray[Float]) -> Int
 
 pub fn lapacke_clarnv(Int, FixedArray[Int], Int, FixedArray[Float]) -> Int
 
@@ -660,9 +530,9 @@ pub fn lapacke_clascl(Int, Byte, Int, Int, Float, Float, Int, Int, FixedArray[Fl
 
 pub fn lapacke_clascl_work(Int, Byte, Int, Int, Float, Float, Int, Int, FixedArray[Float], Int) -> Int
 
-pub fn lapacke_claset(Int, Byte, Int, Int, (Float, Float), (Float, Float), FixedArray[Float], Int) -> Int
+pub fn lapacke_claset(Int, Byte, Int, Int, Lapack_complex_float, Lapack_complex_float, FixedArray[Float], Int) -> Int
 
-pub fn lapacke_claset_work(Int, Byte, Int, Int, (Float, Float), (Float, Float), FixedArray[Float], Int) -> Int
+pub fn lapacke_claset_work(Int, Byte, Int, Int, Lapack_complex_float, Lapack_complex_float, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_classq(Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
 
@@ -896,9 +766,9 @@ pub fn lapacke_csyequb(Int, Byte, Int, FixedArray[Float], Int, FixedArray[Float]
 
 pub fn lapacke_csyequb_work(Int, Byte, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
-pub fn lapacke_csyr(Int, Byte, Int, (Float, Float), FixedArray[Float], Int, FixedArray[Float], Int) -> Int
+pub fn lapacke_csyr(Int, Byte, Int, Lapack_complex_float, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
-pub fn lapacke_csyr_work(Int, Byte, Int, (Float, Float), FixedArray[Float], Int, FixedArray[Float], Int) -> Int
+pub fn lapacke_csyr_work(Int, Byte, Int, Lapack_complex_float, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_csyrfs(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
 
@@ -998,9 +868,9 @@ pub fn lapacke_ctbtrs(Int, Byte, Byte, Byte, Int, Int, Int, FixedArray[Float], I
 
 pub fn lapacke_ctbtrs_work(Int, Byte, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
-pub fn lapacke_ctfsm(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, (Float, Float), FixedArray[Float], FixedArray[Float], Int) -> Int
+pub fn lapacke_ctfsm(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, Lapack_complex_float, FixedArray[Float], FixedArray[Float], Int) -> Int
 
-pub fn lapacke_ctfsm_work(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, (Float, Float), FixedArray[Float], FixedArray[Float], Int) -> Int
+pub fn lapacke_ctfsm_work(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, Lapack_complex_float, FixedArray[Float], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_ctftri(Int, Byte, Byte, Byte, Int, FixedArray[Float]) -> Int
 
@@ -1216,79 +1086,41 @@ pub fn lapacke_dbbcsd(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, Int, FixedArr
 
 pub fn lapacke_dbbcsd_work(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
 
-pub fn lapacke_dbdsdc(Int, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Int]) -> Int
-
 pub fn lapacke_dbdsdc_work(Int, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Int], FixedArray[Double], FixedArray[Int]) -> Int
-
-pub fn lapacke_dbdsqr(Int, Byte, Int, Int, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dbdsqr_work(Int, Byte, Int, Int, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
 
-pub fn lapacke_dbdsvdx(Int, Byte, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], Double, Double, Int, Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Int]) -> Int
-
 pub fn lapacke_dbdsvdx_work(Int, Byte, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], Double, Double, Int, Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Int]) -> Int
-
-pub fn lapacke_ddisna(Byte, Int, Int, FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_ddisna_work(Byte, Int, Int, FixedArray[Double], FixedArray[Double]) -> Int
 
-pub fn lapacke_dgbbrd(Int, Byte, Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
 pub fn lapacke_dgbbrd_work(Int, Byte, Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
-
-pub fn lapacke_dgbcon(Int, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], Double, FixedArray[Double]) -> Int
 
 pub fn lapacke_dgbcon_work(Int, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], Double, FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
 
-pub fn lapacke_dgbequ(Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
-
 pub fn lapacke_dgbequ_work(Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
-
-pub fn lapacke_dgbequb(Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_dgbequb_work(Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
-pub fn lapacke_dgbrfs(Int, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
-
 pub fn lapacke_dgbrfs_work(Int, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
-
-pub fn lapacke_dgbrfsx(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
 
 pub fn lapacke_dgbrfsx_work(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
 
-pub fn lapacke_dgbsv(Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int) -> Int
-
 pub fn lapacke_dgbsv_work(Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int) -> Int
-
-pub fn lapacke_dgbsvx(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_dgbsvx_work(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
 
-pub fn lapacke_dgbsvxx(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
-
 pub fn lapacke_dgbsvxx_work(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
-
-pub fn lapacke_dgbtrf(Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_dgbtrf_work(Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
 
-pub fn lapacke_dgbtrs(Int, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int) -> Int
-
 pub fn lapacke_dgbtrs_work(Int, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int) -> Int
-
-pub fn lapacke_dgebak(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dgebak_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
-pub fn lapacke_dgebal(Int, Byte, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], FixedArray[Double]) -> Int
-
 pub fn lapacke_dgebal_work(Int, Byte, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], FixedArray[Double]) -> Int
 
-pub fn lapacke_dgebrd(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
-
 pub fn lapacke_dgebrd_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
-
-pub fn lapacke_dgecon(Int, Byte, Int, FixedArray[Double], Int, Double, FixedArray[Double]) -> Int
 
 pub fn lapacke_dgecon_work(Int, Byte, Int, FixedArray[Double], Int, Double, FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
 
@@ -1296,59 +1128,31 @@ pub fn lapacke_dgedmd_work(Int, Byte, Byte, Byte, Byte, Int, Int, Int, FixedArra
 
 pub fn lapacke_dgedmdq_work(Int, Byte, Byte, Byte, Byte, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], Int) -> Int
 
-pub fn lapacke_dgeequ(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
-
 pub fn lapacke_dgeequ_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
-
-pub fn lapacke_dgeequb(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_dgeequb_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
-pub fn lapacke_dgees(Int, Byte, Byte, FuncRef[(FixedArray[Double], FixedArray[Double]) -> Int], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
-
 pub fn lapacke_dgees_work(Int, Byte, Byte, FuncRef[(FixedArray[Double], FixedArray[Double]) -> Int], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, Int) -> Int
-
-pub fn lapacke_dgeesx(Int, Byte, Byte, FuncRef[(FixedArray[Double], FixedArray[Double]) -> Int], Byte, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_dgeesx_work(Int, Byte, Byte, FuncRef[(FixedArray[Double], FixedArray[Double]) -> Int], Byte, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Int], Int, Int) -> Int
 
-pub fn lapacke_dgeev(Int, Byte, Byte, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
 pub fn lapacke_dgeev_work(Int, Byte, Byte, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
-pub fn lapacke_dgeevx(Int, Byte, Byte, Byte, Byte, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_dgeevx_work(Int, Byte, Byte, Byte, Byte, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Int]) -> Int
 
-pub fn lapacke_dgehrd(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
-
 pub fn lapacke_dgehrd_work(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
-
-pub fn lapacke_dgejsv(Int, Byte, Byte, Byte, Byte, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Int]) -> Int
 
 pub fn lapacke_dgejsv_work(Int, Byte, Byte, Byte, Byte, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
 
-pub fn lapacke_dgelq2(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
-
 pub fn lapacke_dgelq2_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
-
-pub fn lapacke_dgelqf(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
 
 pub fn lapacke_dgelqf_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
-pub fn lapacke_dgels(Int, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
 pub fn lapacke_dgels_work(Int, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
-pub fn lapacke_dgelsd(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Double, FixedArray[Int]) -> Int
 
 pub fn lapacke_dgelsd_work(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Double, FixedArray[Int], FixedArray[Double], Int, FixedArray[Int]) -> Int
 
-pub fn lapacke_dgelss(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Double, FixedArray[Int]) -> Int
-
 pub fn lapacke_dgelss_work(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Double, FixedArray[Int], FixedArray[Double], Int) -> Int
-
-pub fn lapacke_dgelsy(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], Double, FixedArray[Int]) -> Int
 
 pub fn lapacke_dgelsy_work(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], Double, FixedArray[Int], FixedArray[Double], Int) -> Int
 
@@ -1356,27 +1160,15 @@ pub fn lapacke_dgemqrt(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Double], 
 
 pub fn lapacke_dgemqrt_work(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
 
-pub fn lapacke_dgeqlf(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
-
 pub fn lapacke_dgeqlf_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
-
-pub fn lapacke_dgeqp3(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double]) -> Int
 
 pub fn lapacke_dgeqp3_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int) -> Int
 
-pub fn lapacke_dgeqpf(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double]) -> Int
-
 pub fn lapacke_dgeqpf_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double]) -> Int
-
-pub fn lapacke_dgeqr2(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
 
 pub fn lapacke_dgeqr2_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
 
-pub fn lapacke_dgeqrf(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
-
 pub fn lapacke_dgeqrf_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
-
-pub fn lapacke_dgeqrfp(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
 
 pub fn lapacke_dgeqrfp_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
@@ -1392,111 +1184,57 @@ pub fn lapacke_dgeqrt3_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[D
 
 pub fn lapacke_dgeqrt_work(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
 
-pub fn lapacke_dgerfs(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
-
 pub fn lapacke_dgerfs_work(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
-
-pub fn lapacke_dgerfsx(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
 
 pub fn lapacke_dgerfsx_work(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
 
-pub fn lapacke_dgerqf(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
-
 pub fn lapacke_dgerqf_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
-
-pub fn lapacke_dgesdd(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dgesdd_work(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
 
-pub fn lapacke_dgesv(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int) -> Int
-
 pub fn lapacke_dgesv_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int) -> Int
-
-pub fn lapacke_dgesvd(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
 
 pub fn lapacke_dgesvd_work(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
-pub fn lapacke_dgesvdq(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
-
 pub fn lapacke_dgesvdq_work(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
-pub fn lapacke_dgesvdx(Int, Byte, Byte, Byte, Int, Int, FixedArray[Double], Int, Double, Double, Int, Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_dgesvdx_work(Int, Byte, Byte, Byte, Int, Int, FixedArray[Double], Int, Double, Double, Int, Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
 
-pub fn lapacke_dgesvj(Int, Byte, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
-
 pub fn lapacke_dgesvj_work(Int, Byte, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
-pub fn lapacke_dgesvx(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_dgesvx_work(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
 
-pub fn lapacke_dgesvxx(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
-
 pub fn lapacke_dgesvxx_work(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
 
-pub fn lapacke_dgetf2(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
-
 pub fn lapacke_dgetf2_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
-
-pub fn lapacke_dgetrf(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
-
-pub fn lapacke_dgetrf2(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_dgetrf2_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_dgetrf_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
 
-pub fn lapacke_dgetri(Int, Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
-
 pub fn lapacke_dgetri_work(Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int) -> Int
-
-pub fn lapacke_dgetrs(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dgetrs_work(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int) -> Int
 
-pub fn lapacke_dggbak(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
 pub fn lapacke_dggbak_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
-pub fn lapacke_dggbal(Int, Byte, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], FixedArray[Double], FixedArray[Double]) -> Int
-
 pub fn lapacke_dggbal_work(Int, Byte, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
-
-pub fn lapacke_dgges(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
-pub fn lapacke_dgges3(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dgges3_work(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, Int) -> Int
 
 pub fn lapacke_dgges_work(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, Int) -> Int
 
-pub fn lapacke_dggesx(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int], Byte, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
-
 pub fn lapacke_dggesx_work(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int], Byte, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Int], Int, Int) -> Int
-
-pub fn lapacke_dggev(Int, Byte, Byte, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
-pub fn lapacke_dggev3(Int, Byte, Byte, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dggev3_work(Int, Byte, Byte, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dggev_work(Int, Byte, Byte, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
-pub fn lapacke_dggevx(Int, Byte, Byte, Byte, Byte, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
-
 pub fn lapacke_dggevx_work(Int, Byte, Byte, Byte, Byte, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Int], Int) -> Int
-
-pub fn lapacke_dggglm(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_dggglm_work(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
 
-pub fn lapacke_dgghd3(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
 pub fn lapacke_dgghd3_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
-pub fn lapacke_dgghrd(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dgghrd_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
@@ -1952,8 +1690,6 @@ pub fn lapacke_dsfrk(Int, Byte, Byte, Byte, Int, Int, Double, FixedArray[Double]
 
 pub fn lapacke_dsfrk_work(Int, Byte, Byte, Byte, Int, Int, Double, FixedArray[Double], Int, Double, FixedArray[Double]) -> Int
 
-pub fn lapacke_dsgesv(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
-
 pub fn lapacke_dsgesv_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Float], FixedArray[Int]) -> Int
 
 pub fn lapacke_dspcon(Int, Byte, Int, FixedArray[Double], FixedArray[Int], Double, FixedArray[Double]) -> Int
@@ -2348,79 +2084,41 @@ pub fn lapacke_sbbcsd(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, Int, FixedArr
 
 pub fn lapacke_sbbcsd_work(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
 
-pub fn lapacke_sbdsdc(Int, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Int]) -> Int
-
 pub fn lapacke_sbdsdc_work(Int, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Int], FixedArray[Float], FixedArray[Int]) -> Int
-
-pub fn lapacke_sbdsqr(Int, Byte, Int, Int, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_sbdsqr_work(Int, Byte, Int, Int, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
 
-pub fn lapacke_sbdsvdx(Int, Byte, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], Float, Float, Int, Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Int]) -> Int
-
 pub fn lapacke_sbdsvdx_work(Int, Byte, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], Float, Float, Int, Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Int]) -> Int
-
-pub fn lapacke_sdisna(Byte, Int, Int, FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_sdisna_work(Byte, Int, Int, FixedArray[Float], FixedArray[Float]) -> Int
 
-pub fn lapacke_sgbbrd(Int, Byte, Int, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
 pub fn lapacke_sgbbrd_work(Int, Byte, Int, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
-
-pub fn lapacke_sgbcon(Int, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], Float, FixedArray[Float]) -> Int
 
 pub fn lapacke_sgbcon_work(Int, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], Float, FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
 
-pub fn lapacke_sgbequ(Int, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
-
 pub fn lapacke_sgbequ_work(Int, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
-
-pub fn lapacke_sgbequb(Int, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_sgbequb_work(Int, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
-pub fn lapacke_sgbrfs(Int, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
-
 pub fn lapacke_sgbrfs_work(Int, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
-
-pub fn lapacke_sgbrfsx(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
 
 pub fn lapacke_sgbrfsx_work(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
 
-pub fn lapacke_sgbsv(Int, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int) -> Int
-
 pub fn lapacke_sgbsv_work(Int, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int) -> Int
-
-pub fn lapacke_sgbsvx(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_sgbsvx_work(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
 
-pub fn lapacke_sgbsvxx(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
-
 pub fn lapacke_sgbsvxx_work(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
-
-pub fn lapacke_sgbtrf(Int, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_sgbtrf_work(Int, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
 
-pub fn lapacke_sgbtrs(Int, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int) -> Int
-
 pub fn lapacke_sgbtrs_work(Int, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int) -> Int
-
-pub fn lapacke_sgebak(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_sgebak_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
-pub fn lapacke_sgebal(Int, Byte, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], FixedArray[Float]) -> Int
-
 pub fn lapacke_sgebal_work(Int, Byte, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], FixedArray[Float]) -> Int
 
-pub fn lapacke_sgebrd(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
-
 pub fn lapacke_sgebrd_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
-
-pub fn lapacke_sgecon(Int, Byte, Int, FixedArray[Float], Int, Float, FixedArray[Float]) -> Int
 
 pub fn lapacke_sgecon_work(Int, Byte, Int, FixedArray[Float], Int, Float, FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
 
@@ -2428,59 +2126,31 @@ pub fn lapacke_sgedmd_work(Int, Byte, Byte, Byte, Byte, Int, Int, Int, FixedArra
 
 pub fn lapacke_sgedmdq_work(Int, Byte, Byte, Byte, Byte, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], Int) -> Int
 
-pub fn lapacke_sgeequ(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
-
 pub fn lapacke_sgeequ_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
-
-pub fn lapacke_sgeequb(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_sgeequb_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
-pub fn lapacke_sgees(Int, Byte, Byte, FuncRef[(FixedArray[Float], FixedArray[Float]) -> Int], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
-
 pub fn lapacke_sgees_work(Int, Byte, Byte, FuncRef[(FixedArray[Float], FixedArray[Float]) -> Int], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, Int) -> Int
-
-pub fn lapacke_sgeesx(Int, Byte, Byte, FuncRef[(FixedArray[Float], FixedArray[Float]) -> Int], Byte, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_sgeesx_work(Int, Byte, Byte, FuncRef[(FixedArray[Float], FixedArray[Float]) -> Int], Byte, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Int], Int, Int) -> Int
 
-pub fn lapacke_sgeev(Int, Byte, Byte, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
 pub fn lapacke_sgeev_work(Int, Byte, Byte, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
-pub fn lapacke_sgeevx(Int, Byte, Byte, Byte, Byte, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_sgeevx_work(Int, Byte, Byte, Byte, Byte, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Int]) -> Int
 
-pub fn lapacke_sgehrd(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
-
 pub fn lapacke_sgehrd_work(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
-
-pub fn lapacke_sgejsv(Int, Byte, Byte, Byte, Byte, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Int]) -> Int
 
 pub fn lapacke_sgejsv_work(Int, Byte, Byte, Byte, Byte, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
 
-pub fn lapacke_sgelq2(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
-
 pub fn lapacke_sgelq2_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
-
-pub fn lapacke_sgelqf(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
 
 pub fn lapacke_sgelqf_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
 
-pub fn lapacke_sgels(Int, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
 pub fn lapacke_sgels_work(Int, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
-pub fn lapacke_sgelsd(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Float, FixedArray[Int]) -> Int
 
 pub fn lapacke_sgelsd_work(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Float, FixedArray[Int], FixedArray[Float], Int, FixedArray[Int]) -> Int
 
-pub fn lapacke_sgelss(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Float, FixedArray[Int]) -> Int
-
 pub fn lapacke_sgelss_work(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Float, FixedArray[Int], FixedArray[Float], Int) -> Int
-
-pub fn lapacke_sgelsy(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], Float, FixedArray[Int]) -> Int
 
 pub fn lapacke_sgelsy_work(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], Float, FixedArray[Int], FixedArray[Float], Int) -> Int
 
@@ -2488,27 +2158,15 @@ pub fn lapacke_sgemqrt(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Float], I
 
 pub fn lapacke_sgemqrt_work(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
 
-pub fn lapacke_sgeqlf(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
-
 pub fn lapacke_sgeqlf_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
-
-pub fn lapacke_sgeqp3(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float]) -> Int
 
 pub fn lapacke_sgeqp3_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int) -> Int
 
-pub fn lapacke_sgeqpf(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float]) -> Int
-
 pub fn lapacke_sgeqpf_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float]) -> Int
-
-pub fn lapacke_sgeqr2(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
 
 pub fn lapacke_sgeqr2_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
 
-pub fn lapacke_sgeqrf(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
-
 pub fn lapacke_sgeqrf_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
-
-pub fn lapacke_sgeqrfp(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
 
 pub fn lapacke_sgeqrfp_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
 
@@ -2524,111 +2182,57 @@ pub fn lapacke_sgeqrt3_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Fl
 
 pub fn lapacke_sgeqrt_work(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
 
-pub fn lapacke_sgerfs(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
-
 pub fn lapacke_sgerfs_work(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
-
-pub fn lapacke_sgerfsx(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
 
 pub fn lapacke_sgerfsx_work(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
 
-pub fn lapacke_sgerqf(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
-
 pub fn lapacke_sgerqf_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
-
-pub fn lapacke_sgesdd(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_sgesdd_work(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
 
-pub fn lapacke_sgesv(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int) -> Int
-
 pub fn lapacke_sgesv_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int) -> Int
-
-pub fn lapacke_sgesvd(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
 
 pub fn lapacke_sgesvd_work(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
-pub fn lapacke_sgesvdq(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
-
 pub fn lapacke_sgesvdq_work(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
-pub fn lapacke_sgesvdx(Int, Byte, Byte, Byte, Int, Int, FixedArray[Float], Int, Float, Float, Int, Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_sgesvdx_work(Int, Byte, Byte, Byte, Int, Int, FixedArray[Float], Int, Float, Float, Int, Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
 
-pub fn lapacke_sgesvj(Int, Byte, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
-
 pub fn lapacke_sgesvj_work(Int, Byte, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
-pub fn lapacke_sgesvx(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_sgesvx_work(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
 
-pub fn lapacke_sgesvxx(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
-
 pub fn lapacke_sgesvxx_work(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
 
-pub fn lapacke_sgetf2(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
-
 pub fn lapacke_sgetf2_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
-
-pub fn lapacke_sgetrf(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
-
-pub fn lapacke_sgetrf2(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_sgetrf2_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_sgetrf_work(Int, Int, Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
 
-pub fn lapacke_sgetri(Int, Int, FixedArray[Float], Int, FixedArray[Int]) -> Int
-
 pub fn lapacke_sgetri_work(Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int) -> Int
-
-pub fn lapacke_sgetrs(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_sgetrs_work(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int) -> Int
 
-pub fn lapacke_sggbak(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
 pub fn lapacke_sggbak_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
-pub fn lapacke_sggbal(Int, Byte, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], FixedArray[Float], FixedArray[Float]) -> Int
-
 pub fn lapacke_sggbal_work(Int, Byte, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
-
-pub fn lapacke_sgges(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
-pub fn lapacke_sgges3(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_sgges3_work(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, Int) -> Int
 
 pub fn lapacke_sgges_work(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, Int) -> Int
 
-pub fn lapacke_sggesx(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int], Byte, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
-
 pub fn lapacke_sggesx_work(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int], Byte, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Int], Int, Int) -> Int
-
-pub fn lapacke_sggev(Int, Byte, Byte, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
-pub fn lapacke_sggev3(Int, Byte, Byte, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_sggev3_work(Int, Byte, Byte, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_sggev_work(Int, Byte, Byte, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
-pub fn lapacke_sggevx(Int, Byte, Byte, Byte, Byte, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
-
 pub fn lapacke_sggevx_work(Int, Byte, Byte, Byte, Byte, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Int], Int) -> Int
-
-pub fn lapacke_sggglm(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_sggglm_work(Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
 
-pub fn lapacke_sgghd3(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
 pub fn lapacke_sgghd3_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
-
-pub fn lapacke_sgghrd(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_sgghrd_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
@@ -3472,11 +3076,7 @@ pub fn lapacke_zbbcsd(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, Int, FixedArr
 
 pub fn lapacke_zbbcsd_work(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
 
-pub fn lapacke_zbdsqr(Int, Byte, Int, Int, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
 pub fn lapacke_zbdsqr_work(Int, Byte, Int, Int, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
-
-pub fn lapacke_zcgesv(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_zcgesv_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Float], FixedArray[Double], FixedArray[Int]) -> Int
 
@@ -3484,63 +3084,33 @@ pub fn lapacke_zcposv(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[D
 
 pub fn lapacke_zcposv_work(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Float], FixedArray[Double], FixedArray[Int]) -> Int
 
-pub fn lapacke_zgbbrd(Int, Byte, Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
 pub fn lapacke_zgbbrd_work(Int, Byte, Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
-
-pub fn lapacke_zgbcon(Int, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], Double, FixedArray[Double]) -> Int
 
 pub fn lapacke_zgbcon_work(Int, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], Double, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
-pub fn lapacke_zgbequ(Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
-
 pub fn lapacke_zgbequ_work(Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
-
-pub fn lapacke_zgbequb(Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_zgbequb_work(Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
-pub fn lapacke_zgbrfs(Int, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
-
 pub fn lapacke_zgbrfs_work(Int, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
-
-pub fn lapacke_zgbrfsx(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
 
 pub fn lapacke_zgbrfsx_work(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
-pub fn lapacke_zgbsv(Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int) -> Int
-
 pub fn lapacke_zgbsv_work(Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int) -> Int
-
-pub fn lapacke_zgbsvx(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_zgbsvx_work(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
-pub fn lapacke_zgbsvxx(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
-
 pub fn lapacke_zgbsvxx_work(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
-
-pub fn lapacke_zgbtrf(Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_zgbtrf_work(Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
 
-pub fn lapacke_zgbtrs(Int, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int) -> Int
-
 pub fn lapacke_zgbtrs_work(Int, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int) -> Int
-
-pub fn lapacke_zgebak(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zgebak_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
-pub fn lapacke_zgebal(Int, Byte, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], FixedArray[Double]) -> Int
-
 pub fn lapacke_zgebal_work(Int, Byte, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], FixedArray[Double]) -> Int
 
-pub fn lapacke_zgebrd(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
-
 pub fn lapacke_zgebrd_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
-
-pub fn lapacke_zgecon(Int, Byte, Int, FixedArray[Double], Int, Double, FixedArray[Double]) -> Int
 
 pub fn lapacke_zgecon_work(Int, Byte, Int, FixedArray[Double], Int, Double, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
@@ -3548,59 +3118,31 @@ pub fn lapacke_zgedmd_work(Int, Byte, Byte, Byte, Byte, Int, Int, Int, FixedArra
 
 pub fn lapacke_zgedmdq_work(Int, Byte, Byte, Byte, Byte, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], Int) -> Int
 
-pub fn lapacke_zgeequ(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
-
 pub fn lapacke_zgeequ_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
-
-pub fn lapacke_zgeequb(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_zgeequb_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
-pub fn lapacke_zgees(Int, Byte, Byte, FuncRef[(FixedArray[Double]) -> Int], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int) -> Int
-
 pub fn lapacke_zgees_work(Int, Byte, Byte, FuncRef[(FixedArray[Double]) -> Int], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
-pub fn lapacke_zgeesx(Int, Byte, Byte, FuncRef[(FixedArray[Double]) -> Int], Byte, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_zgeesx_work(Int, Byte, Byte, FuncRef[(FixedArray[Double]) -> Int], Byte, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
-pub fn lapacke_zgeev(Int, Byte, Byte, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
 pub fn lapacke_zgeev_work(Int, Byte, Byte, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
-
-pub fn lapacke_zgeevx(Int, Byte, Byte, Byte, Byte, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_zgeevx_work(Int, Byte, Byte, Byte, Byte, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
 
-pub fn lapacke_zgehrd(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
-
 pub fn lapacke_zgehrd_work(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
-
-pub fn lapacke_zgejsv(Int, Byte, Byte, Byte, Byte, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Int]) -> Int
 
 pub fn lapacke_zgejsv_work(Int, Byte, Byte, Byte, Byte, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
 
-pub fn lapacke_zgelq2(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
-
 pub fn lapacke_zgelq2_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
-
-pub fn lapacke_zgelqf(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
 
 pub fn lapacke_zgelqf_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
-pub fn lapacke_zgels(Int, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
 pub fn lapacke_zgels_work(Int, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
-pub fn lapacke_zgelsd(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Double, FixedArray[Int]) -> Int
 
 pub fn lapacke_zgelsd_work(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Double, FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], FixedArray[Int]) -> Int
 
-pub fn lapacke_zgelss(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Double, FixedArray[Int]) -> Int
-
 pub fn lapacke_zgelss_work(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Double, FixedArray[Int], FixedArray[Double], Int, FixedArray[Double]) -> Int
-
-pub fn lapacke_zgelsy(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], Double, FixedArray[Int]) -> Int
 
 pub fn lapacke_zgelsy_work(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], Double, FixedArray[Int], FixedArray[Double], Int, FixedArray[Double]) -> Int
 
@@ -3608,27 +3150,15 @@ pub fn lapacke_zgemqrt(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Double], 
 
 pub fn lapacke_zgemqrt_work(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
 
-pub fn lapacke_zgeqlf(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
-
 pub fn lapacke_zgeqlf_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
-
-pub fn lapacke_zgeqp3(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double]) -> Int
 
 pub fn lapacke_zgeqp3_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
 
-pub fn lapacke_zgeqpf(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double]) -> Int
-
 pub fn lapacke_zgeqpf_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
-
-pub fn lapacke_zgeqr2(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
 
 pub fn lapacke_zgeqr2_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
 
-pub fn lapacke_zgeqrf(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
-
 pub fn lapacke_zgeqrf_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
-
-pub fn lapacke_zgeqrfp(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
 
 pub fn lapacke_zgeqrfp_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
@@ -3644,111 +3174,59 @@ pub fn lapacke_zgeqrt3_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[D
 
 pub fn lapacke_zgeqrt_work(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
 
-pub fn lapacke_zgerfs(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
-
 pub fn lapacke_zgerfs_work(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
-
-pub fn lapacke_zgerfsx(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
 
 pub fn lapacke_zgerfsx_work(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
-pub fn lapacke_zgerqf(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
-
 pub fn lapacke_zgerqf_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
-
-pub fn lapacke_zgesdd(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zgesdd_work(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Int]) -> Int
 
-pub fn lapacke_zgesv(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int) -> Int
-
 pub fn lapacke_zgesv_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int) -> Int
-
-pub fn lapacke_zgesvd(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
 
 pub fn lapacke_zgesvd_work(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
 
-pub fn lapacke_zgesvdq(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
-
 pub fn lapacke_zgesvdq_work(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
-pub fn lapacke_zgesvdx(Int, Byte, Byte, Byte, Int, Int, FixedArray[Double], Int, Double, Double, Int, Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_zgesvdx_work(Int, Byte, Byte, Byte, Int, Int, FixedArray[Double], Int, Double, Double, Int, Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Int]) -> Int
 
-pub fn lapacke_zgesvj(Int, Byte, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
-
 pub fn lapacke_zgesvj_work(Int, Byte, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
-pub fn lapacke_zgesvx(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_zgesvx_work(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
-pub fn lapacke_zgesvxx(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
-
 pub fn lapacke_zgesvxx_work(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Byte], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
-pub fn lapacke_zgetf2(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
-
 pub fn lapacke_zgetf2_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
-
-pub fn lapacke_zgetrf(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
-
-pub fn lapacke_zgetrf2(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_zgetrf2_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_zgetrf_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
 
-pub fn lapacke_zgetri(Int, Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
-
 pub fn lapacke_zgetri_work(Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int) -> Int
-
-pub fn lapacke_zgetrs(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zgetrs_work(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int) -> Int
 
-pub fn lapacke_zggbak(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
 pub fn lapacke_zggbak_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
-pub fn lapacke_zggbal(Int, Byte, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], FixedArray[Double], FixedArray[Double]) -> Int
-
 pub fn lapacke_zggbal_work(Int, Byte, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
-
-pub fn lapacke_zgges(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Double], FixedArray[Double]) -> Int], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
-pub fn lapacke_zgges3(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Double], FixedArray[Double]) -> Int], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zgges3_work(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Double], FixedArray[Double]) -> Int], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zgges_work(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Double], FixedArray[Double]) -> Int], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
-pub fn lapacke_zggesx(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Double], FixedArray[Double]) -> Int], Byte, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
-
 pub fn lapacke_zggesx_work(Int, Byte, Byte, Byte, FuncRef[(FixedArray[Double], FixedArray[Double]) -> Int], Byte, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Int], Int, Int) -> Int
-
-pub fn lapacke_zggev(Int, Byte, Byte, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
-pub fn lapacke_zggev3(Int, Byte, Byte, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zggev3_work(Int, Byte, Byte, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
 
 pub fn lapacke_zggev_work(Int, Byte, Byte, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
 
-pub fn lapacke_zggevx(Int, Byte, Byte, Byte, Byte, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
-
 pub fn lapacke_zggevx_work(Int, Byte, Byte, Byte, Byte, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Int], Int) -> Int
-
-pub fn lapacke_zggglm(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_zggglm_work(Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zgghd3(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zgghd3_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
-
-pub fn lapacke_zgghrd(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zgghrd_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
@@ -4118,9 +3596,9 @@ pub fn lapacke_zlarft(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedA
 
 pub fn lapacke_zlarft_work(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
-pub fn lapacke_zlarfx(Int, Byte, Int, Int, FixedArray[Double], (Double, Double), FixedArray[Double], Int, FixedArray[Double]) -> Int
+pub fn lapacke_zlarfx(Int, Byte, Int, Int, FixedArray[Double], Lapack_complex_double, FixedArray[Double], Int, FixedArray[Double]) -> Int
 
-pub fn lapacke_zlarfx_work(Int, Byte, Int, Int, FixedArray[Double], (Double, Double), FixedArray[Double], Int, FixedArray[Double]) -> Int
+pub fn lapacke_zlarfx_work(Int, Byte, Int, Int, FixedArray[Double], Lapack_complex_double, FixedArray[Double], Int, FixedArray[Double]) -> Int
 
 pub fn lapacke_zlarnv(Int, FixedArray[Int], Int, FixedArray[Double]) -> Int
 
@@ -4130,9 +3608,9 @@ pub fn lapacke_zlascl(Int, Byte, Int, Int, Double, Double, Int, Int, FixedArray[
 
 pub fn lapacke_zlascl_work(Int, Byte, Int, Int, Double, Double, Int, Int, FixedArray[Double], Int) -> Int
 
-pub fn lapacke_zlaset(Int, Byte, Int, Int, (Double, Double), (Double, Double), FixedArray[Double], Int) -> Int
+pub fn lapacke_zlaset(Int, Byte, Int, Int, Lapack_complex_double, Lapack_complex_double, FixedArray[Double], Int) -> Int
 
-pub fn lapacke_zlaset_work(Int, Byte, Int, Int, (Double, Double), (Double, Double), FixedArray[Double], Int) -> Int
+pub fn lapacke_zlaset_work(Int, Byte, Int, Int, Lapack_complex_double, Lapack_complex_double, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zlassq(Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
 
@@ -4366,9 +3844,9 @@ pub fn lapacke_zsyequb(Int, Byte, Int, FixedArray[Double], Int, FixedArray[Doubl
 
 pub fn lapacke_zsyequb_work(Int, Byte, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
-pub fn lapacke_zsyr(Int, Byte, Int, (Double, Double), FixedArray[Double], Int, FixedArray[Double], Int) -> Int
+pub fn lapacke_zsyr(Int, Byte, Int, Lapack_complex_double, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
-pub fn lapacke_zsyr_work(Int, Byte, Int, (Double, Double), FixedArray[Double], Int, FixedArray[Double], Int) -> Int
+pub fn lapacke_zsyr_work(Int, Byte, Int, Lapack_complex_double, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zsyrfs(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
 
@@ -4468,9 +3946,9 @@ pub fn lapacke_ztbtrs(Int, Byte, Byte, Byte, Int, Int, Int, FixedArray[Double], 
 
 pub fn lapacke_ztbtrs_work(Int, Byte, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
-pub fn lapacke_ztfsm(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, (Double, Double), FixedArray[Double], FixedArray[Double], Int) -> Int
+pub fn lapacke_ztfsm(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, Lapack_complex_double, FixedArray[Double], FixedArray[Double], Int) -> Int
 
-pub fn lapacke_ztfsm_work(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, (Double, Double), FixedArray[Double], FixedArray[Double], Int) -> Int
+pub fn lapacke_ztfsm_work(Int, Byte, Byte, Byte, Byte, Byte, Int, Int, Lapack_complex_double, FixedArray[Double], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_ztftri(Int, Byte, Byte, Byte, Int, FixedArray[Double]) -> Int
 
@@ -4687,15 +4165,20 @@ pub fn lapacke_zupmtr_work(Int, Byte, Byte, Byte, Int, Int, FixedArray[Double], 
 // Errors
 
 // Types and methods
+pub(all) struct Lapack_complex_double {
+  re : Double
+  im : Double
+}
+
+pub(all) struct Lapack_complex_float {
+  re : Float
+  im : Float
+}
 
 // Type aliases
 pub type Lapack_c_select1 = FuncRef[(FixedArray[Float]) -> Int]
 
 pub type Lapack_c_select2 = FuncRef[(FixedArray[Float], FixedArray[Float]) -> Int]
-
-pub type Lapack_complex_double = (Double, Double)
-
-pub type Lapack_complex_float = (Float, Float)
 
 pub type Lapack_d_select2 = FuncRef[(FixedArray[Double], FixedArray[Double]) -> Int]
 

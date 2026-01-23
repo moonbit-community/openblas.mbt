@@ -1,8 +1,5 @@
 ///|
-let lapack_col_major = 102
-
-///|
-test "lapacke_dgesv" {
+test "test_lapacke_dgesv" {
   let n = 2
   let nrhs = 1
   // A = [[3, 1], [1, 2]] in column-major order.
@@ -16,7 +13,7 @@ test "lapacke_dgesv" {
 }
 
 ///|
-test "lapacke_dgetrf" {
+test "test_lapacke_dgetrf" {
   let n = 2
   let a : FixedArray[Double] = [1.0, 0.0, 0.0, 1.0]
   let ipiv : FixedArray[Int] = [0, 0]
@@ -27,7 +24,7 @@ test "lapacke_dgetrf" {
 }
 
 ///|
-test "lapacke_dgeqrf" {
+test "test_lapacke_dgeqrf" {
   let n = 2
   let a : FixedArray[Double] = [1.0, 0.0, 0.0, 1.0]
   let tau : FixedArray[Double] = [0.0, 0.0]
@@ -40,7 +37,7 @@ test "lapacke_dgeqrf" {
 }
 
 ///|
-test "lapacke_dgesvd" {
+test "test_lapacke_dgesvd" {
   let n = 2
   let a : FixedArray[Double] = [3.0, 0.0, 0.0, 2.0]
   let s : FixedArray[Double] = [0.0, 0.0]

@@ -4107,7 +4107,7 @@ pub extern "C" fn lapacke_zhetrs_rook(
 ///     const lapack_complex_float* x, lapack_int incx, lapack_complex_float* a, lapack_int lda
 /// );
 /// ```
-#borrow(x, a)
+#borrow(x, a, alpha)
 pub extern "C" fn lapacke_csyr(
   matrix_layout : Int,
   uplo : Byte,
@@ -4127,7 +4127,7 @@ pub extern "C" fn lapacke_csyr(
 ///     const lapack_complex_double* x, lapack_int incx, lapack_complex_double* a, lapack_int lda
 /// );
 /// ```
-#borrow(x, a)
+#borrow(x, a, alpha)
 pub extern "C" fn lapacke_zsyr(
   matrix_layout : Int,
   uplo : Byte,
@@ -4489,7 +4489,7 @@ pub extern "C" fn lapacke_zhetrs_rook_work(
 ///     const lapack_complex_float* x, lapack_int incx, lapack_complex_float* a, lapack_int lda
 /// );
 /// ```
-#borrow(x, a)
+#borrow(x, a, alpha)
 pub extern "C" fn lapacke_csyr_work(
   matrix_layout : Int,
   uplo : Byte,
@@ -4509,7 +4509,7 @@ pub extern "C" fn lapacke_csyr_work(
 ///     const lapack_complex_double* x, lapack_int incx, lapack_complex_double* a, lapack_int lda
 /// );
 /// ```
-#borrow(x, a)
+#borrow(x, a, alpha)
 pub extern "C" fn lapacke_zsyr_work(
   matrix_layout : Int,
   uplo : Byte,
