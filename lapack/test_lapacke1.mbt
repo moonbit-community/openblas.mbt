@@ -1130,6 +1130,196 @@ test "test_lapacke_sgees" {
 }
 
 ///|
+test "test_lapacke_dgees" {
+  let select : Lapack_d_select2 = (wr, wi) => {
+    let v = wr[0] + wi[0]
+    if v < 0.0 {
+      return 1
+    }
+    0
+  }
+  let info = lapacke_dgees(
+    lapack_col_major,
+    'N'.to_int().to_byte(),
+    'S'.to_int().to_byte(),
+    select,
+    1,
+    double_buf,
+    1,
+    int_buf,
+    double_buf,
+    double_buf,
+    double_buf,
+    1,
+  )
+  assert_eq(info, 0)
+}
+
+///|
+test "test_lapacke_cgees" {
+  let select : Lapack_c_select1 = w => {
+    let v = w[0] + w[1]
+    if v < 0.0 {
+      return 1
+    }
+    0
+  }
+  let info = lapacke_cgees(
+    lapack_col_major,
+    'N'.to_int().to_byte(),
+    'S'.to_int().to_byte(),
+    select,
+    1,
+    complex_float_buf,
+    1,
+    int_buf,
+    complex_float_buf,
+    complex_float_buf,
+    1,
+  )
+  assert_eq(info, 0)
+}
+
+///|
+test "test_lapacke_zgees" {
+  let select : Lapack_z_select1 = w => {
+    let v = w[0] + w[1]
+    if v < 0.0 {
+      return 1
+    }
+    0
+  }
+  let info = lapacke_zgees(
+    lapack_col_major,
+    'N'.to_int().to_byte(),
+    'S'.to_int().to_byte(),
+    select,
+    1,
+    complex_double_buf,
+    1,
+    int_buf,
+    complex_double_buf,
+    complex_double_buf,
+    1,
+  )
+  assert_eq(info, 0)
+}
+
+///|
+test "test_lapacke_sgeesx" {
+  let select : Lapack_s_select2 = (wr, wi) => {
+    let v = wr[0] + wi[0]
+    if v < 0.0 {
+      return 1
+    }
+    0
+  }
+  let info = lapacke_sgeesx(
+    lapack_col_major,
+    'N'.to_int().to_byte(),
+    'S'.to_int().to_byte(),
+    select,
+    'N'.to_int().to_byte(),
+    1,
+    float_buf,
+    1,
+    int_buf,
+    float_buf,
+    float_buf,
+    float_buf,
+    1,
+    float_buf,
+    float_buf,
+  )
+  assert_eq(info, 0)
+}
+
+///|
+test "test_lapacke_dgeesx" {
+  let select : Lapack_d_select2 = (wr, wi) => {
+    let v = wr[0] + wi[0]
+    if v < 0.0 {
+      return 1
+    }
+    0
+  }
+  let info = lapacke_dgeesx(
+    lapack_col_major,
+    'N'.to_int().to_byte(),
+    'S'.to_int().to_byte(),
+    select,
+    'N'.to_int().to_byte(),
+    1,
+    double_buf,
+    1,
+    int_buf,
+    double_buf,
+    double_buf,
+    double_buf,
+    1,
+    double_buf,
+    double_buf,
+  )
+  assert_eq(info, 0)
+}
+
+///|
+test "test_lapacke_cgeesx" {
+  let select : Lapack_c_select1 = w => {
+    let v = w[0] + w[1]
+    if v < 0.0 {
+      return 1
+    }
+    0
+  }
+  let info = lapacke_cgeesx(
+    lapack_col_major,
+    'N'.to_int().to_byte(),
+    'S'.to_int().to_byte(),
+    select,
+    'N'.to_int().to_byte(),
+    1,
+    complex_float_buf,
+    1,
+    int_buf,
+    complex_float_buf,
+    complex_float_buf,
+    1,
+    float_buf,
+    float_buf,
+  )
+  assert_eq(info, 0)
+}
+
+///|
+test "test_lapacke_zgeesx" {
+  let select : Lapack_z_select1 = w => {
+    let v = w[0] + w[1]
+    if v < 0.0 {
+      return 1
+    }
+    0
+  }
+  let info = lapacke_zgeesx(
+    lapack_col_major,
+    'N'.to_int().to_byte(),
+    'S'.to_int().to_byte(),
+    select,
+    'N'.to_int().to_byte(),
+    1,
+    complex_double_buf,
+    1,
+    int_buf,
+    complex_double_buf,
+    complex_double_buf,
+    1,
+    double_buf,
+    double_buf,
+  )
+  assert_eq(info, 0)
+}
+
+///|
 test "test_lapacke_sgeev" {
   let info = lapacke_sgeev(
     lapack_col_major,
@@ -2815,6 +3005,396 @@ test "test_lapacke_zggbal" {
     int_buf,
     complex_double_buf,
     complex_double_buf,
+  )
+  assert_eq(info, 0)
+}
+
+///|
+test "test_lapacke_sgges" {
+  let select : Lapack_s_select3 = (ar, ai, b) => {
+    let v = ar[0] + ai[0] + b[0]
+    if v < 0.0 {
+      return 1
+    }
+    0
+  }
+  let info = lapacke_sgges(
+    lapack_col_major,
+    'N'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    'S'.to_int().to_byte(),
+    select,
+    1,
+    float_buf,
+    1,
+    float_buf,
+    1,
+    int_buf,
+    float_buf,
+    float_buf,
+    float_buf,
+    float_buf,
+    1,
+    float_buf,
+    1,
+  )
+  assert_eq(info, 0)
+}
+
+///|
+test "test_lapacke_dgges" {
+  let select : Lapack_d_select3 = (ar, ai, b) => {
+    let v = ar[0] + ai[0] + b[0]
+    if v < 0.0 {
+      return 1
+    }
+    0
+  }
+  let info = lapacke_dgges(
+    lapack_col_major,
+    'N'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    'S'.to_int().to_byte(),
+    select,
+    1,
+    double_buf,
+    1,
+    double_buf,
+    1,
+    int_buf,
+    double_buf,
+    double_buf,
+    double_buf,
+    double_buf,
+    1,
+    double_buf,
+    1,
+  )
+  assert_eq(info, 0)
+}
+
+///|
+test "test_lapacke_cgges" {
+  let select : Lapack_c_select2 = (alpha, beta) => {
+    let v = alpha[0] + alpha[1] + beta[0] + beta[1]
+    if v < 0.0 {
+      return 1
+    }
+    0
+  }
+  let info = lapacke_cgges(
+    lapack_col_major,
+    'N'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    'S'.to_int().to_byte(),
+    select,
+    1,
+    complex_float_buf,
+    1,
+    complex_float_buf,
+    1,
+    int_buf,
+    complex_float_buf,
+    complex_float_buf,
+    complex_float_buf,
+    1,
+    complex_float_buf,
+    1,
+  )
+  assert_eq(info, 0)
+}
+
+///|
+test "test_lapacke_zgges" {
+  let select : Lapack_z_select2 = (alpha, beta) => {
+    let v = alpha[0] + alpha[1] + beta[0] + beta[1]
+    if v < 0.0 {
+      return 1
+    }
+    0
+  }
+  let info = lapacke_zgges(
+    lapack_col_major,
+    'N'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    'S'.to_int().to_byte(),
+    select,
+    1,
+    complex_double_buf,
+    1,
+    complex_double_buf,
+    1,
+    int_buf,
+    complex_double_buf,
+    complex_double_buf,
+    complex_double_buf,
+    1,
+    complex_double_buf,
+    1,
+  )
+  assert_eq(info, 0)
+}
+
+///|
+test "test_lapacke_sgges3" {
+  let select : Lapack_s_select3 = (ar, ai, b) => {
+    let v = ar[0] + ai[0] + b[0]
+    if v < 0.0 {
+      return 1
+    }
+    0
+  }
+  let info = lapacke_sgges3(
+    lapack_col_major,
+    'N'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    'S'.to_int().to_byte(),
+    select,
+    1,
+    float_buf,
+    1,
+    float_buf,
+    1,
+    int_buf,
+    float_buf,
+    float_buf,
+    float_buf,
+    float_buf,
+    1,
+    float_buf,
+    1,
+  )
+  assert_eq(info, 0)
+}
+
+///|
+test "test_lapacke_dgges3" {
+  let select : Lapack_d_select3 = (ar, ai, b) => {
+    let v = ar[0] + ai[0] + b[0]
+    if v < 0.0 {
+      return 1
+    }
+    0
+  }
+  let info = lapacke_dgges3(
+    lapack_col_major,
+    'N'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    'S'.to_int().to_byte(),
+    select,
+    1,
+    double_buf,
+    1,
+    double_buf,
+    1,
+    int_buf,
+    double_buf,
+    double_buf,
+    double_buf,
+    double_buf,
+    1,
+    double_buf,
+    1,
+  )
+  assert_eq(info, 0)
+}
+
+///|
+test "test_lapacke_cgges3" {
+  let select : Lapack_c_select2 = (alpha, beta) => {
+    let v = alpha[0] + alpha[1] + beta[0] + beta[1]
+    if v < 0.0 {
+      return 1
+    }
+    0
+  }
+  let info = lapacke_cgges3(
+    lapack_col_major,
+    'N'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    'S'.to_int().to_byte(),
+    select,
+    1,
+    complex_float_buf,
+    1,
+    complex_float_buf,
+    1,
+    int_buf,
+    complex_float_buf,
+    complex_float_buf,
+    complex_float_buf,
+    1,
+    complex_float_buf,
+    1,
+  )
+  assert_eq(info, 0)
+}
+
+///|
+test "test_lapacke_zgges3" {
+  let select : Lapack_z_select2 = (alpha, beta) => {
+    let v = alpha[0] + alpha[1] + beta[0] + beta[1]
+    if v < 0.0 {
+      return 1
+    }
+    0
+  }
+  let info = lapacke_zgges3(
+    lapack_col_major,
+    'N'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    'S'.to_int().to_byte(),
+    select,
+    1,
+    complex_double_buf,
+    1,
+    complex_double_buf,
+    1,
+    int_buf,
+    complex_double_buf,
+    complex_double_buf,
+    complex_double_buf,
+    1,
+    complex_double_buf,
+    1,
+  )
+  assert_eq(info, 0)
+}
+
+///|
+test "test_lapacke_sggesx" {
+  let select : Lapack_s_select3 = (ar, ai, b) => {
+    let v = ar[0] + ai[0] + b[0]
+    if v < 0.0 {
+      return 1
+    }
+    0
+  }
+  let info = lapacke_sggesx(
+    lapack_col_major,
+    'N'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    'S'.to_int().to_byte(),
+    select,
+    'N'.to_int().to_byte(),
+    1,
+    float_buf,
+    1,
+    float_buf,
+    1,
+    int_buf,
+    float_buf,
+    float_buf,
+    float_buf,
+    float_buf,
+    1,
+    float_buf,
+    1,
+    float_buf,
+    float_buf,
+  )
+  assert_eq(info, 0)
+}
+
+///|
+test "test_lapacke_dggesx" {
+  let select : Lapack_d_select3 = (ar, ai, b) => {
+    let v = ar[0] + ai[0] + b[0]
+    if v < 0.0 {
+      return 1
+    }
+    0
+  }
+  let info = lapacke_dggesx(
+    lapack_col_major,
+    'N'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    'S'.to_int().to_byte(),
+    select,
+    'N'.to_int().to_byte(),
+    1,
+    double_buf,
+    1,
+    double_buf,
+    1,
+    int_buf,
+    double_buf,
+    double_buf,
+    double_buf,
+    double_buf,
+    1,
+    double_buf,
+    1,
+    double_buf,
+    double_buf,
+  )
+  assert_eq(info, 0)
+}
+
+///|
+test "test_lapacke_cggesx" {
+  let select : Lapack_c_select2 = (alpha, beta) => {
+    let v = alpha[0] + alpha[1] + beta[0] + beta[1]
+    if v < 0.0 {
+      return 1
+    }
+    0
+  }
+  let info = lapacke_cggesx(
+    lapack_col_major,
+    'N'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    'S'.to_int().to_byte(),
+    select,
+    'N'.to_int().to_byte(),
+    1,
+    complex_float_buf,
+    1,
+    complex_float_buf,
+    1,
+    int_buf,
+    complex_float_buf,
+    complex_float_buf,
+    complex_float_buf,
+    1,
+    complex_float_buf,
+    1,
+    float_buf,
+    float_buf,
+  )
+  assert_eq(info, 0)
+}
+
+///|
+test "test_lapacke_zggesx" {
+  let select : Lapack_z_select2 = (alpha, beta) => {
+    let v = alpha[0] + alpha[1] + beta[0] + beta[1]
+    if v < 0.0 {
+      return 1
+    }
+    0
+  }
+  let info = lapacke_zggesx(
+    lapack_col_major,
+    'N'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    'S'.to_int().to_byte(),
+    select,
+    'N'.to_int().to_byte(),
+    1,
+    complex_double_buf,
+    1,
+    complex_double_buf,
+    1,
+    int_buf,
+    complex_double_buf,
+    complex_double_buf,
+    complex_double_buf,
+    1,
+    complex_double_buf,
+    1,
+    double_buf,
+    double_buf,
   )
   assert_eq(info, 0)
 }

@@ -10,9 +10,43 @@ static lapack_int int_stat_buf[3] = {0, 0, 0};
 static char byte_buf[1] = {0};
 
 static lapack_logical select_sgees(const float *wr, const float *wi) {
-    (void)wr;
-    (void)wi;
-    return 0;
+    float v = wr[0] + wi[0];
+    return v < 0.0f;
+}
+
+static lapack_logical select_dgees(const double *wr, const double *wi) {
+    double v = wr[0] + wi[0];
+    return v < 0.0;
+}
+
+static lapack_logical select_cgees(const lapack_complex_float *w) {
+    float v = crealf(w[0]) + cimagf(w[0]);
+    return v < 0.0f;
+}
+
+static lapack_logical select_zgees(const lapack_complex_double *w) {
+    double v = creal(w[0]) + cimag(w[0]);
+    return v < 0.0;
+}
+
+static lapack_logical select_sgges(const float *ar, const float *ai, const float *beta) {
+    float v = ar[0] + ai[0] + beta[0];
+    return v < 0.0f;
+}
+
+static lapack_logical select_dgges(const double *ar, const double *ai, const double *beta) {
+    double v = ar[0] + ai[0] + beta[0];
+    return v < 0.0;
+}
+
+static lapack_logical select_cgges(const lapack_complex_float *alpha, const lapack_complex_float *beta) {
+    float v = crealf(alpha[0]) + cimagf(alpha[0]) + crealf(beta[0]) + cimagf(beta[0]);
+    return v < 0.0f;
+}
+
+static lapack_logical select_zgges(const lapack_complex_double *alpha, const lapack_complex_double *beta) {
+    double v = creal(alpha[0]) + cimag(alpha[0]) + creal(beta[0]) + cimag(beta[0]);
+    return v < 0.0;
 }
 
 int test_lapack_make_complex_float() {
@@ -384,6 +418,41 @@ int test_lapacke_zgeequb() {
 int test_lapacke_sgees() {
     lapack_int info = LAPACKE_sgees(LAPACK_COL_MAJOR, 'N', 'S', select_sgees, 1, (void*)float_buf, 1, (void*)int_buf, (void*)float_buf, (void*)float_buf, (void*)float_buf, 1);
     return assert_eq_int((int)info, 0, "lapacke_sgees");
+}
+
+int test_lapacke_dgees() {
+    lapack_int info = LAPACKE_dgees(LAPACK_COL_MAJOR, 'N', 'S', select_dgees, 1, (void*)double_buf, 1, (void*)int_buf, (void*)double_buf, (void*)double_buf, (void*)double_buf, 1);
+    return assert_eq_int((int)info, 0, "lapacke_dgees");
+}
+
+int test_lapacke_cgees() {
+    lapack_int info = LAPACKE_cgees(LAPACK_COL_MAJOR, 'N', 'S', select_cgees, 1, (void*)complex_float_buf, 1, (void*)int_buf, (void*)complex_float_buf, (void*)complex_float_buf, 1);
+    return assert_eq_int((int)info, 0, "lapacke_cgees");
+}
+
+int test_lapacke_zgees() {
+    lapack_int info = LAPACKE_zgees(LAPACK_COL_MAJOR, 'N', 'S', select_zgees, 1, (void*)complex_double_buf, 1, (void*)int_buf, (void*)complex_double_buf, (void*)complex_double_buf, 1);
+    return assert_eq_int((int)info, 0, "lapacke_zgees");
+}
+
+int test_lapacke_sgeesx() {
+    lapack_int info = LAPACKE_sgeesx(LAPACK_COL_MAJOR, 'N', 'S', select_sgees, 'N', 1, (void*)float_buf, 1, (void*)int_buf, (void*)float_buf, (void*)float_buf, (void*)float_buf, 1, (void*)float_buf, (void*)float_buf);
+    return assert_eq_int((int)info, 0, "lapacke_sgeesx");
+}
+
+int test_lapacke_dgeesx() {
+    lapack_int info = LAPACKE_dgeesx(LAPACK_COL_MAJOR, 'N', 'S', select_dgees, 'N', 1, (void*)double_buf, 1, (void*)int_buf, (void*)double_buf, (void*)double_buf, (void*)double_buf, 1, (void*)double_buf, (void*)double_buf);
+    return assert_eq_int((int)info, 0, "lapacke_dgeesx");
+}
+
+int test_lapacke_cgeesx() {
+    lapack_int info = LAPACKE_cgeesx(LAPACK_COL_MAJOR, 'N', 'S', select_cgees, 'N', 1, (void*)complex_float_buf, 1, (void*)int_buf, (void*)complex_float_buf, (void*)complex_float_buf, 1, (void*)float_buf, (void*)float_buf);
+    return assert_eq_int((int)info, 0, "lapacke_cgeesx");
+}
+
+int test_lapacke_zgeesx() {
+    lapack_int info = LAPACKE_zgeesx(LAPACK_COL_MAJOR, 'N', 'S', select_zgees, 'N', 1, (void*)complex_double_buf, 1, (void*)int_buf, (void*)complex_double_buf, (void*)complex_double_buf, 1, (void*)double_buf, (void*)double_buf);
+    return assert_eq_int((int)info, 0, "lapacke_zgeesx");
 }
 
 int test_lapacke_sgeev() {
@@ -1014,6 +1083,66 @@ int test_lapacke_cggbal() {
 int test_lapacke_zggbal() {
     lapack_int info = LAPACKE_zggbal(LAPACK_COL_MAJOR, 'N', 0, (void*)complex_double_buf, 1, (void*)complex_double_buf, 1, (void*)int_buf, (void*)int_buf, (void*)complex_double_buf, (void*)complex_double_buf);
     return assert_eq_int((int)info, 0, "lapacke_zggbal");
+}
+
+int test_lapacke_sgges() {
+    lapack_int info = LAPACKE_sgges(LAPACK_COL_MAJOR, 'N', 'N', 'S', select_sgges, 1, (void*)float_buf, 1, (void*)float_buf, 1, (void*)int_buf, (void*)float_buf, (void*)float_buf, (void*)float_buf, (void*)float_buf, 1, (void*)float_buf, 1);
+    return assert_eq_int((int)info, 0, "lapacke_sgges");
+}
+
+int test_lapacke_dgges() {
+    lapack_int info = LAPACKE_dgges(LAPACK_COL_MAJOR, 'N', 'N', 'S', select_dgges, 1, (void*)double_buf, 1, (void*)double_buf, 1, (void*)int_buf, (void*)double_buf, (void*)double_buf, (void*)double_buf, (void*)double_buf, 1, (void*)double_buf, 1);
+    return assert_eq_int((int)info, 0, "lapacke_dgges");
+}
+
+int test_lapacke_cgges() {
+    lapack_int info = LAPACKE_cgges(LAPACK_COL_MAJOR, 'N', 'N', 'S', select_cgges, 1, (void*)complex_float_buf, 1, (void*)complex_float_buf, 1, (void*)int_buf, (void*)complex_float_buf, (void*)complex_float_buf, (void*)complex_float_buf, 1, (void*)complex_float_buf, 1);
+    return assert_eq_int((int)info, 0, "lapacke_cgges");
+}
+
+int test_lapacke_zgges() {
+    lapack_int info = LAPACKE_zgges(LAPACK_COL_MAJOR, 'N', 'N', 'S', select_zgges, 1, (void*)complex_double_buf, 1, (void*)complex_double_buf, 1, (void*)int_buf, (void*)complex_double_buf, (void*)complex_double_buf, (void*)complex_double_buf, 1, (void*)complex_double_buf, 1);
+    return assert_eq_int((int)info, 0, "lapacke_zgges");
+}
+
+int test_lapacke_sgges3() {
+    lapack_int info = LAPACKE_sgges3(LAPACK_COL_MAJOR, 'N', 'N', 'S', select_sgges, 1, (void*)float_buf, 1, (void*)float_buf, 1, (void*)int_buf, (void*)float_buf, (void*)float_buf, (void*)float_buf, (void*)float_buf, 1, (void*)float_buf, 1);
+    return assert_eq_int((int)info, 0, "lapacke_sgges3");
+}
+
+int test_lapacke_dgges3() {
+    lapack_int info = LAPACKE_dgges3(LAPACK_COL_MAJOR, 'N', 'N', 'S', select_dgges, 1, (void*)double_buf, 1, (void*)double_buf, 1, (void*)int_buf, (void*)double_buf, (void*)double_buf, (void*)double_buf, (void*)double_buf, 1, (void*)double_buf, 1);
+    return assert_eq_int((int)info, 0, "lapacke_dgges3");
+}
+
+int test_lapacke_cgges3() {
+    lapack_int info = LAPACKE_cgges3(LAPACK_COL_MAJOR, 'N', 'N', 'S', select_cgges, 1, (void*)complex_float_buf, 1, (void*)complex_float_buf, 1, (void*)int_buf, (void*)complex_float_buf, (void*)complex_float_buf, (void*)complex_float_buf, 1, (void*)complex_float_buf, 1);
+    return assert_eq_int((int)info, 0, "lapacke_cgges3");
+}
+
+int test_lapacke_zgges3() {
+    lapack_int info = LAPACKE_zgges3(LAPACK_COL_MAJOR, 'N', 'N', 'S', select_zgges, 1, (void*)complex_double_buf, 1, (void*)complex_double_buf, 1, (void*)int_buf, (void*)complex_double_buf, (void*)complex_double_buf, (void*)complex_double_buf, 1, (void*)complex_double_buf, 1);
+    return assert_eq_int((int)info, 0, "lapacke_zgges3");
+}
+
+int test_lapacke_sggesx() {
+    lapack_int info = LAPACKE_sggesx(LAPACK_COL_MAJOR, 'N', 'N', 'S', select_sgges, 'N', 1, (void*)float_buf, 1, (void*)float_buf, 1, (void*)int_buf, (void*)float_buf, (void*)float_buf, (void*)float_buf, (void*)float_buf, 1, (void*)float_buf, 1, (void*)float_buf, (void*)float_buf);
+    return assert_eq_int((int)info, 0, "lapacke_sggesx");
+}
+
+int test_lapacke_dggesx() {
+    lapack_int info = LAPACKE_dggesx(LAPACK_COL_MAJOR, 'N', 'N', 'S', select_dgges, 'N', 1, (void*)double_buf, 1, (void*)double_buf, 1, (void*)int_buf, (void*)double_buf, (void*)double_buf, (void*)double_buf, (void*)double_buf, 1, (void*)double_buf, 1, (void*)double_buf, (void*)double_buf);
+    return assert_eq_int((int)info, 0, "lapacke_dggesx");
+}
+
+int test_lapacke_cggesx() {
+    lapack_int info = LAPACKE_cggesx(LAPACK_COL_MAJOR, 'N', 'N', 'S', select_cgges, 'N', 1, (void*)complex_float_buf, 1, (void*)complex_float_buf, 1, (void*)int_buf, (void*)complex_float_buf, (void*)complex_float_buf, (void*)complex_float_buf, 1, (void*)complex_float_buf, 1, (void*)float_buf, (void*)float_buf);
+    return assert_eq_int((int)info, 0, "lapacke_cggesx");
+}
+
+int test_lapacke_zggesx() {
+    lapack_int info = LAPACKE_zggesx(LAPACK_COL_MAJOR, 'N', 'N', 'S', select_zgges, 'N', 1, (void*)complex_double_buf, 1, (void*)complex_double_buf, 1, (void*)int_buf, (void*)complex_double_buf, (void*)complex_double_buf, (void*)complex_double_buf, 1, (void*)complex_double_buf, 1, (void*)double_buf, (void*)double_buf);
+    return assert_eq_int((int)info, 0, "lapacke_zggesx");
 }
 
 int test_lapacke_sggev() {
