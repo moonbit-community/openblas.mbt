@@ -3,7 +3,7 @@
 /// ```c
 /// lapack_complex_float lapack_make_complex_float(float re, float im);
 /// ```
-extern "C" fn lapack_make_complex_float(
+pub extern "C" fn lapack_make_complex_float(
   re : Float,
   im : Float,
 ) -> Lapack_complex_float = "mbt_lapack_make_complex_float"
@@ -13,7 +13,7 @@ extern "C" fn lapack_make_complex_float(
 /// ```c
 /// lapack_complex_double lapack_make_complex_double(double re, double im);
 /// ```
-extern "C" fn lapack_make_complex_double(
+pub extern "C" fn lapack_make_complex_double(
   re : Double,
   im : Double,
 ) -> Lapack_complex_double = "mbt_lapack_make_complex_double"
@@ -28,7 +28,7 @@ extern "C" fn lapack_make_complex_double(
 /// );
 /// ```
 #borrow(d, e, u, vt, q, iq)
-extern "C" fn lapacke_sbdsdc(
+pub extern "C" fn lapacke_sbdsdc(
   matrix_layout : Int,
   uplo : Byte,
   compq : Byte,
@@ -53,7 +53,7 @@ extern "C" fn lapacke_sbdsdc(
 /// );
 /// ```
 #borrow(d, e, u, vt, q, iq)
-extern "C" fn lapacke_dbdsdc(
+pub extern "C" fn lapacke_dbdsdc(
   matrix_layout : Int,
   uplo : Byte,
   compq : Byte,
@@ -79,7 +79,7 @@ extern "C" fn lapacke_dbdsdc(
 /// );
 /// ```
 #borrow(d, e, vt, u, c)
-extern "C" fn lapacke_sbdsqr(
+pub extern "C" fn lapacke_sbdsqr(
   matrix_layout : Int,
   uplo : Byte,
   n : Lapack_int,
@@ -107,7 +107,7 @@ extern "C" fn lapacke_sbdsqr(
 /// );
 /// ```
 #borrow(d, e, vt, u, c)
-extern "C" fn lapacke_dbdsqr(
+pub extern "C" fn lapacke_dbdsqr(
   matrix_layout : Int,
   uplo : Byte,
   n : Lapack_int,
@@ -135,7 +135,7 @@ extern "C" fn lapacke_dbdsqr(
 /// );
 /// ```
 #borrow(d, e, vt, u, c)
-extern "C" fn lapacke_cbdsqr(
+pub extern "C" fn lapacke_cbdsqr(
   matrix_layout : Int,
   uplo : Byte,
   n : Lapack_int,
@@ -163,7 +163,7 @@ extern "C" fn lapacke_cbdsqr(
 /// );
 /// ```
 #borrow(d, e, vt, u, c)
-extern "C" fn lapacke_zbdsqr(
+pub extern "C" fn lapacke_zbdsqr(
   matrix_layout : Int,
   uplo : Byte,
   n : Lapack_int,
@@ -191,7 +191,7 @@ extern "C" fn lapacke_zbdsqr(
 /// );
 /// ```
 #borrow(d, e, ns, s, z, superb)
-extern "C" fn lapacke_sbdsvdx(
+pub extern "C" fn lapacke_sbdsvdx(
   matrix_layout : Int,
   uplo : Byte,
   jobz : Byte,
@@ -221,7 +221,7 @@ extern "C" fn lapacke_sbdsvdx(
 /// );
 /// ```
 #borrow(d, e, ns, s, z, superb)
-extern "C" fn lapacke_dbdsvdx(
+pub extern "C" fn lapacke_dbdsvdx(
   matrix_layout : Int,
   uplo : Byte,
   jobz : Byte,
@@ -248,7 +248,7 @@ extern "C" fn lapacke_dbdsvdx(
 /// );
 /// ```
 #borrow(d, sep)
-extern "C" fn lapacke_sdisna(
+pub extern "C" fn lapacke_sdisna(
   job : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -264,7 +264,7 @@ extern "C" fn lapacke_sdisna(
 /// );
 /// ```
 #borrow(d, sep)
-extern "C" fn lapacke_ddisna(
+pub extern "C" fn lapacke_ddisna(
   job : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -283,7 +283,7 @@ extern "C" fn lapacke_ddisna(
 /// );
 /// ```
 #borrow(ab, d, e, q, pt, c)
-extern "C" fn lapacke_sgbbrd(
+pub extern "C" fn lapacke_sgbbrd(
   matrix_layout : Int,
   vect : Byte,
   m : Lapack_int,
@@ -314,7 +314,7 @@ extern "C" fn lapacke_sgbbrd(
 /// );
 /// ```
 #borrow(ab, d, e, q, pt, c)
-extern "C" fn lapacke_dgbbrd(
+pub extern "C" fn lapacke_dgbbrd(
   matrix_layout : Int,
   vect : Byte,
   m : Lapack_int,
@@ -345,7 +345,7 @@ extern "C" fn lapacke_dgbbrd(
 /// );
 /// ```
 #borrow(ab, d, e, q, pt, c)
-extern "C" fn lapacke_cgbbrd(
+pub extern "C" fn lapacke_cgbbrd(
   matrix_layout : Int,
   vect : Byte,
   m : Lapack_int,
@@ -376,7 +376,7 @@ extern "C" fn lapacke_cgbbrd(
 /// );
 /// ```
 #borrow(ab, d, e, q, pt, c)
-extern "C" fn lapacke_zgbbrd(
+pub extern "C" fn lapacke_zgbbrd(
   matrix_layout : Int,
   vect : Byte,
   m : Lapack_int,
@@ -406,7 +406,7 @@ extern "C" fn lapacke_zgbbrd(
 /// );
 /// ```
 #borrow(ab, ipiv, rcond)
-extern "C" fn lapacke_sgbcon(
+pub extern "C" fn lapacke_sgbcon(
   matrix_layout : Int,
   norm : Byte,
   n : Lapack_int,
@@ -429,7 +429,7 @@ extern "C" fn lapacke_sgbcon(
 /// );
 /// ```
 #borrow(ab, ipiv, rcond)
-extern "C" fn lapacke_dgbcon(
+pub extern "C" fn lapacke_dgbcon(
   matrix_layout : Int,
   norm : Byte,
   n : Lapack_int,
@@ -452,7 +452,7 @@ extern "C" fn lapacke_dgbcon(
 /// );
 /// ```
 #borrow(ab, ipiv, rcond)
-extern "C" fn lapacke_cgbcon(
+pub extern "C" fn lapacke_cgbcon(
   matrix_layout : Int,
   norm : Byte,
   n : Lapack_int,
@@ -475,7 +475,7 @@ extern "C" fn lapacke_cgbcon(
 /// );
 /// ```
 #borrow(ab, ipiv, rcond)
-extern "C" fn lapacke_zgbcon(
+pub extern "C" fn lapacke_zgbcon(
   matrix_layout : Int,
   norm : Byte,
   n : Lapack_int,
@@ -498,7 +498,7 @@ extern "C" fn lapacke_zgbcon(
 /// );
 /// ```
 #borrow(ab, r, c, rowcnd, colcnd, amax)
-extern "C" fn lapacke_sgbequ(
+pub extern "C" fn lapacke_sgbequ(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -523,7 +523,7 @@ extern "C" fn lapacke_sgbequ(
 /// );
 /// ```
 #borrow(ab, r, c, rowcnd, colcnd, amax)
-extern "C" fn lapacke_dgbequ(
+pub extern "C" fn lapacke_dgbequ(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -548,7 +548,7 @@ extern "C" fn lapacke_dgbequ(
 /// );
 /// ```
 #borrow(ab, r, c, rowcnd, colcnd, amax)
-extern "C" fn lapacke_cgbequ(
+pub extern "C" fn lapacke_cgbequ(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -573,7 +573,7 @@ extern "C" fn lapacke_cgbequ(
 /// );
 /// ```
 #borrow(ab, r, c, rowcnd, colcnd, amax)
-extern "C" fn lapacke_zgbequ(
+pub extern "C" fn lapacke_zgbequ(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -598,7 +598,7 @@ extern "C" fn lapacke_zgbequ(
 /// );
 /// ```
 #borrow(ab, r, c, rowcnd, colcnd, amax)
-extern "C" fn lapacke_sgbequb(
+pub extern "C" fn lapacke_sgbequb(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -623,7 +623,7 @@ extern "C" fn lapacke_sgbequb(
 /// );
 /// ```
 #borrow(ab, r, c, rowcnd, colcnd, amax)
-extern "C" fn lapacke_dgbequb(
+pub extern "C" fn lapacke_dgbequb(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -648,7 +648,7 @@ extern "C" fn lapacke_dgbequb(
 /// );
 /// ```
 #borrow(ab, r, c, rowcnd, colcnd, amax)
-extern "C" fn lapacke_cgbequb(
+pub extern "C" fn lapacke_cgbequb(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -673,7 +673,7 @@ extern "C" fn lapacke_cgbequb(
 /// );
 /// ```
 #borrow(ab, r, c, rowcnd, colcnd, amax)
-extern "C" fn lapacke_zgbequb(
+pub extern "C" fn lapacke_zgbequb(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -699,7 +699,7 @@ extern "C" fn lapacke_zgbequb(
 /// );
 /// ```
 #borrow(ab, afb, ipiv, b, x, ferr, berr)
-extern "C" fn lapacke_sgbrfs(
+pub extern "C" fn lapacke_sgbrfs(
   matrix_layout : Int,
   trans : Byte,
   n : Lapack_int,
@@ -730,7 +730,7 @@ extern "C" fn lapacke_sgbrfs(
 /// );
 /// ```
 #borrow(ab, afb, ipiv, b, x, ferr, berr)
-extern "C" fn lapacke_dgbrfs(
+pub extern "C" fn lapacke_dgbrfs(
   matrix_layout : Int,
   trans : Byte,
   n : Lapack_int,
@@ -761,7 +761,7 @@ extern "C" fn lapacke_dgbrfs(
 /// );
 /// ```
 #borrow(ab, afb, ipiv, b, x, ferr, berr)
-extern "C" fn lapacke_cgbrfs(
+pub extern "C" fn lapacke_cgbrfs(
   matrix_layout : Int,
   trans : Byte,
   n : Lapack_int,
@@ -792,7 +792,7 @@ extern "C" fn lapacke_cgbrfs(
 /// );
 /// ```
 #borrow(ab, afb, ipiv, b, x, ferr, berr)
-extern "C" fn lapacke_zgbrfs(
+pub extern "C" fn lapacke_zgbrfs(
   matrix_layout : Int,
   trans : Byte,
   n : Lapack_int,
@@ -826,7 +826,7 @@ extern "C" fn lapacke_zgbrfs(
 /// ```
 #borrow(ab, afb, ipiv, r, c, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
 /// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
-extern "C" fn lapacke_sgbrfsx(
+pub extern "C" fn lapacke_sgbrfsx(
   matrix_layout : Int,
   trans : Byte,
   equed : Byte,
@@ -868,7 +868,7 @@ extern "C" fn lapacke_sgbrfsx(
 /// ```
 #borrow(ab, afb, ipiv, r, c, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
 /// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
-extern "C" fn lapacke_dgbrfsx(
+pub extern "C" fn lapacke_dgbrfsx(
   matrix_layout : Int,
   trans : Byte,
   equed : Byte,
@@ -910,7 +910,7 @@ extern "C" fn lapacke_dgbrfsx(
 /// ```
 #borrow(ab, afb, ipiv, r, c, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
 /// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
-extern "C" fn lapacke_cgbrfsx(
+pub extern "C" fn lapacke_cgbrfsx(
   matrix_layout : Int,
   trans : Byte,
   equed : Byte,
@@ -952,7 +952,7 @@ extern "C" fn lapacke_cgbrfsx(
 /// ```
 #borrow(ab, afb, ipiv, r, c, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
 /// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
-extern "C" fn lapacke_zgbrfsx(
+pub extern "C" fn lapacke_zgbrfsx(
   matrix_layout : Int,
   trans : Byte,
   equed : Byte,
@@ -990,7 +990,7 @@ extern "C" fn lapacke_zgbrfsx(
 /// );
 /// ```
 #borrow(ab, ipiv, b)
-extern "C" fn lapacke_sgbsv(
+pub extern "C" fn lapacke_sgbsv(
   matrix_layout : Int,
   n : Lapack_int,
   kl : Lapack_int,
@@ -1013,7 +1013,7 @@ extern "C" fn lapacke_sgbsv(
 /// );
 /// ```
 #borrow(ab, ipiv, b)
-extern "C" fn lapacke_dgbsv(
+pub extern "C" fn lapacke_dgbsv(
   matrix_layout : Int,
   n : Lapack_int,
   kl : Lapack_int,
@@ -1036,7 +1036,7 @@ extern "C" fn lapacke_dgbsv(
 /// );
 /// ```
 #borrow(ab, ipiv, b)
-extern "C" fn lapacke_cgbsv(
+pub extern "C" fn lapacke_cgbsv(
   matrix_layout : Int,
   n : Lapack_int,
   kl : Lapack_int,
@@ -1059,7 +1059,7 @@ extern "C" fn lapacke_cgbsv(
 /// );
 /// ```
 #borrow(ab, ipiv, b)
-extern "C" fn lapacke_zgbsv(
+pub extern "C" fn lapacke_zgbsv(
   matrix_layout : Int,
   n : Lapack_int,
   kl : Lapack_int,
@@ -1085,7 +1085,7 @@ extern "C" fn lapacke_zgbsv(
 /// );
 /// ```
 #borrow(ab, afb, ipiv, equed, r, c, b, x, rcond, ferr, berr, rpivot)
-extern "C" fn lapacke_sgbsvx(
+pub extern "C" fn lapacke_sgbsvx(
   matrix_layout : Int,
   fact : Byte,
   trans : Byte,
@@ -1124,7 +1124,7 @@ extern "C" fn lapacke_sgbsvx(
 /// );
 /// ```
 #borrow(ab, afb, ipiv, equed, r, c, b, x, rcond, ferr, berr, rpivot)
-extern "C" fn lapacke_dgbsvx(
+pub extern "C" fn lapacke_dgbsvx(
   matrix_layout : Int,
   fact : Byte,
   trans : Byte,
@@ -1163,7 +1163,7 @@ extern "C" fn lapacke_dgbsvx(
 /// );
 /// ```
 #borrow(ab, afb, ipiv, equed, r, c, b, x, rcond, ferr, berr, rpivot)
-extern "C" fn lapacke_cgbsvx(
+pub extern "C" fn lapacke_cgbsvx(
   matrix_layout : Int,
   fact : Byte,
   trans : Byte,
@@ -1202,7 +1202,7 @@ extern "C" fn lapacke_cgbsvx(
 /// );
 /// ```
 #borrow(ab, afb, ipiv, equed, r, c, b, x, rcond, ferr, berr, rpivot)
-extern "C" fn lapacke_zgbsvx(
+pub extern "C" fn lapacke_zgbsvx(
   matrix_layout : Int,
   fact : Byte,
   trans : Byte,
@@ -1243,7 +1243,7 @@ extern "C" fn lapacke_zgbsvx(
 /// ```
 #borrow(ab, afb, ipiv, equed, r, c, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
 /// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
-extern "C" fn lapacke_sgbsvxx(
+pub extern "C" fn lapacke_sgbsvxx(
   matrix_layout : Int,
   fact : Byte,
   trans : Byte,
@@ -1288,7 +1288,7 @@ extern "C" fn lapacke_sgbsvxx(
 /// ```
 #borrow(ab, afb, ipiv, equed, r, c, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
 /// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
-extern "C" fn lapacke_dgbsvxx(
+pub extern "C" fn lapacke_dgbsvxx(
   matrix_layout : Int,
   fact : Byte,
   trans : Byte,
@@ -1333,7 +1333,7 @@ extern "C" fn lapacke_dgbsvxx(
 /// ```
 #borrow(ab, afb, ipiv, equed, r, c, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
 /// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
-extern "C" fn lapacke_cgbsvxx(
+pub extern "C" fn lapacke_cgbsvxx(
   matrix_layout : Int,
   fact : Byte,
   trans : Byte,
@@ -1378,7 +1378,7 @@ extern "C" fn lapacke_cgbsvxx(
 /// ```
 #borrow(ab, afb, ipiv, equed, r, c, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
 /// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
-extern "C" fn lapacke_zgbsvxx(
+pub extern "C" fn lapacke_zgbsvxx(
   matrix_layout : Int,
   fact : Byte,
   trans : Byte,
@@ -1417,7 +1417,7 @@ extern "C" fn lapacke_zgbsvxx(
 /// );
 /// ```
 #borrow(ab, ipiv)
-extern "C" fn lapacke_sgbtrf(
+pub extern "C" fn lapacke_sgbtrf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -1437,7 +1437,7 @@ extern "C" fn lapacke_sgbtrf(
 /// );
 /// ```
 #borrow(ab, ipiv)
-extern "C" fn lapacke_dgbtrf(
+pub extern "C" fn lapacke_dgbtrf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -1457,7 +1457,7 @@ extern "C" fn lapacke_dgbtrf(
 /// );
 /// ```
 #borrow(ab, ipiv)
-extern "C" fn lapacke_cgbtrf(
+pub extern "C" fn lapacke_cgbtrf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -1477,7 +1477,7 @@ extern "C" fn lapacke_cgbtrf(
 /// );
 /// ```
 #borrow(ab, ipiv)
-extern "C" fn lapacke_zgbtrf(
+pub extern "C" fn lapacke_zgbtrf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -1498,7 +1498,7 @@ extern "C" fn lapacke_zgbtrf(
 /// );
 /// ```
 #borrow(ab, ipiv, b)
-extern "C" fn lapacke_sgbtrs(
+pub extern "C" fn lapacke_sgbtrs(
   matrix_layout : Int,
   trans : Byte,
   n : Lapack_int,
@@ -1522,7 +1522,7 @@ extern "C" fn lapacke_sgbtrs(
 /// );
 /// ```
 #borrow(ab, ipiv, b)
-extern "C" fn lapacke_dgbtrs(
+pub extern "C" fn lapacke_dgbtrs(
   matrix_layout : Int,
   trans : Byte,
   n : Lapack_int,
@@ -1546,7 +1546,7 @@ extern "C" fn lapacke_dgbtrs(
 /// );
 /// ```
 #borrow(ab, ipiv, b)
-extern "C" fn lapacke_cgbtrs(
+pub extern "C" fn lapacke_cgbtrs(
   matrix_layout : Int,
   trans : Byte,
   n : Lapack_int,
@@ -1570,7 +1570,7 @@ extern "C" fn lapacke_cgbtrs(
 /// );
 /// ```
 #borrow(ab, ipiv, b)
-extern "C" fn lapacke_zgbtrs(
+pub extern "C" fn lapacke_zgbtrs(
   matrix_layout : Int,
   trans : Byte,
   n : Lapack_int,
@@ -1594,7 +1594,7 @@ extern "C" fn lapacke_zgbtrs(
 /// );
 /// ```
 #borrow(scale, v)
-extern "C" fn lapacke_sgebak(
+pub extern "C" fn lapacke_sgebak(
   matrix_layout : Int,
   job : Byte,
   side : Byte,
@@ -1617,7 +1617,7 @@ extern "C" fn lapacke_sgebak(
 /// );
 /// ```
 #borrow(scale, v)
-extern "C" fn lapacke_dgebak(
+pub extern "C" fn lapacke_dgebak(
   matrix_layout : Int,
   job : Byte,
   side : Byte,
@@ -1640,7 +1640,7 @@ extern "C" fn lapacke_dgebak(
 /// );
 /// ```
 #borrow(scale, v)
-extern "C" fn lapacke_cgebak(
+pub extern "C" fn lapacke_cgebak(
   matrix_layout : Int,
   job : Byte,
   side : Byte,
@@ -1663,7 +1663,7 @@ extern "C" fn lapacke_cgebak(
 /// );
 /// ```
 #borrow(scale, v)
-extern "C" fn lapacke_zgebak(
+pub extern "C" fn lapacke_zgebak(
   matrix_layout : Int,
   job : Byte,
   side : Byte,
@@ -1685,7 +1685,7 @@ extern "C" fn lapacke_zgebak(
 /// );
 /// ```
 #borrow(a, ilo, ihi, scale)
-extern "C" fn lapacke_sgebal(
+pub extern "C" fn lapacke_sgebal(
   matrix_layout : Int,
   job : Byte,
   n : Lapack_int,
@@ -1705,7 +1705,7 @@ extern "C" fn lapacke_sgebal(
 /// );
 /// ```
 #borrow(a, ilo, ihi, scale)
-extern "C" fn lapacke_dgebal(
+pub extern "C" fn lapacke_dgebal(
   matrix_layout : Int,
   job : Byte,
   n : Lapack_int,
@@ -1725,7 +1725,7 @@ extern "C" fn lapacke_dgebal(
 /// );
 /// ```
 #borrow(a, ilo, ihi, scale)
-extern "C" fn lapacke_cgebal(
+pub extern "C" fn lapacke_cgebal(
   matrix_layout : Int,
   job : Byte,
   n : Lapack_int,
@@ -1745,7 +1745,7 @@ extern "C" fn lapacke_cgebal(
 /// );
 /// ```
 #borrow(a, ilo, ihi, scale)
-extern "C" fn lapacke_zgebal(
+pub extern "C" fn lapacke_zgebal(
   matrix_layout : Int,
   job : Byte,
   n : Lapack_int,
@@ -1765,7 +1765,7 @@ extern "C" fn lapacke_zgebal(
 /// );
 /// ```
 #borrow(a, d, e, tauq, taup)
-extern "C" fn lapacke_sgebrd(
+pub extern "C" fn lapacke_sgebrd(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -1786,7 +1786,7 @@ extern "C" fn lapacke_sgebrd(
 /// );
 /// ```
 #borrow(a, d, e, tauq, taup)
-extern "C" fn lapacke_dgebrd(
+pub extern "C" fn lapacke_dgebrd(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -1807,7 +1807,7 @@ extern "C" fn lapacke_dgebrd(
 /// );
 /// ```
 #borrow(a, d, e, tauq, taup)
-extern "C" fn lapacke_cgebrd(
+pub extern "C" fn lapacke_cgebrd(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -1828,7 +1828,7 @@ extern "C" fn lapacke_cgebrd(
 /// );
 /// ```
 #borrow(a, d, e, tauq, taup)
-extern "C" fn lapacke_zgebrd(
+pub extern "C" fn lapacke_zgebrd(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -1849,7 +1849,7 @@ extern "C" fn lapacke_zgebrd(
 /// );
 /// ```
 #borrow(a, rcond)
-extern "C" fn lapacke_sgecon(
+pub extern "C" fn lapacke_sgecon(
   matrix_layout : Int,
   norm : Byte,
   n : Lapack_int,
@@ -1868,7 +1868,7 @@ extern "C" fn lapacke_sgecon(
 /// );
 /// ```
 #borrow(a, rcond)
-extern "C" fn lapacke_dgecon(
+pub extern "C" fn lapacke_dgecon(
   matrix_layout : Int,
   norm : Byte,
   n : Lapack_int,
@@ -1887,7 +1887,7 @@ extern "C" fn lapacke_dgecon(
 /// );
 /// ```
 #borrow(a, rcond)
-extern "C" fn lapacke_cgecon(
+pub extern "C" fn lapacke_cgecon(
   matrix_layout : Int,
   norm : Byte,
   n : Lapack_int,
@@ -1906,7 +1906,7 @@ extern "C" fn lapacke_cgecon(
 /// );
 /// ```
 #borrow(a, rcond)
-extern "C" fn lapacke_zgecon(
+pub extern "C" fn lapacke_zgecon(
   matrix_layout : Int,
   norm : Byte,
   n : Lapack_int,
@@ -1926,7 +1926,7 @@ extern "C" fn lapacke_zgecon(
 /// );
 /// ```
 #borrow(a, r, c, rowcnd, colcnd, amax)
-extern "C" fn lapacke_sgeequ(
+pub extern "C" fn lapacke_sgeequ(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -1949,7 +1949,7 @@ extern "C" fn lapacke_sgeequ(
 /// );
 /// ```
 #borrow(a, r, c, rowcnd, colcnd, amax)
-extern "C" fn lapacke_dgeequ(
+pub extern "C" fn lapacke_dgeequ(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -1972,7 +1972,7 @@ extern "C" fn lapacke_dgeequ(
 /// );
 /// ```
 #borrow(a, r, c, rowcnd, colcnd, amax)
-extern "C" fn lapacke_cgeequ(
+pub extern "C" fn lapacke_cgeequ(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -1995,7 +1995,7 @@ extern "C" fn lapacke_cgeequ(
 /// );
 /// ```
 #borrow(a, r, c, rowcnd, colcnd, amax)
-extern "C" fn lapacke_zgeequ(
+pub extern "C" fn lapacke_zgeequ(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -2018,7 +2018,7 @@ extern "C" fn lapacke_zgeequ(
 /// );
 /// ```
 #borrow(a, r, c, rowcnd, colcnd, amax)
-extern "C" fn lapacke_sgeequb(
+pub extern "C" fn lapacke_sgeequb(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -2041,7 +2041,7 @@ extern "C" fn lapacke_sgeequb(
 /// );
 /// ```
 #borrow(a, r, c, rowcnd, colcnd, amax)
-extern "C" fn lapacke_dgeequb(
+pub extern "C" fn lapacke_dgeequb(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -2064,7 +2064,7 @@ extern "C" fn lapacke_dgeequb(
 /// );
 /// ```
 #borrow(a, r, c, rowcnd, colcnd, amax)
-extern "C" fn lapacke_cgeequb(
+pub extern "C" fn lapacke_cgeequb(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -2087,7 +2087,7 @@ extern "C" fn lapacke_cgeequb(
 /// );
 /// ```
 #borrow(a, r, c, rowcnd, colcnd, amax)
-extern "C" fn lapacke_zgeequb(
+pub extern "C" fn lapacke_zgeequb(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -2110,7 +2110,7 @@ extern "C" fn lapacke_zgeequb(
 /// );
 /// ```
 #borrow(a, sdim, wr, wi, vs)
-extern "C" fn lapacke_sgees(
+pub extern "C" fn lapacke_sgees(
   matrix_layout : Int,
   jobvs : Byte,
   sort : Byte,
@@ -2135,7 +2135,7 @@ extern "C" fn lapacke_sgees(
 /// );
 /// ```
 #borrow(a, sdim, wr, wi, vs)
-extern "C" fn lapacke_dgees(
+pub extern "C" fn lapacke_dgees(
   matrix_layout : Int,
   jobvs : Byte,
   sort : Byte,
@@ -2160,7 +2160,7 @@ extern "C" fn lapacke_dgees(
 /// );
 /// ```
 #borrow(a, sdim, w, vs)
-extern "C" fn lapacke_cgees(
+pub extern "C" fn lapacke_cgees(
   matrix_layout : Int,
   jobvs : Byte,
   sort : Byte,
@@ -2184,7 +2184,7 @@ extern "C" fn lapacke_cgees(
 /// );
 /// ```
 #borrow(a, sdim, w, vs)
-extern "C" fn lapacke_zgees(
+pub extern "C" fn lapacke_zgees(
   matrix_layout : Int,
   jobvs : Byte,
   sort : Byte,
@@ -2209,7 +2209,7 @@ extern "C" fn lapacke_zgees(
 /// );
 /// ```
 #borrow(a, sdim, wr, wi, vs, rconde, rcondv)
-extern "C" fn lapacke_sgeesx(
+pub extern "C" fn lapacke_sgeesx(
   matrix_layout : Int,
   jobvs : Byte,
   sort : Byte,
@@ -2238,7 +2238,7 @@ extern "C" fn lapacke_sgeesx(
 /// );
 /// ```
 #borrow(a, sdim, wr, wi, vs, rconde, rcondv)
-extern "C" fn lapacke_dgeesx(
+pub extern "C" fn lapacke_dgeesx(
   matrix_layout : Int,
   jobvs : Byte,
   sort : Byte,
@@ -2267,7 +2267,7 @@ extern "C" fn lapacke_dgeesx(
 /// );
 /// ```
 #borrow(a, sdim, w, vs, rconde, rcondv)
-extern "C" fn lapacke_cgeesx(
+pub extern "C" fn lapacke_cgeesx(
   matrix_layout : Int,
   jobvs : Byte,
   sort : Byte,
@@ -2295,7 +2295,7 @@ extern "C" fn lapacke_cgeesx(
 /// );
 /// ```
 #borrow(a, sdim, w, vs, rconde, rcondv)
-extern "C" fn lapacke_zgeesx(
+pub extern "C" fn lapacke_zgeesx(
   matrix_layout : Int,
   jobvs : Byte,
   sort : Byte,
@@ -2322,7 +2322,7 @@ extern "C" fn lapacke_zgeesx(
 /// );
 /// ```
 #borrow(a, wr, wi, vl, vr)
-extern "C" fn lapacke_sgeev(
+pub extern "C" fn lapacke_sgeev(
   matrix_layout : Int,
   jobvl : Byte,
   jobvr : Byte,
@@ -2347,7 +2347,7 @@ extern "C" fn lapacke_sgeev(
 /// );
 /// ```
 #borrow(a, wr, wi, vl, vr)
-extern "C" fn lapacke_dgeev(
+pub extern "C" fn lapacke_dgeev(
   matrix_layout : Int,
   jobvl : Byte,
   jobvr : Byte,
@@ -2372,7 +2372,7 @@ extern "C" fn lapacke_dgeev(
 /// );
 /// ```
 #borrow(a, w, vl, vr)
-extern "C" fn lapacke_cgeev(
+pub extern "C" fn lapacke_cgeev(
   matrix_layout : Int,
   jobvl : Byte,
   jobvr : Byte,
@@ -2396,7 +2396,7 @@ extern "C" fn lapacke_cgeev(
 /// );
 /// ```
 #borrow(a, w, vl, vr)
-extern "C" fn lapacke_zgeev(
+pub extern "C" fn lapacke_zgeev(
   matrix_layout : Int,
   jobvl : Byte,
   jobvr : Byte,
@@ -2422,7 +2422,7 @@ extern "C" fn lapacke_zgeev(
 /// );
 /// ```
 #borrow(a, wr, wi, vl, vr, ilo, ihi, scale, abnrm, rconde, rcondv)
-extern "C" fn lapacke_sgeevx(
+pub extern "C" fn lapacke_sgeevx(
   matrix_layout : Int,
   balanc : Byte,
   jobvl : Byte,
@@ -2457,7 +2457,7 @@ extern "C" fn lapacke_sgeevx(
 /// );
 /// ```
 #borrow(a, wr, wi, vl, vr, ilo, ihi, scale, abnrm, rconde, rcondv)
-extern "C" fn lapacke_dgeevx(
+pub extern "C" fn lapacke_dgeevx(
   matrix_layout : Int,
   balanc : Byte,
   jobvl : Byte,
@@ -2492,7 +2492,7 @@ extern "C" fn lapacke_dgeevx(
 /// );
 /// ```
 #borrow(a, w, vl, vr, ilo, ihi, scale, abnrm, rconde, rcondv)
-extern "C" fn lapacke_cgeevx(
+pub extern "C" fn lapacke_cgeevx(
   matrix_layout : Int,
   balanc : Byte,
   jobvl : Byte,
@@ -2526,7 +2526,7 @@ extern "C" fn lapacke_cgeevx(
 /// );
 /// ```
 #borrow(a, w, vl, vr, ilo, ihi, scale, abnrm, rconde, rcondv)
-extern "C" fn lapacke_zgeevx(
+pub extern "C" fn lapacke_zgeevx(
   matrix_layout : Int,
   balanc : Byte,
   jobvl : Byte,
@@ -2557,7 +2557,7 @@ extern "C" fn lapacke_zgeevx(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_sgehrd(
+pub extern "C" fn lapacke_sgehrd(
   matrix_layout : Int,
   n : Lapack_int,
   ilo : Lapack_int,
@@ -2576,7 +2576,7 @@ extern "C" fn lapacke_sgehrd(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_dgehrd(
+pub extern "C" fn lapacke_dgehrd(
   matrix_layout : Int,
   n : Lapack_int,
   ilo : Lapack_int,
@@ -2595,7 +2595,7 @@ extern "C" fn lapacke_dgehrd(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_cgehrd(
+pub extern "C" fn lapacke_cgehrd(
   matrix_layout : Int,
   n : Lapack_int,
   ilo : Lapack_int,
@@ -2614,7 +2614,7 @@ extern "C" fn lapacke_cgehrd(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_zgehrd(
+pub extern "C" fn lapacke_zgehrd(
   matrix_layout : Int,
   n : Lapack_int,
   ilo : Lapack_int,
@@ -2636,7 +2636,7 @@ extern "C" fn lapacke_zgehrd(
 /// );
 /// ```
 #borrow(a, sva, u, v, stat, istat)
-extern "C" fn lapacke_sgejsv(
+pub extern "C" fn lapacke_sgejsv(
   matrix_layout : Int,
   joba : Byte,
   jobu : Byte,
@@ -2669,7 +2669,7 @@ extern "C" fn lapacke_sgejsv(
 /// );
 /// ```
 #borrow(a, sva, u, v, stat, istat)
-extern "C" fn lapacke_dgejsv(
+pub extern "C" fn lapacke_dgejsv(
   matrix_layout : Int,
   joba : Byte,
   jobu : Byte,
@@ -2702,7 +2702,7 @@ extern "C" fn lapacke_dgejsv(
 /// );
 /// ```
 #borrow(a, sva, u, v, stat, istat)
-extern "C" fn lapacke_cgejsv(
+pub extern "C" fn lapacke_cgejsv(
   matrix_layout : Int,
   joba : Byte,
   jobu : Byte,
@@ -2735,7 +2735,7 @@ extern "C" fn lapacke_cgejsv(
 /// );
 /// ```
 #borrow(a, sva, u, v, stat, istat)
-extern "C" fn lapacke_zgejsv(
+pub extern "C" fn lapacke_zgejsv(
   matrix_layout : Int,
   joba : Byte,
   jobu : Byte,
@@ -2765,7 +2765,7 @@ extern "C" fn lapacke_zgejsv(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_sgelq2(
+pub extern "C" fn lapacke_sgelq2(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -2783,7 +2783,7 @@ extern "C" fn lapacke_sgelq2(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_dgelq2(
+pub extern "C" fn lapacke_dgelq2(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -2801,7 +2801,7 @@ extern "C" fn lapacke_dgelq2(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_cgelq2(
+pub extern "C" fn lapacke_cgelq2(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -2819,7 +2819,7 @@ extern "C" fn lapacke_cgelq2(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_zgelq2(
+pub extern "C" fn lapacke_zgelq2(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -2837,7 +2837,7 @@ extern "C" fn lapacke_zgelq2(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_sgelqf(
+pub extern "C" fn lapacke_sgelqf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -2855,7 +2855,7 @@ extern "C" fn lapacke_sgelqf(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_dgelqf(
+pub extern "C" fn lapacke_dgelqf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -2873,7 +2873,7 @@ extern "C" fn lapacke_dgelqf(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_cgelqf(
+pub extern "C" fn lapacke_cgelqf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -2891,7 +2891,7 @@ extern "C" fn lapacke_cgelqf(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_zgelqf(
+pub extern "C" fn lapacke_zgelqf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -2909,7 +2909,7 @@ extern "C" fn lapacke_zgelqf(
 /// );
 /// ```
 #borrow(a, b)
-extern "C" fn lapacke_sgels(
+pub extern "C" fn lapacke_sgels(
   matrix_layout : Int,
   trans : Byte,
   m : Lapack_int,
@@ -2930,7 +2930,7 @@ extern "C" fn lapacke_sgels(
 /// );
 /// ```
 #borrow(a, b)
-extern "C" fn lapacke_dgels(
+pub extern "C" fn lapacke_dgels(
   matrix_layout : Int,
   trans : Byte,
   m : Lapack_int,
@@ -2951,7 +2951,7 @@ extern "C" fn lapacke_dgels(
 /// );
 /// ```
 #borrow(a, b)
-extern "C" fn lapacke_cgels(
+pub extern "C" fn lapacke_cgels(
   matrix_layout : Int,
   trans : Byte,
   m : Lapack_int,
@@ -2972,7 +2972,7 @@ extern "C" fn lapacke_cgels(
 /// );
 /// ```
 #borrow(a, b)
-extern "C" fn lapacke_zgels(
+pub extern "C" fn lapacke_zgels(
   matrix_layout : Int,
   trans : Byte,
   m : Lapack_int,
@@ -2994,7 +2994,7 @@ extern "C" fn lapacke_zgels(
 /// );
 /// ```
 #borrow(a, b, s, rank)
-extern "C" fn lapacke_sgelsd(
+pub extern "C" fn lapacke_sgelsd(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3018,7 +3018,7 @@ extern "C" fn lapacke_sgelsd(
 /// );
 /// ```
 #borrow(a, b, s, rank)
-extern "C" fn lapacke_dgelsd(
+pub extern "C" fn lapacke_dgelsd(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3042,7 +3042,7 @@ extern "C" fn lapacke_dgelsd(
 /// );
 /// ```
 #borrow(a, b, s, rank)
-extern "C" fn lapacke_cgelsd(
+pub extern "C" fn lapacke_cgelsd(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3066,7 +3066,7 @@ extern "C" fn lapacke_cgelsd(
 /// );
 /// ```
 #borrow(a, b, s, rank)
-extern "C" fn lapacke_zgelsd(
+pub extern "C" fn lapacke_zgelsd(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3090,7 +3090,7 @@ extern "C" fn lapacke_zgelsd(
 /// );
 /// ```
 #borrow(a, b, s, rank)
-extern "C" fn lapacke_sgelss(
+pub extern "C" fn lapacke_sgelss(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3114,7 +3114,7 @@ extern "C" fn lapacke_sgelss(
 /// );
 /// ```
 #borrow(a, b, s, rank)
-extern "C" fn lapacke_dgelss(
+pub extern "C" fn lapacke_dgelss(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3138,7 +3138,7 @@ extern "C" fn lapacke_dgelss(
 /// );
 /// ```
 #borrow(a, b, s, rank)
-extern "C" fn lapacke_cgelss(
+pub extern "C" fn lapacke_cgelss(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3162,7 +3162,7 @@ extern "C" fn lapacke_cgelss(
 /// );
 /// ```
 #borrow(a, b, s, rank)
-extern "C" fn lapacke_zgelss(
+pub extern "C" fn lapacke_zgelss(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3186,7 +3186,7 @@ extern "C" fn lapacke_zgelss(
 /// );
 /// ```
 #borrow(a, b, jpvt, rank)
-extern "C" fn lapacke_sgelsy(
+pub extern "C" fn lapacke_sgelsy(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3210,7 +3210,7 @@ extern "C" fn lapacke_sgelsy(
 /// );
 /// ```
 #borrow(a, b, jpvt, rank)
-extern "C" fn lapacke_dgelsy(
+pub extern "C" fn lapacke_dgelsy(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3234,7 +3234,7 @@ extern "C" fn lapacke_dgelsy(
 /// );
 /// ```
 #borrow(a, b, jpvt, rank)
-extern "C" fn lapacke_cgelsy(
+pub extern "C" fn lapacke_cgelsy(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3258,7 +3258,7 @@ extern "C" fn lapacke_cgelsy(
 /// );
 /// ```
 #borrow(a, b, jpvt, rank)
-extern "C" fn lapacke_zgelsy(
+pub extern "C" fn lapacke_zgelsy(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3281,7 +3281,7 @@ extern "C" fn lapacke_zgelsy(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_sgeqlf(
+pub extern "C" fn lapacke_sgeqlf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3299,7 +3299,7 @@ extern "C" fn lapacke_sgeqlf(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_dgeqlf(
+pub extern "C" fn lapacke_dgeqlf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3317,7 +3317,7 @@ extern "C" fn lapacke_dgeqlf(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_cgeqlf(
+pub extern "C" fn lapacke_cgeqlf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3335,7 +3335,7 @@ extern "C" fn lapacke_cgeqlf(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_zgeqlf(
+pub extern "C" fn lapacke_zgeqlf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3353,7 +3353,7 @@ extern "C" fn lapacke_zgeqlf(
 /// );
 /// ```
 #borrow(a, jpvt, tau)
-extern "C" fn lapacke_sgeqp3(
+pub extern "C" fn lapacke_sgeqp3(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3372,7 +3372,7 @@ extern "C" fn lapacke_sgeqp3(
 /// );
 /// ```
 #borrow(a, jpvt, tau)
-extern "C" fn lapacke_dgeqp3(
+pub extern "C" fn lapacke_dgeqp3(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3391,7 +3391,7 @@ extern "C" fn lapacke_dgeqp3(
 /// );
 /// ```
 #borrow(a, jpvt, tau)
-extern "C" fn lapacke_cgeqp3(
+pub extern "C" fn lapacke_cgeqp3(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3410,7 +3410,7 @@ extern "C" fn lapacke_cgeqp3(
 /// );
 /// ```
 #borrow(a, jpvt, tau)
-extern "C" fn lapacke_zgeqp3(
+pub extern "C" fn lapacke_zgeqp3(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3429,7 +3429,7 @@ extern "C" fn lapacke_zgeqp3(
 /// );
 /// ```
 #borrow(a, jpvt, tau)
-extern "C" fn lapacke_sgeqpf(
+pub extern "C" fn lapacke_sgeqpf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3448,7 +3448,7 @@ extern "C" fn lapacke_sgeqpf(
 /// );
 /// ```
 #borrow(a, jpvt, tau)
-extern "C" fn lapacke_dgeqpf(
+pub extern "C" fn lapacke_dgeqpf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3467,7 +3467,7 @@ extern "C" fn lapacke_dgeqpf(
 /// );
 /// ```
 #borrow(a, jpvt, tau)
-extern "C" fn lapacke_cgeqpf(
+pub extern "C" fn lapacke_cgeqpf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3486,7 +3486,7 @@ extern "C" fn lapacke_cgeqpf(
 /// );
 /// ```
 #borrow(a, jpvt, tau)
-extern "C" fn lapacke_zgeqpf(
+pub extern "C" fn lapacke_zgeqpf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3505,7 +3505,7 @@ extern "C" fn lapacke_zgeqpf(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_sgeqr2(
+pub extern "C" fn lapacke_sgeqr2(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3523,7 +3523,7 @@ extern "C" fn lapacke_sgeqr2(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_dgeqr2(
+pub extern "C" fn lapacke_dgeqr2(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3541,7 +3541,7 @@ extern "C" fn lapacke_dgeqr2(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_cgeqr2(
+pub extern "C" fn lapacke_cgeqr2(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3559,7 +3559,7 @@ extern "C" fn lapacke_cgeqr2(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_zgeqr2(
+pub extern "C" fn lapacke_zgeqr2(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3577,7 +3577,7 @@ extern "C" fn lapacke_zgeqr2(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_sgeqrf(
+pub extern "C" fn lapacke_sgeqrf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3595,7 +3595,7 @@ extern "C" fn lapacke_sgeqrf(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_dgeqrf(
+pub extern "C" fn lapacke_dgeqrf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3613,7 +3613,7 @@ extern "C" fn lapacke_dgeqrf(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_cgeqrf(
+pub extern "C" fn lapacke_cgeqrf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3631,7 +3631,7 @@ extern "C" fn lapacke_cgeqrf(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_zgeqrf(
+pub extern "C" fn lapacke_zgeqrf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3649,7 +3649,7 @@ extern "C" fn lapacke_zgeqrf(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_sgeqrfp(
+pub extern "C" fn lapacke_sgeqrfp(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3667,7 +3667,7 @@ extern "C" fn lapacke_sgeqrfp(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_dgeqrfp(
+pub extern "C" fn lapacke_dgeqrfp(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3685,7 +3685,7 @@ extern "C" fn lapacke_dgeqrfp(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_cgeqrfp(
+pub extern "C" fn lapacke_cgeqrfp(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3703,7 +3703,7 @@ extern "C" fn lapacke_cgeqrfp(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_zgeqrfp(
+pub extern "C" fn lapacke_zgeqrfp(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -3723,7 +3723,7 @@ extern "C" fn lapacke_zgeqrfp(
 /// );
 /// ```
 #borrow(a, af, ipiv, b, x, ferr, berr)
-extern "C" fn lapacke_sgerfs(
+pub extern "C" fn lapacke_sgerfs(
   matrix_layout : Int,
   trans : Byte,
   n : Lapack_int,
@@ -3752,7 +3752,7 @@ extern "C" fn lapacke_sgerfs(
 /// );
 /// ```
 #borrow(a, af, ipiv, b, x, ferr, berr)
-extern "C" fn lapacke_dgerfs(
+pub extern "C" fn lapacke_dgerfs(
   matrix_layout : Int,
   trans : Byte,
   n : Lapack_int,
@@ -3781,7 +3781,7 @@ extern "C" fn lapacke_dgerfs(
 /// );
 /// ```
 #borrow(a, af, ipiv, b, x, ferr, berr)
-extern "C" fn lapacke_cgerfs(
+pub extern "C" fn lapacke_cgerfs(
   matrix_layout : Int,
   trans : Byte,
   n : Lapack_int,
@@ -3810,7 +3810,7 @@ extern "C" fn lapacke_cgerfs(
 /// );
 /// ```
 #borrow(a, af, ipiv, b, x, ferr, berr)
-extern "C" fn lapacke_zgerfs(
+pub extern "C" fn lapacke_zgerfs(
   matrix_layout : Int,
   trans : Byte,
   n : Lapack_int,
@@ -3842,7 +3842,7 @@ extern "C" fn lapacke_zgerfs(
 /// ```
 #borrow(a, af, ipiv, r, c, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
 /// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
-extern "C" fn lapacke_sgerfsx(
+pub extern "C" fn lapacke_sgerfsx(
   matrix_layout : Int,
   trans : Byte,
   equed : Byte,
@@ -3882,7 +3882,7 @@ extern "C" fn lapacke_sgerfsx(
 /// ```
 #borrow(a, af, ipiv, r, c, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
 /// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
-extern "C" fn lapacke_dgerfsx(
+pub extern "C" fn lapacke_dgerfsx(
   matrix_layout : Int,
   trans : Byte,
   equed : Byte,
@@ -3922,7 +3922,7 @@ extern "C" fn lapacke_dgerfsx(
 /// ```
 #borrow(a, af, ipiv, r, c, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
 /// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
-extern "C" fn lapacke_cgerfsx(
+pub extern "C" fn lapacke_cgerfsx(
   matrix_layout : Int,
   trans : Byte,
   equed : Byte,
@@ -3962,7 +3962,7 @@ extern "C" fn lapacke_cgerfsx(
 /// ```
 #borrow(a, af, ipiv, r, c, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
 /// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
-extern "C" fn lapacke_zgerfsx(
+pub extern "C" fn lapacke_zgerfsx(
   matrix_layout : Int,
   trans : Byte,
   equed : Byte,
@@ -3997,7 +3997,7 @@ extern "C" fn lapacke_zgerfsx(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_sgerqf(
+pub extern "C" fn lapacke_sgerqf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -4015,7 +4015,7 @@ extern "C" fn lapacke_sgerqf(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_dgerqf(
+pub extern "C" fn lapacke_dgerqf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -4033,7 +4033,7 @@ extern "C" fn lapacke_dgerqf(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_cgerqf(
+pub extern "C" fn lapacke_cgerqf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -4051,7 +4051,7 @@ extern "C" fn lapacke_cgerqf(
 /// );
 /// ```
 #borrow(a, tau)
-extern "C" fn lapacke_zgerqf(
+pub extern "C" fn lapacke_zgerqf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -4070,7 +4070,7 @@ extern "C" fn lapacke_zgerqf(
 /// );
 /// ```
 #borrow(a, s, u, vt)
-extern "C" fn lapacke_sgesdd(
+pub extern "C" fn lapacke_sgesdd(
   matrix_layout : Int,
   jobz : Byte,
   m : Lapack_int,
@@ -4094,7 +4094,7 @@ extern "C" fn lapacke_sgesdd(
 /// );
 /// ```
 #borrow(a, s, u, vt)
-extern "C" fn lapacke_dgesdd(
+pub extern "C" fn lapacke_dgesdd(
   matrix_layout : Int,
   jobz : Byte,
   m : Lapack_int,
@@ -4118,7 +4118,7 @@ extern "C" fn lapacke_dgesdd(
 /// );
 /// ```
 #borrow(a, s, u, vt)
-extern "C" fn lapacke_cgesdd(
+pub extern "C" fn lapacke_cgesdd(
   matrix_layout : Int,
   jobz : Byte,
   m : Lapack_int,
@@ -4142,7 +4142,7 @@ extern "C" fn lapacke_cgesdd(
 /// );
 /// ```
 #borrow(a, s, u, vt)
-extern "C" fn lapacke_zgesdd(
+pub extern "C" fn lapacke_zgesdd(
   matrix_layout : Int,
   jobz : Byte,
   m : Lapack_int,
@@ -4165,7 +4165,7 @@ extern "C" fn lapacke_zgesdd(
 /// );
 /// ```
 #borrow(a, ipiv, b)
-extern "C" fn lapacke_sgesv(
+pub extern "C" fn lapacke_sgesv(
   matrix_layout : Int,
   n : Lapack_int,
   nrhs : Lapack_int,
@@ -4185,7 +4185,7 @@ extern "C" fn lapacke_sgesv(
 /// );
 /// ```
 #borrow(a, ipiv, b)
-extern "C" fn lapacke_dgesv(
+pub extern "C" fn lapacke_dgesv(
   matrix_layout : Int,
   n : Lapack_int,
   nrhs : Lapack_int,
@@ -4205,7 +4205,7 @@ extern "C" fn lapacke_dgesv(
 /// );
 /// ```
 #borrow(a, ipiv, b)
-extern "C" fn lapacke_cgesv(
+pub extern "C" fn lapacke_cgesv(
   matrix_layout : Int,
   n : Lapack_int,
   nrhs : Lapack_int,
@@ -4225,7 +4225,7 @@ extern "C" fn lapacke_cgesv(
 /// );
 /// ```
 #borrow(a, ipiv, b)
-extern "C" fn lapacke_zgesv(
+pub extern "C" fn lapacke_zgesv(
   matrix_layout : Int,
   n : Lapack_int,
   nrhs : Lapack_int,
@@ -4246,7 +4246,7 @@ extern "C" fn lapacke_zgesv(
 /// );
 /// ```
 #borrow(a, ipiv, b, x, iter)
-extern "C" fn lapacke_dsgesv(
+pub extern "C" fn lapacke_dsgesv(
   matrix_layout : Int,
   n : Lapack_int,
   nrhs : Lapack_int,
@@ -4270,7 +4270,7 @@ extern "C" fn lapacke_dsgesv(
 /// );
 /// ```
 #borrow(a, ipiv, b, x, iter)
-extern "C" fn lapacke_zcgesv(
+pub extern "C" fn lapacke_zcgesv(
   matrix_layout : Int,
   n : Lapack_int,
   nrhs : Lapack_int,
@@ -4294,7 +4294,7 @@ extern "C" fn lapacke_zcgesv(
 /// );
 /// ```
 #borrow(a, s, u, vt, superb)
-extern "C" fn lapacke_sgesvd(
+pub extern "C" fn lapacke_sgesvd(
   matrix_layout : Int,
   jobu : Byte,
   jobvt : Byte,
@@ -4320,7 +4320,7 @@ extern "C" fn lapacke_sgesvd(
 /// );
 /// ```
 #borrow(a, s, u, vt, superb)
-extern "C" fn lapacke_dgesvd(
+pub extern "C" fn lapacke_dgesvd(
   matrix_layout : Int,
   jobu : Byte,
   jobvt : Byte,
@@ -4346,7 +4346,7 @@ extern "C" fn lapacke_dgesvd(
 /// );
 /// ```
 #borrow(a, s, u, vt, superb)
-extern "C" fn lapacke_cgesvd(
+pub extern "C" fn lapacke_cgesvd(
   matrix_layout : Int,
   jobu : Byte,
   jobvt : Byte,
@@ -4372,7 +4372,7 @@ extern "C" fn lapacke_cgesvd(
 /// );
 /// ```
 #borrow(a, s, u, vt, superb)
-extern "C" fn lapacke_zgesvd(
+pub extern "C" fn lapacke_zgesvd(
   matrix_layout : Int,
   jobu : Byte,
   jobvt : Byte,
@@ -4400,7 +4400,7 @@ extern "C" fn lapacke_zgesvd(
 /// );
 /// ```
 #borrow(a, ns, s, u, vt, superb)
-extern "C" fn lapacke_sgesvdx(
+pub extern "C" fn lapacke_sgesvdx(
   matrix_layout : Int,
   jobu : Byte,
   jobvt : Byte,
@@ -4434,7 +4434,7 @@ extern "C" fn lapacke_sgesvdx(
 /// );
 /// ```
 #borrow(a, ns, s, u, vt, superb)
-extern "C" fn lapacke_dgesvdx(
+pub extern "C" fn lapacke_dgesvdx(
   matrix_layout : Int,
   jobu : Byte,
   jobvt : Byte,
@@ -4468,7 +4468,7 @@ extern "C" fn lapacke_dgesvdx(
 /// );
 /// ```
 #borrow(a, ns, s, u, vt, superb)
-extern "C" fn lapacke_cgesvdx(
+pub extern "C" fn lapacke_cgesvdx(
   matrix_layout : Int,
   jobu : Byte,
   jobvt : Byte,
@@ -4502,7 +4502,7 @@ extern "C" fn lapacke_cgesvdx(
 /// );
 /// ```
 #borrow(a, ns, s, u, vt, superb)
-extern "C" fn lapacke_zgesvdx(
+pub extern "C" fn lapacke_zgesvdx(
   matrix_layout : Int,
   jobu : Byte,
   jobvt : Byte,
@@ -4535,7 +4535,7 @@ extern "C" fn lapacke_zgesvdx(
 /// );
 /// ```
 #borrow(a, s, u, v, numrank)
-extern "C" fn lapacke_sgesvdq(
+pub extern "C" fn lapacke_sgesvdq(
   matrix_layout : Int,
   joba : Byte,
   jobp : Byte,
@@ -4565,7 +4565,7 @@ extern "C" fn lapacke_sgesvdq(
 /// );
 /// ```
 #borrow(a, s, u, v, numrank)
-extern "C" fn lapacke_dgesvdq(
+pub extern "C" fn lapacke_dgesvdq(
   matrix_layout : Int,
   joba : Byte,
   jobp : Byte,
@@ -4595,7 +4595,7 @@ extern "C" fn lapacke_dgesvdq(
 /// );
 /// ```
 #borrow(a, s, u, v, numrank)
-extern "C" fn lapacke_cgesvdq(
+pub extern "C" fn lapacke_cgesvdq(
   matrix_layout : Int,
   joba : Byte,
   jobp : Byte,
@@ -4625,7 +4625,7 @@ extern "C" fn lapacke_cgesvdq(
 /// );
 /// ```
 #borrow(a, s, u, v, numrank)
-extern "C" fn lapacke_zgesvdq(
+pub extern "C" fn lapacke_zgesvdq(
   matrix_layout : Int,
   joba : Byte,
   jobp : Byte,
@@ -4654,7 +4654,7 @@ extern "C" fn lapacke_zgesvdq(
 /// );
 /// ```
 #borrow(a, sva, v, stat)
-extern "C" fn lapacke_sgesvj(
+pub extern "C" fn lapacke_sgesvj(
   matrix_layout : Int,
   joba : Byte,
   jobu : Byte,
@@ -4680,7 +4680,7 @@ extern "C" fn lapacke_sgesvj(
 /// );
 /// ```
 #borrow(a, sva, v, stat)
-extern "C" fn lapacke_dgesvj(
+pub extern "C" fn lapacke_dgesvj(
   matrix_layout : Int,
   joba : Byte,
   jobu : Byte,
@@ -4706,7 +4706,7 @@ extern "C" fn lapacke_dgesvj(
 /// );
 /// ```
 #borrow(a, sva, v, stat)
-extern "C" fn lapacke_cgesvj(
+pub extern "C" fn lapacke_cgesvj(
   matrix_layout : Int,
   joba : Byte,
   jobu : Byte,
@@ -4732,7 +4732,7 @@ extern "C" fn lapacke_cgesvj(
 /// );
 /// ```
 #borrow(a, sva, v, stat)
-extern "C" fn lapacke_zgesvj(
+pub extern "C" fn lapacke_zgesvj(
   matrix_layout : Int,
   joba : Byte,
   jobu : Byte,
@@ -4760,7 +4760,7 @@ extern "C" fn lapacke_zgesvj(
 /// );
 /// ```
 #borrow(a, af, ipiv, equed, r, c, b, x, rcond, ferr, berr, rpivot)
-extern "C" fn lapacke_sgesvx(
+pub extern "C" fn lapacke_sgesvx(
   matrix_layout : Int,
   fact : Byte,
   trans : Byte,
@@ -4796,7 +4796,7 @@ extern "C" fn lapacke_sgesvx(
 /// );
 /// ```
 #borrow(a, af, ipiv, equed, r, c, b, x, rcond, ferr, berr, rpivot)
-extern "C" fn lapacke_dgesvx(
+pub extern "C" fn lapacke_dgesvx(
   matrix_layout : Int,
   fact : Byte,
   trans : Byte,
@@ -4832,7 +4832,7 @@ extern "C" fn lapacke_dgesvx(
 /// );
 /// ```
 #borrow(a, af, ipiv, equed, r, c, b, x, rcond, ferr, berr, rpivot)
-extern "C" fn lapacke_cgesvx(
+pub extern "C" fn lapacke_cgesvx(
   matrix_layout : Int,
   fact : Byte,
   trans : Byte,
@@ -4868,7 +4868,7 @@ extern "C" fn lapacke_cgesvx(
 /// );
 /// ```
 #borrow(a, af, ipiv, equed, r, c, b, x, rcond, ferr, berr, rpivot)
-extern "C" fn lapacke_zgesvx(
+pub extern "C" fn lapacke_zgesvx(
   matrix_layout : Int,
   fact : Byte,
   trans : Byte,
@@ -4906,7 +4906,7 @@ extern "C" fn lapacke_zgesvx(
 /// ```
 #borrow(a, af, ipiv, equed, r, c, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
 /// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
-extern "C" fn lapacke_sgesvxx(
+pub extern "C" fn lapacke_sgesvxx(
   matrix_layout : Int,
   fact : Byte,
   trans : Byte,
@@ -4948,7 +4948,7 @@ extern "C" fn lapacke_sgesvxx(
 /// ```
 #borrow(a, af, ipiv, equed, r, c, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
 /// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
-extern "C" fn lapacke_dgesvxx(
+pub extern "C" fn lapacke_dgesvxx(
   matrix_layout : Int,
   fact : Byte,
   trans : Byte,
@@ -4990,7 +4990,7 @@ extern "C" fn lapacke_dgesvxx(
 /// ```
 #borrow(a, af, ipiv, equed, r, c, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
 /// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
-extern "C" fn lapacke_cgesvxx(
+pub extern "C" fn lapacke_cgesvxx(
   matrix_layout : Int,
   fact : Byte,
   trans : Byte,
@@ -5032,7 +5032,7 @@ extern "C" fn lapacke_cgesvxx(
 /// ```
 #borrow(a, af, ipiv, equed, r, c, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
 /// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
-extern "C" fn lapacke_zgesvxx(
+pub extern "C" fn lapacke_zgesvxx(
   matrix_layout : Int,
   fact : Byte,
   trans : Byte,
@@ -5069,7 +5069,7 @@ extern "C" fn lapacke_zgesvxx(
 /// );
 /// ```
 #borrow(a, ipiv)
-extern "C" fn lapacke_sgetf2(
+pub extern "C" fn lapacke_sgetf2(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -5087,7 +5087,7 @@ extern "C" fn lapacke_sgetf2(
 /// );
 /// ```
 #borrow(a, ipiv)
-extern "C" fn lapacke_dgetf2(
+pub extern "C" fn lapacke_dgetf2(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -5105,7 +5105,7 @@ extern "C" fn lapacke_dgetf2(
 /// );
 /// ```
 #borrow(a, ipiv)
-extern "C" fn lapacke_cgetf2(
+pub extern "C" fn lapacke_cgetf2(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -5123,7 +5123,7 @@ extern "C" fn lapacke_cgetf2(
 /// );
 /// ```
 #borrow(a, ipiv)
-extern "C" fn lapacke_zgetf2(
+pub extern "C" fn lapacke_zgetf2(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -5141,7 +5141,7 @@ extern "C" fn lapacke_zgetf2(
 /// );
 /// ```
 #borrow(a, ipiv)
-extern "C" fn lapacke_sgetrf(
+pub extern "C" fn lapacke_sgetrf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -5159,7 +5159,7 @@ extern "C" fn lapacke_sgetrf(
 /// );
 /// ```
 #borrow(a, ipiv)
-extern "C" fn lapacke_dgetrf(
+pub extern "C" fn lapacke_dgetrf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -5177,7 +5177,7 @@ extern "C" fn lapacke_dgetrf(
 /// );
 /// ```
 #borrow(a, ipiv)
-extern "C" fn lapacke_cgetrf(
+pub extern "C" fn lapacke_cgetrf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -5195,7 +5195,7 @@ extern "C" fn lapacke_cgetrf(
 /// );
 /// ```
 #borrow(a, ipiv)
-extern "C" fn lapacke_zgetrf(
+pub extern "C" fn lapacke_zgetrf(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -5213,7 +5213,7 @@ extern "C" fn lapacke_zgetrf(
 /// );
 /// ```
 #borrow(a, ipiv)
-extern "C" fn lapacke_sgetrf2(
+pub extern "C" fn lapacke_sgetrf2(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -5231,7 +5231,7 @@ extern "C" fn lapacke_sgetrf2(
 /// );
 /// ```
 #borrow(a, ipiv)
-extern "C" fn lapacke_dgetrf2(
+pub extern "C" fn lapacke_dgetrf2(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -5249,7 +5249,7 @@ extern "C" fn lapacke_dgetrf2(
 /// );
 /// ```
 #borrow(a, ipiv)
-extern "C" fn lapacke_cgetrf2(
+pub extern "C" fn lapacke_cgetrf2(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -5267,7 +5267,7 @@ extern "C" fn lapacke_cgetrf2(
 /// );
 /// ```
 #borrow(a, ipiv)
-extern "C" fn lapacke_zgetrf2(
+pub extern "C" fn lapacke_zgetrf2(
   matrix_layout : Int,
   m : Lapack_int,
   n : Lapack_int,
@@ -5284,7 +5284,7 @@ extern "C" fn lapacke_zgetrf2(
 /// );
 /// ```
 #borrow(a, ipiv)
-extern "C" fn lapacke_sgetri(
+pub extern "C" fn lapacke_sgetri(
   matrix_layout : Int,
   n : Lapack_int,
   a : FixedArray[Float],
@@ -5300,7 +5300,7 @@ extern "C" fn lapacke_sgetri(
 /// );
 /// ```
 #borrow(a, ipiv)
-extern "C" fn lapacke_dgetri(
+pub extern "C" fn lapacke_dgetri(
   matrix_layout : Int,
   n : Lapack_int,
   a : FixedArray[Double],
@@ -5316,7 +5316,7 @@ extern "C" fn lapacke_dgetri(
 /// );
 /// ```
 #borrow(a, ipiv)
-extern "C" fn lapacke_cgetri(
+pub extern "C" fn lapacke_cgetri(
   matrix_layout : Int,
   n : Lapack_int,
   a : FixedArray[Float],
@@ -5332,7 +5332,7 @@ extern "C" fn lapacke_cgetri(
 /// );
 /// ```
 #borrow(a, ipiv)
-extern "C" fn lapacke_zgetri(
+pub extern "C" fn lapacke_zgetri(
   matrix_layout : Int,
   n : Lapack_int,
   a : FixedArray[Double],
@@ -5349,7 +5349,7 @@ extern "C" fn lapacke_zgetri(
 /// );
 /// ```
 #borrow(a, ipiv, b)
-extern "C" fn lapacke_sgetrs(
+pub extern "C" fn lapacke_sgetrs(
   matrix_layout : Int,
   trans : Byte,
   n : Lapack_int,
@@ -5370,7 +5370,7 @@ extern "C" fn lapacke_sgetrs(
 /// );
 /// ```
 #borrow(a, ipiv, b)
-extern "C" fn lapacke_dgetrs(
+pub extern "C" fn lapacke_dgetrs(
   matrix_layout : Int,
   trans : Byte,
   n : Lapack_int,
@@ -5391,7 +5391,7 @@ extern "C" fn lapacke_dgetrs(
 /// );
 /// ```
 #borrow(a, ipiv, b)
-extern "C" fn lapacke_cgetrs(
+pub extern "C" fn lapacke_cgetrs(
   matrix_layout : Int,
   trans : Byte,
   n : Lapack_int,
@@ -5412,7 +5412,7 @@ extern "C" fn lapacke_cgetrs(
 /// );
 /// ```
 #borrow(a, ipiv, b)
-extern "C" fn lapacke_zgetrs(
+pub extern "C" fn lapacke_zgetrs(
   matrix_layout : Int,
   trans : Byte,
   n : Lapack_int,
@@ -5434,7 +5434,7 @@ extern "C" fn lapacke_zgetrs(
 /// );
 /// ```
 #borrow(lscale, rscale, v)
-extern "C" fn lapacke_sggbak(
+pub extern "C" fn lapacke_sggbak(
   matrix_layout : Int,
   job : Byte,
   side : Byte,
@@ -5458,7 +5458,7 @@ extern "C" fn lapacke_sggbak(
 /// );
 /// ```
 #borrow(lscale, rscale, v)
-extern "C" fn lapacke_dggbak(
+pub extern "C" fn lapacke_dggbak(
   matrix_layout : Int,
   job : Byte,
   side : Byte,
@@ -5482,7 +5482,7 @@ extern "C" fn lapacke_dggbak(
 /// );
 /// ```
 #borrow(lscale, rscale, v)
-extern "C" fn lapacke_cggbak(
+pub extern "C" fn lapacke_cggbak(
   matrix_layout : Int,
   job : Byte,
   side : Byte,
@@ -5506,7 +5506,7 @@ extern "C" fn lapacke_cggbak(
 /// );
 /// ```
 #borrow(lscale, rscale, v)
-extern "C" fn lapacke_zggbak(
+pub extern "C" fn lapacke_zggbak(
   matrix_layout : Int,
   job : Byte,
   side : Byte,
@@ -5530,7 +5530,7 @@ extern "C" fn lapacke_zggbak(
 /// );
 /// ```
 #borrow(a, b, ilo, ihi, lscale, rscale)
-extern "C" fn lapacke_sggbal(
+pub extern "C" fn lapacke_sggbal(
   matrix_layout : Int,
   job : Byte,
   n : Lapack_int,
@@ -5554,7 +5554,7 @@ extern "C" fn lapacke_sggbal(
 /// );
 /// ```
 #borrow(a, b, ilo, ihi, lscale, rscale)
-extern "C" fn lapacke_dggbal(
+pub extern "C" fn lapacke_dggbal(
   matrix_layout : Int,
   job : Byte,
   n : Lapack_int,
@@ -5578,7 +5578,7 @@ extern "C" fn lapacke_dggbal(
 /// );
 /// ```
 #borrow(a, b, ilo, ihi, lscale, rscale)
-extern "C" fn lapacke_cggbal(
+pub extern "C" fn lapacke_cggbal(
   matrix_layout : Int,
   job : Byte,
   n : Lapack_int,
@@ -5602,7 +5602,7 @@ extern "C" fn lapacke_cggbal(
 /// );
 /// ```
 #borrow(a, b, ilo, ihi, lscale, rscale)
-extern "C" fn lapacke_zggbal(
+pub extern "C" fn lapacke_zggbal(
   matrix_layout : Int,
   job : Byte,
   n : Lapack_int,
@@ -5628,7 +5628,7 @@ extern "C" fn lapacke_zggbal(
 /// );
 /// ```
 #borrow(a, b, sdim, alphar, alphai, beta, vsl, vsr)
-extern "C" fn lapacke_sgges(
+pub extern "C" fn lapacke_sgges(
   matrix_layout : Int,
   jobvsl : Byte,
   jobvsr : Byte,
@@ -5661,7 +5661,7 @@ extern "C" fn lapacke_sgges(
 /// );
 /// ```
 #borrow(a, b, sdim, alphar, alphai, beta, vsl, vsr)
-extern "C" fn lapacke_dgges(
+pub extern "C" fn lapacke_dgges(
   matrix_layout : Int,
   jobvsl : Byte,
   jobvsr : Byte,
@@ -5693,7 +5693,7 @@ extern "C" fn lapacke_dgges(
 /// );
 /// ```
 #borrow(a, b, sdim, alpha, beta, vsl, vsr)
-extern "C" fn lapacke_cgges(
+pub extern "C" fn lapacke_cgges(
   matrix_layout : Int,
   jobvsl : Byte,
   jobvsr : Byte,
@@ -5724,7 +5724,7 @@ extern "C" fn lapacke_cgges(
 /// );
 /// ```
 #borrow(a, b, sdim, alpha, beta, vsl, vsr)
-extern "C" fn lapacke_zgges(
+pub extern "C" fn lapacke_zgges(
   matrix_layout : Int,
   jobvsl : Byte,
   jobvsr : Byte,
@@ -5756,7 +5756,7 @@ extern "C" fn lapacke_zgges(
 /// );
 /// ```
 #borrow(a, b, sdim, alphar, alphai, beta, vsl, vsr)
-extern "C" fn lapacke_sgges3(
+pub extern "C" fn lapacke_sgges3(
   matrix_layout : Int,
   jobvsl : Byte,
   jobvsr : Byte,
@@ -5789,7 +5789,7 @@ extern "C" fn lapacke_sgges3(
 /// );
 /// ```
 #borrow(a, b, sdim, alphar, alphai, beta, vsl, vsr)
-extern "C" fn lapacke_dgges3(
+pub extern "C" fn lapacke_dgges3(
   matrix_layout : Int,
   jobvsl : Byte,
   jobvsr : Byte,
@@ -5821,7 +5821,7 @@ extern "C" fn lapacke_dgges3(
 /// );
 /// ```
 #borrow(a, b, sdim, alpha, beta, vsl, vsr)
-extern "C" fn lapacke_cgges3(
+pub extern "C" fn lapacke_cgges3(
   matrix_layout : Int,
   jobvsl : Byte,
   jobvsr : Byte,
@@ -5852,7 +5852,7 @@ extern "C" fn lapacke_cgges3(
 /// );
 /// ```
 #borrow(a, b, sdim, alpha, beta, vsl, vsr)
-extern "C" fn lapacke_zgges3(
+pub extern "C" fn lapacke_zgges3(
   matrix_layout : Int,
   jobvsl : Byte,
   jobvsr : Byte,
@@ -5884,7 +5884,7 @@ extern "C" fn lapacke_zgges3(
 /// );
 /// ```
 #borrow(a, b, sdim, alphar, alphai, beta, vsl, vsr, rconde, rcondv)
-extern "C" fn lapacke_sggesx(
+pub extern "C" fn lapacke_sggesx(
   matrix_layout : Int,
   jobvsl : Byte,
   jobvsr : Byte,
@@ -5920,7 +5920,7 @@ extern "C" fn lapacke_sggesx(
 /// );
 /// ```
 #borrow(a, b, sdim, alphar, alphai, beta, vsl, vsr, rconde, rcondv)
-extern "C" fn lapacke_dggesx(
+pub extern "C" fn lapacke_dggesx(
   matrix_layout : Int,
   jobvsl : Byte,
   jobvsr : Byte,
@@ -5956,7 +5956,7 @@ extern "C" fn lapacke_dggesx(
 /// );
 /// ```
 #borrow(a, b, sdim, alpha, beta, vsl, vsr, rconde, rcondv)
-extern "C" fn lapacke_cggesx(
+pub extern "C" fn lapacke_cggesx(
   matrix_layout : Int,
   jobvsl : Byte,
   jobvsr : Byte,
@@ -5991,7 +5991,7 @@ extern "C" fn lapacke_cggesx(
 /// );
 /// ```
 #borrow(a, b, sdim, alpha, beta, vsl, vsr, rconde, rcondv)
-extern "C" fn lapacke_zggesx(
+pub extern "C" fn lapacke_zggesx(
   matrix_layout : Int,
   jobvsl : Byte,
   jobvsr : Byte,
@@ -6025,7 +6025,7 @@ extern "C" fn lapacke_zggesx(
 /// );
 /// ```
 #borrow(a, b, alphar, alphai, beta, vl, vr)
-extern "C" fn lapacke_sggev(
+pub extern "C" fn lapacke_sggev(
   matrix_layout : Int,
   jobvl : Byte,
   jobvr : Byte,
@@ -6054,7 +6054,7 @@ extern "C" fn lapacke_sggev(
 /// );
 /// ```
 #borrow(a, b, alphar, alphai, beta, vl, vr)
-extern "C" fn lapacke_dggev(
+pub extern "C" fn lapacke_dggev(
   matrix_layout : Int,
   jobvl : Byte,
   jobvr : Byte,
@@ -6083,7 +6083,7 @@ extern "C" fn lapacke_dggev(
 /// );
 /// ```
 #borrow(a, b, alpha, beta, vl, vr)
-extern "C" fn lapacke_cggev(
+pub extern "C" fn lapacke_cggev(
   matrix_layout : Int,
   jobvl : Byte,
   jobvr : Byte,
@@ -6111,7 +6111,7 @@ extern "C" fn lapacke_cggev(
 /// );
 /// ```
 #borrow(a, b, alpha, beta, vl, vr)
-extern "C" fn lapacke_zggev(
+pub extern "C" fn lapacke_zggev(
   matrix_layout : Int,
   jobvl : Byte,
   jobvr : Byte,
@@ -6139,7 +6139,7 @@ extern "C" fn lapacke_zggev(
 /// );
 /// ```
 #borrow(a, b, alphar, alphai, beta, vl, vr)
-extern "C" fn lapacke_sggev3(
+pub extern "C" fn lapacke_sggev3(
   matrix_layout : Int,
   jobvl : Byte,
   jobvr : Byte,
@@ -6168,7 +6168,7 @@ extern "C" fn lapacke_sggev3(
 /// );
 /// ```
 #borrow(a, b, alphar, alphai, beta, vl, vr)
-extern "C" fn lapacke_dggev3(
+pub extern "C" fn lapacke_dggev3(
   matrix_layout : Int,
   jobvl : Byte,
   jobvr : Byte,
@@ -6197,7 +6197,7 @@ extern "C" fn lapacke_dggev3(
 /// );
 /// ```
 #borrow(a, b, alpha, beta, vl, vr)
-extern "C" fn lapacke_cggev3(
+pub extern "C" fn lapacke_cggev3(
   matrix_layout : Int,
   jobvl : Byte,
   jobvr : Byte,
@@ -6225,7 +6225,7 @@ extern "C" fn lapacke_cggev3(
 /// );
 /// ```
 #borrow(a, b, alpha, beta, vl, vr)
-extern "C" fn lapacke_zggev3(
+pub extern "C" fn lapacke_zggev3(
   matrix_layout : Int,
   jobvl : Byte,
   jobvr : Byte,
@@ -6255,7 +6255,7 @@ extern "C" fn lapacke_zggev3(
 /// );
 /// ```
 #borrow(a, b, alphar, alphai, beta, vl, vr, ilo, ihi, lscale, rscale, abnrm, bbnrm, rconde, rcondv)
-extern "C" fn lapacke_sggevx(
+pub extern "C" fn lapacke_sggevx(
   matrix_layout : Int,
   balanc : Byte,
   jobvl : Byte,
@@ -6296,7 +6296,7 @@ extern "C" fn lapacke_sggevx(
 /// );
 /// ```
 #borrow(a, b, alphar, alphai, beta, vl, vr, ilo, ihi, lscale, rscale, abnrm, bbnrm, rconde, rcondv)
-extern "C" fn lapacke_dggevx(
+pub extern "C" fn lapacke_dggevx(
   matrix_layout : Int,
   balanc : Byte,
   jobvl : Byte,
@@ -6337,7 +6337,7 @@ extern "C" fn lapacke_dggevx(
 /// );
 /// ```
 #borrow(a, b, alpha, beta, vl, vr, ilo, ihi, lscale, rscale, abnrm, bbnrm, rconde, rcondv)
-extern "C" fn lapacke_cggevx(
+pub extern "C" fn lapacke_cggevx(
   matrix_layout : Int,
   balanc : Byte,
   jobvl : Byte,
@@ -6377,7 +6377,7 @@ extern "C" fn lapacke_cggevx(
 /// );
 /// ```
 #borrow(a, b, alpha, beta, vl, vr, ilo, ihi, lscale, rscale, abnrm, bbnrm, rconde, rcondv)
-extern "C" fn lapacke_zggevx(
+pub extern "C" fn lapacke_zggevx(
   matrix_layout : Int,
   balanc : Byte,
   jobvl : Byte,
@@ -6414,7 +6414,7 @@ extern "C" fn lapacke_zggevx(
 /// );
 /// ```
 #borrow(a, b, d, x, y)
-extern "C" fn lapacke_sggglm(
+pub extern "C" fn lapacke_sggglm(
   matrix_layout : Int,
   n : Lapack_int,
   m : Lapack_int,
@@ -6438,7 +6438,7 @@ extern "C" fn lapacke_sggglm(
 /// );
 /// ```
 #borrow(a, b, d, x, y)
-extern "C" fn lapacke_dggglm(
+pub extern "C" fn lapacke_dggglm(
   matrix_layout : Int,
   n : Lapack_int,
   m : Lapack_int,
@@ -6462,7 +6462,7 @@ extern "C" fn lapacke_dggglm(
 /// );
 /// ```
 #borrow(a, b, d, x, y)
-extern "C" fn lapacke_cggglm(
+pub extern "C" fn lapacke_cggglm(
   matrix_layout : Int,
   n : Lapack_int,
   m : Lapack_int,
@@ -6486,7 +6486,7 @@ extern "C" fn lapacke_cggglm(
 /// );
 /// ```
 #borrow(a, b, d, x, y)
-extern "C" fn lapacke_zggglm(
+pub extern "C" fn lapacke_zggglm(
   matrix_layout : Int,
   n : Lapack_int,
   m : Lapack_int,
@@ -6511,7 +6511,7 @@ extern "C" fn lapacke_zggglm(
 /// );
 /// ```
 #borrow(a, b, q, z)
-extern "C" fn lapacke_sgghrd(
+pub extern "C" fn lapacke_sgghrd(
   matrix_layout : Int,
   compq : Byte,
   compz : Byte,
@@ -6539,7 +6539,7 @@ extern "C" fn lapacke_sgghrd(
 /// );
 /// ```
 #borrow(a, b, q, z)
-extern "C" fn lapacke_dgghrd(
+pub extern "C" fn lapacke_dgghrd(
   matrix_layout : Int,
   compq : Byte,
   compz : Byte,
@@ -6567,7 +6567,7 @@ extern "C" fn lapacke_dgghrd(
 /// );
 /// ```
 #borrow(a, b, q, z)
-extern "C" fn lapacke_cgghrd(
+pub extern "C" fn lapacke_cgghrd(
   matrix_layout : Int,
   compq : Byte,
   compz : Byte,
@@ -6595,7 +6595,7 @@ extern "C" fn lapacke_cgghrd(
 /// );
 /// ```
 #borrow(a, b, q, z)
-extern "C" fn lapacke_zgghrd(
+pub extern "C" fn lapacke_zgghrd(
   matrix_layout : Int,
   compq : Byte,
   compz : Byte,
@@ -6623,7 +6623,7 @@ extern "C" fn lapacke_zgghrd(
 /// );
 /// ```
 #borrow(a, b, q, z)
-extern "C" fn lapacke_sgghd3(
+pub extern "C" fn lapacke_sgghd3(
   matrix_layout : Int,
   compq : Byte,
   compz : Byte,
@@ -6651,7 +6651,7 @@ extern "C" fn lapacke_sgghd3(
 /// );
 /// ```
 #borrow(a, b, q, z)
-extern "C" fn lapacke_dgghd3(
+pub extern "C" fn lapacke_dgghd3(
   matrix_layout : Int,
   compq : Byte,
   compz : Byte,
@@ -6679,7 +6679,7 @@ extern "C" fn lapacke_dgghd3(
 /// );
 /// ```
 #borrow(a, b, q, z)
-extern "C" fn lapacke_cgghd3(
+pub extern "C" fn lapacke_cgghd3(
   matrix_layout : Int,
   compq : Byte,
   compz : Byte,
