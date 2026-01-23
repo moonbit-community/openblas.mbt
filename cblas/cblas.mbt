@@ -225,12 +225,6 @@ pub(all) enum CBLAS_SIDE {
 ///|
 ///
 /// ```c
-/// typedef CBLAS_ORDER CBLAS_LAYOUT;
-/// ```
-
-///|
-///
-/// ```c
 /// float cblas_sdsdot(const blasint n, const float alpha, const float *x, const blasint incx, const float *y, const blasint incy);
 /// ```
 #borrow(x, y)
