@@ -2497,6 +2497,7 @@ extern "C" fn lapacke_zherfs(
 /// );
 /// ```
 #borrow(a, af, ipiv, s, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_cherfsx(
   matrix_layout : Int,
   uplo : Byte,
@@ -2535,6 +2536,7 @@ extern "C" fn lapacke_cherfsx(
 /// );
 /// ```
 #borrow(a, af, ipiv, s, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_zherfsx(
   matrix_layout : Int,
   uplo : Byte,
@@ -2677,6 +2679,7 @@ extern "C" fn lapacke_zhesvx(
 /// );
 /// ```
 #borrow(a, af, ipiv, equed, s, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_chesvxx(
   matrix_layout : Int,
   fact : Byte,
@@ -2717,6 +2720,7 @@ extern "C" fn lapacke_chesvxx(
 /// );
 /// ```
 #borrow(a, af, ipiv, equed, s, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_zhesvxx(
   matrix_layout : Int,
   fact : Byte,
