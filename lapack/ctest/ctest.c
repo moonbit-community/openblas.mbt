@@ -264,6 +264,20 @@ int main() {
     failed += test_lapacke_dgetrf();
     failed += test_lapacke_dgeqrf();
     failed += test_lapacke_dgesvd();
+    failed += test_lapacke_zgghd3();
+    failed += test_lapacke_sgglse();
+    failed += test_lapacke_dgglse();
+    failed += test_lapacke_cgglse();
+    failed += test_lapacke_zgglse();
+    failed += test_lapacke_chgeqz();
+    failed += test_lapacke_zhgeqz();
+    failed += test_lapacke_shsein();
+    failed += test_lapacke_dhsein();
+    failed += test_lapacke_chsein();
+    failed += test_lapacke_zhsein();
+    failed += test_lapacke_chseqr();
+    failed += test_lapacke_zhseqr();
+    failed += test_lapacke_sorgtsqr_row();
 
     if (failed > 0) {
         printf("%d tests failed.\n", failed);

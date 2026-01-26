@@ -14,7 +14,7 @@ LDFLAGS = -L$(OPENBLAS_PATH)/lib -lopenblas
 TARGET = ctest
 
 # Source files
-SOURCES = ctest.c test_basic.c test_lapacke1.c
+SOURCES = ctest.c test_basic.c test_lapacke1.c test_lapacke2.c
 OBJECTS = $(SOURCES:.c=.o)
 
 all: $(TARGET)

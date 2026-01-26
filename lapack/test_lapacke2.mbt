@@ -639,6 +639,84 @@ test "test_lapacke2_gg" {
     1,
   )
   assert_eq(info_zggsvp3, 0)
+
+  let info_sgglse = lapacke_sgglse(
+    e2_lapack_col_major,
+    0,
+    0,
+    0,
+    e2_float_buf,
+    1,
+    e2_float_buf2,
+    1,
+    e2_float_buf,
+    e2_float_buf2,
+    e2_float_buf,
+  )
+  assert_eq(info_sgglse, 0)
+
+  let info_dgglse = lapacke_dgglse(
+    e2_lapack_col_major,
+    0,
+    0,
+    0,
+    e2_double_buf,
+    1,
+    e2_double_buf2,
+    1,
+    e2_double_buf,
+    e2_double_buf2,
+    e2_double_buf,
+  )
+  assert_eq(info_dgglse, 0)
+
+  let info_cgglse = lapacke_cgglse(
+    e2_lapack_col_major,
+    0,
+    0,
+    0,
+    e2_complex_float_buf,
+    1,
+    e2_complex_float_buf2,
+    1,
+    e2_complex_float_buf,
+    e2_complex_float_buf2,
+    e2_complex_float_buf,
+  )
+  assert_eq(info_cgglse, 0)
+
+  let info_zgglse = lapacke_zgglse(
+    e2_lapack_col_major,
+    0,
+    0,
+    0,
+    e2_complex_double_buf,
+    1,
+    e2_complex_double_buf2,
+    1,
+    e2_complex_double_buf,
+    e2_complex_double_buf2,
+    e2_complex_double_buf,
+  )
+  assert_eq(info_zgglse, 0)
+
+  let info_zgghd3 = lapacke_zgghd3(
+    e2_lapack_col_major,
+    'N'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    1,
+    1,
+    1,
+    e2_complex_double_buf,
+    1,
+    e2_complex_double_buf2,
+    1,
+    e2_complex_double_buf,
+    1,
+    e2_complex_double_buf2,
+    1,
+  )
+  assert_eq(info_zgghd3, 0)
 }
 
 ///|
@@ -2311,6 +2389,48 @@ test "test_lapacke2_hq_and_la" {
   )
   assert_eq(info_dhgeqz, 0)
 
+  let info_chgeqz = lapacke_chgeqz(
+    e2_lapack_col_major,
+    'E'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    1,
+    1,
+    1,
+    e2_complex_float_buf,
+    1,
+    e2_complex_float_buf2,
+    0,
+    e2_complex_float_buf,
+    e2_complex_float_buf2,
+    e2_complex_float_buf,
+    1,
+    e2_complex_float_buf2,
+    1,
+  )
+  assert_eq(info_chgeqz, -8)
+
+  let info_zhgeqz = lapacke_zhgeqz(
+    e2_lapack_col_major,
+    'E'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    1,
+    1,
+    1,
+    e2_complex_double_buf,
+    1,
+    e2_complex_double_buf2,
+    0,
+    e2_complex_double_buf,
+    e2_complex_double_buf2,
+    e2_complex_double_buf,
+    1,
+    e2_complex_double_buf2,
+    1,
+  )
+  assert_eq(info_zhgeqz, -8)
+
   let info_shseqr = lapacke_shseqr(
     e2_lapack_col_major,
     'E'.to_int().to_byte(),
@@ -2342,6 +2462,122 @@ test "test_lapacke2_hq_and_la" {
     1,
   )
   assert_eq(info_dhseqr, 0)
+
+  let info_chseqr = lapacke_chseqr(
+    e2_lapack_col_major,
+    'E'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    1,
+    1,
+    1,
+    e2_complex_float_buf,
+    1,
+    e2_complex_float_buf2,
+    e2_complex_float_buf,
+    1,
+  )
+  assert_eq(info_chseqr, -7)
+
+  let info_zhseqr = lapacke_zhseqr(
+    e2_lapack_col_major,
+    'E'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    1,
+    1,
+    1,
+    e2_complex_double_buf,
+    1,
+    e2_complex_double_buf2,
+    e2_complex_double_buf,
+    1,
+  )
+  assert_eq(info_zhseqr, -7)
+
+  let info_shsein = lapacke_shsein(
+    e2_lapack_col_major,
+    'N'.to_int().to_byte(),
+    'Q'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    0,
+    0,
+    e2_float_buf,
+    1,
+    e2_float_buf,
+    e2_float_buf2,
+    e2_float_buf,
+    1,
+    e2_float_buf2,
+    1,
+    0,
+    e2_int_buf,
+    e2_int_buf2,
+    e2_int_buf2,
+  )
+  assert_eq(info_shsein, -2)
+
+  let info_dhsein = lapacke_dhsein(
+    e2_lapack_col_major,
+    'N'.to_int().to_byte(),
+    'Q'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    0,
+    0,
+    e2_double_buf,
+    1,
+    e2_double_buf,
+    e2_double_buf2,
+    e2_double_buf,
+    1,
+    e2_double_buf2,
+    1,
+    0,
+    e2_int_buf,
+    e2_int_buf2,
+    e2_int_buf2,
+  )
+  assert_eq(info_dhsein, -2)
+
+  let info_chsein = lapacke_chsein(
+    e2_lapack_col_major,
+    'N'.to_int().to_byte(),
+    'Q'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    0,
+    0,
+    e2_complex_float_buf,
+    1,
+    e2_complex_float_buf2,
+    e2_complex_float_buf,
+    1,
+    e2_complex_float_buf2,
+    1,
+    0,
+    e2_int_buf,
+    e2_int_buf2,
+    e2_int_buf2,
+  )
+  assert_eq(info_chsein, -2)
+
+  let info_zhsein = lapacke_zhsein(
+    e2_lapack_col_major,
+    'N'.to_int().to_byte(),
+    'Q'.to_int().to_byte(),
+    'N'.to_int().to_byte(),
+    0,
+    0,
+    e2_complex_double_buf,
+    1,
+    e2_complex_double_buf2,
+    e2_complex_double_buf,
+    1,
+    e2_complex_double_buf2,
+    1,
+    0,
+    e2_int_buf,
+    e2_int_buf2,
+    e2_int_buf2,
+  )
+  assert_eq(info_zhsein, -2)
 
   let info_clacgv = lapacke_clacgv(0, e2_complex_float_buf, 1)
   assert_eq(info_clacgv, 0)
@@ -3523,4 +3759,16 @@ test "test_lapacke2_hq_and_la" {
   )
   assert_eq(info_dorgtr, 0)
 
+  let info_sorgtsqr_row = lapacke_sorgtsqr_row(
+    e2_lapack_col_major,
+    1,
+    1,
+    1,
+    1,
+    e2_float_buf,
+    1,
+    e2_float_buf2,
+    1,
+  )
+  assert_eq(info_sorgtsqr_row, -4)
 }
