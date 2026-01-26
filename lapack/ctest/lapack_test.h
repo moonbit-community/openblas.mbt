@@ -198,6 +198,7 @@ int test_lapacke_sgetrf2();
 int test_lapacke_dgetrf2();
 int test_lapacke_cgetrf2();
 int test_lapacke_zgetrf2();
+int test_lapacke3_smoke();
 int test_lapacke_sgetri();
 int test_lapacke_dgetri();
 int test_lapacke_cgetri();

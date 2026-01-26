@@ -1697,6 +1697,7 @@ extern "C" fn lapacke_zporfs(
 /// );
 /// ```
 #borrow(a, af, s, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_sporfsx(
   matrix_layout : Int,
   uplo : Byte,
@@ -1733,6 +1734,7 @@ extern "C" fn lapacke_sporfsx(
 /// );
 /// ```
 #borrow(a, af, s, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_dporfsx(
   matrix_layout : Int,
   uplo : Byte,
@@ -1769,6 +1771,7 @@ extern "C" fn lapacke_dporfsx(
 /// );
 /// ```
 #borrow(a, af, s, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_cporfsx(
   matrix_layout : Int,
   uplo : Byte,
@@ -1805,6 +1808,7 @@ extern "C" fn lapacke_cporfsx(
 /// );
 /// ```
 #borrow(a, af, s, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_zporfsx(
   matrix_layout : Int,
   uplo : Byte,
@@ -2102,6 +2106,7 @@ extern "C" fn lapacke_zposvx(
 /// );
 /// ```
 #borrow(a, af, equed, s, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_sposvxx(
   matrix_layout : Int,
   fact : Byte,
@@ -2141,6 +2146,7 @@ extern "C" fn lapacke_sposvxx(
 /// );
 /// ```
 #borrow(a, af, equed, s, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_dposvxx(
   matrix_layout : Int,
   fact : Byte,
@@ -2180,6 +2186,7 @@ extern "C" fn lapacke_dposvxx(
 /// );
 /// ```
 #borrow(a, af, equed, s, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_cposvxx(
   matrix_layout : Int,
   fact : Byte,
@@ -2219,6 +2226,7 @@ extern "C" fn lapacke_cposvxx(
 /// );
 /// ```
 #borrow(a, af, equed, s, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params)
+/// Note: LAPACKE symbol is missing in this OpenBLAS build; test skipped.
 extern "C" fn lapacke_zposvxx(
   matrix_layout : Int,
   fact : Byte,

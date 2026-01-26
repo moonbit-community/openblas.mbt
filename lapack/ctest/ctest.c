@@ -278,6 +278,7 @@ int main() {
     failed += test_lapacke_chseqr();
     failed += test_lapacke_zhseqr();
     failed += test_lapacke_sorgtsqr_row();
+    failed += test_lapacke3_smoke();
 
     if (failed > 0) {
         printf("%d tests failed.\n", failed);
