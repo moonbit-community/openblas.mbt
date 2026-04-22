@@ -680,105 +680,207 @@ pub fn lapacke_clauum(Int, Byte, Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_clauum_work(Int, Byte, Int, FixedArray[Float], Int) -> Int
 
+pub fn lapacke_cpbcon(Int, Byte, Int, Int, FixedArray[Float], Int, Float, FixedArray[Float]) -> Int
+
 pub fn lapacke_cpbcon_work(Int, Byte, Int, Int, FixedArray[Float], Int, Float, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
+
+pub fn lapacke_cpbequ(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_cpbequ_work(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
+pub fn lapacke_cpbrfs(Int, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
+
 pub fn lapacke_cpbrfs_work(Int, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
+
+pub fn lapacke_cpbstf(Int, Byte, Int, Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_cpbstf_work(Int, Byte, Int, Int, FixedArray[Float], Int) -> Int
 
+pub fn lapacke_cpbsv(Int, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
+
 pub fn lapacke_cpbsv_work(Int, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
+
+pub fn lapacke_cpbsvx(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Byte], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_cpbsvx_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Byte], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
+pub fn lapacke_cpbtrf(Int, Byte, Int, Int, FixedArray[Float], Int) -> Int
+
 pub fn lapacke_cpbtrf_work(Int, Byte, Int, Int, FixedArray[Float], Int) -> Int
+
+pub fn lapacke_cpbtrs(Int, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_cpbtrs_work(Int, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
+pub fn lapacke_cpftrf(Int, Byte, Byte, Int, FixedArray[Float]) -> Int
+
 pub fn lapacke_cpftrf_work(Int, Byte, Byte, Int, FixedArray[Float]) -> Int
+
+pub fn lapacke_cpftri(Int, Byte, Byte, Int, FixedArray[Float]) -> Int
 
 pub fn lapacke_cpftri_work(Int, Byte, Byte, Int, FixedArray[Float]) -> Int
 
+pub fn lapacke_cpftrs(Int, Byte, Byte, Int, Int, FixedArray[Float], FixedArray[Float], Int) -> Int
+
 pub fn lapacke_cpftrs_work(Int, Byte, Byte, Int, Int, FixedArray[Float], FixedArray[Float], Int) -> Int
+
+pub fn lapacke_cpocon(Int, Byte, Int, FixedArray[Float], Int, Float, FixedArray[Float]) -> Int
 
 pub fn lapacke_cpocon_work(Int, Byte, Int, FixedArray[Float], Int, Float, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
+pub fn lapacke_cpoequ(Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
+
 pub fn lapacke_cpoequ_work(Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
+
+pub fn lapacke_cpoequb(Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_cpoequb_work(Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
+pub fn lapacke_cporfs(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
+
 pub fn lapacke_cporfs_work(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
+
+pub fn lapacke_cporfsx(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
 
 pub fn lapacke_cporfsx_work(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
+pub fn lapacke_cposv(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
+
 pub fn lapacke_cposv_work(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
+
+pub fn lapacke_cposvx(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Byte], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_cposvx_work(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Byte], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
+pub fn lapacke_cposvxx(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Byte], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
+
 pub fn lapacke_cposvxx_work(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Byte], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
+
+pub fn lapacke_cpotrf(Int, Byte, Int, FixedArray[Float], Int) -> Int
+
+pub fn lapacke_cpotrf2(Int, Byte, Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_cpotrf2_work(Int, Byte, Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_cpotrf_work(Int, Byte, Int, FixedArray[Float], Int) -> Int
 
+pub fn lapacke_cpotri(Int, Byte, Int, FixedArray[Float], Int) -> Int
+
 pub fn lapacke_cpotri_work(Int, Byte, Int, FixedArray[Float], Int) -> Int
+
+pub fn lapacke_cpotrs(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_cpotrs_work(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
+pub fn lapacke_cppcon(Int, Byte, Int, FixedArray[Float], Float, FixedArray[Float]) -> Int
+
 pub fn lapacke_cppcon_work(Int, Byte, Int, FixedArray[Float], Float, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
+
+pub fn lapacke_cppequ(Int, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_cppequ_work(Int, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
+pub fn lapacke_cpprfs(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
+
 pub fn lapacke_cpprfs_work(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
+
+pub fn lapacke_cppsv(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_cppsv_work(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], Int) -> Int
 
+pub fn lapacke_cppsvx(Int, Byte, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Byte], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
+
 pub fn lapacke_cppsvx_work(Int, Byte, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Byte], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
+
+pub fn lapacke_cpptrf(Int, Byte, Int, FixedArray[Float]) -> Int
 
 pub fn lapacke_cpptrf_work(Int, Byte, Int, FixedArray[Float]) -> Int
 
+pub fn lapacke_cpptri(Int, Byte, Int, FixedArray[Float]) -> Int
+
 pub fn lapacke_cpptri_work(Int, Byte, Int, FixedArray[Float]) -> Int
+
+pub fn lapacke_cpptrs(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_cpptrs_work(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], Int) -> Int
 
+pub fn lapacke_cpstrf(Int, Byte, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], Float) -> Int
+
 pub fn lapacke_cpstrf_work(Int, Byte, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], Float, FixedArray[Float]) -> Int
+
+pub fn lapacke_cptcon(Int, FixedArray[Float], FixedArray[Float], Float, FixedArray[Float]) -> Int
 
 pub fn lapacke_cptcon_work(Int, FixedArray[Float], FixedArray[Float], Float, FixedArray[Float], FixedArray[Float]) -> Int
 
+pub fn lapacke_cpteqr(Int, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
+
 pub fn lapacke_cpteqr_work(Int, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
+
+pub fn lapacke_cptrfs(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_cptrfs_work(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
+pub fn lapacke_cptsv(Int, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
+
 pub fn lapacke_cptsv_work(Int, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
+
+pub fn lapacke_cptsvx(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_cptsvx_work(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
+pub fn lapacke_cpttrf(Int, FixedArray[Float], FixedArray[Float]) -> Int
+
 pub fn lapacke_cpttrf_work(Int, FixedArray[Float], FixedArray[Float]) -> Int
+
+pub fn lapacke_cpttrs(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_cpttrs_work(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
 
+pub fn lapacke_cspcon(Int, Byte, Int, FixedArray[Float], FixedArray[Int], Float, FixedArray[Float]) -> Int
+
 pub fn lapacke_cspcon_work(Int, Byte, Int, FixedArray[Float], FixedArray[Int], Float, FixedArray[Float], FixedArray[Float]) -> Int
+
+pub fn lapacke_csprfs(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Int], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_csprfs_work(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Int], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
+pub fn lapacke_cspsv(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Int], FixedArray[Float], Int) -> Int
+
 pub fn lapacke_cspsv_work(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Int], FixedArray[Float], Int) -> Int
+
+pub fn lapacke_cspsvx(Int, Byte, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Int], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_cspsvx_work(Int, Byte, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Int], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
+pub fn lapacke_csptrf(Int, Byte, Int, FixedArray[Float], FixedArray[Int]) -> Int
+
 pub fn lapacke_csptrf_work(Int, Byte, Int, FixedArray[Float], FixedArray[Int]) -> Int
+
+pub fn lapacke_csptri(Int, Byte, Int, FixedArray[Float], FixedArray[Int]) -> Int
 
 pub fn lapacke_csptri_work(Int, Byte, Int, FixedArray[Float], FixedArray[Int], FixedArray[Float]) -> Int
 
+pub fn lapacke_csptrs(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Int], FixedArray[Float], Int) -> Int
+
 pub fn lapacke_csptrs_work(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Int], FixedArray[Float], Int) -> Int
+
+pub fn lapacke_cstedc(Int, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_cstedc_work(Int, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], Int) -> Int
 
+pub fn lapacke_cstegr(Int, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], Float, Float, Int, Int, Float, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Int]) -> Int
+
 pub fn lapacke_cstegr_work(Int, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], Float, Float, Int, Int, Float, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int, FixedArray[Int], Int) -> Int
+
+pub fn lapacke_cstein(Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Int], FixedArray[Int], FixedArray[Float], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_cstein_work(Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Int], FixedArray[Int], FixedArray[Float], Int, FixedArray[Float], FixedArray[Int], FixedArray[Int]) -> Int
 
+pub fn lapacke_cstemr(Int, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], Float, Float, Int, Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, Int, FixedArray[Int], Int) -> Int
+
 pub fn lapacke_cstemr_work(Int, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], Float, Float, Int, Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, Int, FixedArray[Int], Int, FixedArray[Float], Int, FixedArray[Int], Int) -> Int
+
+pub fn lapacke_csteqr(Int, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_csteqr_work(Int, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
 
@@ -1622,117 +1724,231 @@ pub fn lapacke_dorgtr(Int, Byte, Int, FixedArray[Double], Int, FixedArray[Double
 
 pub fn lapacke_dorgtr_work(Int, Byte, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
+pub fn lapacke_dorgtsqr_row(Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
+
 pub fn lapacke_dorgtsqr_row_work(Int, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
+
+pub fn lapacke_dormbr(Int, Byte, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dormbr_work(Int, Byte, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
+pub fn lapacke_dormhr(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
+
 pub fn lapacke_dormhr_work(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
+
+pub fn lapacke_dormlq(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dormlq_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
+pub fn lapacke_dormql(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
+
 pub fn lapacke_dormql_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
+
+pub fn lapacke_dormqr(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dormqr_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
+pub fn lapacke_dormrq(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
+
 pub fn lapacke_dormrq_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
+
+pub fn lapacke_dormrz(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dormrz_work(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
+pub fn lapacke_dormtr(Int, Byte, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
+
 pub fn lapacke_dormtr_work(Int, Byte, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int) -> Int
+
+pub fn lapacke_dpbcon(Int, Byte, Int, Int, FixedArray[Double], Int, Double, FixedArray[Double]) -> Int
 
 pub fn lapacke_dpbcon_work(Int, Byte, Int, Int, FixedArray[Double], Int, Double, FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
 
+pub fn lapacke_dpbequ(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
+
 pub fn lapacke_dpbequ_work(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
+
+pub fn lapacke_dpbrfs(Int, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_dpbrfs_work(Int, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
 
+pub fn lapacke_dpbstf(Int, Byte, Int, Int, FixedArray[Double], Int) -> Int
+
 pub fn lapacke_dpbstf_work(Int, Byte, Int, Int, FixedArray[Double], Int) -> Int
+
+pub fn lapacke_dpbsv(Int, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dpbsv_work(Int, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
+pub fn lapacke_dpbsvx(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Byte], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
+
 pub fn lapacke_dpbsvx_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Byte], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
+
+pub fn lapacke_dpbtrf(Int, Byte, Int, Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dpbtrf_work(Int, Byte, Int, Int, FixedArray[Double], Int) -> Int
 
+pub fn lapacke_dpbtrs(Int, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
+
 pub fn lapacke_dpbtrs_work(Int, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
+
+pub fn lapacke_dpftrf(Int, Byte, Byte, Int, FixedArray[Double]) -> Int
 
 pub fn lapacke_dpftrf_work(Int, Byte, Byte, Int, FixedArray[Double]) -> Int
 
+pub fn lapacke_dpftri(Int, Byte, Byte, Int, FixedArray[Double]) -> Int
+
 pub fn lapacke_dpftri_work(Int, Byte, Byte, Int, FixedArray[Double]) -> Int
+
+pub fn lapacke_dpftrs(Int, Byte, Byte, Int, Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dpftrs_work(Int, Byte, Byte, Int, Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
+pub fn lapacke_dpocon(Int, Byte, Int, FixedArray[Double], Int, Double, FixedArray[Double]) -> Int
+
 pub fn lapacke_dpocon_work(Int, Byte, Int, FixedArray[Double], Int, Double, FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
+
+pub fn lapacke_dpoequ(Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_dpoequ_work(Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
+pub fn lapacke_dpoequb(Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
+
 pub fn lapacke_dpoequb_work(Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
+
+pub fn lapacke_dporfs(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_dporfs_work(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
 
+pub fn lapacke_dporfsx(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
+
 pub fn lapacke_dporfsx_work(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
+
+pub fn lapacke_dposv(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dposv_work(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
+pub fn lapacke_dposvx(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Byte], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
+
 pub fn lapacke_dposvx_work(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Byte], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
 
+pub fn lapacke_dposvxx(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Byte], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
+
 pub fn lapacke_dposvxx_work(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Byte], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
+
+pub fn lapacke_dpotrf(Int, Byte, Int, FixedArray[Double], Int) -> Int
+
+pub fn lapacke_dpotrf2(Int, Byte, Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dpotrf2_work(Int, Byte, Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dpotrf_work(Int, Byte, Int, FixedArray[Double], Int) -> Int
 
+pub fn lapacke_dpotri(Int, Byte, Int, FixedArray[Double], Int) -> Int
+
 pub fn lapacke_dpotri_work(Int, Byte, Int, FixedArray[Double], Int) -> Int
+
+pub fn lapacke_dpotrs(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dpotrs_work(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
+pub fn lapacke_dppcon(Int, Byte, Int, FixedArray[Double], Double, FixedArray[Double]) -> Int
+
 pub fn lapacke_dppcon_work(Int, Byte, Int, FixedArray[Double], Double, FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
+
+pub fn lapacke_dppequ(Int, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_dppequ_work(Int, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
+pub fn lapacke_dpprfs(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
+
 pub fn lapacke_dpprfs_work(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
+
+pub fn lapacke_dppsv(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dppsv_work(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
+pub fn lapacke_dppsvx(Int, Byte, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Byte], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
+
 pub fn lapacke_dppsvx_work(Int, Byte, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Byte], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
+
+pub fn lapacke_dpptrf(Int, Byte, Int, FixedArray[Double]) -> Int
 
 pub fn lapacke_dpptrf_work(Int, Byte, Int, FixedArray[Double]) -> Int
 
+pub fn lapacke_dpptri(Int, Byte, Int, FixedArray[Double]) -> Int
+
 pub fn lapacke_dpptri_work(Int, Byte, Int, FixedArray[Double]) -> Int
+
+pub fn lapacke_dpptrs(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dpptrs_work(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
+pub fn lapacke_dpstrf(Int, Byte, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], Double) -> Int
+
 pub fn lapacke_dpstrf_work(Int, Byte, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], Double, FixedArray[Double]) -> Int
+
+pub fn lapacke_dptcon(Int, FixedArray[Double], FixedArray[Double], Double, FixedArray[Double]) -> Int
 
 pub fn lapacke_dptcon_work(Int, FixedArray[Double], FixedArray[Double], Double, FixedArray[Double], FixedArray[Double]) -> Int
 
+pub fn lapacke_dpteqr(Int, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
+
 pub fn lapacke_dpteqr_work(Int, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
+
+pub fn lapacke_dptrfs(Int, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_dptrfs_work(Int, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
+pub fn lapacke_dptsv(Int, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
+
 pub fn lapacke_dptsv_work(Int, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
+
+pub fn lapacke_dptsvx(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_dptsvx_work(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
+pub fn lapacke_dpttrf(Int, FixedArray[Double], FixedArray[Double]) -> Int
+
 pub fn lapacke_dpttrf_work(Int, FixedArray[Double], FixedArray[Double]) -> Int
+
+pub fn lapacke_dpttrs(Int, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dpttrs_work(Int, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
 
+pub fn lapacke_dsbev(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
+
 pub fn lapacke_dsbev_work(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
+
+pub fn lapacke_dsbevd(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dsbevd_work(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], Int) -> Int
 
+pub fn lapacke_dsbevx(Int, Byte, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, Double, Double, Int, Int, Double, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Int]) -> Int
+
 pub fn lapacke_dsbevx_work(Int, Byte, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, Double, Double, Int, Int, Double, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Int], FixedArray[Int]) -> Int
+
+pub fn lapacke_dsbgst(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dsbgst_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double]) -> Int
 
+pub fn lapacke_dsbgv(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
+
 pub fn lapacke_dsbgv_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
+
+pub fn lapacke_dsbgvd(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dsbgvd_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], Int) -> Int
 
+pub fn lapacke_dsbgvx(Int, Byte, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, Double, Double, Int, Int, Double, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Int]) -> Int
+
 pub fn lapacke_dsbgvx_work(Int, Byte, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, Double, Double, Int, Int, Double, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Int], FixedArray[Int]) -> Int
 
+pub fn lapacke_dsbtrd(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
+
 pub fn lapacke_dsbtrd_work(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
+
+pub fn lapacke_dsfrk(Int, Byte, Byte, Byte, Int, Int, Double, FixedArray[Double], Int, Double, FixedArray[Double]) -> Int
 
 pub fn lapacke_dsfrk_work(Int, Byte, Byte, Byte, Int, Int, Double, FixedArray[Double], Int, Double, FixedArray[Double]) -> Int
 
@@ -1740,47 +1956,91 @@ pub fn lapacke_dsgesv(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], F
 
 pub fn lapacke_dsgesv_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Float], FixedArray[Int]) -> Int
 
+pub fn lapacke_dspcon(Int, Byte, Int, FixedArray[Double], FixedArray[Int], Double, FixedArray[Double]) -> Int
+
 pub fn lapacke_dspcon_work(Int, Byte, Int, FixedArray[Double], FixedArray[Int], Double, FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
+
+pub fn lapacke_dspev(Int, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dspev_work(Int, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
 
+pub fn lapacke_dspevd(Int, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
+
 pub fn lapacke_dspevd_work(Int, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], Int) -> Int
+
+pub fn lapacke_dspevx(Int, Byte, Byte, Byte, Int, FixedArray[Double], Double, Double, Int, Int, Double, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_dspevx_work(Int, Byte, Byte, Byte, Int, FixedArray[Double], Double, Double, Int, Int, Double, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Int], FixedArray[Int]) -> Int
 
+pub fn lapacke_dspgst(Int, Int, Byte, Int, FixedArray[Double], FixedArray[Double]) -> Int
+
 pub fn lapacke_dspgst_work(Int, Int, Byte, Int, FixedArray[Double], FixedArray[Double]) -> Int
+
+pub fn lapacke_dspgv(Int, Int, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dspgv_work(Int, Int, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
 
+pub fn lapacke_dspgvd(Int, Int, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
+
 pub fn lapacke_dspgvd_work(Int, Int, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], Int) -> Int
+
+pub fn lapacke_dspgvx(Int, Int, Byte, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], Double, Double, Int, Int, Double, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_dspgvx_work(Int, Int, Byte, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], Double, Double, Int, Int, Double, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Int], FixedArray[Int]) -> Int
 
+pub fn lapacke_dsposv(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
+
 pub fn lapacke_dsposv_work(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Float], FixedArray[Int]) -> Int
+
+pub fn lapacke_dsprfs(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_dsprfs_work(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
 
+pub fn lapacke_dspsv(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Int], FixedArray[Double], Int) -> Int
+
 pub fn lapacke_dspsv_work(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Int], FixedArray[Double], Int) -> Int
+
+pub fn lapacke_dspsvx(Int, Byte, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_dspsvx_work(Int, Byte, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Int]) -> Int
 
+pub fn lapacke_dsptrd(Int, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
+
 pub fn lapacke_dsptrd_work(Int, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
+
+pub fn lapacke_dsptrf(Int, Byte, Int, FixedArray[Double], FixedArray[Int]) -> Int
 
 pub fn lapacke_dsptrf_work(Int, Byte, Int, FixedArray[Double], FixedArray[Int]) -> Int
 
+pub fn lapacke_dsptri(Int, Byte, Int, FixedArray[Double], FixedArray[Int]) -> Int
+
 pub fn lapacke_dsptri_work(Int, Byte, Int, FixedArray[Double], FixedArray[Int], FixedArray[Double]) -> Int
+
+pub fn lapacke_dsptrs(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Int], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dsptrs_work(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Int], FixedArray[Double], Int) -> Int
 
+pub fn lapacke_dstebz(Byte, Byte, Int, Double, Double, Int, Int, Double, FixedArray[Double], FixedArray[Double], FixedArray[Int], FixedArray[Int], FixedArray[Double], FixedArray[Int], FixedArray[Int]) -> Int
+
 pub fn lapacke_dstebz_work(Byte, Byte, Int, Double, Double, Int, Int, Double, FixedArray[Double], FixedArray[Double], FixedArray[Int], FixedArray[Int], FixedArray[Double], FixedArray[Int], FixedArray[Int], FixedArray[Double], FixedArray[Int]) -> Int
+
+pub fn lapacke_dstedc(Int, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dstedc_work(Int, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], Int) -> Int
 
+pub fn lapacke_dstegr(Int, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], Double, Double, Int, Int, Double, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Int]) -> Int
+
 pub fn lapacke_dstegr_work(Int, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], Double, Double, Int, Int, Double, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int, FixedArray[Int], Int) -> Int
+
+pub fn lapacke_dstein(Int, Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Int], FixedArray[Int], FixedArray[Double], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_dstein_work(Int, Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Int], FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], FixedArray[Int], FixedArray[Int]) -> Int
 
+pub fn lapacke_dstemr(Int, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], Double, Double, Int, Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, Int, FixedArray[Int], Int) -> Int
+
 pub fn lapacke_dstemr_work(Int, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], Double, Double, Int, Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, Int, FixedArray[Int], Int, FixedArray[Double], Int, FixedArray[Int], Int) -> Int
+
+pub fn lapacke_dsteqr(Int, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_dsteqr_work(Int, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
 
@@ -2600,159 +2860,315 @@ pub fn lapacke_sorgtsqr_row(Int, Int, Int, Int, Int, FixedArray[Float], Int, Fix
 
 pub fn lapacke_sorgtsqr_row_work(Int, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
+pub fn lapacke_sormbr(Int, Byte, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
+
 pub fn lapacke_sormbr_work(Int, Byte, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
+
+pub fn lapacke_sormhr(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_sormhr_work(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
+pub fn lapacke_sormlq(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
+
 pub fn lapacke_sormlq_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
+
+pub fn lapacke_sormql(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_sormql_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
+pub fn lapacke_sormqr(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
+
 pub fn lapacke_sormqr_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
+
+pub fn lapacke_sormrq(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_sormrq_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
+pub fn lapacke_sormrz(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
+
 pub fn lapacke_sormrz_work(Int, Byte, Byte, Int, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
+
+pub fn lapacke_sormtr(Int, Byte, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_sormtr_work(Int, Byte, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
+pub fn lapacke_spbcon(Int, Byte, Int, Int, FixedArray[Float], Int, Float, FixedArray[Float]) -> Int
+
 pub fn lapacke_spbcon_work(Int, Byte, Int, Int, FixedArray[Float], Int, Float, FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
+
+pub fn lapacke_spbequ(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_spbequ_work(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
+pub fn lapacke_spbrfs(Int, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
+
 pub fn lapacke_spbrfs_work(Int, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
+
+pub fn lapacke_spbstf(Int, Byte, Int, Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_spbstf_work(Int, Byte, Int, Int, FixedArray[Float], Int) -> Int
 
+pub fn lapacke_spbsv(Int, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
+
 pub fn lapacke_spbsv_work(Int, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
+
+pub fn lapacke_spbsvx(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Byte], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_spbsvx_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Byte], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
 
+pub fn lapacke_spbtrf(Int, Byte, Int, Int, FixedArray[Float], Int) -> Int
+
 pub fn lapacke_spbtrf_work(Int, Byte, Int, Int, FixedArray[Float], Int) -> Int
+
+pub fn lapacke_spbtrs(Int, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_spbtrs_work(Int, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
+pub fn lapacke_spftrf(Int, Byte, Byte, Int, FixedArray[Float]) -> Int
+
 pub fn lapacke_spftrf_work(Int, Byte, Byte, Int, FixedArray[Float]) -> Int
+
+pub fn lapacke_spftri(Int, Byte, Byte, Int, FixedArray[Float]) -> Int
 
 pub fn lapacke_spftri_work(Int, Byte, Byte, Int, FixedArray[Float]) -> Int
 
+pub fn lapacke_spftrs(Int, Byte, Byte, Int, Int, FixedArray[Float], FixedArray[Float], Int) -> Int
+
 pub fn lapacke_spftrs_work(Int, Byte, Byte, Int, Int, FixedArray[Float], FixedArray[Float], Int) -> Int
+
+pub fn lapacke_spocon(Int, Byte, Int, FixedArray[Float], Int, Float, FixedArray[Float]) -> Int
 
 pub fn lapacke_spocon_work(Int, Byte, Int, FixedArray[Float], Int, Float, FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
 
+pub fn lapacke_spoequ(Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
+
 pub fn lapacke_spoequ_work(Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
+
+pub fn lapacke_spoequb(Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_spoequb_work(Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
+pub fn lapacke_sporfs(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
+
 pub fn lapacke_sporfs_work(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
+
+pub fn lapacke_sporfsx(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
 
 pub fn lapacke_sporfsx_work(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
 
+pub fn lapacke_sposv(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
+
 pub fn lapacke_sposv_work(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
+
+pub fn lapacke_sposvx(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Byte], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_sposvx_work(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Byte], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
 
+pub fn lapacke_sposvxx(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Byte], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
+
 pub fn lapacke_sposvxx_work(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Byte], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
+
+pub fn lapacke_spotrf(Int, Byte, Int, FixedArray[Float], Int) -> Int
+
+pub fn lapacke_spotrf2(Int, Byte, Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_spotrf2_work(Int, Byte, Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_spotrf_work(Int, Byte, Int, FixedArray[Float], Int) -> Int
 
+pub fn lapacke_spotri(Int, Byte, Int, FixedArray[Float], Int) -> Int
+
 pub fn lapacke_spotri_work(Int, Byte, Int, FixedArray[Float], Int) -> Int
+
+pub fn lapacke_spotrs(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_spotrs_work(Int, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
+pub fn lapacke_sppcon(Int, Byte, Int, FixedArray[Float], Float, FixedArray[Float]) -> Int
+
 pub fn lapacke_sppcon_work(Int, Byte, Int, FixedArray[Float], Float, FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
+
+pub fn lapacke_sppequ(Int, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_sppequ_work(Int, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
+pub fn lapacke_spprfs(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
+
 pub fn lapacke_spprfs_work(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
+
+pub fn lapacke_sppsv(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_sppsv_work(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], Int) -> Int
 
+pub fn lapacke_sppsvx(Int, Byte, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Byte], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
+
 pub fn lapacke_sppsvx_work(Int, Byte, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Byte], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
+
+pub fn lapacke_spptrf(Int, Byte, Int, FixedArray[Float]) -> Int
 
 pub fn lapacke_spptrf_work(Int, Byte, Int, FixedArray[Float]) -> Int
 
+pub fn lapacke_spptri(Int, Byte, Int, FixedArray[Float]) -> Int
+
 pub fn lapacke_spptri_work(Int, Byte, Int, FixedArray[Float]) -> Int
+
+pub fn lapacke_spptrs(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_spptrs_work(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], Int) -> Int
 
+pub fn lapacke_spstrf(Int, Byte, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], Float) -> Int
+
 pub fn lapacke_spstrf_work(Int, Byte, Int, FixedArray[Float], Int, FixedArray[Int], FixedArray[Int], Float, FixedArray[Float]) -> Int
+
+pub fn lapacke_sptcon(Int, FixedArray[Float], FixedArray[Float], Float, FixedArray[Float]) -> Int
 
 pub fn lapacke_sptcon_work(Int, FixedArray[Float], FixedArray[Float], Float, FixedArray[Float], FixedArray[Float]) -> Int
 
+pub fn lapacke_spteqr(Int, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
+
 pub fn lapacke_spteqr_work(Int, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
+
+pub fn lapacke_sptrfs(Int, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_sptrfs_work(Int, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
+pub fn lapacke_sptsv(Int, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
+
 pub fn lapacke_sptsv_work(Int, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
+
+pub fn lapacke_sptsvx(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_sptsvx_work(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
+pub fn lapacke_spttrf(Int, FixedArray[Float], FixedArray[Float]) -> Int
+
 pub fn lapacke_spttrf_work(Int, FixedArray[Float], FixedArray[Float]) -> Int
+
+pub fn lapacke_spttrs(Int, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_spttrs_work(Int, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
 
+pub fn lapacke_ssbev(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
+
 pub fn lapacke_ssbev_work(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
+
+pub fn lapacke_ssbevd(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_ssbevd_work(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], Int) -> Int
 
+pub fn lapacke_ssbevx(Int, Byte, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, Float, Float, Int, Int, Float, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Int]) -> Int
+
 pub fn lapacke_ssbevx_work(Int, Byte, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, Float, Float, Int, Int, Float, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Int], FixedArray[Int]) -> Int
+
+pub fn lapacke_ssbgst(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int) -> Int
 
 pub fn lapacke_ssbgst_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float]) -> Int
 
+pub fn lapacke_ssbgv(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
+
 pub fn lapacke_ssbgv_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
+
+pub fn lapacke_ssbgvd(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_ssbgvd_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], Int) -> Int
 
+pub fn lapacke_ssbgvx(Int, Byte, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, Float, Float, Int, Int, Float, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Int]) -> Int
+
 pub fn lapacke_ssbgvx_work(Int, Byte, Byte, Byte, Int, Int, Int, FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], Int, Float, Float, Int, Int, Float, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Int], FixedArray[Int]) -> Int
+
+pub fn lapacke_ssbtrd(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_ssbtrd_work(Int, Byte, Byte, Int, Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
 
+pub fn lapacke_ssfrk(Int, Byte, Byte, Byte, Int, Int, Float, FixedArray[Float], Int, Float, FixedArray[Float]) -> Int
+
 pub fn lapacke_ssfrk_work(Int, Byte, Byte, Byte, Int, Int, Float, FixedArray[Float], Int, Float, FixedArray[Float]) -> Int
+
+pub fn lapacke_sspcon(Int, Byte, Int, FixedArray[Float], FixedArray[Int], Float, FixedArray[Float]) -> Int
 
 pub fn lapacke_sspcon_work(Int, Byte, Int, FixedArray[Float], FixedArray[Int], Float, FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
 
+pub fn lapacke_sspev(Int, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
+
 pub fn lapacke_sspev_work(Int, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
+
+pub fn lapacke_sspevd(Int, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_sspevd_work(Int, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], Int) -> Int
 
+pub fn lapacke_sspevx(Int, Byte, Byte, Byte, Int, FixedArray[Float], Float, Float, Int, Int, Float, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Int]) -> Int
+
 pub fn lapacke_sspevx_work(Int, Byte, Byte, Byte, Int, FixedArray[Float], Float, Float, Int, Int, Float, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Int], FixedArray[Int]) -> Int
+
+pub fn lapacke_sspgst(Int, Int, Byte, Int, FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_sspgst_work(Int, Int, Byte, Int, FixedArray[Float], FixedArray[Float]) -> Int
 
+pub fn lapacke_sspgv(Int, Int, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
+
 pub fn lapacke_sspgv_work(Int, Int, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
+
+pub fn lapacke_sspgvd(Int, Int, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_sspgvd_work(Int, Int, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], Int) -> Int
 
+pub fn lapacke_sspgvx(Int, Int, Byte, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], Float, Float, Int, Int, Float, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Int]) -> Int
+
 pub fn lapacke_sspgvx_work(Int, Int, Byte, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], Float, Float, Int, Int, Float, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Int], FixedArray[Int]) -> Int
+
+pub fn lapacke_ssprfs(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Int], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_ssprfs_work(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Int], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
 
+pub fn lapacke_sspsv(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Int], FixedArray[Float], Int) -> Int
+
 pub fn lapacke_sspsv_work(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Int], FixedArray[Float], Int) -> Int
+
+pub fn lapacke_sspsvx(Int, Byte, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Int], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_sspsvx_work(Int, Byte, Byte, Int, Int, FixedArray[Float], FixedArray[Float], FixedArray[Int], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Int]) -> Int
 
+pub fn lapacke_ssptrd(Int, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
+
 pub fn lapacke_ssptrd_work(Int, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], FixedArray[Float]) -> Int
+
+pub fn lapacke_ssptrf(Int, Byte, Int, FixedArray[Float], FixedArray[Int]) -> Int
 
 pub fn lapacke_ssptrf_work(Int, Byte, Int, FixedArray[Float], FixedArray[Int]) -> Int
 
+pub fn lapacke_ssptri(Int, Byte, Int, FixedArray[Float], FixedArray[Int]) -> Int
+
 pub fn lapacke_ssptri_work(Int, Byte, Int, FixedArray[Float], FixedArray[Int], FixedArray[Float]) -> Int
+
+pub fn lapacke_ssptrs(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Int], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_ssptrs_work(Int, Byte, Int, Int, FixedArray[Float], FixedArray[Int], FixedArray[Float], Int) -> Int
 
+pub fn lapacke_sstebz(Byte, Byte, Int, Float, Float, Int, Int, Float, FixedArray[Float], FixedArray[Float], FixedArray[Int], FixedArray[Int], FixedArray[Float], FixedArray[Int], FixedArray[Int]) -> Int
+
 pub fn lapacke_sstebz_work(Byte, Byte, Int, Float, Float, Int, Int, Float, FixedArray[Float], FixedArray[Float], FixedArray[Int], FixedArray[Int], FixedArray[Float], FixedArray[Int], FixedArray[Int], FixedArray[Float], FixedArray[Int]) -> Int
+
+pub fn lapacke_sstedc(Int, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
 
 pub fn lapacke_sstedc_work(Int, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], Int, FixedArray[Int], Int) -> Int
 
+pub fn lapacke_sstegr(Int, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], Float, Float, Int, Int, Float, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Int]) -> Int
+
 pub fn lapacke_sstegr_work(Int, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], Float, Float, Int, Int, Float, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, FixedArray[Int], FixedArray[Float], Int, FixedArray[Int], Int) -> Int
+
+pub fn lapacke_sstein(Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Int], FixedArray[Int], FixedArray[Float], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_sstein_work(Int, Int, FixedArray[Float], FixedArray[Float], Int, FixedArray[Float], FixedArray[Int], FixedArray[Int], FixedArray[Float], Int, FixedArray[Float], FixedArray[Int], FixedArray[Int]) -> Int
 
+pub fn lapacke_sstemr(Int, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], Float, Float, Int, Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, Int, FixedArray[Int], Int) -> Int
+
 pub fn lapacke_sstemr_work(Int, Byte, Byte, Int, FixedArray[Float], FixedArray[Float], Float, Float, Int, Int, FixedArray[Int], FixedArray[Float], FixedArray[Float], Int, Int, FixedArray[Int], Int, FixedArray[Float], Int, FixedArray[Int], Int) -> Int
 
+pub fn lapacke_ssteqr(Int, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int) -> Int
+
 pub fn lapacke_ssteqr_work(Int, Byte, Int, FixedArray[Float], FixedArray[Float], FixedArray[Float], Int, FixedArray[Float]) -> Int
+
+pub fn lapacke_ssterf(Int, FixedArray[Float], FixedArray[Float]) -> Int
 
 pub fn lapacke_ssterf_work(Int, FixedArray[Float], FixedArray[Float]) -> Int
 
@@ -3063,6 +3479,8 @@ pub fn lapacke_zbdsqr_work(Int, Byte, Int, Int, Int, Int, FixedArray[Double], Fi
 pub fn lapacke_zcgesv(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_zcgesv_work(Int, Int, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Float], FixedArray[Double], FixedArray[Int]) -> Int
+
+pub fn lapacke_zcposv(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_zcposv_work(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Float], FixedArray[Double], FixedArray[Int]) -> Int
 
@@ -3732,105 +4150,207 @@ pub fn lapacke_zlauum(Int, Byte, Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zlauum_work(Int, Byte, Int, FixedArray[Double], Int) -> Int
 
+pub fn lapacke_zpbcon(Int, Byte, Int, Int, FixedArray[Double], Int, Double, FixedArray[Double]) -> Int
+
 pub fn lapacke_zpbcon_work(Int, Byte, Int, Int, FixedArray[Double], Int, Double, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
+
+pub fn lapacke_zpbequ(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_zpbequ_work(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
+pub fn lapacke_zpbrfs(Int, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
+
 pub fn lapacke_zpbrfs_work(Int, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
+
+pub fn lapacke_zpbstf(Int, Byte, Int, Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zpbstf_work(Int, Byte, Int, Int, FixedArray[Double], Int) -> Int
 
+pub fn lapacke_zpbsv(Int, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
+
 pub fn lapacke_zpbsv_work(Int, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
+
+pub fn lapacke_zpbsvx(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Byte], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_zpbsvx_work(Int, Byte, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Byte], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
+pub fn lapacke_zpbtrf(Int, Byte, Int, Int, FixedArray[Double], Int) -> Int
+
 pub fn lapacke_zpbtrf_work(Int, Byte, Int, Int, FixedArray[Double], Int) -> Int
+
+pub fn lapacke_zpbtrs(Int, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zpbtrs_work(Int, Byte, Int, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
+pub fn lapacke_zpftrf(Int, Byte, Byte, Int, FixedArray[Double]) -> Int
+
 pub fn lapacke_zpftrf_work(Int, Byte, Byte, Int, FixedArray[Double]) -> Int
+
+pub fn lapacke_zpftri(Int, Byte, Byte, Int, FixedArray[Double]) -> Int
 
 pub fn lapacke_zpftri_work(Int, Byte, Byte, Int, FixedArray[Double]) -> Int
 
+pub fn lapacke_zpftrs(Int, Byte, Byte, Int, Int, FixedArray[Double], FixedArray[Double], Int) -> Int
+
 pub fn lapacke_zpftrs_work(Int, Byte, Byte, Int, Int, FixedArray[Double], FixedArray[Double], Int) -> Int
+
+pub fn lapacke_zpocon(Int, Byte, Int, FixedArray[Double], Int, Double, FixedArray[Double]) -> Int
 
 pub fn lapacke_zpocon_work(Int, Byte, Int, FixedArray[Double], Int, Double, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
+pub fn lapacke_zpoequ(Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
+
 pub fn lapacke_zpoequ_work(Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
+
+pub fn lapacke_zpoequb(Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_zpoequb_work(Int, Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
+pub fn lapacke_zporfs(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
+
 pub fn lapacke_zporfs_work(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
+
+pub fn lapacke_zporfsx(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
 
 pub fn lapacke_zporfsx_work(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
+pub fn lapacke_zposv(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
+
 pub fn lapacke_zposv_work(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
+
+pub fn lapacke_zposvx(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Byte], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_zposvx_work(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Byte], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
+pub fn lapacke_zposvxx(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Byte], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
+
 pub fn lapacke_zposvxx_work(Int, Byte, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Byte], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
+
+pub fn lapacke_zpotrf(Int, Byte, Int, FixedArray[Double], Int) -> Int
+
+pub fn lapacke_zpotrf2(Int, Byte, Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zpotrf2_work(Int, Byte, Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zpotrf_work(Int, Byte, Int, FixedArray[Double], Int) -> Int
 
+pub fn lapacke_zpotri(Int, Byte, Int, FixedArray[Double], Int) -> Int
+
 pub fn lapacke_zpotri_work(Int, Byte, Int, FixedArray[Double], Int) -> Int
+
+pub fn lapacke_zpotrs(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zpotrs_work(Int, Byte, Int, Int, FixedArray[Double], Int, FixedArray[Double], Int) -> Int
 
+pub fn lapacke_zppcon(Int, Byte, Int, FixedArray[Double], Double, FixedArray[Double]) -> Int
+
 pub fn lapacke_zppcon_work(Int, Byte, Int, FixedArray[Double], Double, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
+
+pub fn lapacke_zppequ(Int, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_zppequ_work(Int, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
+pub fn lapacke_zpprfs(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
+
 pub fn lapacke_zpprfs_work(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
+
+pub fn lapacke_zppsv(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zppsv_work(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
+pub fn lapacke_zppsvx(Int, Byte, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Byte], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
+
 pub fn lapacke_zppsvx_work(Int, Byte, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Byte], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
+
+pub fn lapacke_zpptrf(Int, Byte, Int, FixedArray[Double]) -> Int
 
 pub fn lapacke_zpptrf_work(Int, Byte, Int, FixedArray[Double]) -> Int
 
+pub fn lapacke_zpptri(Int, Byte, Int, FixedArray[Double]) -> Int
+
 pub fn lapacke_zpptri_work(Int, Byte, Int, FixedArray[Double]) -> Int
+
+pub fn lapacke_zpptrs(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zpptrs_work(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], Int) -> Int
 
+pub fn lapacke_zpstrf(Int, Byte, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], Double) -> Int
+
 pub fn lapacke_zpstrf_work(Int, Byte, Int, FixedArray[Double], Int, FixedArray[Int], FixedArray[Int], Double, FixedArray[Double]) -> Int
+
+pub fn lapacke_zptcon(Int, FixedArray[Double], FixedArray[Double], Double, FixedArray[Double]) -> Int
 
 pub fn lapacke_zptcon_work(Int, FixedArray[Double], FixedArray[Double], Double, FixedArray[Double], FixedArray[Double]) -> Int
 
+pub fn lapacke_zpteqr(Int, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
+
 pub fn lapacke_zpteqr_work(Int, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
+
+pub fn lapacke_zptrfs(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_zptrfs_work(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
+pub fn lapacke_zptsv(Int, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
+
 pub fn lapacke_zptsv_work(Int, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
+
+pub fn lapacke_zptsvx(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_zptsvx_work(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
+pub fn lapacke_zpttrf(Int, FixedArray[Double], FixedArray[Double]) -> Int
+
 pub fn lapacke_zpttrf_work(Int, FixedArray[Double], FixedArray[Double]) -> Int
+
+pub fn lapacke_zpttrs(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zpttrs_work(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
 
+pub fn lapacke_zspcon(Int, Byte, Int, FixedArray[Double], FixedArray[Int], Double, FixedArray[Double]) -> Int
+
 pub fn lapacke_zspcon_work(Int, Byte, Int, FixedArray[Double], FixedArray[Int], Double, FixedArray[Double], FixedArray[Double]) -> Int
+
+pub fn lapacke_zsprfs(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_zsprfs_work(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
+pub fn lapacke_zspsv(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Int], FixedArray[Double], Int) -> Int
+
 pub fn lapacke_zspsv_work(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Int], FixedArray[Double], Int) -> Int
+
+pub fn lapacke_zspsvx(Int, Byte, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
 pub fn lapacke_zspsvx_work(Int, Byte, Byte, Int, Int, FixedArray[Double], FixedArray[Double], FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double], FixedArray[Double]) -> Int
 
+pub fn lapacke_zsptrf(Int, Byte, Int, FixedArray[Double], FixedArray[Int]) -> Int
+
 pub fn lapacke_zsptrf_work(Int, Byte, Int, FixedArray[Double], FixedArray[Int]) -> Int
+
+pub fn lapacke_zsptri(Int, Byte, Int, FixedArray[Double], FixedArray[Int]) -> Int
 
 pub fn lapacke_zsptri_work(Int, Byte, Int, FixedArray[Double], FixedArray[Int], FixedArray[Double]) -> Int
 
+pub fn lapacke_zsptrs(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Int], FixedArray[Double], Int) -> Int
+
 pub fn lapacke_zsptrs_work(Int, Byte, Int, Int, FixedArray[Double], FixedArray[Int], FixedArray[Double], Int) -> Int
+
+pub fn lapacke_zstedc(Int, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zstedc_work(Int, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Double], Int, FixedArray[Int], Int) -> Int
 
+pub fn lapacke_zstegr(Int, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], Double, Double, Int, Int, Double, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Int]) -> Int
+
 pub fn lapacke_zstegr_work(Int, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], Double, Double, Int, Int, Double, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, FixedArray[Int], FixedArray[Double], Int, FixedArray[Int], Int) -> Int
+
+pub fn lapacke_zstein(Int, Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Int], FixedArray[Int], FixedArray[Double], Int, FixedArray[Int]) -> Int
 
 pub fn lapacke_zstein_work(Int, Int, FixedArray[Double], FixedArray[Double], Int, FixedArray[Double], FixedArray[Int], FixedArray[Int], FixedArray[Double], Int, FixedArray[Double], FixedArray[Int], FixedArray[Int]) -> Int
 
+pub fn lapacke_zstemr(Int, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], Double, Double, Int, Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, Int, FixedArray[Int], Int) -> Int
+
 pub fn lapacke_zstemr_work(Int, Byte, Byte, Int, FixedArray[Double], FixedArray[Double], Double, Double, Int, Int, FixedArray[Int], FixedArray[Double], FixedArray[Double], Int, Int, FixedArray[Int], Int, FixedArray[Double], Int, FixedArray[Int], Int) -> Int
+
+pub fn lapacke_zsteqr(Int, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int) -> Int
 
 pub fn lapacke_zsteqr_work(Int, Byte, Int, FixedArray[Double], FixedArray[Double], FixedArray[Double], Int, FixedArray[Double]) -> Int
 
