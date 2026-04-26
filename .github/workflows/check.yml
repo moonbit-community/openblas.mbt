@@ -20,6 +20,8 @@ jobs:
 
       - name: install
         run: |
+          sudo apt-get update
+          sudo apt-get install -y libopenblas-dev
           curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
           echo "$HOME/.moon/bin" >> $GITHUB_PATH
 
