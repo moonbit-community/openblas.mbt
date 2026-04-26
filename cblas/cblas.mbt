@@ -477,7 +477,7 @@ pub extern "C" fn cblas_scsum(
   n : Int,
   x : FixedArray[Float],
   incx : Int,
-) -> Float = "cblas_scsum"
+) -> Float = "mbt_cblas_scsum"
 
 ///|
 ///
@@ -489,7 +489,7 @@ pub extern "C" fn cblas_dzsum(
   n : Int,
   x : FixedArray[Double],
   incx : Int,
-) -> Double = "cblas_dzsum"
+) -> Double = "mbt_cblas_dzsum"
 
 ///|
 ///
@@ -1124,7 +1124,7 @@ pub extern "C" fn cblas_drotg(
   b : FixedArray[Double],
   c : FixedArray[Double],
   s : FixedArray[Double],
-) = "cblas_drotg"
+) = "mbt_cblas_drotg"
 
 ///|
 ///
@@ -2767,7 +2767,7 @@ pub extern "C" fn cblas_sgemmt(
   beta : Float,
   c : FixedArray[Float],
   ldc : Int,
-) = "cblas_sgemmt"
+) = "mbt_cblas_sgemmt"
 
 ///|
 ///
@@ -2791,7 +2791,7 @@ pub extern "C" fn cblas_dgemmt(
   beta : Double,
   c : FixedArray[Double],
   ldc : Int,
-) = "cblas_dgemmt"
+) = "mbt_cblas_dgemmt"
 
 ///|
 ///
