@@ -477,7 +477,7 @@ pub extern "C" fn cblas_scsum(
   n : Int,
   x : FixedArray[Float],
   incx : Int,
-) -> Float = "cblas_scsum"
+) -> Float = "mbt_cblas_scsum"
 
 ///|
 ///
@@ -489,7 +489,7 @@ pub extern "C" fn cblas_dzsum(
   n : Int,
   x : FixedArray[Double],
   incx : Int,
-) -> Double = "cblas_dzsum"
+) -> Double = "mbt_cblas_dzsum"
 
 ///|
 ///
@@ -645,7 +645,7 @@ pub extern "C" fn cblas_samax(
   n : Int,
   x : FixedArray[Float],
   incx : Int,
-) -> Float = "cblas_samax"
+) -> Float = "mbt_cblas_samax"
 
 ///|
 ///
@@ -657,7 +657,7 @@ pub extern "C" fn cblas_damax(
   n : Int,
   x : FixedArray[Double],
   incx : Int,
-) -> Double = "cblas_damax"
+) -> Double = "mbt_cblas_damax"
 
 ///|
 ///
@@ -669,7 +669,7 @@ pub extern "C" fn cblas_scamax(
   n : Int,
   x : FixedArray[Float],
   incx : Int,
-) -> Float = "cblas_scamax"
+) -> Float = "mbt_cblas_scamax"
 
 ///|
 ///
@@ -681,7 +681,7 @@ pub extern "C" fn cblas_dzamax(
   n : Int,
   x : FixedArray[Double],
   incx : Int,
-) -> Double = "cblas_dzamax"
+) -> Double = "mbt_cblas_dzamax"
 
 ///|
 ///
@@ -693,7 +693,7 @@ pub extern "C" fn cblas_samin(
   n : Int,
   x : FixedArray[Float],
   incx : Int,
-) -> Float = "cblas_samin"
+) -> Float = "mbt_cblas_samin"
 
 ///|
 ///
@@ -705,7 +705,7 @@ pub extern "C" fn cblas_damin(
   n : Int,
   x : FixedArray[Double],
   incx : Int,
-) -> Double = "cblas_damin"
+) -> Double = "mbt_cblas_damin"
 
 ///|
 ///
@@ -717,7 +717,7 @@ pub extern "C" fn cblas_scamin(
   n : Int,
   x : FixedArray[Float],
   incx : Int,
-) -> Float = "cblas_scamin"
+) -> Float = "mbt_cblas_scamin"
 
 ///|
 ///
@@ -729,7 +729,7 @@ pub extern "C" fn cblas_dzamin(
   n : Int,
   x : FixedArray[Double],
   incx : Int,
-) -> Double = "cblas_dzamin"
+) -> Double = "mbt_cblas_dzamin"
 
 ///|
 ///
@@ -906,7 +906,7 @@ pub extern "C" fn cblas_caxpyc(
   incx : Int,
   y : FixedArray[Float],
   incy : Int,
-) = "cblas_caxpyc"
+) = "mbt_cblas_caxpyc"
 
 ///|
 ///
@@ -921,7 +921,7 @@ pub extern "C" fn cblas_zaxpyc(
   incx : Int,
   y : FixedArray[Double],
   incy : Int,
-) = "cblas_zaxpyc"
+) = "mbt_cblas_zaxpyc"
 //
 
 ///|
@@ -1124,7 +1124,7 @@ pub extern "C" fn cblas_drotg(
   b : FixedArray[Double],
   c : FixedArray[Double],
   s : FixedArray[Double],
-) = "cblas_drotg"
+) = "mbt_cblas_drotg"
 
 ///|
 ///
@@ -2767,7 +2767,7 @@ pub extern "C" fn cblas_sgemmt(
   beta : Float,
   c : FixedArray[Float],
   ldc : Int,
-) = "cblas_sgemmt"
+) = "mbt_cblas_sgemmt"
 
 ///|
 ///
@@ -2791,7 +2791,7 @@ pub extern "C" fn cblas_dgemmt(
   beta : Double,
   c : FixedArray[Double],
   ldc : Int,
-) = "cblas_dgemmt"
+) = "mbt_cblas_dgemmt"
 
 ///|
 ///

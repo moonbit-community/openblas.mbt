@@ -1,0 +1,12 @@
+supported_targets = "native"
+
+options(
+  link: {
+    "native": {
+      "cc": "clang",
+      "cc-flags": "-I/opt/homebrew/opt/openblas/include -w",
+      "cc-link-flags": "-L/opt/homebrew/opt/openblas/lib -llapacke -lopenblas",
+    },
+  },
+  "native-stub": [ "wrap.c" ],
+)
