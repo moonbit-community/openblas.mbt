@@ -5,7 +5,7 @@ test "test_lapacke_dgesv" {
   // A = [[3, 1], [1, 2]] in column-major order.
   let a : FixedArray[Double] = [3.0, 1.0, 1.0, 2.0]
   let b : FixedArray[Double] = [4.0, 3.0]
-  let ipiv : FixedArray[Int] = [0, 0]
+  let ipiv : FixedArray[Int32] = [0, 0]
   let info = lapacke_dgesv(lapack_col_major, n, nrhs, a, n, ipiv, b, n)
   assert_eq(info, 0)
   assert_eq((b[0] - 1.0).abs() < 0.001, true)
@@ -16,7 +16,7 @@ test "test_lapacke_dgesv" {
 test "test_lapacke_dgetrf" {
   let n = 2
   let a : FixedArray[Double] = [1.0, 0.0, 0.0, 1.0]
-  let ipiv : FixedArray[Int] = [0, 0]
+  let ipiv : FixedArray[Int32] = [0, 0]
   let info = lapacke_dgetrf(lapack_col_major, n, n, a, n, ipiv)
   assert_eq(info, 0)
   assert_eq(ipiv[0], 1)

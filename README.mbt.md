@@ -22,7 +22,7 @@ brew install openblas
 
 ```bash
 sudo apt-get update
-sudo apt-get install libopenblas-dev
+sudo apt-get install libopenblas-dev liblapacke-dev pkg-config
 ```
 
 ### Linux (CentOS/RHEL/Fedora)
@@ -71,9 +71,9 @@ In the package where you intend to use OpenBLAS, configure `moon.pkg.json`:
   ],
   "link": {
     "native": {
-      "cc": "$CC",
-      "cc-flags": "$CC_FLAGS -w",
-      "cc-link-flags": "$CC_LINK_FLAGS"
+      "cc": "${build.CC}",
+      "cc-flags": "${build.CC_FLAGS}",
+      "cc-link-flags": "${build.CC_LINK_FLAGS}"
     }
   }
 }
@@ -347,7 +347,7 @@ brew install openblas
 
 ```bash
 sudo apt-get update
-sudo apt-get install libopenblas-dev
+sudo apt-get install libopenblas-dev liblapacke-dev pkg-config
 ```
 
 ### Linux (CentOS/RHEL/Fedora)
@@ -396,9 +396,9 @@ moon add Kaida-Amethyst/openblas
   ],
   "link": {
     "native": {
-      "cc": "$CC",
-      "cc-flags": "$CC_FLAGS -w",
-      "cc-link-flags": "$CC_LINK_FLAGS"
+      "cc": "${build.CC}",
+      "cc-flags": "${build.CC_FLAGS}",
+      "cc-link-flags": "${build.CC_LINK_FLAGS}"
     }
   }
 }

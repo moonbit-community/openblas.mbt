@@ -38,10 +38,10 @@ let e3_complex_double_buf2 : FixedArray[Double] = [
 ]
 
 ///|
-let e3_int_buf : FixedArray[Int] = [0, 0, 0, 0, 0, 0, 0, 0]
+let e3_int_buf : FixedArray[Int32] = [0, 0, 0, 0, 0, 0, 0, 0]
 
 ///|
-let e3_int_buf2 : FixedArray[Int] = [0, 0, 0, 0, 0, 0, 0, 0]
+let e3_int_buf2 : FixedArray[Int32] = [0, 0, 0, 0, 0, 0, 0, 0]
 
 ///|
 let e3_byte_buf : FixedArray[Byte] = [0, 0, 0, 0, 0, 0, 0, 0]

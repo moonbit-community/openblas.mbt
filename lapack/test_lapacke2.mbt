@@ -38,13 +38,13 @@ let e2_complex_double_buf2 : FixedArray[Double] = [
 ]
 
 ///|
-let e2_int_buf : FixedArray[Int] = [0, 0, 0, 0, 0, 0, 0, 0]
+let e2_int_buf : FixedArray[Int32] = [0, 0, 0, 0, 0, 0, 0, 0]
 
 ///|
-let e2_int_buf2 : FixedArray[Int] = [0, 0, 0, 0, 0, 0, 0, 0]
+let e2_int_buf2 : FixedArray[Int32] = [0, 0, 0, 0, 0, 0, 0, 0]
 
 ///|
-let e2_iseed_buf : FixedArray[Int] = [1, 2, 3, 4]
+let e2_iseed_buf : FixedArray[Int32] = [1, 2, 3, 4]
 
 ///|
 let e2_complex_float_zero : Lapack_complex_float = lapack_make_complex_float(

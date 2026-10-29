@@ -17,10 +17,10 @@ let complex_float_buf : FixedArray[Float] = [0.0, 0.0]
 let complex_double_buf : FixedArray[Double] = [0.0, 0.0]
 
 ///|
-let int_buf : FixedArray[Int] = [0]
+let int_buf : FixedArray[Int32] = [0]
 
 ///|
-let int_stat_buf : FixedArray[Int] = [0, 0, 0]
+let int_stat_buf : FixedArray[Int32] = [0, 0, 0]
 
 ///|
 let byte_buf : FixedArray[Byte] = [0]
