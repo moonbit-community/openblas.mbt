@@ -15,3 +15,7 @@ description = "Use OpenBlas in MoonBit"
 source = ""
 
 preferred_target = "native"
+
+options(
+  "--moonbit-unstable-prebuild": "build.py",
+)
