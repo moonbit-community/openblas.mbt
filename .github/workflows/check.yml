@@ -32,5 +32,9 @@ jobs:
       - name: Test all bindings in debug and release
         run: |
           source env.sh
-          moon test --target native
-          moon test --target native --release
+          status=0
+          moon test cblas --target native || status=1
+          moon test lapack --target native || status=1
+          moon test cblas --target native --release || status=1
+          moon test lapack --target native --release || status=1
+          exit "$status"
