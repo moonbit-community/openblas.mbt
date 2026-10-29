@@ -12,7 +12,7 @@
 /// ```
 #borrow(a, b, k, l, u, v, q, iwork, rwork, tau, work)
 pub extern "C" fn lapacke_cggsvp_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobu : Byte,
   jobv : Byte,
   jobq : Byte,
@@ -25,15 +25,15 @@ pub extern "C" fn lapacke_cggsvp_work(
   ldb : Lapack_int,
   tola : Float,
   tolb : Float,
-  k : FixedArray[Int],
-  l : FixedArray[Int],
+  k : FixedArray[Int32],
+  l : FixedArray[Int32],
   u : FixedArray[Float],
   ldu : Lapack_int,
   v : FixedArray[Float],
   ldv : Lapack_int,
   q : FixedArray[Float],
   ldq : Lapack_int,
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
   rwork : FixedArray[Float],
   tau : FixedArray[Float],
   work : FixedArray[Float],
@@ -53,7 +53,7 @@ pub extern "C" fn lapacke_cggsvp_work(
 /// ```
 #borrow(a, b, k, l, u, v, q, iwork, rwork, tau, work)
 pub extern "C" fn lapacke_zggsvp_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobu : Byte,
   jobv : Byte,
   jobq : Byte,
@@ -66,15 +66,15 @@ pub extern "C" fn lapacke_zggsvp_work(
   ldb : Lapack_int,
   tola : Double,
   tolb : Double,
-  k : FixedArray[Int],
-  l : FixedArray[Int],
+  k : FixedArray[Int32],
+  l : FixedArray[Int32],
   u : FixedArray[Double],
   ldu : Lapack_int,
   v : FixedArray[Double],
   ldv : Lapack_int,
   q : FixedArray[Double],
   ldq : Lapack_int,
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
   rwork : FixedArray[Double],
   tau : FixedArray[Double],
   work : FixedArray[Double],
@@ -94,7 +94,7 @@ pub extern "C" fn lapacke_zggsvp_work(
 /// ```
 #borrow(a, b, k, l, u, v, q, iwork, tau, work)
 pub extern "C" fn lapacke_sggsvp3_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobu : Byte,
   jobv : Byte,
   jobq : Byte,
@@ -107,15 +107,15 @@ pub extern "C" fn lapacke_sggsvp3_work(
   ldb : Lapack_int,
   tola : Float,
   tolb : Float,
-  k : FixedArray[Int],
-  l : FixedArray[Int],
+  k : FixedArray[Int32],
+  l : FixedArray[Int32],
   u : FixedArray[Float],
   ldu : Lapack_int,
   v : FixedArray[Float],
   ldv : Lapack_int,
   q : FixedArray[Float],
   ldq : Lapack_int,
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
   tau : FixedArray[Float],
   work : FixedArray[Float],
   lwork : Lapack_int,
@@ -135,7 +135,7 @@ pub extern "C" fn lapacke_sggsvp3_work(
 /// ```
 #borrow(a, b, k, l, u, v, q, iwork, tau, work)
 pub extern "C" fn lapacke_dggsvp3_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobu : Byte,
   jobv : Byte,
   jobq : Byte,
@@ -148,15 +148,15 @@ pub extern "C" fn lapacke_dggsvp3_work(
   ldb : Lapack_int,
   tola : Double,
   tolb : Double,
-  k : FixedArray[Int],
-  l : FixedArray[Int],
+  k : FixedArray[Int32],
+  l : FixedArray[Int32],
   u : FixedArray[Double],
   ldu : Lapack_int,
   v : FixedArray[Double],
   ldv : Lapack_int,
   q : FixedArray[Double],
   ldq : Lapack_int,
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
   tau : FixedArray[Double],
   work : FixedArray[Double],
   lwork : Lapack_int,
@@ -177,7 +177,7 @@ pub extern "C" fn lapacke_dggsvp3_work(
 /// ```
 #borrow(a, b, k, l, u, v, q, iwork, rwork, tau, work)
 pub extern "C" fn lapacke_cggsvp3_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobu : Byte,
   jobv : Byte,
   jobq : Byte,
@@ -190,15 +190,15 @@ pub extern "C" fn lapacke_cggsvp3_work(
   ldb : Lapack_int,
   tola : Float,
   tolb : Float,
-  k : FixedArray[Int],
-  l : FixedArray[Int],
+  k : FixedArray[Int32],
+  l : FixedArray[Int32],
   u : FixedArray[Float],
   ldu : Lapack_int,
   v : FixedArray[Float],
   ldv : Lapack_int,
   q : FixedArray[Float],
   ldq : Lapack_int,
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
   rwork : FixedArray[Float],
   tau : FixedArray[Float],
   work : FixedArray[Float],
@@ -220,7 +220,7 @@ pub extern "C" fn lapacke_cggsvp3_work(
 /// ```
 #borrow(a, b, k, l, u, v, q, iwork, rwork, tau, work)
 pub extern "C" fn lapacke_zggsvp3_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobu : Byte,
   jobv : Byte,
   jobq : Byte,
@@ -233,15 +233,15 @@ pub extern "C" fn lapacke_zggsvp3_work(
   ldb : Lapack_int,
   tola : Double,
   tolb : Double,
-  k : FixedArray[Int],
-  l : FixedArray[Int],
+  k : FixedArray[Int32],
+  l : FixedArray[Int32],
   u : FixedArray[Double],
   ldu : Lapack_int,
   v : FixedArray[Double],
   ldv : Lapack_int,
   q : FixedArray[Double],
   ldq : Lapack_int,
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
   rwork : FixedArray[Double],
   tau : FixedArray[Double],
   work : FixedArray[Double],
@@ -265,11 +265,11 @@ pub extern "C" fn lapacke_sgtcon_work(
   d : FixedArray[Float],
   du : FixedArray[Float],
   du2 : FixedArray[Float],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   anorm : Float,
   rcond : FixedArray[Float],
   work : FixedArray[Float],
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_sgtcon_work"
 
 ///|
@@ -289,11 +289,11 @@ pub extern "C" fn lapacke_dgtcon_work(
   d : FixedArray[Double],
   du : FixedArray[Double],
   du2 : FixedArray[Double],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   anorm : Double,
   rcond : FixedArray[Double],
   work : FixedArray[Double],
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_dgtcon_work"
 
 ///|
@@ -313,7 +313,7 @@ pub extern "C" fn lapacke_cgtcon_work(
   d : FixedArray[Float],
   du : FixedArray[Float],
   du2 : FixedArray[Float],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   anorm : Float,
   rcond : FixedArray[Float],
   work : FixedArray[Float],
@@ -336,7 +336,7 @@ pub extern "C" fn lapacke_zgtcon_work(
   d : FixedArray[Double],
   du : FixedArray[Double],
   du2 : FixedArray[Double],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   anorm : Double,
   rcond : FixedArray[Double],
   work : FixedArray[Double],
@@ -355,7 +355,7 @@ pub extern "C" fn lapacke_zgtcon_work(
 /// ```
 #borrow(dl, d, du, dlf, df, duf, du2, ipiv, b, x, ferr, berr, work, iwork)
 pub extern "C" fn lapacke_sgtrfs_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   trans : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
@@ -366,7 +366,7 @@ pub extern "C" fn lapacke_sgtrfs_work(
   df : FixedArray[Float],
   duf : FixedArray[Float],
   du2 : FixedArray[Float],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Float],
   ldb : Lapack_int,
   x : FixedArray[Float],
@@ -374,7 +374,7 @@ pub extern "C" fn lapacke_sgtrfs_work(
   ferr : FixedArray[Float],
   berr : FixedArray[Float],
   work : FixedArray[Float],
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_sgtrfs_work"
 
 ///|
@@ -390,7 +390,7 @@ pub extern "C" fn lapacke_sgtrfs_work(
 /// ```
 #borrow(dl, d, du, dlf, df, duf, du2, ipiv, b, x, ferr, berr, work, iwork)
 pub extern "C" fn lapacke_dgtrfs_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   trans : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
@@ -401,7 +401,7 @@ pub extern "C" fn lapacke_dgtrfs_work(
   df : FixedArray[Double],
   duf : FixedArray[Double],
   du2 : FixedArray[Double],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Double],
   ldb : Lapack_int,
   x : FixedArray[Double],
@@ -409,7 +409,7 @@ pub extern "C" fn lapacke_dgtrfs_work(
   ferr : FixedArray[Double],
   berr : FixedArray[Double],
   work : FixedArray[Double],
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_dgtrfs_work"
 
 ///|
@@ -425,7 +425,7 @@ pub extern "C" fn lapacke_dgtrfs_work(
 /// ```
 #borrow(dl, d, du, dlf, df, duf, du2, ipiv, b, x, ferr, berr, work, rwork)
 pub extern "C" fn lapacke_cgtrfs_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   trans : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
@@ -436,7 +436,7 @@ pub extern "C" fn lapacke_cgtrfs_work(
   df : FixedArray[Float],
   duf : FixedArray[Float],
   du2 : FixedArray[Float],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Float],
   ldb : Lapack_int,
   x : FixedArray[Float],
@@ -460,7 +460,7 @@ pub extern "C" fn lapacke_cgtrfs_work(
 /// ```
 #borrow(dl, d, du, dlf, df, duf, du2, ipiv, b, x, ferr, berr, work, rwork)
 pub extern "C" fn lapacke_zgtrfs_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   trans : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
@@ -471,7 +471,7 @@ pub extern "C" fn lapacke_zgtrfs_work(
   df : FixedArray[Double],
   duf : FixedArray[Double],
   du2 : FixedArray[Double],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Double],
   ldb : Lapack_int,
   x : FixedArray[Double],
@@ -492,7 +492,7 @@ pub extern "C" fn lapacke_zgtrfs_work(
 /// ```
 #borrow(dl, d, du, b)
 pub extern "C" fn lapacke_sgtsv_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   n : Lapack_int,
   nrhs : Lapack_int,
   dl : FixedArray[Float],
@@ -512,7 +512,7 @@ pub extern "C" fn lapacke_sgtsv_work(
 /// ```
 #borrow(dl, d, du, b)
 pub extern "C" fn lapacke_dgtsv_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   n : Lapack_int,
   nrhs : Lapack_int,
   dl : FixedArray[Double],
@@ -532,7 +532,7 @@ pub extern "C" fn lapacke_dgtsv_work(
 /// ```
 #borrow(dl, d, du, b)
 pub extern "C" fn lapacke_cgtsv_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   n : Lapack_int,
   nrhs : Lapack_int,
   dl : FixedArray[Float],
@@ -552,7 +552,7 @@ pub extern "C" fn lapacke_cgtsv_work(
 /// ```
 #borrow(dl, d, du, b)
 pub extern "C" fn lapacke_zgtsv_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   n : Lapack_int,
   nrhs : Lapack_int,
   dl : FixedArray[Double],
@@ -576,7 +576,7 @@ pub extern "C" fn lapacke_zgtsv_work(
 /// ```
 #borrow(dl, d, du, dlf, df, duf, du2, ipiv, b, x, rcond, ferr, berr, work, iwork)
 pub extern "C" fn lapacke_sgtsvx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   fact : Byte,
   trans : Byte,
   n : Lapack_int,
@@ -588,7 +588,7 @@ pub extern "C" fn lapacke_sgtsvx_work(
   df : FixedArray[Float],
   duf : FixedArray[Float],
   du2 : FixedArray[Float],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Float],
   ldb : Lapack_int,
   x : FixedArray[Float],
@@ -597,7 +597,7 @@ pub extern "C" fn lapacke_sgtsvx_work(
   ferr : FixedArray[Float],
   berr : FixedArray[Float],
   work : FixedArray[Float],
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_sgtsvx_work"
 
 ///|
@@ -614,7 +614,7 @@ pub extern "C" fn lapacke_sgtsvx_work(
 /// ```
 #borrow(dl, d, du, dlf, df, duf, du2, ipiv, b, x, rcond, ferr, berr, work, iwork)
 pub extern "C" fn lapacke_dgtsvx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   fact : Byte,
   trans : Byte,
   n : Lapack_int,
@@ -626,7 +626,7 @@ pub extern "C" fn lapacke_dgtsvx_work(
   df : FixedArray[Double],
   duf : FixedArray[Double],
   du2 : FixedArray[Double],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Double],
   ldb : Lapack_int,
   x : FixedArray[Double],
@@ -635,7 +635,7 @@ pub extern "C" fn lapacke_dgtsvx_work(
   ferr : FixedArray[Double],
   berr : FixedArray[Double],
   work : FixedArray[Double],
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_dgtsvx_work"
 
 ///|
@@ -652,7 +652,7 @@ pub extern "C" fn lapacke_dgtsvx_work(
 /// ```
 #borrow(dl, d, du, dlf, df, duf, du2, ipiv, b, x, rcond, ferr, berr, work, rwork)
 pub extern "C" fn lapacke_cgtsvx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   fact : Byte,
   trans : Byte,
   n : Lapack_int,
@@ -664,7 +664,7 @@ pub extern "C" fn lapacke_cgtsvx_work(
   df : FixedArray[Float],
   duf : FixedArray[Float],
   du2 : FixedArray[Float],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Float],
   ldb : Lapack_int,
   x : FixedArray[Float],
@@ -690,7 +690,7 @@ pub extern "C" fn lapacke_cgtsvx_work(
 /// ```
 #borrow(dl, d, du, dlf, df, duf, du2, ipiv, b, x, rcond, ferr, berr, work, rwork)
 pub extern "C" fn lapacke_zgtsvx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   fact : Byte,
   trans : Byte,
   n : Lapack_int,
@@ -702,7 +702,7 @@ pub extern "C" fn lapacke_zgtsvx_work(
   df : FixedArray[Double],
   duf : FixedArray[Double],
   du2 : FixedArray[Double],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Double],
   ldb : Lapack_int,
   x : FixedArray[Double],
@@ -729,7 +729,7 @@ pub extern "C" fn lapacke_sgttrf_work(
   d : FixedArray[Float],
   du : FixedArray[Float],
   du2 : FixedArray[Float],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_sgttrf_work"
 
 ///|
@@ -747,7 +747,7 @@ pub extern "C" fn lapacke_dgttrf_work(
   d : FixedArray[Double],
   du : FixedArray[Double],
   du2 : FixedArray[Double],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_dgttrf_work"
 
 ///|
@@ -765,7 +765,7 @@ pub extern "C" fn lapacke_cgttrf_work(
   d : FixedArray[Float],
   du : FixedArray[Float],
   du2 : FixedArray[Float],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_cgttrf_work"
 
 ///|
@@ -783,7 +783,7 @@ pub extern "C" fn lapacke_zgttrf_work(
   d : FixedArray[Double],
   du : FixedArray[Double],
   du2 : FixedArray[Double],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_zgttrf_work"
 
 ///|
@@ -797,7 +797,7 @@ pub extern "C" fn lapacke_zgttrf_work(
 /// ```
 #borrow(dl, d, du, du2, ipiv, b)
 pub extern "C" fn lapacke_sgttrs_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   trans : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
@@ -805,7 +805,7 @@ pub extern "C" fn lapacke_sgttrs_work(
   d : FixedArray[Float],
   du : FixedArray[Float],
   du2 : FixedArray[Float],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Float],
   ldb : Lapack_int,
 ) -> Lapack_int = "LAPACKE_sgttrs_work"
@@ -821,7 +821,7 @@ pub extern "C" fn lapacke_sgttrs_work(
 /// ```
 #borrow(dl, d, du, du2, ipiv, b)
 pub extern "C" fn lapacke_dgttrs_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   trans : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
@@ -829,7 +829,7 @@ pub extern "C" fn lapacke_dgttrs_work(
   d : FixedArray[Double],
   du : FixedArray[Double],
   du2 : FixedArray[Double],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Double],
   ldb : Lapack_int,
 ) -> Lapack_int = "LAPACKE_dgttrs_work"
@@ -845,7 +845,7 @@ pub extern "C" fn lapacke_dgttrs_work(
 /// ```
 #borrow(dl, d, du, du2, ipiv, b)
 pub extern "C" fn lapacke_cgttrs_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   trans : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
@@ -853,7 +853,7 @@ pub extern "C" fn lapacke_cgttrs_work(
   d : FixedArray[Float],
   du : FixedArray[Float],
   du2 : FixedArray[Float],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Float],
   ldb : Lapack_int,
 ) -> Lapack_int = "LAPACKE_cgttrs_work"
@@ -869,7 +869,7 @@ pub extern "C" fn lapacke_cgttrs_work(
 /// ```
 #borrow(dl, d, du, du2, ipiv, b)
 pub extern "C" fn lapacke_zgttrs_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   trans : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
@@ -877,7 +877,7 @@ pub extern "C" fn lapacke_zgttrs_work(
   d : FixedArray[Double],
   du : FixedArray[Double],
   du2 : FixedArray[Double],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Double],
   ldb : Lapack_int,
 ) -> Lapack_int = "LAPACKE_zgttrs_work"
@@ -893,7 +893,7 @@ pub extern "C" fn lapacke_zgttrs_work(
 /// ```
 #borrow(ab, w, z, work, rwork)
 pub extern "C" fn lapacke_chbev_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -918,7 +918,7 @@ pub extern "C" fn lapacke_chbev_work(
 /// ```
 #borrow(ab, w, z, work, rwork)
 pub extern "C" fn lapacke_zhbev_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -944,7 +944,7 @@ pub extern "C" fn lapacke_zhbev_work(
 /// ```
 #borrow(ab, w, z, work, rwork, iwork)
 pub extern "C" fn lapacke_chbevd_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -958,7 +958,7 @@ pub extern "C" fn lapacke_chbevd_work(
   lwork : Lapack_int,
   rwork : FixedArray[Float],
   lrwork : Lapack_int,
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
   liwork : Lapack_int,
 ) -> Lapack_int = "LAPACKE_chbevd_work"
 
@@ -974,7 +974,7 @@ pub extern "C" fn lapacke_chbevd_work(
 /// ```
 #borrow(ab, w, z, work, rwork, iwork)
 pub extern "C" fn lapacke_zhbevd_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -988,7 +988,7 @@ pub extern "C" fn lapacke_zhbevd_work(
   lwork : Lapack_int,
   rwork : FixedArray[Double],
   lrwork : Lapack_int,
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
   liwork : Lapack_int,
 ) -> Lapack_int = "LAPACKE_zhbevd_work"
 
@@ -1006,7 +1006,7 @@ pub extern "C" fn lapacke_zhbevd_work(
 /// ```
 #borrow(ab, q, m, w, z, work, rwork, iwork, ifail)
 pub extern "C" fn lapacke_chbevx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   range : Byte,
   uplo : Byte,
@@ -1021,14 +1021,14 @@ pub extern "C" fn lapacke_chbevx_work(
   il : Lapack_int,
   iu : Lapack_int,
   abstol : Float,
-  m : FixedArray[Int],
+  m : FixedArray[Int32],
   w : FixedArray[Float],
   z : FixedArray[Float],
   ldz : Lapack_int,
   work : FixedArray[Float],
   rwork : FixedArray[Float],
-  iwork : FixedArray[Int],
-  ifail : FixedArray[Int],
+  iwork : FixedArray[Int32],
+  ifail : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_chbevx_work"
 
 ///|
@@ -1045,7 +1045,7 @@ pub extern "C" fn lapacke_chbevx_work(
 /// ```
 #borrow(ab, q, m, w, z, work, rwork, iwork, ifail)
 pub extern "C" fn lapacke_zhbevx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   range : Byte,
   uplo : Byte,
@@ -1060,14 +1060,14 @@ pub extern "C" fn lapacke_zhbevx_work(
   il : Lapack_int,
   iu : Lapack_int,
   abstol : Double,
-  m : FixedArray[Int],
+  m : FixedArray[Int32],
   w : FixedArray[Double],
   z : FixedArray[Double],
   ldz : Lapack_int,
   work : FixedArray[Double],
   rwork : FixedArray[Double],
-  iwork : FixedArray[Int],
-  ifail : FixedArray[Int],
+  iwork : FixedArray[Int32],
+  ifail : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_zhbevx_work"
 
 ///|
@@ -1082,7 +1082,7 @@ pub extern "C" fn lapacke_zhbevx_work(
 /// ```
 #borrow(ab, bb, x, work, rwork)
 pub extern "C" fn lapacke_chbgst_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   vect : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -1110,7 +1110,7 @@ pub extern "C" fn lapacke_chbgst_work(
 /// ```
 #borrow(ab, bb, x, work, rwork)
 pub extern "C" fn lapacke_zhbgst_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   vect : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -1138,7 +1138,7 @@ pub extern "C" fn lapacke_zhbgst_work(
 /// ```
 #borrow(ab, bb, w, z, work, rwork)
 pub extern "C" fn lapacke_chbgv_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -1167,7 +1167,7 @@ pub extern "C" fn lapacke_chbgv_work(
 /// ```
 #borrow(ab, bb, w, z, work, rwork)
 pub extern "C" fn lapacke_zhbgv_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -1197,7 +1197,7 @@ pub extern "C" fn lapacke_zhbgv_work(
 /// ```
 #borrow(ab, bb, w, z, work, rwork, iwork)
 pub extern "C" fn lapacke_chbgvd_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -1214,7 +1214,7 @@ pub extern "C" fn lapacke_chbgvd_work(
   lwork : Lapack_int,
   rwork : FixedArray[Float],
   lrwork : Lapack_int,
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
   liwork : Lapack_int,
 ) -> Lapack_int = "LAPACKE_chbgvd_work"
 
@@ -1231,7 +1231,7 @@ pub extern "C" fn lapacke_chbgvd_work(
 /// ```
 #borrow(ab, bb, w, z, work, rwork, iwork)
 pub extern "C" fn lapacke_zhbgvd_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -1248,7 +1248,7 @@ pub extern "C" fn lapacke_zhbgvd_work(
   lwork : Lapack_int,
   rwork : FixedArray[Double],
   lrwork : Lapack_int,
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
   liwork : Lapack_int,
 ) -> Lapack_int = "LAPACKE_zhbgvd_work"
 
@@ -1267,7 +1267,7 @@ pub extern "C" fn lapacke_zhbgvd_work(
 /// ```
 #borrow(ab, bb, q, m, w, z, work, rwork, iwork, ifail)
 pub extern "C" fn lapacke_chbgvx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   range : Byte,
   uplo : Byte,
@@ -1285,14 +1285,14 @@ pub extern "C" fn lapacke_chbgvx_work(
   il : Lapack_int,
   iu : Lapack_int,
   abstol : Float,
-  m : FixedArray[Int],
+  m : FixedArray[Int32],
   w : FixedArray[Float],
   z : FixedArray[Float],
   ldz : Lapack_int,
   work : FixedArray[Float],
   rwork : FixedArray[Float],
-  iwork : FixedArray[Int],
-  ifail : FixedArray[Int],
+  iwork : FixedArray[Int32],
+  ifail : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_chbgvx_work"
 
 ///|
@@ -1310,7 +1310,7 @@ pub extern "C" fn lapacke_chbgvx_work(
 /// ```
 #borrow(ab, bb, q, m, w, z, work, rwork, iwork, ifail)
 pub extern "C" fn lapacke_zhbgvx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   range : Byte,
   uplo : Byte,
@@ -1328,14 +1328,14 @@ pub extern "C" fn lapacke_zhbgvx_work(
   il : Lapack_int,
   iu : Lapack_int,
   abstol : Double,
-  m : FixedArray[Int],
+  m : FixedArray[Int32],
   w : FixedArray[Double],
   z : FixedArray[Double],
   ldz : Lapack_int,
   work : FixedArray[Double],
   rwork : FixedArray[Double],
-  iwork : FixedArray[Int],
-  ifail : FixedArray[Int],
+  iwork : FixedArray[Int32],
+  ifail : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_zhbgvx_work"
 
 ///|
@@ -1349,7 +1349,7 @@ pub extern "C" fn lapacke_zhbgvx_work(
 /// ```
 #borrow(ab, d, e, q, work)
 pub extern "C" fn lapacke_chbtrd_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   vect : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -1374,7 +1374,7 @@ pub extern "C" fn lapacke_chbtrd_work(
 /// ```
 #borrow(ab, d, e, q, work)
 pub extern "C" fn lapacke_zhbtrd_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   vect : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -1398,12 +1398,12 @@ pub extern "C" fn lapacke_zhbtrd_work(
 /// ```
 #borrow(a, ipiv, rcond, work)
 pub extern "C" fn lapacke_checon_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   a : FixedArray[Float],
   lda : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   anorm : Float,
   rcond : FixedArray[Float],
   work : FixedArray[Float],
@@ -1419,12 +1419,12 @@ pub extern "C" fn lapacke_checon_work(
 /// ```
 #borrow(a, ipiv, rcond, work)
 pub extern "C" fn lapacke_zhecon_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   a : FixedArray[Double],
   lda : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   anorm : Double,
   rcond : FixedArray[Double],
   work : FixedArray[Double],
@@ -1440,7 +1440,7 @@ pub extern "C" fn lapacke_zhecon_work(
 /// ```
 #borrow(a, s, scond, amax, work)
 pub extern "C" fn lapacke_cheequb_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   a : FixedArray[Float],
@@ -1461,7 +1461,7 @@ pub extern "C" fn lapacke_cheequb_work(
 /// ```
 #borrow(a, s, scond, amax, work)
 pub extern "C" fn lapacke_zheequb_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   a : FixedArray[Double],
@@ -1483,7 +1483,7 @@ pub extern "C" fn lapacke_zheequb_work(
 /// ```
 #borrow(a, w, work, rwork)
 pub extern "C" fn lapacke_cheev_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -1506,7 +1506,7 @@ pub extern "C" fn lapacke_cheev_work(
 /// ```
 #borrow(a, w, work, rwork)
 pub extern "C" fn lapacke_zheev_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -1529,7 +1529,7 @@ pub extern "C" fn lapacke_zheev_work(
 /// ```
 #borrow(a, w, work, rwork, iwork)
 pub extern "C" fn lapacke_cheevd_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -1540,7 +1540,7 @@ pub extern "C" fn lapacke_cheevd_work(
   lwork : Lapack_int,
   rwork : FixedArray[Float],
   lrwork : Lapack_int,
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
   liwork : Lapack_int,
 ) -> Lapack_int = "LAPACKE_cheevd_work"
 
@@ -1555,7 +1555,7 @@ pub extern "C" fn lapacke_cheevd_work(
 /// ```
 #borrow(a, w, work, rwork, iwork)
 pub extern "C" fn lapacke_zheevd_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -1566,7 +1566,7 @@ pub extern "C" fn lapacke_zheevd_work(
   lwork : Lapack_int,
   rwork : FixedArray[Double],
   lrwork : Lapack_int,
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
   liwork : Lapack_int,
 ) -> Lapack_int = "LAPACKE_zheevd_work"
 
@@ -1584,7 +1584,7 @@ pub extern "C" fn lapacke_zheevd_work(
 /// ```
 #borrow(a, m, w, z, isuppz, work, rwork, iwork)
 pub extern "C" fn lapacke_cheevr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   range : Byte,
   uplo : Byte,
@@ -1596,16 +1596,16 @@ pub extern "C" fn lapacke_cheevr_work(
   il : Lapack_int,
   iu : Lapack_int,
   abstol : Float,
-  m : FixedArray[Int],
+  m : FixedArray[Int32],
   w : FixedArray[Float],
   z : FixedArray[Float],
   ldz : Lapack_int,
-  isuppz : FixedArray[Int],
+  isuppz : FixedArray[Int32],
   work : FixedArray[Float],
   lwork : Lapack_int,
   rwork : FixedArray[Float],
   lrwork : Lapack_int,
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
   liwork : Lapack_int,
 ) -> Lapack_int = "LAPACKE_cheevr_work"
 
@@ -1623,7 +1623,7 @@ pub extern "C" fn lapacke_cheevr_work(
 /// ```
 #borrow(a, m, w, z, isuppz, work, rwork, iwork)
 pub extern "C" fn lapacke_zheevr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   range : Byte,
   uplo : Byte,
@@ -1635,16 +1635,16 @@ pub extern "C" fn lapacke_zheevr_work(
   il : Lapack_int,
   iu : Lapack_int,
   abstol : Double,
-  m : FixedArray[Int],
+  m : FixedArray[Int32],
   w : FixedArray[Double],
   z : FixedArray[Double],
   ldz : Lapack_int,
-  isuppz : FixedArray[Int],
+  isuppz : FixedArray[Int32],
   work : FixedArray[Double],
   lwork : Lapack_int,
   rwork : FixedArray[Double],
   lrwork : Lapack_int,
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
   liwork : Lapack_int,
 ) -> Lapack_int = "LAPACKE_zheevr_work"
 
@@ -1661,7 +1661,7 @@ pub extern "C" fn lapacke_zheevr_work(
 /// ```
 #borrow(a, m, w, z, work, rwork, iwork, ifail)
 pub extern "C" fn lapacke_cheevx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   range : Byte,
   uplo : Byte,
@@ -1673,15 +1673,15 @@ pub extern "C" fn lapacke_cheevx_work(
   il : Lapack_int,
   iu : Lapack_int,
   abstol : Float,
-  m : FixedArray[Int],
+  m : FixedArray[Int32],
   w : FixedArray[Float],
   z : FixedArray[Float],
   ldz : Lapack_int,
   work : FixedArray[Float],
   lwork : Lapack_int,
   rwork : FixedArray[Float],
-  iwork : FixedArray[Int],
-  ifail : FixedArray[Int],
+  iwork : FixedArray[Int32],
+  ifail : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_cheevx_work"
 
 ///|
@@ -1697,7 +1697,7 @@ pub extern "C" fn lapacke_cheevx_work(
 /// ```
 #borrow(a, m, w, z, work, rwork, iwork, ifail)
 pub extern "C" fn lapacke_zheevx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   range : Byte,
   uplo : Byte,
@@ -1709,15 +1709,15 @@ pub extern "C" fn lapacke_zheevx_work(
   il : Lapack_int,
   iu : Lapack_int,
   abstol : Double,
-  m : FixedArray[Int],
+  m : FixedArray[Int32],
   w : FixedArray[Double],
   z : FixedArray[Double],
   ldz : Lapack_int,
   work : FixedArray[Double],
   lwork : Lapack_int,
   rwork : FixedArray[Double],
-  iwork : FixedArray[Int],
-  ifail : FixedArray[Int],
+  iwork : FixedArray[Int32],
+  ifail : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_zheevx_work"
 
 ///|
@@ -1730,7 +1730,7 @@ pub extern "C" fn lapacke_zheevx_work(
 /// ```
 #borrow(a, b)
 pub extern "C" fn lapacke_chegst_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   itype : Lapack_int,
   uplo : Byte,
   n : Lapack_int,
@@ -1750,7 +1750,7 @@ pub extern "C" fn lapacke_chegst_work(
 /// ```
 #borrow(a, b)
 pub extern "C" fn lapacke_zhegst_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   itype : Lapack_int,
   uplo : Byte,
   n : Lapack_int,
@@ -1771,7 +1771,7 @@ pub extern "C" fn lapacke_zhegst_work(
 /// ```
 #borrow(a, b, w, work, rwork)
 pub extern "C" fn lapacke_chegv_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   itype : Lapack_int,
   jobz : Byte,
   uplo : Byte,
@@ -1797,7 +1797,7 @@ pub extern "C" fn lapacke_chegv_work(
 /// ```
 #borrow(a, b, w, work, rwork)
 pub extern "C" fn lapacke_zhegv_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   itype : Lapack_int,
   jobz : Byte,
   uplo : Byte,
@@ -1824,7 +1824,7 @@ pub extern "C" fn lapacke_zhegv_work(
 /// ```
 #borrow(a, b, w, work, rwork, iwork)
 pub extern "C" fn lapacke_chegvd_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   itype : Lapack_int,
   jobz : Byte,
   uplo : Byte,
@@ -1838,7 +1838,7 @@ pub extern "C" fn lapacke_chegvd_work(
   lwork : Lapack_int,
   rwork : FixedArray[Float],
   lrwork : Lapack_int,
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
   liwork : Lapack_int,
 ) -> Lapack_int = "LAPACKE_chegvd_work"
 
@@ -1854,7 +1854,7 @@ pub extern "C" fn lapacke_chegvd_work(
 /// ```
 #borrow(a, b, w, work, rwork, iwork)
 pub extern "C" fn lapacke_zhegvd_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   itype : Lapack_int,
   jobz : Byte,
   uplo : Byte,
@@ -1868,7 +1868,7 @@ pub extern "C" fn lapacke_zhegvd_work(
   lwork : Lapack_int,
   rwork : FixedArray[Double],
   lrwork : Lapack_int,
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
   liwork : Lapack_int,
 ) -> Lapack_int = "LAPACKE_zhegvd_work"
 
@@ -1886,7 +1886,7 @@ pub extern "C" fn lapacke_zhegvd_work(
 /// ```
 #borrow(a, b, m, w, z, work, rwork, iwork, ifail)
 pub extern "C" fn lapacke_chegvx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   itype : Lapack_int,
   jobz : Byte,
   range : Byte,
@@ -1901,15 +1901,15 @@ pub extern "C" fn lapacke_chegvx_work(
   il : Lapack_int,
   iu : Lapack_int,
   abstol : Float,
-  m : FixedArray[Int],
+  m : FixedArray[Int32],
   w : FixedArray[Float],
   z : FixedArray[Float],
   ldz : Lapack_int,
   work : FixedArray[Float],
   lwork : Lapack_int,
   rwork : FixedArray[Float],
-  iwork : FixedArray[Int],
-  ifail : FixedArray[Int],
+  iwork : FixedArray[Int32],
+  ifail : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_chegvx_work"
 
 ///|
@@ -1926,7 +1926,7 @@ pub extern "C" fn lapacke_chegvx_work(
 /// ```
 #borrow(a, b, m, w, z, work, rwork, iwork, ifail)
 pub extern "C" fn lapacke_zhegvx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   itype : Lapack_int,
   jobz : Byte,
   range : Byte,
@@ -1941,15 +1941,15 @@ pub extern "C" fn lapacke_zhegvx_work(
   il : Lapack_int,
   iu : Lapack_int,
   abstol : Double,
-  m : FixedArray[Int],
+  m : FixedArray[Int32],
   w : FixedArray[Double],
   z : FixedArray[Double],
   ldz : Lapack_int,
   work : FixedArray[Double],
   lwork : Lapack_int,
   rwork : FixedArray[Double],
-  iwork : FixedArray[Int],
-  ifail : FixedArray[Int],
+  iwork : FixedArray[Int32],
+  ifail : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_zhegvx_work"
 
 ///|
@@ -1964,7 +1964,7 @@ pub extern "C" fn lapacke_zhegvx_work(
 /// ```
 #borrow(a, af, ipiv, b, x, ferr, berr, work, rwork)
 pub extern "C" fn lapacke_cherfs_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
@@ -1972,7 +1972,7 @@ pub extern "C" fn lapacke_cherfs_work(
   lda : Lapack_int,
   af : FixedArray[Float],
   ldaf : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Float],
   ldb : Lapack_int,
   x : FixedArray[Float],
@@ -1995,7 +1995,7 @@ pub extern "C" fn lapacke_cherfs_work(
 /// ```
 #borrow(a, af, ipiv, b, x, ferr, berr, work, rwork)
 pub extern "C" fn lapacke_zherfs_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
@@ -2003,7 +2003,7 @@ pub extern "C" fn lapacke_zherfs_work(
   lda : Lapack_int,
   af : FixedArray[Double],
   ldaf : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Double],
   ldb : Lapack_int,
   x : FixedArray[Double],
@@ -2028,7 +2028,7 @@ pub extern "C" fn lapacke_zherfs_work(
 /// ```
 #borrow(a, af, ipiv, s, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params, work, rwork)
 pub extern "C" fn lapacke_cherfsx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   equed : Byte,
   n : Lapack_int,
@@ -2037,7 +2037,7 @@ pub extern "C" fn lapacke_cherfsx_work(
   lda : Lapack_int,
   af : FixedArray[Float],
   ldaf : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   s : FixedArray[Float],
   b : FixedArray[Float],
   ldb : Lapack_int,
@@ -2068,7 +2068,7 @@ pub extern "C" fn lapacke_cherfsx_work(
 /// ```
 #borrow(a, af, ipiv, s, b, x, rcond, berr, err_bnds_norm, err_bnds_comp, params, work, rwork)
 pub extern "C" fn lapacke_zherfsx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   equed : Byte,
   n : Lapack_int,
@@ -2077,7 +2077,7 @@ pub extern "C" fn lapacke_zherfsx_work(
   lda : Lapack_int,
   af : FixedArray[Double],
   ldaf : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   s : FixedArray[Double],
   b : FixedArray[Double],
   ldb : Lapack_int,
@@ -2105,13 +2105,13 @@ pub extern "C" fn lapacke_zherfsx_work(
 /// ```
 #borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_chesv_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
   a : FixedArray[Float],
   lda : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Float],
   ldb : Lapack_int,
   work : FixedArray[Float],
@@ -2129,13 +2129,13 @@ pub extern "C" fn lapacke_chesv_work(
 /// ```
 #borrow(a, ipiv, b, work)
 pub extern "C" fn lapacke_zhesv_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
   a : FixedArray[Double],
   lda : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Double],
   ldb : Lapack_int,
   work : FixedArray[Double],
@@ -2155,7 +2155,7 @@ pub extern "C" fn lapacke_zhesv_work(
 /// ```
 #borrow(a, af, ipiv, b, x, rcond, ferr, berr, work, rwork)
 pub extern "C" fn lapacke_chesvx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   fact : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -2164,7 +2164,7 @@ pub extern "C" fn lapacke_chesvx_work(
   lda : Lapack_int,
   af : FixedArray[Float],
   ldaf : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Float],
   ldb : Lapack_int,
   x : FixedArray[Float],
@@ -2190,7 +2190,7 @@ pub extern "C" fn lapacke_chesvx_work(
 /// ```
 #borrow(a, af, ipiv, b, x, rcond, ferr, berr, work, rwork)
 pub extern "C" fn lapacke_zhesvx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   fact : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -2199,7 +2199,7 @@ pub extern "C" fn lapacke_zhesvx_work(
   lda : Lapack_int,
   af : FixedArray[Double],
   ldaf : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Double],
   ldb : Lapack_int,
   x : FixedArray[Double],
@@ -2227,7 +2227,7 @@ pub extern "C" fn lapacke_zhesvx_work(
 /// ```
 #borrow(a, af, ipiv, equed, s, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params, work, rwork)
 pub extern "C" fn lapacke_chesvxx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   fact : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -2236,7 +2236,7 @@ pub extern "C" fn lapacke_chesvxx_work(
   lda : Lapack_int,
   af : FixedArray[Float],
   ldaf : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   equed : FixedArray[Byte],
   s : FixedArray[Float],
   b : FixedArray[Float],
@@ -2270,7 +2270,7 @@ pub extern "C" fn lapacke_chesvxx_work(
 /// ```
 #borrow(a, af, ipiv, equed, s, b, x, rcond, rpvgrw, berr, err_bnds_norm, err_bnds_comp, params, work, rwork)
 pub extern "C" fn lapacke_zhesvxx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   fact : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -2279,7 +2279,7 @@ pub extern "C" fn lapacke_zhesvxx_work(
   lda : Lapack_int,
   af : FixedArray[Double],
   ldaf : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   equed : FixedArray[Byte],
   s : FixedArray[Double],
   b : FixedArray[Double],
@@ -2309,7 +2309,7 @@ pub extern "C" fn lapacke_zhesvxx_work(
 /// ```
 #borrow(a, d, e, tau, work)
 pub extern "C" fn lapacke_chetrd_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   a : FixedArray[Float],
@@ -2332,7 +2332,7 @@ pub extern "C" fn lapacke_chetrd_work(
 /// ```
 #borrow(a, d, e, tau, work)
 pub extern "C" fn lapacke_zhetrd_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   a : FixedArray[Double],
@@ -2354,12 +2354,12 @@ pub extern "C" fn lapacke_zhetrd_work(
 /// ```
 #borrow(a, ipiv, work)
 pub extern "C" fn lapacke_chetrf_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   a : FixedArray[Float],
   lda : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   work : FixedArray[Float],
   lwork : Lapack_int,
 ) -> Lapack_int = "LAPACKE_chetrf_work"
@@ -2374,12 +2374,12 @@ pub extern "C" fn lapacke_chetrf_work(
 /// ```
 #borrow(a, ipiv, work)
 pub extern "C" fn lapacke_zhetrf_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   a : FixedArray[Double],
   lda : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   work : FixedArray[Double],
   lwork : Lapack_int,
 ) -> Lapack_int = "LAPACKE_zhetrf_work"
@@ -2394,12 +2394,12 @@ pub extern "C" fn lapacke_zhetrf_work(
 /// ```
 #borrow(a, ipiv, work)
 pub extern "C" fn lapacke_chetri_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   a : FixedArray[Float],
   lda : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   work : FixedArray[Float],
 ) -> Lapack_int = "LAPACKE_chetri_work"
 
@@ -2413,12 +2413,12 @@ pub extern "C" fn lapacke_chetri_work(
 /// ```
 #borrow(a, ipiv, work)
 pub extern "C" fn lapacke_zhetri_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   a : FixedArray[Double],
   lda : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   work : FixedArray[Double],
 ) -> Lapack_int = "LAPACKE_zhetri_work"
 
@@ -2432,13 +2432,13 @@ pub extern "C" fn lapacke_zhetri_work(
 /// ```
 #borrow(a, ipiv, b)
 pub extern "C" fn lapacke_chetrs_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
   a : FixedArray[Float],
   lda : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Float],
   ldb : Lapack_int,
 ) -> Lapack_int = "LAPACKE_chetrs_work"
@@ -2453,13 +2453,13 @@ pub extern "C" fn lapacke_chetrs_work(
 /// ```
 #borrow(a, ipiv, b)
 pub extern "C" fn lapacke_zhetrs_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
   a : FixedArray[Double],
   lda : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Double],
   ldb : Lapack_int,
 ) -> Lapack_int = "LAPACKE_zhetrs_work"
@@ -2475,7 +2475,7 @@ pub extern "C" fn lapacke_zhetrs_work(
 /// ```
 #borrow(a, c)
 pub extern "C" fn lapacke_chfrk_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   transr : Byte,
   uplo : Byte,
   trans : Byte,
@@ -2499,7 +2499,7 @@ pub extern "C" fn lapacke_chfrk_work(
 /// ```
 #borrow(a, c)
 pub extern "C" fn lapacke_zhfrk_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   transr : Byte,
   uplo : Byte,
   trans : Byte,
@@ -2525,7 +2525,7 @@ pub extern "C" fn lapacke_zhfrk_work(
 /// ```
 #borrow(h, t, alphar, alphai, beta, q, z, work)
 pub extern "C" fn lapacke_shgeqz_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   job : Byte,
   compq : Byte,
   compz : Byte,
@@ -2560,7 +2560,7 @@ pub extern "C" fn lapacke_shgeqz_work(
 /// ```
 #borrow(h, t, alphar, alphai, beta, q, z, work)
 pub extern "C" fn lapacke_dhgeqz_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   job : Byte,
   compq : Byte,
   compz : Byte,
@@ -2595,7 +2595,7 @@ pub extern "C" fn lapacke_dhgeqz_work(
 /// ```
 #borrow(h, t, alpha, beta, q, z, work, rwork)
 pub extern "C" fn lapacke_chgeqz_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   job : Byte,
   compq : Byte,
   compz : Byte,
@@ -2630,7 +2630,7 @@ pub extern "C" fn lapacke_chgeqz_work(
 /// ```
 #borrow(h, t, alpha, beta, q, z, work, rwork)
 pub extern "C" fn lapacke_zhgeqz_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   job : Byte,
   compq : Byte,
   compz : Byte,
@@ -2662,11 +2662,11 @@ pub extern "C" fn lapacke_zhgeqz_work(
 /// ```
 #borrow(ap, ipiv, rcond, work)
 pub extern "C" fn lapacke_chpcon_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   ap : FixedArray[Float],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   anorm : Float,
   rcond : FixedArray[Float],
   work : FixedArray[Float],
@@ -2682,11 +2682,11 @@ pub extern "C" fn lapacke_chpcon_work(
 /// ```
 #borrow(ap, ipiv, rcond, work)
 pub extern "C" fn lapacke_zhpcon_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   ap : FixedArray[Double],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   anorm : Double,
   rcond : FixedArray[Double],
   work : FixedArray[Double],
@@ -2703,7 +2703,7 @@ pub extern "C" fn lapacke_zhpcon_work(
 /// ```
 #borrow(ap, w, z, work, rwork)
 pub extern "C" fn lapacke_chpev_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -2726,7 +2726,7 @@ pub extern "C" fn lapacke_chpev_work(
 /// ```
 #borrow(ap, w, z, work, rwork)
 pub extern "C" fn lapacke_zhpev_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -2750,7 +2750,7 @@ pub extern "C" fn lapacke_zhpev_work(
 /// ```
 #borrow(ap, w, z, work, rwork, iwork)
 pub extern "C" fn lapacke_chpevd_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -2762,7 +2762,7 @@ pub extern "C" fn lapacke_chpevd_work(
   lwork : Lapack_int,
   rwork : FixedArray[Float],
   lrwork : Lapack_int,
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
   liwork : Lapack_int,
 ) -> Lapack_int = "LAPACKE_chpevd_work"
 
@@ -2778,7 +2778,7 @@ pub extern "C" fn lapacke_chpevd_work(
 /// ```
 #borrow(ap, w, z, work, rwork, iwork)
 pub extern "C" fn lapacke_zhpevd_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -2790,7 +2790,7 @@ pub extern "C" fn lapacke_zhpevd_work(
   lwork : Lapack_int,
   rwork : FixedArray[Double],
   lrwork : Lapack_int,
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
   liwork : Lapack_int,
 ) -> Lapack_int = "LAPACKE_zhpevd_work"
 
@@ -2807,7 +2807,7 @@ pub extern "C" fn lapacke_zhpevd_work(
 /// ```
 #borrow(ap, m, w, z, work, rwork, iwork, ifail)
 pub extern "C" fn lapacke_chpevx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   range : Byte,
   uplo : Byte,
@@ -2818,14 +2818,14 @@ pub extern "C" fn lapacke_chpevx_work(
   il : Lapack_int,
   iu : Lapack_int,
   abstol : Float,
-  m : FixedArray[Int],
+  m : FixedArray[Int32],
   w : FixedArray[Float],
   z : FixedArray[Float],
   ldz : Lapack_int,
   work : FixedArray[Float],
   rwork : FixedArray[Float],
-  iwork : FixedArray[Int],
-  ifail : FixedArray[Int],
+  iwork : FixedArray[Int32],
+  ifail : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_chpevx_work"
 
 ///|
@@ -2841,7 +2841,7 @@ pub extern "C" fn lapacke_chpevx_work(
 /// ```
 #borrow(ap, m, w, z, work, rwork, iwork, ifail)
 pub extern "C" fn lapacke_zhpevx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   jobz : Byte,
   range : Byte,
   uplo : Byte,
@@ -2852,14 +2852,14 @@ pub extern "C" fn lapacke_zhpevx_work(
   il : Lapack_int,
   iu : Lapack_int,
   abstol : Double,
-  m : FixedArray[Int],
+  m : FixedArray[Int32],
   w : FixedArray[Double],
   z : FixedArray[Double],
   ldz : Lapack_int,
   work : FixedArray[Double],
   rwork : FixedArray[Double],
-  iwork : FixedArray[Int],
-  ifail : FixedArray[Int],
+  iwork : FixedArray[Int32],
+  ifail : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_zhpevx_work"
 
 ///|
@@ -2872,7 +2872,7 @@ pub extern "C" fn lapacke_zhpevx_work(
 /// ```
 #borrow(ap, bp)
 pub extern "C" fn lapacke_chpgst_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   itype : Lapack_int,
   uplo : Byte,
   n : Lapack_int,
@@ -2890,7 +2890,7 @@ pub extern "C" fn lapacke_chpgst_work(
 /// ```
 #borrow(ap, bp)
 pub extern "C" fn lapacke_zhpgst_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   itype : Lapack_int,
   uplo : Byte,
   n : Lapack_int,
@@ -2909,7 +2909,7 @@ pub extern "C" fn lapacke_zhpgst_work(
 /// ```
 #borrow(ap, bp, w, z, work, rwork)
 pub extern "C" fn lapacke_chpgv_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   itype : Lapack_int,
   jobz : Byte,
   uplo : Byte,
@@ -2934,7 +2934,7 @@ pub extern "C" fn lapacke_chpgv_work(
 /// ```
 #borrow(ap, bp, w, z, work, rwork)
 pub extern "C" fn lapacke_zhpgv_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   itype : Lapack_int,
   jobz : Byte,
   uplo : Byte,
@@ -2960,7 +2960,7 @@ pub extern "C" fn lapacke_zhpgv_work(
 /// ```
 #borrow(ap, bp, w, z, work, rwork, iwork)
 pub extern "C" fn lapacke_chpgvd_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   itype : Lapack_int,
   jobz : Byte,
   uplo : Byte,
@@ -2974,7 +2974,7 @@ pub extern "C" fn lapacke_chpgvd_work(
   lwork : Lapack_int,
   rwork : FixedArray[Float],
   lrwork : Lapack_int,
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
   liwork : Lapack_int,
 ) -> Lapack_int = "LAPACKE_chpgvd_work"
 
@@ -2990,7 +2990,7 @@ pub extern "C" fn lapacke_chpgvd_work(
 /// ```
 #borrow(ap, bp, w, z, work, rwork, iwork)
 pub extern "C" fn lapacke_zhpgvd_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   itype : Lapack_int,
   jobz : Byte,
   uplo : Byte,
@@ -3004,7 +3004,7 @@ pub extern "C" fn lapacke_zhpgvd_work(
   lwork : Lapack_int,
   rwork : FixedArray[Double],
   lrwork : Lapack_int,
-  iwork : FixedArray[Int],
+  iwork : FixedArray[Int32],
   liwork : Lapack_int,
 ) -> Lapack_int = "LAPACKE_zhpgvd_work"
 
@@ -3021,7 +3021,7 @@ pub extern "C" fn lapacke_zhpgvd_work(
 /// ```
 #borrow(ap, bp, m, w, z, work, rwork, iwork, ifail)
 pub extern "C" fn lapacke_chpgvx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   itype : Lapack_int,
   jobz : Byte,
   range : Byte,
@@ -3034,14 +3034,14 @@ pub extern "C" fn lapacke_chpgvx_work(
   il : Lapack_int,
   iu : Lapack_int,
   abstol : Float,
-  m : FixedArray[Int],
+  m : FixedArray[Int32],
   w : FixedArray[Float],
   z : FixedArray[Float],
   ldz : Lapack_int,
   work : FixedArray[Float],
   rwork : FixedArray[Float],
-  iwork : FixedArray[Int],
-  ifail : FixedArray[Int],
+  iwork : FixedArray[Int32],
+  ifail : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_chpgvx_work"
 
 ///|
@@ -3057,7 +3057,7 @@ pub extern "C" fn lapacke_chpgvx_work(
 /// ```
 #borrow(ap, bp, m, w, z, work, rwork, iwork, ifail)
 pub extern "C" fn lapacke_zhpgvx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   itype : Lapack_int,
   jobz : Byte,
   range : Byte,
@@ -3070,14 +3070,14 @@ pub extern "C" fn lapacke_zhpgvx_work(
   il : Lapack_int,
   iu : Lapack_int,
   abstol : Double,
-  m : FixedArray[Int],
+  m : FixedArray[Int32],
   w : FixedArray[Double],
   z : FixedArray[Double],
   ldz : Lapack_int,
   work : FixedArray[Double],
   rwork : FixedArray[Double],
-  iwork : FixedArray[Int],
-  ifail : FixedArray[Int],
+  iwork : FixedArray[Int32],
+  ifail : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_zhpgvx_work"
 
 ///|
@@ -3092,13 +3092,13 @@ pub extern "C" fn lapacke_zhpgvx_work(
 /// ```
 #borrow(ap, afp, ipiv, b, x, ferr, berr, work, rwork)
 pub extern "C" fn lapacke_chprfs_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
   ap : FixedArray[Float],
   afp : FixedArray[Float],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Float],
   ldb : Lapack_int,
   x : FixedArray[Float],
@@ -3121,13 +3121,13 @@ pub extern "C" fn lapacke_chprfs_work(
 /// ```
 #borrow(ap, afp, ipiv, b, x, ferr, berr, work, rwork)
 pub extern "C" fn lapacke_zhprfs_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
   ap : FixedArray[Double],
   afp : FixedArray[Double],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Double],
   ldb : Lapack_int,
   x : FixedArray[Double],
@@ -3148,12 +3148,12 @@ pub extern "C" fn lapacke_zhprfs_work(
 /// ```
 #borrow(ap, ipiv, b)
 pub extern "C" fn lapacke_chpsv_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
   ap : FixedArray[Float],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Float],
   ldb : Lapack_int,
 ) -> Lapack_int = "LAPACKE_chpsv_work"
@@ -3168,12 +3168,12 @@ pub extern "C" fn lapacke_chpsv_work(
 /// ```
 #borrow(ap, ipiv, b)
 pub extern "C" fn lapacke_zhpsv_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
   ap : FixedArray[Double],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Double],
   ldb : Lapack_int,
 ) -> Lapack_int = "LAPACKE_zhpsv_work"
@@ -3190,14 +3190,14 @@ pub extern "C" fn lapacke_zhpsv_work(
 /// ```
 #borrow(ap, afp, ipiv, b, x, rcond, ferr, berr, work, rwork)
 pub extern "C" fn lapacke_chpsvx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   fact : Byte,
   uplo : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
   ap : FixedArray[Float],
   afp : FixedArray[Float],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Float],
   ldb : Lapack_int,
   x : FixedArray[Float],
@@ -3221,14 +3221,14 @@ pub extern "C" fn lapacke_chpsvx_work(
 /// ```
 #borrow(ap, afp, ipiv, b, x, rcond, ferr, berr, work, rwork)
 pub extern "C" fn lapacke_zhpsvx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   fact : Byte,
   uplo : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
   ap : FixedArray[Double],
   afp : FixedArray[Double],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Double],
   ldb : Lapack_int,
   x : FixedArray[Double],
@@ -3250,7 +3250,7 @@ pub extern "C" fn lapacke_zhpsvx_work(
 /// ```
 #borrow(ap, d, e, tau)
 pub extern "C" fn lapacke_chptrd_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   ap : FixedArray[Float],
@@ -3269,7 +3269,7 @@ pub extern "C" fn lapacke_chptrd_work(
 /// ```
 #borrow(ap, d, e, tau)
 pub extern "C" fn lapacke_zhptrd_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   ap : FixedArray[Double],
@@ -3287,11 +3287,11 @@ pub extern "C" fn lapacke_zhptrd_work(
 /// ```
 #borrow(ap, ipiv)
 pub extern "C" fn lapacke_chptrf_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   ap : FixedArray[Float],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_chptrf_work"
 
 ///|
@@ -3303,11 +3303,11 @@ pub extern "C" fn lapacke_chptrf_work(
 /// ```
 #borrow(ap, ipiv)
 pub extern "C" fn lapacke_zhptrf_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   ap : FixedArray[Double],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_zhptrf_work"
 
 ///|
@@ -3320,11 +3320,11 @@ pub extern "C" fn lapacke_zhptrf_work(
 /// ```
 #borrow(ap, ipiv, work)
 pub extern "C" fn lapacke_chptri_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   ap : FixedArray[Float],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   work : FixedArray[Float],
 ) -> Lapack_int = "LAPACKE_chptri_work"
 
@@ -3338,11 +3338,11 @@ pub extern "C" fn lapacke_chptri_work(
 /// ```
 #borrow(ap, ipiv, work)
 pub extern "C" fn lapacke_zhptri_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   ap : FixedArray[Double],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   work : FixedArray[Double],
 ) -> Lapack_int = "LAPACKE_zhptri_work"
 
@@ -3356,12 +3356,12 @@ pub extern "C" fn lapacke_zhptri_work(
 /// ```
 #borrow(ap, ipiv, b)
 pub extern "C" fn lapacke_chptrs_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
   ap : FixedArray[Float],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Float],
   ldb : Lapack_int,
 ) -> Lapack_int = "LAPACKE_chptrs_work"
@@ -3376,12 +3376,12 @@ pub extern "C" fn lapacke_chptrs_work(
 /// ```
 #borrow(ap, ipiv, b)
 pub extern "C" fn lapacke_zhptrs_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   nrhs : Lapack_int,
   ap : FixedArray[Double],
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   b : FixedArray[Double],
   ldb : Lapack_int,
 ) -> Lapack_int = "LAPACKE_zhptrs_work"
@@ -3399,7 +3399,7 @@ pub extern "C" fn lapacke_zhptrs_work(
 /// ```
 #borrow(select, h, wr, wi, vl, vr, m, work, ifaill, ifailr)
 pub extern "C" fn lapacke_shsein_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   job : Byte,
   eigsrc : Byte,
   initv : Byte,
@@ -3414,10 +3414,10 @@ pub extern "C" fn lapacke_shsein_work(
   vr : FixedArray[Float],
   ldvr : Lapack_int,
   mm : Lapack_int,
-  m : FixedArray[Int],
+  m : FixedArray[Int32],
   work : FixedArray[Float],
-  ifaill : FixedArray[Int],
-  ifailr : FixedArray[Int],
+  ifaill : FixedArray[Int32],
+  ifailr : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_shsein_work"
 
 ///|
@@ -3433,7 +3433,7 @@ pub extern "C" fn lapacke_shsein_work(
 /// ```
 #borrow(select, h, wr, wi, vl, vr, m, work, ifaill, ifailr)
 pub extern "C" fn lapacke_dhsein_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   job : Byte,
   eigsrc : Byte,
   initv : Byte,
@@ -3448,10 +3448,10 @@ pub extern "C" fn lapacke_dhsein_work(
   vr : FixedArray[Double],
   ldvr : Lapack_int,
   mm : Lapack_int,
-  m : FixedArray[Int],
+  m : FixedArray[Int32],
   work : FixedArray[Double],
-  ifaill : FixedArray[Int],
-  ifailr : FixedArray[Int],
+  ifaill : FixedArray[Int32],
+  ifailr : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_dhsein_work"
 
 ///|
@@ -3467,7 +3467,7 @@ pub extern "C" fn lapacke_dhsein_work(
 /// ```
 #borrow(select, h, w, vl, vr, m, work, rwork, ifaill, ifailr)
 pub extern "C" fn lapacke_chsein_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   job : Byte,
   eigsrc : Byte,
   initv : Byte,
@@ -3481,11 +3481,11 @@ pub extern "C" fn lapacke_chsein_work(
   vr : FixedArray[Float],
   ldvr : Lapack_int,
   mm : Lapack_int,
-  m : FixedArray[Int],
+  m : FixedArray[Int32],
   work : FixedArray[Float],
   rwork : FixedArray[Float],
-  ifaill : FixedArray[Int],
-  ifailr : FixedArray[Int],
+  ifaill : FixedArray[Int32],
+  ifailr : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_chsein_work"
 
 ///|
@@ -3501,7 +3501,7 @@ pub extern "C" fn lapacke_chsein_work(
 /// ```
 #borrow(select, h, w, vl, vr, m, work, rwork, ifaill, ifailr)
 pub extern "C" fn lapacke_zhsein_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   job : Byte,
   eigsrc : Byte,
   initv : Byte,
@@ -3515,11 +3515,11 @@ pub extern "C" fn lapacke_zhsein_work(
   vr : FixedArray[Double],
   ldvr : Lapack_int,
   mm : Lapack_int,
-  m : FixedArray[Int],
+  m : FixedArray[Int32],
   work : FixedArray[Double],
   rwork : FixedArray[Double],
-  ifaill : FixedArray[Int],
-  ifailr : FixedArray[Int],
+  ifaill : FixedArray[Int32],
+  ifailr : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_zhsein_work"
 
 ///|
@@ -3534,7 +3534,7 @@ pub extern "C" fn lapacke_zhsein_work(
 /// ```
 #borrow(h, wr, wi, z, work)
 pub extern "C" fn lapacke_shseqr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   job : Byte,
   compz : Byte,
   n : Lapack_int,
@@ -3562,7 +3562,7 @@ pub extern "C" fn lapacke_shseqr_work(
 /// ```
 #borrow(h, wr, wi, z, work)
 pub extern "C" fn lapacke_dhseqr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   job : Byte,
   compz : Byte,
   n : Lapack_int,
@@ -3589,7 +3589,7 @@ pub extern "C" fn lapacke_dhseqr_work(
 /// ```
 #borrow(h, w, z, work)
 pub extern "C" fn lapacke_chseqr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   job : Byte,
   compz : Byte,
   n : Lapack_int,
@@ -3615,7 +3615,7 @@ pub extern "C" fn lapacke_chseqr_work(
 /// ```
 #borrow(h, w, z, work)
 pub extern "C" fn lapacke_zhseqr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   job : Byte,
   compz : Byte,
   n : Lapack_int,
@@ -3667,10 +3667,10 @@ pub extern "C" fn lapacke_slacn2_work(
   n : Lapack_int,
   v : FixedArray[Float],
   x : FixedArray[Float],
-  isgn : FixedArray[Int],
+  isgn : FixedArray[Int32],
   est : FixedArray[Float],
-  kase : FixedArray[Int],
-  isave : FixedArray[Int],
+  kase : FixedArray[Int32],
+  isave : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_slacn2_work"
 
 ///|
@@ -3686,10 +3686,10 @@ pub extern "C" fn lapacke_dlacn2_work(
   n : Lapack_int,
   v : FixedArray[Double],
   x : FixedArray[Double],
-  isgn : FixedArray[Int],
+  isgn : FixedArray[Int32],
   est : FixedArray[Double],
-  kase : FixedArray[Int],
-  isave : FixedArray[Int],
+  kase : FixedArray[Int32],
+  isave : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_dlacn2_work"
 
 ///|
@@ -3706,8 +3706,8 @@ pub extern "C" fn lapacke_clacn2_work(
   v : FixedArray[Float],
   x : FixedArray[Float],
   est : FixedArray[Float],
-  kase : FixedArray[Int],
-  isave : FixedArray[Int],
+  kase : FixedArray[Int32],
+  isave : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_clacn2_work"
 
 ///|
@@ -3724,8 +3724,8 @@ pub extern "C" fn lapacke_zlacn2_work(
   v : FixedArray[Double],
   x : FixedArray[Double],
   est : FixedArray[Double],
-  kase : FixedArray[Int],
-  isave : FixedArray[Int],
+  kase : FixedArray[Int32],
+  isave : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_zlacn2_work"
 
 ///|
@@ -3738,7 +3738,7 @@ pub extern "C" fn lapacke_zlacn2_work(
 /// ```
 #borrow(a, b)
 pub extern "C" fn lapacke_slacpy_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -3758,7 +3758,7 @@ pub extern "C" fn lapacke_slacpy_work(
 /// ```
 #borrow(a, b)
 pub extern "C" fn lapacke_dlacpy_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -3778,7 +3778,7 @@ pub extern "C" fn lapacke_dlacpy_work(
 /// ```
 #borrow(a, b)
 pub extern "C" fn lapacke_clacpy_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -3798,7 +3798,7 @@ pub extern "C" fn lapacke_clacpy_work(
 /// ```
 #borrow(a, b)
 pub extern "C" fn lapacke_zlacpy_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -3818,7 +3818,7 @@ pub extern "C" fn lapacke_zlacpy_work(
 /// ```
 #borrow(a, b)
 pub extern "C" fn lapacke_clacp2_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -3838,7 +3838,7 @@ pub extern "C" fn lapacke_clacp2_work(
 /// ```
 #borrow(a, b)
 pub extern "C" fn lapacke_zlacp2_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -3858,7 +3858,7 @@ pub extern "C" fn lapacke_zlacp2_work(
 /// ```
 #borrow(a, sa)
 pub extern "C" fn lapacke_zlag2c_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   a : FixedArray[Double],
@@ -3877,7 +3877,7 @@ pub extern "C" fn lapacke_zlag2c_work(
 /// ```
 #borrow(sa, a)
 pub extern "C" fn lapacke_slag2d_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   sa : FixedArray[Float],
@@ -3896,7 +3896,7 @@ pub extern "C" fn lapacke_slag2d_work(
 /// ```
 #borrow(a, sa)
 pub extern "C" fn lapacke_dlag2s_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   a : FixedArray[Double],
@@ -3915,7 +3915,7 @@ pub extern "C" fn lapacke_dlag2s_work(
 /// ```
 #borrow(sa, a)
 pub extern "C" fn lapacke_clag2z_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   sa : FixedArray[Float],
@@ -3935,7 +3935,7 @@ pub extern "C" fn lapacke_clag2z_work(
 /// ```
 #borrow(d, a, iseed, work)
 pub extern "C" fn lapacke_slagge_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   kl : Lapack_int,
@@ -3943,7 +3943,7 @@ pub extern "C" fn lapacke_slagge_work(
   d : FixedArray[Float],
   a : FixedArray[Float],
   lda : Lapack_int,
-  iseed : FixedArray[Int],
+  iseed : FixedArray[Int32],
   work : FixedArray[Float],
 ) -> Lapack_int = "LAPACKE_slagge_work"
 
@@ -3958,7 +3958,7 @@ pub extern "C" fn lapacke_slagge_work(
 /// ```
 #borrow(d, a, iseed, work)
 pub extern "C" fn lapacke_dlagge_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   kl : Lapack_int,
@@ -3966,7 +3966,7 @@ pub extern "C" fn lapacke_dlagge_work(
   d : FixedArray[Double],
   a : FixedArray[Double],
   lda : Lapack_int,
-  iseed : FixedArray[Int],
+  iseed : FixedArray[Int32],
   work : FixedArray[Double],
 ) -> Lapack_int = "LAPACKE_dlagge_work"
 
@@ -3981,7 +3981,7 @@ pub extern "C" fn lapacke_dlagge_work(
 /// ```
 #borrow(d, a, iseed, work)
 pub extern "C" fn lapacke_clagge_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   kl : Lapack_int,
@@ -3989,7 +3989,7 @@ pub extern "C" fn lapacke_clagge_work(
   d : FixedArray[Float],
   a : FixedArray[Float],
   lda : Lapack_int,
-  iseed : FixedArray[Int],
+  iseed : FixedArray[Int32],
   work : FixedArray[Float],
 ) -> Lapack_int = "LAPACKE_clagge_work"
 
@@ -4004,7 +4004,7 @@ pub extern "C" fn lapacke_clagge_work(
 /// ```
 #borrow(d, a, iseed, work)
 pub extern "C" fn lapacke_zlagge_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   kl : Lapack_int,
@@ -4012,7 +4012,7 @@ pub extern "C" fn lapacke_zlagge_work(
   d : FixedArray[Double],
   a : FixedArray[Double],
   lda : Lapack_int,
-  iseed : FixedArray[Int],
+  iseed : FixedArray[Int32],
   work : FixedArray[Double],
 ) -> Lapack_int = "LAPACKE_zlagge_work"
 
@@ -4026,13 +4026,13 @@ pub extern "C" fn lapacke_zlagge_work(
 /// ```
 #borrow(d, a, iseed, work)
 pub extern "C" fn lapacke_claghe_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   n : Lapack_int,
   k : Lapack_int,
   d : FixedArray[Float],
   a : FixedArray[Float],
   lda : Lapack_int,
-  iseed : FixedArray[Int],
+  iseed : FixedArray[Int32],
   work : FixedArray[Float],
 ) -> Lapack_int = "LAPACKE_claghe_work"
 
@@ -4046,13 +4046,13 @@ pub extern "C" fn lapacke_claghe_work(
 /// ```
 #borrow(d, a, iseed, work)
 pub extern "C" fn lapacke_zlaghe_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   n : Lapack_int,
   k : Lapack_int,
   d : FixedArray[Double],
   a : FixedArray[Double],
   lda : Lapack_int,
-  iseed : FixedArray[Int],
+  iseed : FixedArray[Int32],
   work : FixedArray[Double],
 ) -> Lapack_int = "LAPACKE_zlaghe_work"
 
@@ -4066,13 +4066,13 @@ pub extern "C" fn lapacke_zlaghe_work(
 /// ```
 #borrow(d, a, iseed, work)
 pub extern "C" fn lapacke_slagsy_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   n : Lapack_int,
   k : Lapack_int,
   d : FixedArray[Float],
   a : FixedArray[Float],
   lda : Lapack_int,
-  iseed : FixedArray[Int],
+  iseed : FixedArray[Int32],
   work : FixedArray[Float],
 ) -> Lapack_int = "LAPACKE_slagsy_work"
 
@@ -4086,13 +4086,13 @@ pub extern "C" fn lapacke_slagsy_work(
 /// ```
 #borrow(d, a, iseed, work)
 pub extern "C" fn lapacke_dlagsy_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   n : Lapack_int,
   k : Lapack_int,
   d : FixedArray[Double],
   a : FixedArray[Double],
   lda : Lapack_int,
-  iseed : FixedArray[Int],
+  iseed : FixedArray[Int32],
   work : FixedArray[Double],
 ) -> Lapack_int = "LAPACKE_dlagsy_work"
 
@@ -4106,13 +4106,13 @@ pub extern "C" fn lapacke_dlagsy_work(
 /// ```
 #borrow(d, a, iseed, work)
 pub extern "C" fn lapacke_clagsy_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   n : Lapack_int,
   k : Lapack_int,
   d : FixedArray[Float],
   a : FixedArray[Float],
   lda : Lapack_int,
-  iseed : FixedArray[Int],
+  iseed : FixedArray[Int32],
   work : FixedArray[Float],
 ) -> Lapack_int = "LAPACKE_clagsy_work"
 
@@ -4126,13 +4126,13 @@ pub extern "C" fn lapacke_clagsy_work(
 /// ```
 #borrow(d, a, iseed, work)
 pub extern "C" fn lapacke_zlagsy_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   n : Lapack_int,
   k : Lapack_int,
   d : FixedArray[Double],
   a : FixedArray[Double],
   lda : Lapack_int,
-  iseed : FixedArray[Int],
+  iseed : FixedArray[Int32],
   work : FixedArray[Double],
 ) -> Lapack_int = "LAPACKE_zlagsy_work"
 
@@ -4146,13 +4146,13 @@ pub extern "C" fn lapacke_zlagsy_work(
 /// ```
 #borrow(x, k)
 pub extern "C" fn lapacke_slapmr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   forwrd : Lapack_logical,
   m : Lapack_int,
   n : Lapack_int,
   x : FixedArray[Float],
   ldx : Lapack_int,
-  k : FixedArray[Int],
+  k : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_slapmr_work"
 
 ///|
@@ -4165,13 +4165,13 @@ pub extern "C" fn lapacke_slapmr_work(
 /// ```
 #borrow(x, k)
 pub extern "C" fn lapacke_dlapmr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   forwrd : Lapack_logical,
   m : Lapack_int,
   n : Lapack_int,
   x : FixedArray[Double],
   ldx : Lapack_int,
-  k : FixedArray[Int],
+  k : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_dlapmr_work"
 
 ///|
@@ -4184,13 +4184,13 @@ pub extern "C" fn lapacke_dlapmr_work(
 /// ```
 #borrow(x, k)
 pub extern "C" fn lapacke_clapmr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   forwrd : Lapack_logical,
   m : Lapack_int,
   n : Lapack_int,
   x : FixedArray[Float],
   ldx : Lapack_int,
-  k : FixedArray[Int],
+  k : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_clapmr_work"
 
 ///|
@@ -4203,13 +4203,13 @@ pub extern "C" fn lapacke_clapmr_work(
 /// ```
 #borrow(x, k)
 pub extern "C" fn lapacke_zlapmr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   forwrd : Lapack_logical,
   m : Lapack_int,
   n : Lapack_int,
   x : FixedArray[Double],
   ldx : Lapack_int,
-  k : FixedArray[Int],
+  k : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_zlapmr_work"
 
 ///|
@@ -4222,13 +4222,13 @@ pub extern "C" fn lapacke_zlapmr_work(
 /// ```
 #borrow(x, k)
 pub extern "C" fn lapacke_slapmt_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   forwrd : Lapack_logical,
   m : Lapack_int,
   n : Lapack_int,
   x : FixedArray[Float],
   ldx : Lapack_int,
-  k : FixedArray[Int],
+  k : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_slapmt_work"
 
 ///|
@@ -4241,13 +4241,13 @@ pub extern "C" fn lapacke_slapmt_work(
 /// ```
 #borrow(x, k)
 pub extern "C" fn lapacke_dlapmt_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   forwrd : Lapack_logical,
   m : Lapack_int,
   n : Lapack_int,
   x : FixedArray[Double],
   ldx : Lapack_int,
-  k : FixedArray[Int],
+  k : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_dlapmt_work"
 
 ///|
@@ -4260,13 +4260,13 @@ pub extern "C" fn lapacke_dlapmt_work(
 /// ```
 #borrow(x, k)
 pub extern "C" fn lapacke_clapmt_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   forwrd : Lapack_logical,
   m : Lapack_int,
   n : Lapack_int,
   x : FixedArray[Float],
   ldx : Lapack_int,
-  k : FixedArray[Int],
+  k : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_clapmt_work"
 
 ///|
@@ -4279,13 +4279,13 @@ pub extern "C" fn lapacke_clapmt_work(
 /// ```
 #borrow(x, k)
 pub extern "C" fn lapacke_zlapmt_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   forwrd : Lapack_logical,
   m : Lapack_int,
   n : Lapack_int,
   x : FixedArray[Double],
   ldx : Lapack_int,
-  k : FixedArray[Int],
+  k : FixedArray[Int32],
 ) -> Lapack_int = "LAPACKE_zlapmt_work"
 
 ///|
@@ -4408,7 +4408,7 @@ pub extern "C" fn lapacke_dlamch_work(cmach : Byte) -> Double = "LAPACKE_dlamch_
 /// ```
 #borrow(ab, work)
 pub extern "C" fn lapacke_slangb_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   norm : Byte,
   n : Lapack_int,
   kl : Lapack_int,
@@ -4428,7 +4428,7 @@ pub extern "C" fn lapacke_slangb_work(
 /// ```
 #borrow(ab, work)
 pub extern "C" fn lapacke_dlangb_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   norm : Byte,
   n : Lapack_int,
   kl : Lapack_int,
@@ -4448,7 +4448,7 @@ pub extern "C" fn lapacke_dlangb_work(
 /// ```
 #borrow(ab, work)
 pub extern "C" fn lapacke_clangb_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   norm : Byte,
   n : Lapack_int,
   kl : Lapack_int,
@@ -4468,7 +4468,7 @@ pub extern "C" fn lapacke_clangb_work(
 /// ```
 #borrow(ab, work)
 pub extern "C" fn lapacke_zlangb_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   norm : Byte,
   n : Lapack_int,
   kl : Lapack_int,
@@ -4488,7 +4488,7 @@ pub extern "C" fn lapacke_zlangb_work(
 /// ```
 #borrow(a, work)
 pub extern "C" fn lapacke_slange_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   norm : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -4507,7 +4507,7 @@ pub extern "C" fn lapacke_slange_work(
 /// ```
 #borrow(a, work)
 pub extern "C" fn lapacke_dlange_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   norm : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -4526,7 +4526,7 @@ pub extern "C" fn lapacke_dlange_work(
 /// ```
 #borrow(a, work)
 pub extern "C" fn lapacke_clange_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   norm : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -4545,7 +4545,7 @@ pub extern "C" fn lapacke_clange_work(
 /// ```
 #borrow(a, work)
 pub extern "C" fn lapacke_zlange_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   norm : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -4564,7 +4564,7 @@ pub extern "C" fn lapacke_zlange_work(
 /// ```
 #borrow(a, work)
 pub extern "C" fn lapacke_clanhe_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   norm : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -4583,7 +4583,7 @@ pub extern "C" fn lapacke_clanhe_work(
 /// ```
 #borrow(a, work)
 pub extern "C" fn lapacke_zlanhe_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   norm : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -4603,7 +4603,7 @@ pub extern "C" fn lapacke_zlanhe_work(
 /// ```
 #borrow(a, b, c, work)
 pub extern "C" fn lapacke_clacrm_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   a : FixedArray[Float],
@@ -4626,7 +4626,7 @@ pub extern "C" fn lapacke_clacrm_work(
 /// ```
 #borrow(a, b, c, work)
 pub extern "C" fn lapacke_zlacrm_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   a : FixedArray[Double],
@@ -4649,7 +4649,7 @@ pub extern "C" fn lapacke_zlacrm_work(
 /// ```
 #borrow(a, b, c, work)
 pub extern "C" fn lapacke_clarcm_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   a : FixedArray[Float],
@@ -4672,7 +4672,7 @@ pub extern "C" fn lapacke_clarcm_work(
 /// ```
 #borrow(a, b, c, work)
 pub extern "C" fn lapacke_zlarcm_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   a : FixedArray[Double],
@@ -4694,7 +4694,7 @@ pub extern "C" fn lapacke_zlarcm_work(
 /// ```
 #borrow(a, work)
 pub extern "C" fn lapacke_slansy_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   norm : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -4713,7 +4713,7 @@ pub extern "C" fn lapacke_slansy_work(
 /// ```
 #borrow(a, work)
 pub extern "C" fn lapacke_dlansy_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   norm : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -4732,7 +4732,7 @@ pub extern "C" fn lapacke_dlansy_work(
 /// ```
 #borrow(a, work)
 pub extern "C" fn lapacke_clansy_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   norm : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -4751,7 +4751,7 @@ pub extern "C" fn lapacke_clansy_work(
 /// ```
 #borrow(a, work)
 pub extern "C" fn lapacke_zlansy_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   norm : Byte,
   uplo : Byte,
   n : Lapack_int,
@@ -4770,7 +4770,7 @@ pub extern "C" fn lapacke_zlansy_work(
 /// ```
 #borrow(a, work)
 pub extern "C" fn lapacke_slantr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   norm : Byte,
   uplo : Byte,
   diag : Byte,
@@ -4791,7 +4791,7 @@ pub extern "C" fn lapacke_slantr_work(
 /// ```
 #borrow(a, work)
 pub extern "C" fn lapacke_dlantr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   norm : Byte,
   uplo : Byte,
   diag : Byte,
@@ -4812,7 +4812,7 @@ pub extern "C" fn lapacke_dlantr_work(
 /// ```
 #borrow(a, work)
 pub extern "C" fn lapacke_clantr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   norm : Byte,
   uplo : Byte,
   diag : Byte,
@@ -4833,7 +4833,7 @@ pub extern "C" fn lapacke_clantr_work(
 /// ```
 #borrow(a, work)
 pub extern "C" fn lapacke_zlantr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   norm : Byte,
   uplo : Byte,
   diag : Byte,
@@ -4856,7 +4856,7 @@ pub extern "C" fn lapacke_zlantr_work(
 /// ```
 #borrow(v, t, c, work)
 pub extern "C" fn lapacke_slarfb_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   side : Byte,
   trans : Byte,
   direct : Byte,
@@ -4886,7 +4886,7 @@ pub extern "C" fn lapacke_slarfb_work(
 /// ```
 #borrow(v, t, c, work)
 pub extern "C" fn lapacke_dlarfb_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   side : Byte,
   trans : Byte,
   direct : Byte,
@@ -4916,7 +4916,7 @@ pub extern "C" fn lapacke_dlarfb_work(
 /// ```
 #borrow(v, t, c, work)
 pub extern "C" fn lapacke_clarfb_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   side : Byte,
   trans : Byte,
   direct : Byte,
@@ -4946,7 +4946,7 @@ pub extern "C" fn lapacke_clarfb_work(
 /// ```
 #borrow(v, t, c, work)
 pub extern "C" fn lapacke_zlarfb_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   side : Byte,
   trans : Byte,
   direct : Byte,
@@ -5039,7 +5039,7 @@ pub extern "C" fn lapacke_zlarfg_work(
 /// ```
 #borrow(v, tau, t)
 pub extern "C" fn lapacke_slarft_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   direct : Byte,
   storev : Byte,
   n : Lapack_int,
@@ -5062,7 +5062,7 @@ pub extern "C" fn lapacke_slarft_work(
 /// ```
 #borrow(v, tau, t)
 pub extern "C" fn lapacke_dlarft_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   direct : Byte,
   storev : Byte,
   n : Lapack_int,
@@ -5085,7 +5085,7 @@ pub extern "C" fn lapacke_dlarft_work(
 /// ```
 #borrow(v, tau, t)
 pub extern "C" fn lapacke_clarft_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   direct : Byte,
   storev : Byte,
   n : Lapack_int,
@@ -5108,7 +5108,7 @@ pub extern "C" fn lapacke_clarft_work(
 /// ```
 #borrow(v, tau, t)
 pub extern "C" fn lapacke_zlarft_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   direct : Byte,
   storev : Byte,
   n : Lapack_int,
@@ -5130,7 +5130,7 @@ pub extern "C" fn lapacke_zlarft_work(
 /// ```
 #borrow(v, c, work)
 pub extern "C" fn lapacke_slarfx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   side : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -5151,7 +5151,7 @@ pub extern "C" fn lapacke_slarfx_work(
 /// ```
 #borrow(v, c, work)
 pub extern "C" fn lapacke_dlarfx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   side : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -5172,7 +5172,7 @@ pub extern "C" fn lapacke_dlarfx_work(
 /// ```
 #borrow(v, c, work, tau)
 pub extern "C" fn lapacke_clarfx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   side : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -5193,7 +5193,7 @@ pub extern "C" fn lapacke_clarfx_work(
 /// ```
 #borrow(v, c, work, tau)
 pub extern "C" fn lapacke_zlarfx_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   side : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -5214,7 +5214,7 @@ pub extern "C" fn lapacke_zlarfx_work(
 #borrow(iseed, x)
 pub extern "C" fn lapacke_slarnv_work(
   idist : Lapack_int,
-  iseed : FixedArray[Int],
+  iseed : FixedArray[Int32],
   n : Lapack_int,
   x : FixedArray[Float],
 ) -> Lapack_int = "LAPACKE_slarnv_work"
@@ -5229,7 +5229,7 @@ pub extern "C" fn lapacke_slarnv_work(
 #borrow(iseed, x)
 pub extern "C" fn lapacke_dlarnv_work(
   idist : Lapack_int,
-  iseed : FixedArray[Int],
+  iseed : FixedArray[Int32],
   n : Lapack_int,
   x : FixedArray[Double],
 ) -> Lapack_int = "LAPACKE_dlarnv_work"
@@ -5244,7 +5244,7 @@ pub extern "C" fn lapacke_dlarnv_work(
 #borrow(iseed, x)
 pub extern "C" fn lapacke_clarnv_work(
   idist : Lapack_int,
-  iseed : FixedArray[Int],
+  iseed : FixedArray[Int32],
   n : Lapack_int,
   x : FixedArray[Float],
 ) -> Lapack_int = "LAPACKE_clarnv_work"
@@ -5259,7 +5259,7 @@ pub extern "C" fn lapacke_clarnv_work(
 #borrow(iseed, x)
 pub extern "C" fn lapacke_zlarnv_work(
   idist : Lapack_int,
-  iseed : FixedArray[Int],
+  iseed : FixedArray[Int32],
   n : Lapack_int,
   x : FixedArray[Double],
 ) -> Lapack_int = "LAPACKE_zlarnv_work"
@@ -5275,7 +5275,7 @@ pub extern "C" fn lapacke_zlarnv_work(
 /// ```
 #borrow(a)
 pub extern "C" fn lapacke_slascl_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   ty : Byte,
   kl : Lapack_int,
   ku : Lapack_int,
@@ -5298,7 +5298,7 @@ pub extern "C" fn lapacke_slascl_work(
 /// ```
 #borrow(a)
 pub extern "C" fn lapacke_dlascl_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   ty : Byte,
   kl : Lapack_int,
   ku : Lapack_int,
@@ -5321,7 +5321,7 @@ pub extern "C" fn lapacke_dlascl_work(
 /// ```
 #borrow(a)
 pub extern "C" fn lapacke_clascl_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   ty : Byte,
   kl : Lapack_int,
   ku : Lapack_int,
@@ -5344,7 +5344,7 @@ pub extern "C" fn lapacke_clascl_work(
 /// ```
 #borrow(a)
 pub extern "C" fn lapacke_zlascl_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   ty : Byte,
   kl : Lapack_int,
   ku : Lapack_int,
@@ -5366,7 +5366,7 @@ pub extern "C" fn lapacke_zlascl_work(
 /// ```
 #borrow(a)
 pub extern "C" fn lapacke_slaset_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -5386,7 +5386,7 @@ pub extern "C" fn lapacke_slaset_work(
 /// ```
 #borrow(a)
 pub extern "C" fn lapacke_dlaset_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -5406,7 +5406,7 @@ pub extern "C" fn lapacke_dlaset_work(
 /// ```
 #borrow(a, alpha, beta)
 pub extern "C" fn lapacke_claset_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -5426,7 +5426,7 @@ pub extern "C" fn lapacke_claset_work(
 /// ```
 #borrow(a, alpha, beta)
 pub extern "C" fn lapacke_zlaset_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -5534,13 +5534,13 @@ pub extern "C" fn lapacke_zlassq_work(
 /// ```
 #borrow(a, ipiv)
 pub extern "C" fn lapacke_slaswp_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   n : Lapack_int,
   a : FixedArray[Float],
   lda : Lapack_int,
   k1 : Lapack_int,
   k2 : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   incx : Lapack_int,
 ) -> Lapack_int = "LAPACKE_slaswp_work"
 
@@ -5554,13 +5554,13 @@ pub extern "C" fn lapacke_slaswp_work(
 /// ```
 #borrow(a, ipiv)
 pub extern "C" fn lapacke_dlaswp_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   n : Lapack_int,
   a : FixedArray[Double],
   lda : Lapack_int,
   k1 : Lapack_int,
   k2 : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   incx : Lapack_int,
 ) -> Lapack_int = "LAPACKE_dlaswp_work"
 
@@ -5574,13 +5574,13 @@ pub extern "C" fn lapacke_dlaswp_work(
 /// ```
 #borrow(a, ipiv)
 pub extern "C" fn lapacke_claswp_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   n : Lapack_int,
   a : FixedArray[Float],
   lda : Lapack_int,
   k1 : Lapack_int,
   k2 : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   incx : Lapack_int,
 ) -> Lapack_int = "LAPACKE_claswp_work"
 
@@ -5594,13 +5594,13 @@ pub extern "C" fn lapacke_claswp_work(
 /// ```
 #borrow(a, ipiv)
 pub extern "C" fn lapacke_zlaswp_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   n : Lapack_int,
   a : FixedArray[Double],
   lda : Lapack_int,
   k1 : Lapack_int,
   k2 : Lapack_int,
-  ipiv : FixedArray[Int],
+  ipiv : FixedArray[Int32],
   incx : Lapack_int,
 ) -> Lapack_int = "LAPACKE_zlaswp_work"
 
@@ -5616,11 +5616,11 @@ pub extern "C" fn lapacke_zlaswp_work(
 /// ```
 #borrow(iseed, d, a, work)
 pub extern "C" fn lapacke_slatms_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   dist : Byte,
-  iseed : FixedArray[Int],
+  iseed : FixedArray[Int32],
   sym : Byte,
   d : FixedArray[Float],
   mode : Lapack_int,
@@ -5646,11 +5646,11 @@ pub extern "C" fn lapacke_slatms_work(
 /// ```
 #borrow(iseed, d, a, work)
 pub extern "C" fn lapacke_dlatms_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   dist : Byte,
-  iseed : FixedArray[Int],
+  iseed : FixedArray[Int32],
   sym : Byte,
   d : FixedArray[Double],
   mode : Lapack_int,
@@ -5676,11 +5676,11 @@ pub extern "C" fn lapacke_dlatms_work(
 /// ```
 #borrow(iseed, d, a, work)
 pub extern "C" fn lapacke_clatms_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   dist : Byte,
-  iseed : FixedArray[Int],
+  iseed : FixedArray[Int32],
   sym : Byte,
   d : FixedArray[Float],
   mode : Lapack_int,
@@ -5706,11 +5706,11 @@ pub extern "C" fn lapacke_clatms_work(
 /// ```
 #borrow(iseed, d, a, work)
 pub extern "C" fn lapacke_zlatms_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   dist : Byte,
-  iseed : FixedArray[Int],
+  iseed : FixedArray[Int32],
   sym : Byte,
   d : FixedArray[Double],
   mode : Lapack_int,
@@ -5733,7 +5733,7 @@ pub extern "C" fn lapacke_zlatms_work(
 /// ```
 #borrow(a)
 pub extern "C" fn lapacke_slauum_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   a : FixedArray[Float],
@@ -5749,7 +5749,7 @@ pub extern "C" fn lapacke_slauum_work(
 /// ```
 #borrow(a)
 pub extern "C" fn lapacke_dlauum_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   a : FixedArray[Double],
@@ -5765,7 +5765,7 @@ pub extern "C" fn lapacke_dlauum_work(
 /// ```
 #borrow(a)
 pub extern "C" fn lapacke_clauum_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   a : FixedArray[Float],
@@ -5781,7 +5781,7 @@ pub extern "C" fn lapacke_clauum_work(
 /// ```
 #borrow(a)
 pub extern "C" fn lapacke_zlauum_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   a : FixedArray[Double],
@@ -5798,7 +5798,7 @@ pub extern "C" fn lapacke_zlauum_work(
 /// ```
 #borrow(ap, tau, q, work)
 pub extern "C" fn lapacke_sopgtr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   ap : FixedArray[Float],
@@ -5818,7 +5818,7 @@ pub extern "C" fn lapacke_sopgtr_work(
 /// ```
 #borrow(ap, tau, q, work)
 pub extern "C" fn lapacke_dopgtr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   ap : FixedArray[Double],
@@ -5839,7 +5839,7 @@ pub extern "C" fn lapacke_dopgtr_work(
 /// ```
 #borrow(ap, tau, c, work)
 pub extern "C" fn lapacke_sopmtr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   side : Byte,
   uplo : Byte,
   trans : Byte,
@@ -5863,7 +5863,7 @@ pub extern "C" fn lapacke_sopmtr_work(
 /// ```
 #borrow(ap, tau, c, work)
 pub extern "C" fn lapacke_dopmtr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   side : Byte,
   uplo : Byte,
   trans : Byte,
@@ -5887,7 +5887,7 @@ pub extern "C" fn lapacke_dopmtr_work(
 /// ```
 #borrow(a, tau, work)
 pub extern "C" fn lapacke_sorgbr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   vect : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -5910,7 +5910,7 @@ pub extern "C" fn lapacke_sorgbr_work(
 /// ```
 #borrow(a, tau, work)
 pub extern "C" fn lapacke_dorgbr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   vect : Byte,
   m : Lapack_int,
   n : Lapack_int,
@@ -5932,7 +5932,7 @@ pub extern "C" fn lapacke_dorgbr_work(
 /// ```
 #borrow(a, tau, work)
 pub extern "C" fn lapacke_sorghr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   n : Lapack_int,
   ilo : Lapack_int,
   ihi : Lapack_int,
@@ -5953,7 +5953,7 @@ pub extern "C" fn lapacke_sorghr_work(
 /// ```
 #borrow(a, tau, work)
 pub extern "C" fn lapacke_dorghr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   n : Lapack_int,
   ilo : Lapack_int,
   ihi : Lapack_int,
@@ -5974,7 +5974,7 @@ pub extern "C" fn lapacke_dorghr_work(
 /// ```
 #borrow(a, tau, work)
 pub extern "C" fn lapacke_sorglq_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   k : Lapack_int,
@@ -5995,7 +5995,7 @@ pub extern "C" fn lapacke_sorglq_work(
 /// ```
 #borrow(a, tau, work)
 pub extern "C" fn lapacke_dorglq_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   k : Lapack_int,
@@ -6016,7 +6016,7 @@ pub extern "C" fn lapacke_dorglq_work(
 /// ```
 #borrow(a, tau, work)
 pub extern "C" fn lapacke_sorgql_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   k : Lapack_int,
@@ -6037,7 +6037,7 @@ pub extern "C" fn lapacke_sorgql_work(
 /// ```
 #borrow(a, tau, work)
 pub extern "C" fn lapacke_dorgql_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   k : Lapack_int,
@@ -6058,7 +6058,7 @@ pub extern "C" fn lapacke_dorgql_work(
 /// ```
 #borrow(a, tau, work)
 pub extern "C" fn lapacke_sorgqr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   k : Lapack_int,
@@ -6079,7 +6079,7 @@ pub extern "C" fn lapacke_sorgqr_work(
 /// ```
 #borrow(a, tau, work)
 pub extern "C" fn lapacke_dorgqr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   k : Lapack_int,
@@ -6100,7 +6100,7 @@ pub extern "C" fn lapacke_dorgqr_work(
 /// ```
 #borrow(a, tau, work)
 pub extern "C" fn lapacke_sorgrq_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   k : Lapack_int,
@@ -6121,7 +6121,7 @@ pub extern "C" fn lapacke_sorgrq_work(
 /// ```
 #borrow(a, tau, work)
 pub extern "C" fn lapacke_dorgrq_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   k : Lapack_int,
@@ -6142,7 +6142,7 @@ pub extern "C" fn lapacke_dorgrq_work(
 /// ```
 #borrow(a, tau, work)
 pub extern "C" fn lapacke_sorgtr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   a : FixedArray[Float],
@@ -6162,7 +6162,7 @@ pub extern "C" fn lapacke_sorgtr_work(
 /// ```
 #borrow(a, tau, work)
 pub extern "C" fn lapacke_dorgtr_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   uplo : Byte,
   n : Lapack_int,
   a : FixedArray[Double],
@@ -6183,7 +6183,7 @@ pub extern "C" fn lapacke_dorgtr_work(
 /// ```
 #borrow(a, t, work)
 pub extern "C" fn lapacke_sorgtsqr_row_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   mb : Lapack_int,
@@ -6207,7 +6207,7 @@ pub extern "C" fn lapacke_sorgtsqr_row_work(
 /// ```
 #borrow(a, t, work)
 pub extern "C" fn lapacke_dorgtsqr_row_work(
-  matrix_layout : Int,
+  matrix_layout : Int32,
   m : Lapack_int,
   n : Lapack_int,
   mb : Lapack_int,

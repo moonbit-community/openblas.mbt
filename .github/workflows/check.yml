@@ -1,0 +1,36 @@
+name: Native OpenBLAS checks
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        toolchain: [latest, nightly]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hustcer/setup-moonbit@develop
+        with:
+          version: ${{ matrix.toolchain }}
+      - name: Install native prerequisites
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libopenblas-dev liblapacke-dev pkg-config
+      - run: moon version --all
+      - name: Validate source and interfaces
+        run: |
+          moon check --target native --deny-warn
+          moon info --target native
+          moon fmt --check
+          git diff --exit-code
+      - name: Test all bindings in debug and release
+        run: |
+          source env.sh
+          moon test --target native
+          moon test --target native --release

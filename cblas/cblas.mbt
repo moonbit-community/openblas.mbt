@@ -21,14 +21,14 @@ extern "C" fn CStr::to_string(self : Self) -> String = "cstr_to_moonbit_string"
 /// ```c
 /// void openblas_set_num_threads(int num_threads);
 /// ```
-pub extern "C" fn openblas_set_num_threads(num_threads : Int) = "openblas_set_num_threads"
+pub extern "C" fn openblas_set_num_threads(num_threads : Int32) = "openblas_set_num_threads"
 
 ///|
 /// 
 /// ```c
 /// void goto_set_num_threads(int num_threads);
 /// ```
-pub extern "C" fn goto_set_num_threads(num_threads : Int) = "goto_set_num_threads"
+pub extern "C" fn goto_set_num_threads(num_threads : Int32) = "goto_set_num_threads"
 
 ///|
 ///
@@ -43,7 +43,7 @@ pub extern "C" fn goto_set_num_threads(num_threads : Int) = "goto_set_num_thread
 /// ```c
 /// int openblas_get_num_threads(void);
 /// ```
-pub extern "C" fn openblas_get_num_threads() -> Int = "openblas_get_num_threads"
+pub extern "C" fn openblas_get_num_threads() -> Int32 = "openblas_get_num_threads"
 
 ///|
 /// Get the number of physical processors (cores).*/
@@ -51,7 +51,7 @@ pub extern "C" fn openblas_get_num_threads() -> Int = "openblas_get_num_threads"
 /// ```c
 /// int openblas_get_num_procs(void);
 /// ```
-pub extern "C" fn openblas_get_num_procs() -> Int = "openblas_get_num_procs"
+pub extern "C" fn openblas_get_num_procs() -> Int32 = "openblas_get_num_procs"
 
 ///|
 /// Get the build configure on runtime.*/
@@ -89,7 +89,7 @@ pub fn openblas_get_corename() -> String {
 /// ```c
 /// typedef void (*openblas_dojob_callback)(int thread_num, void *jobdata, int dojob_data);
 /// ```
-pub type Openblas_dojob_callback = FuncRef[(Int, VoidPtr, Int) -> Unit]
+pub type Openblas_dojob_callback = FuncRef[(Int32, VoidPtr, Int32) -> Unit]
 
 ///|
 ///
@@ -101,7 +101,7 @@ pub type Openblas_dojob_callback = FuncRef[(Int, VoidPtr, Int) -> Unit]
 /// );
 /// ``` 
 pub type Openblas_threads_callback = FuncRef[
-  (Int, Openblas_dojob_callback, Int, Int, VoidPtr, Int) -> Unit,
+  (Int32, Openblas_dojob_callback, Int32, Int32, VoidPtr, Int32) -> Unit,
 ]
 
 ///|
@@ -127,14 +127,14 @@ pub extern "C" fn openblas_set_threads_callback_function(
 /// ```c
 /// int openblas_get_parallel(void);
 /// ```
-pub extern "C" fn openblas_get_parallel() -> Int = "openblas_get_parallel"
+pub extern "C" fn openblas_get_parallel() -> Int32 = "openblas_get_parallel"
 
 ///|
 ///
 /// ```c
 /// #define OPENBLAS_SEQUENTIAL  0
 /// ```
-pub const OPENBLAS_SEQUENTIAL : Int = 0
+pub const OPENBLAS_SEQUENTIAL : Int32 = 0
 
 ///|
 /// OpenBLAS is compiled using normal threading model
@@ -142,7 +142,7 @@ pub const OPENBLAS_SEQUENTIAL : Int = 0
 /// ```c
 /// #define OPENBLAS_THREAD  1
 /// ```
-pub const OPENBLAS_THREAD : Int = 1
+pub const OPENBLAS_THREAD : Int32 = 1
 
 ///|
 /// OpenBLAS is compiled using OpenMP threading model
@@ -150,7 +150,7 @@ pub const OPENBLAS_THREAD : Int = 1
 /// ```c
 /// #define OPENBLAS_OPENMP 2
 /// ```
-pub const OPENBLAS_OPENMP : Int = 2
+pub const OPENBLAS_OPENMP : Int32 = 2
 
 ///|
 ///
@@ -229,12 +229,12 @@ pub(all) enum CBLAS_SIDE {
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_sdsdot(
-  n : Int,
+  n : Int32,
   alpha : Float,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) -> Float = "cblas_sdsdot"
 
 ///|
@@ -244,11 +244,11 @@ pub extern "C" fn cblas_sdsdot(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_dsdot(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) -> Double = "cblas_dsdot"
 
 ///|
@@ -258,11 +258,11 @@ pub extern "C" fn cblas_dsdot(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_sdot(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) -> Float = "cblas_sdot"
 
 ///|
@@ -272,11 +272,11 @@ pub extern "C" fn cblas_sdot(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_ddot(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) -> Double = "cblas_ddot"
 
 ///|
@@ -286,11 +286,11 @@ pub extern "C" fn cblas_ddot(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_cdotu(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) -> ComplexFloat = "cblas_cdotu"
 
 ///|
@@ -300,11 +300,11 @@ pub extern "C" fn cblas_cdotu(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_cdotc(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) -> ComplexFloat = "cblas_cdotc"
 
 ///|
@@ -314,11 +314,11 @@ pub extern "C" fn cblas_cdotc(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_zdotu(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) -> ComplexDouble = "cblas_zdotu"
 
 ///|
@@ -328,11 +328,11 @@ pub extern "C" fn cblas_zdotu(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_zdotc(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) -> ComplexDouble = "cblas_zdotc"
 
 ///|
@@ -342,11 +342,11 @@ pub extern "C" fn cblas_zdotc(
 /// ```
 #borrow(x, y, ret)
 pub extern "C" fn cblas_cdotu_sub(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
   ret : FixedArray[Float],
 ) = "cblas_cdotu_sub"
 
@@ -357,11 +357,11 @@ pub extern "C" fn cblas_cdotu_sub(
 /// ```
 #borrow(x, y, ret)
 pub extern "C" fn cblas_cdotc_sub(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
   ret : FixedArray[Float],
 ) = "cblas_cdotc_sub"
 
@@ -372,11 +372,11 @@ pub extern "C" fn cblas_cdotc_sub(
 /// ```
 #borrow(x, y, ret)
 pub extern "C" fn cblas_zdotu_sub(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
   ret : FixedArray[Double],
 ) = "cblas_zdotu_sub"
 
@@ -387,11 +387,11 @@ pub extern "C" fn cblas_zdotu_sub(
 /// ```
 #borrow(x, y, ret)
 pub extern "C" fn cblas_zdotc_sub(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
   ret : FixedArray[Double],
 ) = "cblas_zdotc_sub"
 
@@ -402,9 +402,9 @@ pub extern "C" fn cblas_zdotc_sub(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_sasum(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) -> Float = "cblas_sasum"
 
 ///|
@@ -414,9 +414,9 @@ pub extern "C" fn cblas_sasum(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_dasum(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) -> Double = "cblas_dasum"
 
 ///|
@@ -426,9 +426,9 @@ pub extern "C" fn cblas_dasum(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_scasum(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) -> Float = "cblas_scasum"
 
 ///|
@@ -438,9 +438,9 @@ pub extern "C" fn cblas_scasum(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_dzasum(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) -> Double = "cblas_dzasum"
 
 ///|
@@ -450,9 +450,9 @@ pub extern "C" fn cblas_dzasum(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_ssum(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) -> Float = "cblas_ssum"
 
 ///|
@@ -462,9 +462,9 @@ pub extern "C" fn cblas_ssum(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_dsum(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) -> Double = "cblas_dsum"
 
 ///|
@@ -474,9 +474,9 @@ pub extern "C" fn cblas_dsum(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_scsum(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) -> Float = "cblas_scsum"
 
 ///|
@@ -486,9 +486,9 @@ pub extern "C" fn cblas_scsum(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_dzsum(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) -> Double = "cblas_dzsum"
 
 ///|
@@ -498,9 +498,9 @@ pub extern "C" fn cblas_dzsum(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_snrm2(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) -> Float = "cblas_snrm2"
 
 ///|
@@ -510,9 +510,9 @@ pub extern "C" fn cblas_snrm2(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_dnrm2(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) -> Double = "cblas_dnrm2"
 
 ///|
@@ -522,9 +522,9 @@ pub extern "C" fn cblas_dnrm2(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_scnrm2(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) -> Float = "cblas_scnrm2"
 
 ///|
@@ -534,9 +534,9 @@ pub extern "C" fn cblas_scnrm2(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_dznrm2(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) -> Double = "cblas_dznrm2"
 
 ///|
@@ -546,9 +546,9 @@ pub extern "C" fn cblas_dznrm2(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_isamax(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) -> UInt64 = "cblas_isamax"
 
 ///|
@@ -558,9 +558,9 @@ pub extern "C" fn cblas_isamax(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_idamax(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) -> UInt64 = "cblas_idamax"
 
 ///|
@@ -570,9 +570,9 @@ pub extern "C" fn cblas_idamax(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_icamax(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) -> UInt64 = "cblas_icamax"
 
 ///|
@@ -582,9 +582,9 @@ pub extern "C" fn cblas_icamax(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_izamax(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) -> UInt64 = "cblas_izamax"
 
 ///|
@@ -594,9 +594,9 @@ pub extern "C" fn cblas_izamax(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_isamin(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) -> UInt64 = "cblas_isamin"
 
 ///|
@@ -606,9 +606,9 @@ pub extern "C" fn cblas_isamin(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_idamin(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) -> UInt64 = "cblas_idamin"
 
 ///|
@@ -618,9 +618,9 @@ pub extern "C" fn cblas_idamin(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_icamin(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) -> UInt64 = "cblas_icamin"
 
 ///|
@@ -630,9 +630,9 @@ pub extern "C" fn cblas_icamin(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_izamin(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) -> UInt64 = "cblas_izamin"
 
 ///|
@@ -642,9 +642,9 @@ pub extern "C" fn cblas_izamin(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_samax(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) -> Float = "cblas_samax"
 
 ///|
@@ -654,9 +654,9 @@ pub extern "C" fn cblas_samax(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_damax(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) -> Double = "cblas_damax"
 
 ///|
@@ -666,9 +666,9 @@ pub extern "C" fn cblas_damax(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_scamax(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) -> Float = "cblas_scamax"
 
 ///|
@@ -678,9 +678,9 @@ pub extern "C" fn cblas_scamax(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_dzamax(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) -> Double = "cblas_dzamax"
 
 ///|
@@ -690,9 +690,9 @@ pub extern "C" fn cblas_dzamax(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_samin(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) -> Float = "cblas_samin"
 
 ///|
@@ -702,9 +702,9 @@ pub extern "C" fn cblas_samin(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_damin(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) -> Double = "cblas_damin"
 
 ///|
@@ -714,9 +714,9 @@ pub extern "C" fn cblas_damin(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_scamin(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) -> Float = "cblas_scamin"
 
 ///|
@@ -726,9 +726,9 @@ pub extern "C" fn cblas_scamin(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_dzamin(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) -> Double = "cblas_dzamin"
 
 ///|
@@ -738,9 +738,9 @@ pub extern "C" fn cblas_dzamin(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_ismax(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) -> UInt64 = "cblas_ismax"
 
 ///|
@@ -750,9 +750,9 @@ pub extern "C" fn cblas_ismax(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_idmax(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) -> UInt64 = "cblas_idmax"
 
 ///|
@@ -762,9 +762,9 @@ pub extern "C" fn cblas_idmax(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_icmax(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) -> UInt64 = "cblas_icmax"
 
 ///|
@@ -774,9 +774,9 @@ pub extern "C" fn cblas_icmax(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_izmax(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) -> UInt64 = "cblas_izmax"
 
 ///|
@@ -786,9 +786,9 @@ pub extern "C" fn cblas_izmax(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_ismin(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) -> UInt64 = "cblas_ismin"
 
 ///|
@@ -798,9 +798,9 @@ pub extern "C" fn cblas_ismin(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_idmin(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) -> UInt64 = "cblas_idmin"
 
 ///|
@@ -810,9 +810,9 @@ pub extern "C" fn cblas_idmin(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_icmin(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) -> UInt64 = "cblas_icmin"
 
 ///|
@@ -822,9 +822,9 @@ pub extern "C" fn cblas_icmin(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_izmin(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) -> UInt64 = "cblas_izmin"
 
 ///|
@@ -834,12 +834,12 @@ pub extern "C" fn cblas_izmin(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_saxpy(
-  n : Int,
+  n : Int32,
   alpha : Float,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_saxpy"
 
 ///|
@@ -849,12 +849,12 @@ pub extern "C" fn cblas_saxpy(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_daxpy(
-  n : Int,
+  n : Int32,
   alpha : Double,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_daxpy"
 
 ///|
@@ -870,12 +870,12 @@ pub extern "C" fn cblas_daxpy(
 /// ```
 #borrow(alpha, x, y)
 pub extern "C" fn cblas_caxpy(
-  n : Int,
+  n : Int32,
   alpha : FixedArray[Float],
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_caxpy"
 
 ///|
@@ -885,12 +885,12 @@ pub extern "C" fn cblas_caxpy(
 /// ```
 #borrow(alpha, x, y)
 pub extern "C" fn cblas_zaxpy(
-  n : Int,
+  n : Int32,
   alpha : FixedArray[Double],
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_zaxpy"
 
 ///|
@@ -900,12 +900,12 @@ pub extern "C" fn cblas_zaxpy(
 /// ```
 #borrow(alpha, x, y)
 pub extern "C" fn cblas_caxpyc(
-  n : Int,
+  n : Int32,
   alpha : FixedArray[Float],
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_caxpyc"
 
 ///|
@@ -915,12 +915,12 @@ pub extern "C" fn cblas_caxpyc(
 /// ```
 #borrow(alpha, x, y)
 pub extern "C" fn cblas_zaxpyc(
-  n : Int,
+  n : Int32,
   alpha : FixedArray[Double],
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_zaxpyc"
 //
 
@@ -931,11 +931,11 @@ pub extern "C" fn cblas_zaxpyc(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_scopy(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_scopy"
 
 ///|
@@ -945,11 +945,11 @@ pub extern "C" fn cblas_scopy(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_dcopy(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_dcopy"
 
 ///|
@@ -959,11 +959,11 @@ pub extern "C" fn cblas_dcopy(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_ccopy(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_ccopy"
 
 ///|
@@ -973,11 +973,11 @@ pub extern "C" fn cblas_ccopy(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_zcopy(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_zcopy"
 
 ///|
@@ -987,11 +987,11 @@ pub extern "C" fn cblas_zcopy(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_sswap(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_sswap"
 
 ///|
@@ -1001,11 +1001,11 @@ pub extern "C" fn cblas_sswap(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_dswap(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_dswap"
 
 ///|
@@ -1015,11 +1015,11 @@ pub extern "C" fn cblas_dswap(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_cswap(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_cswap"
 
 ///|
@@ -1029,11 +1029,11 @@ pub extern "C" fn cblas_cswap(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_zswap(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_zswap"
 
 ///|
@@ -1043,11 +1043,11 @@ pub extern "C" fn cblas_zswap(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_srot(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
   c : Float,
   s : Float,
 ) = "cblas_srot"
@@ -1059,11 +1059,11 @@ pub extern "C" fn cblas_srot(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_drot(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
   c : Double,
   s : Double,
 ) = "cblas_drot"
@@ -1075,11 +1075,11 @@ pub extern "C" fn cblas_drot(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_csrot(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
   c : Float,
   s : Float,
 ) = "cblas_csrot"
@@ -1091,11 +1091,11 @@ pub extern "C" fn cblas_csrot(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_zdrot(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
   c : Double,
   s : Double,
 ) = "cblas_zdrot"
@@ -1159,11 +1159,11 @@ pub extern "C" fn cblas_zrotg(
 /// ```
 #borrow(x, y, p)
 pub extern "C" fn cblas_srotm(
-  n : Int,
+  n : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
   p : FixedArray[Float],
 ) = "cblas_srotm"
 
@@ -1174,11 +1174,11 @@ pub extern "C" fn cblas_srotm(
 /// ```
 #borrow(x, y, p)
 pub extern "C" fn cblas_drotm(
-  n : Int,
+  n : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
   p : FixedArray[Double],
 ) = "cblas_drotm"
 
@@ -1218,10 +1218,10 @@ pub extern "C" fn cblas_drotmg(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_sscal(
-  n : Int,
+  n : Int32,
   alpha : Float,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_sscal"
 
 ///|
@@ -1231,10 +1231,10 @@ pub extern "C" fn cblas_sscal(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_dscal(
-  n : Int,
+  n : Int32,
   alpha : Double,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_dscal"
 
 ///|
@@ -1244,10 +1244,10 @@ pub extern "C" fn cblas_dscal(
 /// ```
 #borrow(alpha, x)
 pub extern "C" fn cblas_cscal(
-  n : Int,
+  n : Int32,
   alpha : FixedArray[Float],
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_cscal"
 
 ///|
@@ -1257,10 +1257,10 @@ pub extern "C" fn cblas_cscal(
 /// ```
 #borrow(alpha, x)
 pub extern "C" fn cblas_zscal(
-  n : Int,
+  n : Int32,
   alpha : FixedArray[Double],
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_zscal"
 
 ///|
@@ -1270,10 +1270,10 @@ pub extern "C" fn cblas_zscal(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_csscal(
-  n : Int,
+  n : Int32,
   alpha : Float,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_csscal"
 
 ///|
@@ -1283,10 +1283,10 @@ pub extern "C" fn cblas_csscal(
 /// ```
 #borrow(x)
 pub extern "C" fn cblas_zdscal(
-  n : Int,
+  n : Int32,
   alpha : Double,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_zdscal"
 
 ///|
@@ -1299,16 +1299,16 @@ pub extern "C" fn cblas_zdscal(
 pub extern "C" fn cblas_sgemv(
   order : CBLAS_ORDER,
   trans : CBLAS_TRANSPOSE,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : Float,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   beta : Float,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_sgemv"
 
 ///|
@@ -1321,16 +1321,16 @@ pub extern "C" fn cblas_sgemv(
 pub extern "C" fn cblas_dgemv(
   order : CBLAS_ORDER,
   trans : CBLAS_TRANSPOSE,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : Double,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   beta : Double,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_dgemv"
 
 ///|
@@ -1343,16 +1343,16 @@ pub extern "C" fn cblas_dgemv(
 pub extern "C" fn cblas_cgemv(
   order : CBLAS_ORDER,
   trans : CBLAS_TRANSPOSE,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : FixedArray[Float],
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   beta : FixedArray[Float],
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_cgemv"
 
 ///|
@@ -1365,16 +1365,16 @@ pub extern "C" fn cblas_cgemv(
 pub extern "C" fn cblas_zgemv(
   order : CBLAS_ORDER,
   trans : CBLAS_TRANSPOSE,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : FixedArray[Double],
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   beta : FixedArray[Double],
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_zgemv"
 
 ///|
@@ -1389,15 +1389,15 @@ pub extern "C" fn cblas_zgemv(
 #borrow(x, y, a)
 pub extern "C" fn cblas_sger(
   order : CBLAS_ORDER,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : Float,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
 ) = "cblas_sger"
 
 ///|
@@ -1412,15 +1412,15 @@ pub extern "C" fn cblas_sger(
 #borrow(x, y, a)
 pub extern "C" fn cblas_dger(
   order : CBLAS_ORDER,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : Double,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
 ) = "cblas_dger"
 
 ///|
@@ -1435,15 +1435,15 @@ pub extern "C" fn cblas_dger(
 #borrow(alpha, x, y, a)
 pub extern "C" fn cblas_cgeru(
   order : CBLAS_ORDER,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : FixedArray[Float],
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
 ) = "cblas_cgeru"
 
 ///|
@@ -1458,15 +1458,15 @@ pub extern "C" fn cblas_cgeru(
 #borrow(alpha, x, y, a)
 pub extern "C" fn cblas_cgerc(
   order : CBLAS_ORDER,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : FixedArray[Float],
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
 ) = "cblas_cgerc"
 
 ///|
@@ -1481,15 +1481,15 @@ pub extern "C" fn cblas_cgerc(
 #borrow(alpha, x, y, a)
 pub extern "C" fn cblas_zgeru(
   order : CBLAS_ORDER,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : FixedArray[Double],
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
 ) = "cblas_zgeru"
 
 ///|
@@ -1500,15 +1500,15 @@ pub extern "C" fn cblas_zgeru(
 #borrow(alpha, x, y, a)
 pub extern "C" fn cblas_zgerc(
   order : CBLAS_ORDER,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : FixedArray[Double],
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
 ) = "cblas_zgerc"
 
 ///|
@@ -1522,11 +1522,11 @@ pub extern "C" fn cblas_strsv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
+  n : Int32,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_strsv"
 
 ///|
@@ -1540,11 +1540,11 @@ pub extern "C" fn cblas_dtrsv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
+  n : Int32,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_dtrsv"
 
 ///|
@@ -1558,11 +1558,11 @@ pub extern "C" fn cblas_ctrsv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
+  n : Int32,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_ctrsv"
 
 ///|
@@ -1576,11 +1576,11 @@ pub extern "C" fn cblas_ztrsv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
+  n : Int32,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_ztrsv"
 
 ///|
@@ -1594,11 +1594,11 @@ pub extern "C" fn cblas_strmv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
+  n : Int32,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_strmv"
 
 ///|
@@ -1612,11 +1612,11 @@ pub extern "C" fn cblas_dtrmv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
+  n : Int32,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_dtrmv"
 
 ///|
@@ -1630,11 +1630,11 @@ pub extern "C" fn cblas_ctrmv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
+  n : Int32,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_ctrmv"
 
 ///|
@@ -1648,11 +1648,11 @@ pub extern "C" fn cblas_ztrmv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
+  n : Int32,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_ztrmv"
 
 ///|
@@ -1664,12 +1664,12 @@ pub extern "C" fn cblas_ztrmv(
 pub extern "C" fn cblas_ssyr(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : Float,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
 ) = "cblas_ssyr"
 
 ///|
@@ -1681,12 +1681,12 @@ pub extern "C" fn cblas_ssyr(
 pub extern "C" fn cblas_dsyr(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : Double,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
 ) = "cblas_dsyr"
 
 ///|
@@ -1698,12 +1698,12 @@ pub extern "C" fn cblas_dsyr(
 pub extern "C" fn cblas_cher(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : Float,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
 ) = "cblas_cher"
 
 ///|
@@ -1715,12 +1715,12 @@ pub extern "C" fn cblas_cher(
 pub extern "C" fn cblas_zher(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : Double,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
 ) = "cblas_zher"
 
 ///|
@@ -1733,14 +1733,14 @@ pub extern "C" fn cblas_zher(
 pub extern "C" fn cblas_ssyr2(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : Float,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
 ) = "cblas_ssyr2"
 
 ///|
@@ -1753,14 +1753,14 @@ pub extern "C" fn cblas_ssyr2(
 pub extern "C" fn cblas_dsyr2(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : Double,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
 ) = "cblas_dsyr2"
 
 ///|
@@ -1773,14 +1773,14 @@ pub extern "C" fn cblas_dsyr2(
 pub extern "C" fn cblas_cher2(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : FixedArray[Float],
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
 ) = "cblas_cher2"
 
 ///|
@@ -1793,14 +1793,14 @@ pub extern "C" fn cblas_cher2(
 pub extern "C" fn cblas_zher2(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : FixedArray[Double],
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
 ) = "cblas_zher2"
 //
 
@@ -1814,18 +1814,18 @@ pub extern "C" fn cblas_zher2(
 pub extern "C" fn cblas_sgbmv(
   order : CBLAS_ORDER,
   trans_a : CBLAS_TRANSPOSE,
-  m : Int,
-  n : Int,
-  kl : Int,
-  ku : Int,
+  m : Int32,
+  n : Int32,
+  kl : Int32,
+  ku : Int32,
   alpha : Float,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   beta : Float,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_sgbmv"
 
 ///|
@@ -1838,18 +1838,18 @@ pub extern "C" fn cblas_sgbmv(
 pub extern "C" fn cblas_dgbmv(
   order : CBLAS_ORDER,
   trans_a : CBLAS_TRANSPOSE,
-  m : Int,
-  n : Int,
-  kl : Int,
-  ku : Int,
+  m : Int32,
+  n : Int32,
+  kl : Int32,
+  ku : Int32,
   alpha : Double,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   beta : Double,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_dgbmv"
 
 ///|
@@ -1862,18 +1862,18 @@ pub extern "C" fn cblas_dgbmv(
 pub extern "C" fn cblas_cgbmv(
   order : CBLAS_ORDER,
   trans_a : CBLAS_TRANSPOSE,
-  m : Int,
-  n : Int,
-  kl : Int,
-  ku : Int,
+  m : Int32,
+  n : Int32,
+  kl : Int32,
+  ku : Int32,
   alpha : FixedArray[Float],
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   beta : FixedArray[Float],
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_cgbmv"
 
 ///|
@@ -1886,18 +1886,18 @@ pub extern "C" fn cblas_cgbmv(
 pub extern "C" fn cblas_zgbmv(
   order : CBLAS_ORDER,
   trans_a : CBLAS_TRANSPOSE,
-  m : Int,
-  n : Int,
-  kl : Int,
-  ku : Int,
+  m : Int32,
+  n : Int32,
+  kl : Int32,
+  ku : Int32,
   alpha : FixedArray[Double],
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   beta : FixedArray[Double],
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_zgbmv"
 
 ///|
@@ -1910,16 +1910,16 @@ pub extern "C" fn cblas_zgbmv(
 pub extern "C" fn cblas_ssbmv(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   alpha : Float,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   beta : Float,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_ssbmv"
 
 ///|
@@ -1932,16 +1932,16 @@ pub extern "C" fn cblas_ssbmv(
 pub extern "C" fn cblas_dsbmv(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   alpha : Double,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   beta : Double,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_dsbmv"
 //
 //
@@ -1958,12 +1958,12 @@ pub extern "C" fn cblas_stbmv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_stbmv"
 
 ///|
@@ -1978,12 +1978,12 @@ pub extern "C" fn cblas_dtbmv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_dtbmv"
 
 ///|
@@ -1998,12 +1998,12 @@ pub extern "C" fn cblas_ctbmv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_ctbmv"
 
 ///|
@@ -2018,12 +2018,12 @@ pub extern "C" fn cblas_ztbmv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_ztbmv"
 
 ///|
@@ -2038,12 +2038,12 @@ pub extern "C" fn cblas_stbsv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_stbsv"
 
 ///|
@@ -2058,12 +2058,12 @@ pub extern "C" fn cblas_dtbsv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_dtbsv"
 
 ///|
@@ -2078,12 +2078,12 @@ pub extern "C" fn cblas_ctbsv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_ctbsv"
 
 ///|
@@ -2098,12 +2098,12 @@ pub extern "C" fn cblas_ztbsv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_ztbsv"
 //
 
@@ -2119,10 +2119,10 @@ pub extern "C" fn cblas_stpmv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
+  n : Int32,
   ap : FixedArray[Float],
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_stpmv"
 
 ///|
@@ -2137,10 +2137,10 @@ pub extern "C" fn cblas_dtpmv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
+  n : Int32,
   ap : FixedArray[Double],
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_dtpmv"
 
 ///|
@@ -2155,10 +2155,10 @@ pub extern "C" fn cblas_ctpmv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
+  n : Int32,
   ap : FixedArray[Float],
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_ctpmv"
 
 ///|
@@ -2173,10 +2173,10 @@ pub extern "C" fn cblas_ztpmv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
+  n : Int32,
   ap : FixedArray[Double],
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_ztpmv"
 
 ///|
@@ -2191,10 +2191,10 @@ pub extern "C" fn cblas_stpsv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
+  n : Int32,
   ap : FixedArray[Float],
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_stpsv"
 
 ///|
@@ -2209,10 +2209,10 @@ pub extern "C" fn cblas_dtpsv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
+  n : Int32,
   ap : FixedArray[Double],
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_dtpsv"
 
 ///|
@@ -2227,10 +2227,10 @@ pub extern "C" fn cblas_ctpsv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
+  n : Int32,
   ap : FixedArray[Float],
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_ctpsv"
 
 ///|
@@ -2245,10 +2245,10 @@ pub extern "C" fn cblas_ztpsv(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  n : Int,
+  n : Int32,
   ap : FixedArray[Double],
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
 ) = "cblas_ztpsv"
 //
 
@@ -2262,15 +2262,15 @@ pub extern "C" fn cblas_ztpsv(
 pub extern "C" fn cblas_ssymv(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : Float,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   beta : Float,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_ssymv"
 
 ///|
@@ -2283,15 +2283,15 @@ pub extern "C" fn cblas_ssymv(
 pub extern "C" fn cblas_dsymv(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : Double,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   beta : Double,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_dsymv"
 
 ///|
@@ -2304,15 +2304,15 @@ pub extern "C" fn cblas_dsymv(
 pub extern "C" fn cblas_chemv(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : FixedArray[Float],
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   beta : FixedArray[Float],
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_chemv"
 
 ///|
@@ -2325,15 +2325,15 @@ pub extern "C" fn cblas_chemv(
 pub extern "C" fn cblas_zhemv(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : FixedArray[Double],
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   beta : FixedArray[Double],
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_zhemv"
 
 ///|
@@ -2346,14 +2346,14 @@ pub extern "C" fn cblas_zhemv(
 pub extern "C" fn cblas_sspmv(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : Float,
   ap : FixedArray[Float],
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   beta : Float,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_sspmv"
 
 ///|
@@ -2366,14 +2366,14 @@ pub extern "C" fn cblas_sspmv(
 pub extern "C" fn cblas_dspmv(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : Double,
   ap : FixedArray[Double],
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   beta : Double,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_dspmv"
 
 ///|
@@ -2385,10 +2385,10 @@ pub extern "C" fn cblas_dspmv(
 pub extern "C" fn cblas_sspr(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : Float,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   ap : FixedArray[Float],
 ) = "cblas_sspr"
 
@@ -2401,10 +2401,10 @@ pub extern "C" fn cblas_sspr(
 pub extern "C" fn cblas_dspr(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : Double,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   ap : FixedArray[Double],
 ) = "cblas_dspr"
 
@@ -2417,10 +2417,10 @@ pub extern "C" fn cblas_dspr(
 pub extern "C" fn cblas_chpr(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : Float,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   a : FixedArray[Float],
 ) = "cblas_chpr"
 
@@ -2433,10 +2433,10 @@ pub extern "C" fn cblas_chpr(
 pub extern "C" fn cblas_zhpr(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : Double,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   a : FixedArray[Double],
 ) = "cblas_zhpr"
 
@@ -2449,12 +2449,12 @@ pub extern "C" fn cblas_zhpr(
 pub extern "C" fn cblas_sspr2(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : Float,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
   a : FixedArray[Float],
 ) = "cblas_sspr2"
 
@@ -2467,12 +2467,12 @@ pub extern "C" fn cblas_sspr2(
 pub extern "C" fn cblas_dspr2(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : Double,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
   a : FixedArray[Double],
 ) = "cblas_dspr2"
 
@@ -2485,12 +2485,12 @@ pub extern "C" fn cblas_dspr2(
 pub extern "C" fn cblas_chpr2(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : FixedArray[Float],
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
   ap : FixedArray[Float],
 ) = "cblas_chpr2"
 
@@ -2503,12 +2503,12 @@ pub extern "C" fn cblas_chpr2(
 pub extern "C" fn cblas_zhpr2(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : FixedArray[Double],
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
   ap : FixedArray[Double],
 ) = "cblas_zhpr2"
 //
@@ -2523,16 +2523,16 @@ pub extern "C" fn cblas_zhpr2(
 pub extern "C" fn cblas_chbmv(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   alpha : FixedArray[Float],
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   beta : FixedArray[Float],
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_chbmv"
 
 ///|
@@ -2545,16 +2545,16 @@ pub extern "C" fn cblas_chbmv(
 pub extern "C" fn cblas_zhbmv(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   alpha : FixedArray[Double],
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   beta : FixedArray[Double],
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_zhbmv"
 
 ///|
@@ -2567,14 +2567,14 @@ pub extern "C" fn cblas_zhbmv(
 pub extern "C" fn cblas_chpmv(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : FixedArray[Float],
   ap : FixedArray[Float],
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   beta : FixedArray[Float],
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_chpmv"
 
 ///|
@@ -2587,14 +2587,14 @@ pub extern "C" fn cblas_chpmv(
 pub extern "C" fn cblas_zhpmv(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
-  n : Int,
+  n : Int32,
   alpha : FixedArray[Double],
   ap : FixedArray[Double],
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   beta : FixedArray[Double],
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_zhpmv"
 //
 
@@ -2611,17 +2611,17 @@ pub extern "C" fn cblas_sgemm(
   order : CBLAS_ORDER,
   trans_a : CBLAS_TRANSPOSE,
   trans_b : CBLAS_TRANSPOSE,
-  m : Int,
-  n : Int,
-  k : Int,
+  m : Int32,
+  n : Int32,
+  k : Int32,
   alpha : Float,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Float],
-  ldb : Int,
+  ldb : Int32,
   beta : Float,
   c : FixedArray[Float],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_sgemm"
 
 ///|
@@ -2635,17 +2635,17 @@ pub extern "C" fn cblas_dgemm(
   order : CBLAS_ORDER,
   trans_a : CBLAS_TRANSPOSE,
   trans_b : CBLAS_TRANSPOSE,
-  m : Int,
-  n : Int,
-  k : Int,
+  m : Int32,
+  n : Int32,
+  k : Int32,
   alpha : Double,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Double],
-  ldb : Int,
+  ldb : Int32,
   beta : Double,
   c : FixedArray[Double],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_dgemm"
 
 ///|
@@ -2659,17 +2659,17 @@ pub extern "C" fn cblas_cgemm(
   order : CBLAS_ORDER,
   trans_a : CBLAS_TRANSPOSE,
   trans_b : CBLAS_TRANSPOSE,
-  m : Int,
-  n : Int,
-  k : Int,
+  m : Int32,
+  n : Int32,
+  k : Int32,
   alpha : FixedArray[Float],
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Float],
-  ldb : Int,
+  ldb : Int32,
   beta : FixedArray[Float],
   c : FixedArray[Float],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_cgemm"
 
 ///|
@@ -2683,17 +2683,17 @@ pub extern "C" fn cblas_cgemm3m(
   order : CBLAS_ORDER,
   trans_a : CBLAS_TRANSPOSE,
   trans_b : CBLAS_TRANSPOSE,
-  m : Int,
-  n : Int,
-  k : Int,
+  m : Int32,
+  n : Int32,
+  k : Int32,
   alpha : FixedArray[Float],
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Float],
-  ldb : Int,
+  ldb : Int32,
   beta : FixedArray[Float],
   c : FixedArray[Float],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_cgemm3m"
 
 ///|
@@ -2707,17 +2707,17 @@ pub extern "C" fn cblas_zgemm(
   order : CBLAS_ORDER,
   trans_a : CBLAS_TRANSPOSE,
   trans_b : CBLAS_TRANSPOSE,
-  m : Int,
-  n : Int,
-  k : Int,
+  m : Int32,
+  n : Int32,
+  k : Int32,
   alpha : FixedArray[Double],
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Double],
-  ldb : Int,
+  ldb : Int32,
   beta : FixedArray[Double],
   c : FixedArray[Double],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_zgemm"
 
 ///|
@@ -2731,17 +2731,17 @@ pub extern "C" fn cblas_zgemm3m(
   order : CBLAS_ORDER,
   trans_a : CBLAS_TRANSPOSE,
   trans_b : CBLAS_TRANSPOSE,
-  m : Int,
-  n : Int,
-  k : Int,
+  m : Int32,
+  n : Int32,
+  k : Int32,
   alpha : FixedArray[Double],
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Double],
-  ldb : Int,
+  ldb : Int32,
   beta : FixedArray[Double],
   c : FixedArray[Double],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_zgemm3m"
 //
 
@@ -2757,16 +2757,16 @@ pub extern "C" fn cblas_sgemmt(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   trans_b : CBLAS_TRANSPOSE,
-  m : Int,
-  k : Int,
+  m : Int32,
+  k : Int32,
   alpha : Float,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Float],
-  ldb : Int,
+  ldb : Int32,
   beta : Float,
   c : FixedArray[Float],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_sgemmt"
 
 ///|
@@ -2781,16 +2781,16 @@ pub extern "C" fn cblas_dgemmt(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   trans_b : CBLAS_TRANSPOSE,
-  m : Int,
-  k : Int,
+  m : Int32,
+  k : Int32,
   alpha : Double,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Double],
-  ldb : Int,
+  ldb : Int32,
   beta : Double,
   c : FixedArray[Double],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_dgemmt"
 
 ///|
@@ -2805,16 +2805,16 @@ pub extern "C" fn cblas_cgemmt(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   trans_b : CBLAS_TRANSPOSE,
-  m : Int,
-  k : Int,
+  m : Int32,
+  k : Int32,
   alpha : FixedArray[Float],
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Float],
-  ldb : Int,
+  ldb : Int32,
   beta : FixedArray[Float],
   c : FixedArray[Float],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_cgemmt"
 
 ///|
@@ -2829,16 +2829,16 @@ pub extern "C" fn cblas_zgemmt(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   trans_b : CBLAS_TRANSPOSE,
-  m : Int,
-  k : Int,
+  m : Int32,
+  k : Int32,
   alpha : FixedArray[Double],
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Double],
-  ldb : Int,
+  ldb : Int32,
   beta : FixedArray[Double],
   c : FixedArray[Double],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_zgemmt"
 //
 
@@ -2853,16 +2853,16 @@ pub extern "C" fn cblas_ssymm(
   order : CBLAS_ORDER,
   side : CBLAS_SIDE,
   uplo : CBLAS_UPLO,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : Float,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Float],
-  ldb : Int,
+  ldb : Int32,
   beta : Float,
   c : FixedArray[Float],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_ssymm"
 
 ///|
@@ -2876,16 +2876,16 @@ pub extern "C" fn cblas_dsymm(
   order : CBLAS_ORDER,
   side : CBLAS_SIDE,
   uplo : CBLAS_UPLO,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : Double,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Double],
-  ldb : Int,
+  ldb : Int32,
   beta : Double,
   c : FixedArray[Double],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_dsymm"
 
 ///|
@@ -2899,16 +2899,16 @@ pub extern "C" fn cblas_csymm(
   order : CBLAS_ORDER,
   side : CBLAS_SIDE,
   uplo : CBLAS_UPLO,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : FixedArray[Float],
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Float],
-  ldb : Int,
+  ldb : Int32,
   beta : FixedArray[Float],
   c : FixedArray[Float],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_csymm"
 
 ///|
@@ -2922,16 +2922,16 @@ pub extern "C" fn cblas_zsymm(
   order : CBLAS_ORDER,
   side : CBLAS_SIDE,
   uplo : CBLAS_UPLO,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : FixedArray[Double],
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Double],
-  ldb : Int,
+  ldb : Int32,
   beta : FixedArray[Double],
   c : FixedArray[Double],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_zsymm"
 
 ///|
@@ -2945,14 +2945,14 @@ pub extern "C" fn cblas_ssyrk(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
   trans : CBLAS_TRANSPOSE,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   alpha : Float,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   beta : Float,
   c : FixedArray[Float],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_ssyrk"
 
 ///|
@@ -2966,14 +2966,14 @@ pub extern "C" fn cblas_dsyrk(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
   trans : CBLAS_TRANSPOSE,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   alpha : Double,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   beta : Double,
   c : FixedArray[Double],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_dsyrk"
 
 ///|
@@ -2987,14 +2987,14 @@ pub extern "C" fn cblas_csyrk(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
   trans : CBLAS_TRANSPOSE,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   alpha : FixedArray[Float],
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   beta : FixedArray[Float],
   c : FixedArray[Float],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_csyrk"
 
 ///|
@@ -3008,14 +3008,14 @@ pub extern "C" fn cblas_zsyrk(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
   trans : CBLAS_TRANSPOSE,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   alpha : FixedArray[Double],
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   beta : FixedArray[Double],
   c : FixedArray[Double],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_zsyrk"
 
 ///|
@@ -3029,16 +3029,16 @@ pub extern "C" fn cblas_ssyr2k(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
   trans : CBLAS_TRANSPOSE,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   alpha : Float,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Float],
-  ldb : Int,
+  ldb : Int32,
   beta : Float,
   c : FixedArray[Float],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_ssyr2k"
 
 ///|
@@ -3052,16 +3052,16 @@ pub extern "C" fn cblas_dsyr2k(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
   trans : CBLAS_TRANSPOSE,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   alpha : Double,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Double],
-  ldb : Int,
+  ldb : Int32,
   beta : Double,
   c : FixedArray[Double],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_dsyr2k"
 
 ///|
@@ -3075,16 +3075,16 @@ pub extern "C" fn cblas_csyr2k(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
   trans : CBLAS_TRANSPOSE,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   alpha : FixedArray[Float],
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Float],
-  ldb : Int,
+  ldb : Int32,
   beta : FixedArray[Float],
   c : FixedArray[Float],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_csyr2k"
 
 ///|
@@ -3098,16 +3098,16 @@ pub extern "C" fn cblas_zsyr2k(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
   trans : CBLAS_TRANSPOSE,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   alpha : FixedArray[Double],
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Double],
-  ldb : Int,
+  ldb : Int32,
   beta : FixedArray[Double],
   c : FixedArray[Double],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_zsyr2k"
 //
 
@@ -3124,13 +3124,13 @@ pub extern "C" fn cblas_strmm(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : Float,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Float],
-  ldb : Int,
+  ldb : Int32,
 ) = "cblas_strmm"
 
 ///|
@@ -3146,13 +3146,13 @@ pub extern "C" fn cblas_dtrmm(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : Double,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Double],
-  ldb : Int,
+  ldb : Int32,
 ) = "cblas_dtrmm"
 
 ///|
@@ -3168,13 +3168,13 @@ pub extern "C" fn cblas_ctrmm(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : FixedArray[Float],
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Float],
-  ldb : Int,
+  ldb : Int32,
 ) = "cblas_ctrmm"
 
 ///|
@@ -3190,13 +3190,13 @@ pub extern "C" fn cblas_ztrmm(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : FixedArray[Double],
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Double],
-  ldb : Int,
+  ldb : Int32,
 ) = "cblas_ztrmm"
 
 ///|
@@ -3212,13 +3212,13 @@ pub extern "C" fn cblas_strsm(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : Float,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Float],
-  ldb : Int,
+  ldb : Int32,
 ) = "cblas_strsm"
 
 ///|
@@ -3234,13 +3234,13 @@ pub extern "C" fn cblas_dtrsm(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : Double,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Double],
-  ldb : Int,
+  ldb : Int32,
 ) = "cblas_dtrsm"
 
 ///|
@@ -3256,13 +3256,13 @@ pub extern "C" fn cblas_ctrsm(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : FixedArray[Float],
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Float],
-  ldb : Int,
+  ldb : Int32,
 ) = "cblas_ctrsm"
 
 ///|
@@ -3278,13 +3278,13 @@ pub extern "C" fn cblas_ztrsm(
   uplo : CBLAS_UPLO,
   trans_a : CBLAS_TRANSPOSE,
   diag : CBLAS_DIAG,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : FixedArray[Double],
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Double],
-  ldb : Int,
+  ldb : Int32,
 ) = "cblas_ztrsm"
 //
 
@@ -3299,16 +3299,16 @@ pub extern "C" fn cblas_chemm(
   order : CBLAS_ORDER,
   side : CBLAS_SIDE,
   uplo : CBLAS_UPLO,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : FixedArray[Float],
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Float],
-  ldb : Int,
+  ldb : Int32,
   beta : FixedArray[Float],
   c : FixedArray[Float],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_chemm"
 
 ///|
@@ -3322,16 +3322,16 @@ pub extern "C" fn cblas_zhemm(
   order : CBLAS_ORDER,
   side : CBLAS_SIDE,
   uplo : CBLAS_UPLO,
-  m : Int,
-  n : Int,
+  m : Int32,
+  n : Int32,
   alpha : FixedArray[Double],
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Double],
-  ldb : Int,
+  ldb : Int32,
   beta : FixedArray[Double],
   c : FixedArray[Double],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_zhemm"
 
 ///|
@@ -3345,14 +3345,14 @@ pub extern "C" fn cblas_cherk(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
   trans : CBLAS_TRANSPOSE,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   alpha : Float,
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   beta : Float,
   c : FixedArray[Float],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_cherk"
 
 ///|
@@ -3366,14 +3366,14 @@ pub extern "C" fn cblas_zherk(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
   trans : CBLAS_TRANSPOSE,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   alpha : Double,
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   beta : Double,
   c : FixedArray[Double],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_zherk"
 
 ///|
@@ -3387,16 +3387,16 @@ pub extern "C" fn cblas_cher2k(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
   trans : CBLAS_TRANSPOSE,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   alpha : FixedArray[Float],
   a : FixedArray[Float],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Float],
-  ldb : Int,
+  ldb : Int32,
   beta : Float,
   c : FixedArray[Float],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_cher2k"
 
 ///|
@@ -3410,16 +3410,16 @@ pub extern "C" fn cblas_zher2k(
   order : CBLAS_ORDER,
   uplo : CBLAS_UPLO,
   trans : CBLAS_TRANSPOSE,
-  n : Int,
-  k : Int,
+  n : Int32,
+  k : Int32,
   alpha : FixedArray[Double],
   a : FixedArray[Double],
-  lda : Int,
+  lda : Int32,
   b : FixedArray[Double],
-  ldb : Int,
+  ldb : Int32,
   beta : Double,
   c : FixedArray[Double],
-  ldc : Int,
+  ldc : Int32,
 ) = "cblas_zher2k"
 //
 //void cblas_xerbla(blasint p, const char *rout, const char *form, ...);
@@ -3434,13 +3434,13 @@ pub extern "C" fn cblas_zher2k(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_saxpby(
-  n : Int,
+  n : Int32,
   alpha : Float,
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   beta : Float,
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_saxpby"
 
 ///|
@@ -3450,13 +3450,13 @@ pub extern "C" fn cblas_saxpby(
 /// ```
 #borrow(x, y)
 pub extern "C" fn cblas_daxpby(
-  n : Int,
+  n : Int32,
   alpha : Double,
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   beta : Double,
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_daxpby"
 
 ///|
@@ -3466,13 +3466,13 @@ pub extern "C" fn cblas_daxpby(
 /// ```
 #borrow(x, y, alpha, beta)
 pub extern "C" fn cblas_caxpby(
-  n : Int,
+  n : Int32,
   alpha : FixedArray[Float],
   x : FixedArray[Float],
-  incx : Int,
+  incx : Int32,
   beta : FixedArray[Float],
   y : FixedArray[Float],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_caxpby"
 
 ///|
@@ -3482,13 +3482,13 @@ pub extern "C" fn cblas_caxpby(
 /// ```
 #borrow(x, y, alpha, beta)
 pub extern "C" fn cblas_zaxpby(
-  n : Int,
+  n : Int32,
   alpha : FixedArray[Double],
   x : FixedArray[Double],
-  incx : Int,
+  incx : Int32,
   beta : FixedArray[Double],
   y : FixedArray[Double],
-  incy : Int,
+  incy : Int32,
 ) = "cblas_zaxpby"
 //
 
@@ -3502,13 +3502,13 @@ pub extern "C" fn cblas_zaxpby(
 pub extern "C" fn cblas_somatcopy(
   corder : CBLAS_ORDER,
   ctrans : CBLAS_TRANSPOSE,
-  crows : Int,
-  ccols : Int,
+  crows : Int32,
+  ccols : Int32,
   calpha : Float,
   a : FixedArray[Float],
-  clda : Int,
+  clda : Int32,
   b : FixedArray[Float],
-  cldb : Int,
+  cldb : Int32,
 ) = "cblas_somatcopy"
 
 ///|
@@ -3521,13 +3521,13 @@ pub extern "C" fn cblas_somatcopy(
 pub extern "C" fn cblas_domatcopy(
   corder : CBLAS_ORDER,
   ctrans : CBLAS_TRANSPOSE,
-  crows : Int,
-  ccols : Int,
+  crows : Int32,
+  ccols : Int32,
   calpha : Double,
   a : FixedArray[Double],
-  clda : Int,
+  clda : Int32,
   b : FixedArray[Double],
-  cldb : Int,
+  cldb : Int32,
 ) = "cblas_domatcopy"
 
 ///|
@@ -3540,13 +3540,13 @@ pub extern "C" fn cblas_domatcopy(
 pub extern "C" fn cblas_comatcopy(
   corder : CBLAS_ORDER,
   ctrans : CBLAS_TRANSPOSE,
-  crows : Int,
-  ccols : Int,
+  crows : Int32,
+  ccols : Int32,
   calpha : FixedArray[Float],
   a : FixedArray[Float],
-  clda : Int,
+  clda : Int32,
   b : FixedArray[Float],
-  cldb : Int,
+  cldb : Int32,
 ) = "cblas_comatcopy"
 
 ///|
@@ -3559,13 +3559,13 @@ pub extern "C" fn cblas_comatcopy(
 pub extern "C" fn cblas_zomatcopy(
   corder : CBLAS_ORDER,
   ctrans : CBLAS_TRANSPOSE,
-  crows : Int,
-  ccols : Int,
+  crows : Int32,
+  ccols : Int32,
   calpha : FixedArray[Double],
   a : FixedArray[Double],
-  clda : Int,
+  clda : Int32,
   b : FixedArray[Double],
-  cldb : Int,
+  cldb : Int32,
 ) = "cblas_zomatcopy"
 //
 
@@ -3579,12 +3579,12 @@ pub extern "C" fn cblas_zomatcopy(
 pub extern "C" fn cblas_simatcopy(
   corder : CBLAS_ORDER,
   ctrans : CBLAS_TRANSPOSE,
-  crows : Int,
-  ccols : Int,
+  crows : Int32,
+  ccols : Int32,
   calpha : Float,
   a : FixedArray[Float],
-  clda : Int,
-  cldb : Int,
+  clda : Int32,
+  cldb : Int32,
 ) = "cblas_simatcopy"
 
 ///|
@@ -3597,12 +3597,12 @@ pub extern "C" fn cblas_simatcopy(
 pub extern "C" fn cblas_dimatcopy(
   corder : CBLAS_ORDER,
   ctrans : CBLAS_TRANSPOSE,
-  crows : Int,
-  ccols : Int,
+  crows : Int32,
+  ccols : Int32,
   calpha : Double,
   a : FixedArray[Double],
-  clda : Int,
-  cldb : Int,
+  clda : Int32,
+  cldb : Int32,
 ) = "cblas_dimatcopy"
 
 ///|
@@ -3615,12 +3615,12 @@ pub extern "C" fn cblas_dimatcopy(
 pub extern "C" fn cblas_cimatcopy(
   corder : CBLAS_ORDER,
   ctrans : CBLAS_TRANSPOSE,
-  crows : Int,
-  ccols : Int,
+  crows : Int32,
+  ccols : Int32,
   calpha : FixedArray[Float],
   a : FixedArray[Float],
-  clda : Int,
-  cldb : Int,
+  clda : Int32,
+  cldb : Int32,
 ) = "cblas_cimatcopy"
 
 ///|
@@ -3633,12 +3633,12 @@ pub extern "C" fn cblas_cimatcopy(
 pub extern "C" fn cblas_zimatcopy(
   corder : CBLAS_ORDER,
   ctrans : CBLAS_TRANSPOSE,
-  crows : Int,
-  ccols : Int,
+  crows : Int32,
+  ccols : Int32,
   calpha : FixedArray[Double],
   a : FixedArray[Double],
-  clda : Int,
-  cldb : Int,
+  clda : Int32,
+  cldb : Int32,
 ) = "cblas_zimatcopy"
 //
 
@@ -3651,14 +3651,14 @@ pub extern "C" fn cblas_zimatcopy(
 #borrow(a, c)
 pub extern "C" fn cblas_sgeadd(
   corder : CBLAS_ORDER,
-  crows : Int,
-  ccols : Int,
+  crows : Int32,
+  ccols : Int32,
   calpha : Float,
   a : FixedArray[Float],
-  clda : Int,
+  clda : Int32,
   cbeta : Float,
   c : FixedArray[Float],
-  cldc : Int,
+  cldc : Int32,
 ) = "cblas_sgeadd"
 
 ///|
@@ -3670,14 +3670,14 @@ pub extern "C" fn cblas_sgeadd(
 #borrow(a, c)
 pub extern "C" fn cblas_dgeadd(
   corder : CBLAS_ORDER,
-  crows : Int,
-  ccols : Int,
+  crows : Int32,
+  ccols : Int32,
   calpha : Double,
   a : FixedArray[Double],
-  clda : Int,
+  clda : Int32,
   cbeta : Double,
   c : FixedArray[Double],
-  cldc : Int,
+  cldc : Int32,
 ) = "cblas_dgeadd"
 
 ///|
@@ -3689,14 +3689,14 @@ pub extern "C" fn cblas_dgeadd(
 #borrow(a, c, calpha, cbeta)
 pub extern "C" fn cblas_cgeadd(
   corder : CBLAS_ORDER,
-  crows : Int,
-  ccols : Int,
+  crows : Int32,
+  ccols : Int32,
   calpha : FixedArray[Float],
   a : FixedArray[Float],
-  clda : Int,
+  clda : Int32,
   cbeta : FixedArray[Float],
   c : FixedArray[Float],
-  cldc : Int,
+  cldc : Int32,
 ) = "cblas_cgeadd"
 
 ///|
@@ -3708,14 +3708,14 @@ pub extern "C" fn cblas_cgeadd(
 #borrow(a, c, calpha, cbeta)
 pub extern "C" fn cblas_zgeadd(
   corder : CBLAS_ORDER,
-  crows : Int,
-  ccols : Int,
+  crows : Int32,
+  ccols : Int32,
   calpha : FixedArray[Double],
   a : FixedArray[Double],
-  clda : Int,
+  clda : Int32,
   cbeta : FixedArray[Double],
   c : FixedArray[Double],
-  cldc : Int,
+  cldc : Int32,
 ) = "cblas_zgeadd"
 //
 
@@ -3734,19 +3734,19 @@ pub extern "C" fn cblas_sgemm_batch(
   order : CBLAS_ORDER,
   trans_a_array : FixedArray[CBLAS_TRANSPOSE],
   trans_b_array : FixedArray[CBLAS_TRANSPOSE],
-  m_array : FixedArray[Int],
-  n_array : FixedArray[Int],
-  k_array : FixedArray[Int],
+  m_array : FixedArray[Int32],
+  n_array : FixedArray[Int32],
+  k_array : FixedArray[Int32],
   alpha_array : FixedArray[Float],
   a_array : FixedArray[FixedArray[Float]],
-  lda_array : FixedArray[Int],
+  lda_array : FixedArray[Int32],
   b_array : FixedArray[FixedArray[Float]],
-  ldb_array : FixedArray[Int],
+  ldb_array : FixedArray[Int32],
   beta_array : FixedArray[Float],
   c_array : FixedArray[FixedArray[Float]],
-  ldc_array : FixedArray[Int],
-  group_count : Int,
-  group_size : FixedArray[Int],
+  ldc_array : FixedArray[Int32],
+  group_count : Int32,
+  group_size : FixedArray[Int32],
 ) = "cblas_sgemm_batch"
 
 ///|
@@ -3764,19 +3764,19 @@ pub extern "C" fn cblas_dgemm_batch(
   order : CBLAS_ORDER,
   trans_a_array : FixedArray[CBLAS_TRANSPOSE],
   trans_b_array : FixedArray[CBLAS_TRANSPOSE],
-  m_array : FixedArray[Int],
-  n_array : FixedArray[Int],
-  k_array : FixedArray[Int],
+  m_array : FixedArray[Int32],
+  n_array : FixedArray[Int32],
+  k_array : FixedArray[Int32],
   alpha_array : FixedArray[Double],
   a_array : FixedArray[FixedArray[Double]],
-  lda_array : FixedArray[Int],
+  lda_array : FixedArray[Int32],
   b_array : FixedArray[FixedArray[Double]],
-  ldb_array : FixedArray[Int],
+  ldb_array : FixedArray[Int32],
   beta_array : FixedArray[Double],
   c_array : FixedArray[FixedArray[Double]],
-  ldc_array : FixedArray[Int],
-  group_count : Int,
-  group_size : FixedArray[Int],
+  ldc_array : FixedArray[Int32],
+  group_count : Int32,
+  group_size : FixedArray[Int32],
 ) = "cblas_dgemm_batch"
 
 ///|
@@ -3790,19 +3790,19 @@ pub extern "C" fn cblas_cgemm_batch(
   order : CBLAS_ORDER,
   trans_a_array : FixedArray[CBLAS_TRANSPOSE],
   trans_b_array : FixedArray[CBLAS_TRANSPOSE],
-  m_array : FixedArray[Int],
-  n_array : FixedArray[Int],
-  k_array : FixedArray[Int],
+  m_array : FixedArray[Int32],
+  n_array : FixedArray[Int32],
+  k_array : FixedArray[Int32],
   alpha_array : FixedArray[Float],
   a_array : FixedArray[FixedArray[Float]],
-  lda_array : FixedArray[Int],
+  lda_array : FixedArray[Int32],
   b_array : FixedArray[FixedArray[Float]],
-  ldb_array : FixedArray[Int],
+  ldb_array : FixedArray[Int32],
   beta_array : FixedArray[Float],
   c_array : FixedArray[FixedArray[Float]],
-  ldc_array : FixedArray[Int],
-  group_count : Int,
-  group_size : FixedArray[Int],
+  ldc_array : FixedArray[Int32],
+  group_count : Int32,
+  group_size : FixedArray[Int32],
 ) = "cblas_cgemm_batch"
 
 ///|
@@ -3816,19 +3816,19 @@ pub extern "C" fn cblas_zgemm_batch(
   order : CBLAS_ORDER,
   trans_a_array : FixedArray[CBLAS_TRANSPOSE],
   trans_b_array : FixedArray[CBLAS_TRANSPOSE],
-  m_array : FixedArray[Int],
-  n_array : FixedArray[Int],
-  k_array : FixedArray[Int],
+  m_array : FixedArray[Int32],
+  n_array : FixedArray[Int32],
+  k_array : FixedArray[Int32],
   alpha_array : FixedArray[Double],
   a_array : FixedArray[FixedArray[Double]],
-  lda_array : FixedArray[Int],
+  lda_array : FixedArray[Int32],
   b_array : FixedArray[FixedArray[Double]],
-  ldb_array : FixedArray[Int],
+  ldb_array : FixedArray[Int32],
   beta_array : FixedArray[Double],
   c_array : FixedArray[FixedArray[Double]],
-  ldc_array : FixedArray[Int],
-  group_count : Int,
-  group_size : FixedArray[Int],
+  ldc_array : FixedArray[Int32],
+  group_count : Int32,
+  group_size : FixedArray[Int32],
 ) = "cblas_zgemm_batch"
 //
 ///*** BFLOAT16 and INT8 extensions ***/

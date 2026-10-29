@@ -1,5 +1,5 @@
 ///|
-pub type Lapack_int = Int
+pub type Lapack_int = Int32
 
 ///|
 
